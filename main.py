@@ -358,34 +358,29 @@ def compare_availability(df_current):
 # </editor-fold>
 
 
-def send_email(count_new, count_removed):
+def send_email(list_content):
     """
 
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported a la a package at the top) in the same directory that is not version controlled.
 
-    :param count_new: Number of new dogs available for adoption since last check
-    :param count_removed: Number of dogs no longer available since last check
+    :param list_content: List of text from compare_availability function to include in notification message
     :return: If there's a change in availability, email me that change
     """
 
-    if count_new == 0 and count_removed == 0:
-        print('No change. Press Ctrl + C to break loop')
-        pass
-    else:
-        # Form message
-        msg = EmailMessage()
-        msg['Subject'] = 'Fairfax County Animal Shelter Update!'
-        msg['From'] = email
-        msg['To'] = email
-        msg.set_content('\r\n'.join(list_to_message))
+    # Form message
+    msg = EmailMessage()
+    msg['Subject'] = 'Fairfax County Animal Shelter Update!'
+    msg['From'] = email
+    msg['To'] = email
+    msg.set_content('\r\n'.join(list_content))
 
-        with smtplib.SMTP('smtp.outlook.com', 587) as server:
-            server.ehlo()
-            server.starttls()
-            server.login(email, email_password)
-            server.send_message(msg)
-            print('Email sent. Press Ctrl + C to break loop')
+    with smtplib.SMTP('smtp.outlook.com', 587) as server:
+        server.ehlo()
+        server.starttls()
+        server.login(email, email_password)
+        server.send_message(msg)
+        print('Email sent. Press Ctrl + C to break loop')
 
 
 
@@ -396,8 +391,6 @@ def send_email(count_new, count_removed):
 url_page1 = 'https://24petconnect.com/PP4352?at=DOG'
 url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 
-# Current DateTime for exporting and naming files with current timestamp
-now = datetime.now()
 
 # Set frequency to run script
 seconds = 60  # 60 seconds per minute
@@ -405,13 +398,16 @@ minutes = 60  # 60 minutes per hour
 delay_seconds = seconds * minutes  # Runs every hour (3,600 seconds)
 
 
-def main():
+def main(url1, url2, delay):
 
     while True:
 
-        html_text_clean = scrape_html(url_page1)
+        # Current DateTime for exporting and naming files with current timestamp
+        now = datetime.now()
+
+        html_text_clean = scrape_html(url1)
         dog_availability, df_dog = create_dataframe_from_html(html_text_clean)
-        df_current_dogs = concat_additional_pages(dog_availability, url_page2, df_dog)
+        df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog)
 
         now_text = now.strftime('%Y-%m-%d %H-%M-%S')
         df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
@@ -420,9 +416,16 @@ def main():
         # for i in list_to_message:
         #     print(i)
 
-        send_email(count_new_dogs, count_adopted_dogs)
+        if count_new_dogs == 0 and count_adopted_dogs == 0:
+            print('No change. Press Ctrl + C to break loop')
+            pass
+        else:
+            send_email(list_to_message)
 
-        time.sleep(delay_seconds)
+        time.sleep(delay)
+
+
+main(url_page1, url_page2, delay_seconds)
 
 
 # Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
