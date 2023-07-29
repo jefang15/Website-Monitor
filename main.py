@@ -8,7 +8,7 @@ what has changed.
 
 
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 from lxml.html.clean import Cleaner
 import pandas as pd
@@ -393,37 +393,43 @@ def main(url1, url2, delay):
 
     while True:
 
-        try:
+        # Always check the time, but only check and scrape the website during the day
+        current_hour = int((datetime.now()).strftime('%H'))
 
-            # Current DateTime for exporting and naming files with current timestamp
-            now = datetime.now()
+        while current_hour >= 8 & current_hour <= 22:  # Only runs after 8 AM and before 10 PM (Open hours are 11 AM - 7 PM)
 
-            html_text_clean = scrape_html(url1)
-            dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
-            df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
+            try:  # Accounts for potential network connectivity issues?
 
-            num_changes, list_to_message = compare_availability(df_current_dogs)
-            # for i in list_to_message:
-            #     print(i)
+                # Current DateTime for exporting and naming files with current timestamp
+                now = datetime.now()
 
-            now_text = now.strftime('%Y-%m-%d %H-%M-%S')
-            df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+                html_text_clean = scrape_html(url1)
+                dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
+                df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
-            if num_changes == 0:
-                print(
-                    str(now.strftime('%Y-%m-%d %I:%M %p')) +
-                    ' - No Change (To break loop, press Ctrl + C in Console or Cmd + F2 in Terminal)')
-                pass
-            else:
-                print(
-                    str(now.strftime('%Y-%m-%d %I:%M %p')) +
-                    ' - Change in Availability!')
-                send_email(list_to_message)
+                num_changes, list_to_message = compare_availability(df_current_dogs)
+                # for i in list_to_message:
+                #     print(i)
 
-        except:
-            print('Error')
+                now_text = now.strftime('%Y-%m-%d %H-%M-%S')
+                df_current_dogs.to_excel(
+                    'Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
 
-        time.sleep(delay)
+                if num_changes == 0:
+                    print(
+                        str(now.strftime('%Y-%m-%d %I:%M %p')) +
+                        ' - No Change (To break loop, press Ctrl + C in Console or Cmd + F2 in Terminal)')
+                    pass
+                else:
+                    print(
+                        str(now.strftime('%Y-%m-%d %I:%M %p')) +
+                        ' - Change in Availability!')
+                    send_email(list_to_message)
+
+            except:
+                print('Error')
+
+            time.sleep(delay)
 
 
 main(url_page1, url_page2, delay_seconds)
