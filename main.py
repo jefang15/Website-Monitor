@@ -1,18 +1,23 @@
 """
 July 28, 2023
 
-Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for available dogs and alerts me when a new dog is available
-for adoption or a dog was adopted.
+Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is
+available or was adopted. Prevents needing to frequently and manually visit and refresh the page and being able to identify
+what has changed.
 """
 
 
 import requests
 from datetime import datetime
-from lxml.html.clean import Cleaner
 from bs4 import BeautifulSoup
+from lxml.html.clean import Cleaner
 import pandas as pd
-from tabulate import tabulate
+# from tabulate import tabulate
 import glob
+# from twilio.rest import Client
+import smtplib
+from email.message import EmailMessage
+from password import email, email_password
 
 
 # Set URL
@@ -270,12 +275,12 @@ def concat_additional_pages(availability, url2, df1):
 
 
 df_current_dogs = concat_additional_pages(dog_availability, url_page2, df_dog)
-# print(tabulate(df_current_dogs, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
 # Convert current datetime to custom string format
 now_text = now.strftime('%Y-%m-%d %H-%M-%S')
 # print(now_text)
 
+# print(tabulate(df_current_dogs, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
 
 
@@ -287,10 +292,13 @@ list_past_files = glob.glob('Output - Spreadsheets/*.xlsx')
 latest_file = list_past_files[-1]
 
 df_previous_dogs = pd.read_excel(latest_file)
-df_previous_dogs = pd.read_excel('Output - Spreadsheets/Fairfax County Animal Shelter 2023-07-28 19-01-47.xlsx')  # TODO: Delete
 
 list_current_dogs = df_current_dogs['ID'].to_list()
 list_previous_dogs = df_previous_dogs['ID'].to_list()
+
+
+# Blank list whose contents will end up in the email/text message body
+list_to_message = []
 
 
 # Identify new dogs
@@ -305,15 +313,18 @@ for dog in list_current_dogs:
         count_new_dogs += 1
 
 if count_new_dogs != 0:
-    print('Fairfax County Animal Shelter - New Dogs: ' + str(count_new_dogs))
-    print('')
+
+    # Number of new dogs for adoption
+    list_to_message.append(str(count_new_dogs) + ' New Dogs')
+    list_to_message.append('')
 
     df_new_dogs = df_current_dogs[df_current_dogs['ID'].isin(list_new_dogs)]
 
+    # New dogs for adoption info
     for index_new, row_new in df_new_dogs.iterrows():
-        print(row_new['Name'])
-        print(row_new['Image'])
-        print('')
+        list_to_message.append(row_new['Name'])
+        list_to_message.append(row_new['Image'])
+        list_to_message.append('')
 
 
 # Identify adopted dogs
@@ -328,13 +339,82 @@ for dog in list_previous_dogs:
         count_adopted_dogs += 1
 
 if count_adopted_dogs != 0:
-    print('Fairfax County Animal Shelter - Adopted Dogs: ' + str(count_adopted_dogs))
-    print('')
+
+    # Number of adopted dogs
+    list_to_message.append('Adopted Dogs: ' + str(count_adopted_dogs))
+    list_to_message.append('')
 
     df_adopted_dogs = df_previous_dogs[df_previous_dogs['ID'].isin(list_adopted_dogs)]
 
+    # Adopted dogs info
     for index_adopted, row_adopted in df_adopted_dogs.iterrows():
-        print(row_adopted['Name'])
-        print(row_adopted['Image'])
-        print('')
+        list_to_message.append(row_adopted['Name'])
+        list_to_message.append(row_adopted['Image'])
+        list_to_message.append('')
 
+
+# for i in list_to_message:
+#     print(i)
+
+
+""" Text Results """
+
+# TWILIO_ACCOUNT_SID = 'ACfde007403d9289a8f9d137a4707ea369'
+# TWILIO_AUTH_TOKEN = '241e6a037f158d7cd2073836a8d9d5e7'
+# TWILIO_PHONE_SENDER = '+18664481495'
+# TWILIO_PHONE_RECIPIENT = '+12068980303'
+#
+# alert_str = 'test'
+#
+#
+# def send_text_alert(alert_str):
+#
+#     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+#
+#     message = client.messages.create(
+#         to=TWILIO_PHONE_RECIPIENT,
+#         from_=TWILIO_PHONE_SENDER,
+#         body=alert_str)
+#
+#
+# send_text_alert(alert_str)
+# print('Sent Text')
+
+
+# TODO: This notification method needs a new phone number from Twilio every 30 days? or trial expires after 30 days?
+
+
+""" Email Results - SMTP """
+
+
+def send_email(count_new, count_removed):
+    """
+    Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
+    separate password.py file (and imported a la a package at the top) in the same directory that is not version controlled.
+    :param count_new: Number of new dogs available for adoption since last check
+    :param count_removed: Number of dogs no longer available since last check
+    :return: If new activity, send me an email
+    """
+
+    if count_new == 0 and count_removed == 0:
+        pass
+    else:
+        # Form message
+        msg = EmailMessage()
+        msg['Subject'] = 'Fairfax County Animal Shelter Update!'
+        msg['From'] = email
+        msg['To'] = email
+        msg.set_content('\r\n'.join(list_to_message))
+
+        with smtplib.SMTP('smtp.outlook.com', 587) as server:
+            server.ehlo()
+            server.starttls()
+            server.login(email, email_password)
+            server.send_message(msg)
+            print('Email sent')
+
+
+send_email(count_new_dogs, count_adopted_dogs)
+
+
+# Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
