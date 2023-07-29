@@ -1,28 +1,41 @@
 """
 July 28, 2023
 
-Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for available dogs and alerts me when a new dog is available
-for adoption or a dog was adopted.
+Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is
+available or was adopted. Prevents needing to frequently and manually visit and refresh the page and being able to identify
+what has changed.
 """
 
 
 import requests
-from lxml.html.clean import Cleaner
-from bs4 import BeautifulSoup
 from datetime import datetime
+from bs4 import BeautifulSoup
+from lxml.html.clean import Cleaner
 import pandas as pd
-from tabulate import tabulate
+# from tabulate import tabulate
+import glob
+# from twilio.rest import Client
+import smtplib
+from email.message import EmailMessage
+from password import email, email_password
+import time
 
 
-# Set URL
-url_page1 = 'https://24petconnect.com/PP4352?at=DOG'
-url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 
-# Current DateTime for exporting and naming files with current timestamp
-now = datetime.now()
+""" Current Dog Availability """
 
 
 def scrape_html(url):
+    """
+
+    Scrapes URL with dogs available for adoption, and creates a cleaned string with HTML content that can be used to create a DF
+    in the next step. This also subsets the HTML content to start where the dogs available for adoption are listed.
+
+    An HTML version (BeautifulSoup object) can be returned as well, if desired.
+
+    :param url: URL for dog adoption site on 24petconnect.com for Fairfax County Animal Shelter
+    :return: a string of HTML content
+    """
 
     columns = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
@@ -81,9 +94,9 @@ def scrape_html(url):
     # Truncate beginning of HTML
     index_start = html_sanitized.find('Animals: ')
     html_text = html_sanitized[index_start:]
-    # print(html_sanitized2)
-    # type(html_sanitized2)  # Str
-    # len(html_sanitized2)  # 10,850
+    # print(html_text)
+    # type(html_text)  # Str
+    # len(html_text)  # 10,850
 
     # Turn HTML to BS4 object (only use this if you want to save text)
     # html_bs = BeautifulSoup(html_text, 'lxml')
@@ -94,10 +107,14 @@ def scrape_html(url):
     return html_text
 
 
-html_text_clean = scrape_html(url_page1)
-
-
 def create_dataframe_from_html(html):
+    """
+
+    Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
+
+    :param html: HTML string output from the scrape_html function
+    :return: count of number of dogs available (proxy for number of webpages that need scraping, and cleaned DF of dog attributes)
+    """
 
     # Create list from HTML string
     list_text = [i.strip() for i in html.splitlines()]
@@ -113,19 +130,10 @@ def create_dataframe_from_html(html):
     # len(df2)  # 479
 
     df2.reset_index()
-    # print(tabulate(df2.head(20), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-    # print(tabulate(df2.tail(20), tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
     # Determine number of dogs available (if more than 30 dogs, there are two pages to scrape)
     text_animals_available = df2['Text'][0]
     animals_available = int(text_animals_available.split(' - ')[1].split('</h3>')[0].split(' of ')[1])
-    # print(animals_available)
-
-    # df2.loc[df2['Text'].str.contains('Animals: '), 'Availability on Page'] = df2['Text'].str.split(' - ').str[1].str.split(
-    #     '</h3>').str[0].str.split(' of ').str[0]
-    # df2.loc[df2['Text'].str.contains('Animals: '), 'Availability Total'] = df2['Text'].str.split(' - ').str[1].str.split(
-    #     '</h3>').str[0].str.split(' of ').str[1]
-    # print(tabulate(df2.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
     for index, row in df2.iterrows():
 
@@ -161,8 +169,6 @@ def create_dataframe_from_html(html):
         if row['Text'] == 'Located at:':
             df2.loc[index_save, 'Location'] = df2.loc[index + 1, 'Text']
 
-    # print(tabulate(df2.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
     # Fill in Image (done separately, since this attribute appears after the index associated with the dog's name)
     df2.loc[df2['Text'].str.contains('<img id="AnimalImage_'), 'Image'] = df2['Text']
     df2['Image'].ffill(inplace=True)
@@ -188,7 +194,7 @@ def create_dataframe_from_html(html):
     df4['Brought to Shelter'] = pd.to_datetime(df4['Brought to Shelter'])
     df4['ID'] = df4['ID'].astype('int32')
 
-    # Current DateTime for exporting and naming files with current timestamp
+    # Add scraped DateTime to DF
     df4['Scrape Datetime'] = now
 
     # print(df4.columns)
@@ -199,13 +205,20 @@ def create_dataframe_from_html(html):
     return animals_available, df5
 
 
-dog_availability, df_dog = create_dataframe_from_html(html_text_clean)
+def concat_additional_pages(availability, url2, df1):
+    """
 
+    Scrapes the second page of the dog adoption site, if there is one, using the scrape_html function, creates a separate
+    cleaned DF, and then concatenates the two cleaned DFs/pages together. If there is only one page, this function has no effect.
 
-def scrape_additional_pages(availability, url2, df1):
+    :param availability: number of dogs available on the first page, if there are more than 30 dogs then there are at least 2
+    pages of content
+    :param url2: URL of second page of dogs on 24petconnect.com for Fairfax County Animal Shelter
+    :param df1: cleaned DF (output from create_dataframe_from_html function) to be concatenated as needed
+    :return:
+    """
 
     if availability > 30:
-        print('More than one page')
 
         # Scrape second page
         html_text2 = scrape_html(url2)
@@ -221,7 +234,7 @@ def scrape_additional_pages(availability, url2, df1):
 
         # Keep only columns needed to save and to compare with previous iterations
         df_concat2 = df_concat[[
-            # 'Counter'
+            'Counter',
             'ID',
             'Name',
             # 'Gender',
@@ -235,11 +248,184 @@ def scrape_additional_pages(availability, url2, df1):
         return df_concat2
 
 
-df_dog_concat = scrape_additional_pages(dog_availability, url_page2, df_dog)
-print(tabulate(df_dog_concat, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+""" Compare Availability """
 
-# Convert current datetime to custom string format
-now_text = now.strftime('%Y-%m-%d %H-%M-%S')
-print(now_text)
 
-df_dog_concat.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+def compare_availability(df_current):
+    """
+
+    Identifies how many, and which, dogs are either newly available for adoption or were adopted since the last check.
+
+    :param df_current:
+    :return:
+    """
+
+    # Reference most recent dog availability spreadsheet
+    list_past_files = glob.glob('Output - Spreadsheets/*.xlsx')
+    latest_file = list_past_files[-1]
+    df_previous = pd.read_excel(latest_file)
+
+    list_current_dogs = df_current['ID'].to_list()
+    list_previous_dogs = df_previous['ID'].to_list()
+
+
+    # Blank list whose contents will end up in the email or text message body
+    list_content = []
+
+
+    # Identify new dogs
+    count_new = 0
+    list_new_dogs = []
+
+    for dog in list_current_dogs:
+        if dog in list_previous_dogs:
+            pass
+        else:
+            list_new_dogs.append(dog)
+            count_new += 1
+
+    if count_new != 0:
+
+        # Number of new dogs for adoption
+        list_content.append(str(count_new) + ' New Dogs')
+        list_content.append('')
+
+        df_new_dogs = df_current[df_current['ID'].isin(list_new_dogs)]
+
+        # New dogs for adoption info
+        for index_new, row_new in df_new_dogs.iterrows():
+            list_content.append(row_new['Name'])
+            list_content.append(row_new['Image'])
+            list_content.append('')
+
+    # Identify adopted dogs
+    count_adopted = 0
+    list_adopted_dogs = []
+
+    for dog in list_previous_dogs:
+        if dog in list_current_dogs:
+            pass
+        else:
+            list_adopted_dogs.append(dog)
+            count_adopted += 1
+
+    if count_adopted != 0:
+
+        # Number of adopted dogs
+        list_content.append('Adopted Dogs: ' + str(count_adopted))
+        list_content.append('')
+
+        df_adopted_dogs = df_previous[df_previous['ID'].isin(list_adopted_dogs)]
+
+        # Adopted dogs info
+        for index_adopted, row_adopted in df_adopted_dogs.iterrows():
+            list_content.append(row_adopted['Name'])
+            list_content.append(row_adopted['Image'])
+            list_content.append('')
+
+    return count_new, count_adopted, list_content
+
+
+""" Send Notification """
+
+
+# <editor-fold desc="Text Message Notification">
+""" Text Results """
+
+# TWILIO_ACCOUNT_SID = 'ACfde007403d9289a8f9d137a4707ea369'
+# TWILIO_AUTH_TOKEN = '241e6a037f158d7cd2073836a8d9d5e7'
+# TWILIO_PHONE_SENDER = '+18664481495'
+# TWILIO_PHONE_RECIPIENT = '+12068980303'
+#
+# alert_str = 'test'
+#
+#
+# def send_text_alert(alert_str):
+#
+#     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+#
+#     message = client.messages.create(
+#         to=TWILIO_PHONE_RECIPIENT,
+#         from_=TWILIO_PHONE_SENDER,
+#         body=alert_str)
+#
+#
+# send_text_alert(alert_str)
+# print('Sent Text')
+
+
+# TODO: This notification method needs a new phone number from Twilio every 30 days? or trial expires after 30 days?
+# </editor-fold>
+
+
+def send_email(list_content):
+    """
+
+    Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
+    separate password.py file (and imported a la a package at the top) in the same directory that is not version controlled.
+
+    :param list_content: List of text from compare_availability function to include in notification message
+    :return: If there's a change in availability, email me that change
+    """
+
+    # Form message
+    msg = EmailMessage()
+    msg['Subject'] = 'Fairfax County Animal Shelter Update!'
+    msg['From'] = email
+    msg['To'] = email
+    msg.set_content('\r\n'.join(list_content))
+
+    with smtplib.SMTP('smtp.outlook.com', 587) as server:
+        server.ehlo()
+        server.starttls()
+        server.login(email, email_password)
+        server.send_message(msg)
+        print('Email sent. Press Ctrl + C to break loop')
+
+
+
+""" Run Infinite Loop """
+
+
+# Set URL
+url_page1 = 'https://24petconnect.com/PP4352?at=DOG'
+url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
+
+
+# Set frequency to run script
+seconds = 60  # 60 seconds per minute
+minutes = 60  # 60 minutes per hour
+delay_seconds = seconds * minutes  # Runs every hour (3,600 seconds)
+
+
+def main(url1, url2, delay):
+
+    while True:
+
+        # Current DateTime for exporting and naming files with current timestamp
+        now = datetime.now()
+
+        html_text_clean = scrape_html(url1)
+        dog_availability, df_dog = create_dataframe_from_html(html_text_clean)
+        df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog)
+
+        now_text = now.strftime('%Y-%m-%d %H-%M-%S')
+        df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+
+        count_new_dogs, count_adopted_dogs, list_to_message = compare_availability(df_current_dogs)
+        # for i in list_to_message:
+        #     print(i)
+
+        if count_new_dogs == 0 and count_adopted_dogs == 0:
+            print('No change. Press Ctrl + C to break loop')
+            pass
+        else:
+            send_email(list_to_message)
+
+        time.sleep(delay)
+
+
+main(url_page1, url_page2, delay_seconds)
+
+
+# Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
