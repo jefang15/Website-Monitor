@@ -8,7 +8,7 @@ what has changed.
 
 
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 from bs4 import BeautifulSoup
 from lxml.html.clean import Cleaner
 import pandas as pd
@@ -16,13 +16,11 @@ import pandas as pd
 import glob
 # from twilio.rest import Client
 import smtplib
-from email.message import EmailMessage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 from password import email, email_password
 import time
-import imghdr
-
-
-""" Current Dog Availability """
 
 
 def scrape_html(url):
@@ -37,6 +35,7 @@ def scrape_html(url):
     :return: a string of HTML content
     """
 
+    " Connect to URL "
     columns = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
         'Pragma': 'no-cache', 'Cache-Control': 'no-cache'}
@@ -44,6 +43,7 @@ def scrape_html(url):
     # Send HTTP GET request to URL
     response = requests.get(url, headers=columns)
 
+    " Clean HTML Content "
     def process_html(string):
 
         soup = BeautifulSoup(string, features='lxml')
@@ -97,12 +97,6 @@ def scrape_html(url):
     # print(html_text)
     # type(html_text)  # Str
     # len(html_text)  # 10,850
-
-    # Turn HTML to BS4 object (only use this if you want to save text)
-    # html_bs = BeautifulSoup(html_text, 'lxml')
-    # print(html_bs)
-    # type(html_bs)  # BS4
-    # print(html_bs)
 
     return html_text
 
@@ -239,30 +233,26 @@ def concat_additional_pages(availability, url2, df1, current_time):
             'Counter',
             'ID',
             'Name',
-            # 'Gender',
-            # 'Breed',
-            # 'Age',
-            # 'Brought to Shelter',
-            # 'Location',
+            'Gender',
+            'Breed',
+            'Age',
+            'Brought to Shelter',
+            'Location',
             'Image',
             'Scrape Datetime']].copy()
 
         return df_concat2
 
 
-""" Compare Availability """
-
-
 def compare_availability(df_current):
     """
-
     Identifies how many, and which, dogs are either newly available for adoption or were adopted since the last check.
 
     :param df_current: List and information of dogs in the latest scrape of adoption site
     :return: Tells whether there are any changes in availability or not, and how many
     """
 
-    # Reference most recent dog availability spreadsheet
+    " Previous Availability "
     list_past_files = glob.glob('Output - Spreadsheets/*.xlsx')
     list_past_files.sort(reverse=False)
     latest_file = list_past_files[-1]
@@ -274,61 +264,43 @@ def compare_availability(df_current):
     set_current_dogs = set(list_current_dogs)
     set_previous_dogs = set(list_previous_dogs)
 
-    # Determine if there is a change in availability
-    if set_current_dogs == set_previous_dogs:
-        set_new = set()
-        set_adopted = set()
-        list_content = []
-        return set_new, set_adopted, list_content
+    " Compare Current and Previous Availability "
+    if set_current_dogs == set_previous_dogs:  # If no change
+        df_new = []
+        df_adopted = []
+        return df_new, df_adopted
 
-    else:
-        # Blank list to document any new and/or adopted dogs. This content will end up in the email or text message body.
-        list_content = []
+    else:  # If change
 
-        # New dogs' IDs
+        " Compile Information About New Dogs "
+        # Flag new dogs' IDs
         set_new = set_current_dogs - set_previous_dogs  # New dogs
 
-        list_content.append(str(len(set_new)) + ' New Dogs')
-        list_content.append('')
-
         # Gather information about new dogs
-        df_new_dogs = df_current[df_current['ID'].isin(set_new)].copy()
+        df_new = df_current[df_current['ID'].isin(set_new)].copy()
 
-        for index_new, row_new in df_new_dogs.iterrows():
-            list_content.append(row_new['Name'])
-            list_content.append(row_new['Image'])
-            list_content.append('')
-
-            # Save new dogs' photos locally
+        for index_new, row_new in df_new.iterrows():
+            # Save new dog photos
             image_url_new = row_new['Image']
             r = requests.get(image_url_new, allow_redirects=True)
             with open('Output - Photos/{}'.format(row_new['ID']), 'wb') as f:
                 f.write(r.content)
 
-        # Adopted dogs' IDs
+        " Compile Information About Adopted Dogs "
+        # Flag adopted dogs' IDs
         set_adopted = set_previous_dogs - set_current_dogs  # Dogs that were adopted
 
-        list_content.append(str(len(set_adopted)) + ' Adopted Dogs')
-        list_content.append('')
-
         # Gather information about adopted dogs
-        df_adopted_dogs = df_previous[df_previous['ID'].isin(set_adopted)].copy()
+        df_adopted = df_previous[df_previous['ID'].isin(set_adopted)].copy()
 
-        for index_adopted, row_adopted in df_adopted_dogs.iterrows():
-            list_content.append(row_adopted['Name'])
-            list_content.append(row_adopted['Image'])
-            list_content.append('')
-
+        for index_adopted, row_adopted in df_adopted.iterrows():
             # Save adopted dogs' photos locally
             image_url_adopted = row_adopted['Image']
             r = requests.get(image_url_adopted, allow_redirects=True)
             with open('Output - Photos/{}'.format(row_adopted['ID']), 'wb') as f:
                 f.write(r.content)
 
-        return set_new, set_adopted, list_content
-
-
-""" Send Notification """
+        return df_new, df_adopted
 
 
 # <editor-fold desc="Text Message Notification">
@@ -339,46 +311,93 @@ def compare_availability(df_current):
 # </editor-fold>
 
 
-def send_email(set_new, set_adopted, list_content):
+def send_email(df_new, df_adopted):
     """
 
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
-    separate password.py file (and imported a la a package at the top) in the same directory that is not version controlled.
+    separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
 
-    :param list_content: List of text from compare_availability function to include in notification message
+    :param df_new: DF of newly available dogs
+    :param df_adopted: DF of adopted dogs
     :return: If there's a change in availability, email me that change
     """
 
-    # Form message - parameters
-    msg = EmailMessage()
-    msg['Subject'] = 'Fairfax County Animal Shelter Update!'
+    " Form Email Parameters "
+    msg = MIMEMultipart('multipart')  # To support mix of content types
     msg['From'] = email
     msg['To'] = email
-    msg.set_content('\r\n'.join(list_content))
+    msg['Subject'] = 'Fairfax County Animal Shelter Update!'
 
-    # Form message - attach image
-    for file in set_new:
-        with open('Output - Photos/{}'.format(file), 'rb') as f:
-            image_data = f.read()
-            image_type = imghdr.what(f.name)
-            image_name = f.name
-        msg.add_attachment(image_data, maintype='image', subtype=image_type, filename=image_name)
+    " Form Email Body - New Dogs "
+    if len(df_new) > 0:
 
+        # Count of new dogs
+        if len(df_new) == 1:  # Only difference in this if/else is whether to print dog (singular) vs dogs (plural)
+            new_dog_count = '<b>' + '{} New Dog'.format(len(df_new)) + '</b></font>' + '<br></br>'  # Bold and line break (HTML)
+            # text = '<font face="Courier New, Courier, monospace">' + 'text' + '</font>'  # Sample font change
+            msg.attach(MIMEText(new_dog_count, 'html'))
+        else:
+            new_dog_count = '<b>' + '{} New Dogs'.format(len(df_new)) + '</b></font>' + '<br></br>'
+            msg.attach(MIMEText(new_dog_count, 'html'))
+
+        for index_new, row_new in df_new.iterrows():
+
+            # Name
+            msg.attach(MIMEText('{}'.format(row_new['Name']), 'plain'))
+
+            # Age
+            msg.attach(MIMEText('{}'.format(row_new['Age']), 'plain'))
+
+            # Breed
+            msg.attach(MIMEText('{}'.format(row_new['Breed']), 'plain'))
+
+            # Photo
+            with open('Output - Photos/{}'.format(row_new['ID']), 'rb') as f:
+                image_data = MIMEImage(f.read())
+                msg.attach(image_data)
+                msg.attach(MIMEText('<br></br>', 'html'))
+
+    " Form Email Body - Adopted Dogs "
+    if len(df_adopted) > 0:
+
+        # Count of adopted dogs
+        if len(df_adopted) == 1:
+            adopted_dog_count = '<b>' + '{} Adopted Dog'.format(len(df_adopted)) + '</b></font>' + '<br></br>'
+            msg.attach(MIMEText(adopted_dog_count, 'html'))
+        else:
+            adopted_dog_count = '<b>' + '{} Adopted Dogs'.format(len(df_adopted)) + '</b></font>' + '<br></br>'
+            msg.attach(MIMEText(adopted_dog_count, 'html'))
+
+        for index_adopted, row_adopted in df_adopted.iterrows():
+
+            # Name
+            msg.attach(MIMEText('{}'.format(row_adopted['Name']), 'plain'))
+
+            # Age
+            msg.attach(MIMEText('{}'.format(row_adopted['Age']), 'plain'))
+
+            # Breed
+            msg.attach(MIMEText('{}'.format(row_adopted['Breed']), 'plain'))
+
+            # Photo
+            with open('Output - Photos/{}'.format(row_adopted['ID']), 'rb') as f:
+                image_data = MIMEImage(f.read())
+                msg.attach(image_data)
+                msg.attach(MIMEText('<br></br>', 'html'))
+
+    " Send Email "
     with smtplib.SMTP('smtp.outlook.com', 587) as smtp:
         smtp.ehlo()
         smtp.starttls()
         smtp.login(email, email_password)
         smtp.send_message(msg)
-        # print('Email sent')
 
 
 """ Run Infinite Loop """
 
-
 # Set URL
 url_page1 = 'https://24petconnect.com/PP4352?at=DOG'
 url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
-
 
 # Set frequency to run script
 minutes = 5
@@ -404,15 +423,13 @@ def main(url1, url2, delay):
                 dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
                 df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
-                set_dogs_new, set_dogs_adopted, list_to_message = compare_availability(df_current_dogs)
-                # for i in list_to_message:
-                #     print(i)
+                df_dogs_new, df_dogs_adopted = compare_availability(df_current_dogs)
 
                 now_text = now.strftime('%Y-%m-%d %H-%M-%S')
                 df_current_dogs.to_excel(
                     'Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
 
-                if len(set_dogs_new) + len(set_dogs_adopted) == 0:
+                if len(df_dogs_new) + len(df_dogs_adopted) == 0:
                     print(
                         str(now.strftime('%Y-%m-%d %I:%M %p')) +
                         ' - No Change (To break loop, press Ctrl + C in Console or Fn + Cmd + F2 in Terminal)')
@@ -421,7 +438,7 @@ def main(url1, url2, delay):
                     print(
                         str(now.strftime('%Y-%m-%d %I:%M %p')) +
                         ' - Change in Availability!')
-                    send_email(set_dogs_new, set_dogs_adopted, list_to_message)
+                    send_email(df_dogs_new, df_dogs_adopted)
 
             except:
                 print('Error')
