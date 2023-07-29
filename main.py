@@ -384,7 +384,7 @@ url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 
 
 # Set frequency to run script
-minutes = 10
+minutes = 5
 seconds = 60
 delay_seconds = minutes * seconds  # Runs every 10 minutes
 
@@ -393,30 +393,35 @@ def main(url1, url2, delay):
 
     while True:
 
-        # Current DateTime for exporting and naming files with current timestamp
-        now = datetime.now()
+        try:
 
-        html_text_clean = scrape_html(url1)
-        dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
-        df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
+            # Current DateTime for exporting and naming files with current timestamp
+            now = datetime.now()
 
-        num_changes, list_to_message = compare_availability(df_current_dogs)
-        # for i in list_to_message:
-        #     print(i)
+            html_text_clean = scrape_html(url1)
+            dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
+            df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
-        now_text = now.strftime('%Y-%m-%d %H-%M-%S')
-        df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+            num_changes, list_to_message = compare_availability(df_current_dogs)
+            # for i in list_to_message:
+            #     print(i)
 
-        if num_changes == 0:
-            print(
-                str(now.strftime('%Y-%m-%d %I:%M %p')) +
-                ' - No Change (To break loop, press Ctrl + C in Console or Cmd + F2 in Terminal)')
-            pass
-        else:
-            print(
-                str(now.strftime('%Y-%m-%d %I:%M %p')) +
-                ' - Change in Availability!')
-            send_email(list_to_message)
+            now_text = now.strftime('%Y-%m-%d %H-%M-%S')
+            df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+
+            if num_changes == 0:
+                print(
+                    str(now.strftime('%Y-%m-%d %I:%M %p')) +
+                    ' - No Change (To break loop, press Ctrl + C in Console or Cmd + F2 in Terminal)')
+                pass
+            else:
+                print(
+                    str(now.strftime('%Y-%m-%d %I:%M %p')) +
+                    ' - Change in Availability!')
+                send_email(list_to_message)
+
+        except:
+            print('Error')
 
         time.sleep(delay)
 
