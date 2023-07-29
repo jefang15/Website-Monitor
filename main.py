@@ -7,11 +7,12 @@ for adoption or a dog was adopted.
 
 
 import requests
+from datetime import datetime
 from lxml.html.clean import Cleaner
 from bs4 import BeautifulSoup
-from datetime import datetime
 import pandas as pd
 from tabulate import tabulate
+import glob
 
 
 # Set URL
@@ -22,7 +23,20 @@ url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 now = datetime.now()
 
 
+""" Current Dog Availability """
+
+
 def scrape_html(url):
+    """
+
+    Scrapes URL with dogs available for adoption, and creates a cleaned string with HTML content that can be used to create a DF
+    in the next step. This also subsets the HTML content to start where the dogs available for adoption are listed.
+
+    An HTML version (BeautifulSoup object) can be returned as well, if desired.
+
+    :param url: URL for dog adoption site on 24petconnect.com for Fairfax County Animal Shelter
+    :return: a string of HTML content
+    """
 
     columns = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
@@ -81,9 +95,9 @@ def scrape_html(url):
     # Truncate beginning of HTML
     index_start = html_sanitized.find('Animals: ')
     html_text = html_sanitized[index_start:]
-    # print(html_sanitized2)
-    # type(html_sanitized2)  # Str
-    # len(html_sanitized2)  # 10,850
+    # print(html_text)
+    # type(html_text)  # Str
+    # len(html_text)  # 10,850
 
     # Turn HTML to BS4 object (only use this if you want to save text)
     # html_bs = BeautifulSoup(html_text, 'lxml')
@@ -98,6 +112,13 @@ html_text_clean = scrape_html(url_page1)
 
 
 def create_dataframe_from_html(html):
+    """
+
+    Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
+
+    :param html: HTML string output from the scrape_html function
+    :return: count of number of dogs available (proxy for number of webpages that need scraping, and cleaned DF of dog attributes)
+    """
 
     # Create list from HTML string
     list_text = [i.strip() for i in html.splitlines()]
@@ -202,7 +223,18 @@ def create_dataframe_from_html(html):
 dog_availability, df_dog = create_dataframe_from_html(html_text_clean)
 
 
-def scrape_additional_pages(availability, url2, df1):
+def concat_additional_pages(availability, url2, df1):
+    """
+
+    Scrapes the second page of the dog adoption site, if there is one, using the scrape_html function, creates a separate
+    cleaned DF, and then concatenates the two cleaned DFs/pages together. If there is only one page, this function has no effect.
+
+    :param availability: number of dogs available on the first page, if there are more than 30 dogs then there are at least 2
+    pages of content
+    :param url2: URL of second page of dogs on 24petconnect.com for Fairfax County Animal Shelter
+    :param df1: cleaned DF (output from create_dataframe_from_html function) to be concatenated as needed
+    :return:
+    """
 
     if availability > 30:
         print('More than one page')
@@ -221,7 +253,7 @@ def scrape_additional_pages(availability, url2, df1):
 
         # Keep only columns needed to save and to compare with previous iterations
         df_concat2 = df_concat[[
-            # 'Counter'
+            'Counter',
             'ID',
             'Name',
             # 'Gender',
@@ -231,15 +263,78 @@ def scrape_additional_pages(availability, url2, df1):
             # 'Location',
             'Image',
             'Scrape Datetime']].copy()
-
         return df_concat2
 
+    else:
+        print('Just one page')
 
-df_dog_concat = scrape_additional_pages(dog_availability, url_page2, df_dog)
-print(tabulate(df_dog_concat, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+
+df_current_dogs = concat_additional_pages(dog_availability, url_page2, df_dog)
+# print(tabulate(df_current_dogs, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
 # Convert current datetime to custom string format
 now_text = now.strftime('%Y-%m-%d %H-%M-%S')
-print(now_text)
+# print(now_text)
 
-df_dog_concat.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+
+
+""" Compare Dog Availability """
+
+# Reference most recent dog availability spreadsheet
+list_past_files = glob.glob('Output - Spreadsheets/*.xlsx')
+# len(list_past_files)
+latest_file = list_past_files[-1]
+
+df_previous_dogs = pd.read_excel(latest_file)
+df_previous_dogs = pd.read_excel('Output - Spreadsheets/Fairfax County Animal Shelter 2023-07-28 19-01-47.xlsx')  # TODO: Delete
+
+list_current_dogs = df_current_dogs['ID'].to_list()
+list_previous_dogs = df_previous_dogs['ID'].to_list()
+
+
+# Identify new dogs
+count_new_dogs = 0
+list_new_dogs = []
+
+for dog in list_current_dogs:
+    if dog in list_previous_dogs:
+        pass
+    else:
+        list_new_dogs.append(dog)
+        count_new_dogs += 1
+
+if count_new_dogs != 0:
+    print('Fairfax County Animal Shelter - New Dogs: ' + str(count_new_dogs))
+    print('')
+
+    df_new_dogs = df_current_dogs[df_current_dogs['ID'].isin(list_new_dogs)]
+
+    for index_new, row_new in df_new_dogs.iterrows():
+        print(row_new['Name'])
+        print(row_new['Image'])
+        print('')
+
+
+# Identify adopted dogs
+count_adopted_dogs = 0
+list_adopted_dogs = []
+
+for dog in list_previous_dogs:
+    if dog in list_current_dogs:
+        pass
+    else:
+        list_adopted_dogs.append(dog)
+        count_adopted_dogs += 1
+
+if count_adopted_dogs != 0:
+    print('Fairfax County Animal Shelter - Adopted Dogs: ' + str(count_adopted_dogs))
+    print('')
+
+    df_adopted_dogs = df_previous_dogs[df_previous_dogs['ID'].isin(list_adopted_dogs)]
+
+    for index_adopted, row_adopted in df_adopted_dogs.iterrows():
+        print(row_adopted['Name'])
+        print(row_adopted['Image'])
+        print('')
+
