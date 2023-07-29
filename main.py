@@ -323,26 +323,7 @@ def compare_availability(df_current):
 # <editor-fold desc="Text Message Notification">
 """ Text Results """
 
-# TWILIO_ACCOUNT_SID = 'ACfde007403d9289a8f9d137a4707ea369'
-# TWILIO_AUTH_TOKEN = '241e6a037f158d7cd2073836a8d9d5e7'
-# TWILIO_PHONE_SENDER = '+18664481495'
-# TWILIO_PHONE_RECIPIENT = '+12068980303'
-#
-# alert_str = 'test'
-#
-#
-# def send_text_alert(alert_str):
-#
-#     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-#
-#     message = client.messages.create(
-#         to=TWILIO_PHONE_RECIPIENT,
-#         from_=TWILIO_PHONE_SENDER,
-#         body=alert_str)
-#
-#
-# send_text_alert(alert_str)
-# print('Sent Text')
+# TODO: send SMS via SMTP https://gist.github.com/alexle/6576366
 
 
 # TODO: This notification method needs a new phone number from Twilio every 30 days? or trial expires after 30 days?
