@@ -107,12 +107,13 @@ def scrape_html(url):
     return html_text
 
 
-def create_dataframe_from_html(html):
+def create_dataframe_from_html(html, current_time):
     """
 
     Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
 
     :param html: HTML string output from the scrape_html function
+    :param current_time: Current datetime
     :return: count of number of dogs available (proxy for number of webpages that need scraping, and cleaned DF of dog attributes)
     """
 
@@ -195,7 +196,7 @@ def create_dataframe_from_html(html):
     df4['ID'] = df4['ID'].astype('int32')
 
     # Add scraped DateTime to DF
-    df4['Scrape Datetime'] = now
+    df4['Scrape Datetime'] = current_time
 
     # print(df4.columns)
     df5 = df4[['ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image', 'Scrape Datetime']].copy()
@@ -205,7 +206,7 @@ def create_dataframe_from_html(html):
     return animals_available, df5
 
 
-def concat_additional_pages(availability, url2, df1):
+def concat_additional_pages(availability, url2, df1, current_time):
     """
 
     Scrapes the second page of the dog adoption site, if there is one, using the scrape_html function, creates a separate
@@ -224,7 +225,7 @@ def concat_additional_pages(availability, url2, df1):
         html_text2 = scrape_html(url2)
 
         # Turn second page to DF
-        _, df2 = create_dataframe_from_html(html_text2)
+        _, df2 = create_dataframe_from_html(html_text2, current_time)
 
         # Concatenate each DataFrame representing each page
         df_concat = pd.concat([df1, df2])
@@ -394,7 +395,7 @@ url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 
 # Set frequency to run script
 seconds = 60  # 60 seconds per minute
-minutes = 60  # 60 minutes per hour
+minutes = 30  # 60 minutes per hour
 delay_seconds = seconds * minutes  # Runs every hour (3,600 seconds)
 
 
@@ -406,8 +407,8 @@ def main(url1, url2, delay):
         now = datetime.now()
 
         html_text_clean = scrape_html(url1)
-        dog_availability, df_dog = create_dataframe_from_html(html_text_clean)
-        df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog)
+        dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
+        df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
         now_text = now.strftime('%Y-%m-%d %H-%M-%S')
         df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
