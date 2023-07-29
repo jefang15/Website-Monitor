@@ -19,7 +19,7 @@ import smtplib
 from email.message import EmailMessage
 from password import email, email_password
 import time
-
+import imghdr
 
 
 """ Current Dog Availability """
@@ -276,45 +276,56 @@ def compare_availability(df_current):
 
     # Determine if there is a change in availability
     if set_current_dogs == set_previous_dogs:
-        diff = 0
+        set_new = set()
+        set_adopted = set()
         list_content = []
-        return diff, list_content
+        return set_new, set_adopted, list_content
 
     else:
         # Blank list to document any new and/or adopted dogs. This content will end up in the email or text message body.
         list_content = []
 
         # New dogs' IDs
-        set_dogs_new = set_current_dogs - set_previous_dogs  # New dogs
+        set_new = set_current_dogs - set_previous_dogs  # New dogs
 
-        list_content.append(str(len(set_dogs_new)) + ' New Dogs')
+        list_content.append(str(len(set_new)) + ' New Dogs')
         list_content.append('')
 
         # Gather information about new dogs
-        df_new_dogs = df_current[df_current['ID'].isin(set_dogs_new)].copy()
+        df_new_dogs = df_current[df_current['ID'].isin(set_new)].copy()
 
         for index_new, row_new in df_new_dogs.iterrows():
             list_content.append(row_new['Name'])
             list_content.append(row_new['Image'])
             list_content.append('')
 
-        # Adopted dogs' IDs
-        set_dogs_adopted = set_previous_dogs - set_current_dogs  # Dogs that were adopted
+            # Save new dogs' photos locally
+            image_url_new = row_new['Image']
+            r = requests.get(image_url_new, allow_redirects=True)
+            with open('Output - Photos/{}'.format(row_new['ID']), 'wb') as f:
+                f.write(r.content)
 
-        list_content.append(str(len(set_dogs_adopted)) + ' Adopted Dogs')
+        # Adopted dogs' IDs
+        set_adopted = set_previous_dogs - set_current_dogs  # Dogs that were adopted
+
+        list_content.append(str(len(set_adopted)) + ' Adopted Dogs')
         list_content.append('')
 
         # Gather information about adopted dogs
-        df_adopted_dogs = df_previous[df_previous['ID'].isin(set_dogs_adopted)].copy()
+        df_adopted_dogs = df_previous[df_previous['ID'].isin(set_adopted)].copy()
 
         for index_adopted, row_adopted in df_adopted_dogs.iterrows():
             list_content.append(row_adopted['Name'])
             list_content.append(row_adopted['Image'])
             list_content.append('')
 
-        diff = len(set_dogs_new) + len(df_adopted_dogs)
+            # Save adopted dogs' photos locally
+            image_url_adopted = row_adopted['Image']
+            r = requests.get(image_url_adopted, allow_redirects=True)
+            with open('Output - Photos/{}'.format(row_adopted['ID']), 'wb') as f:
+                f.write(r.content)
 
-        return diff, list_content
+        return set_new, set_adopted, list_content
 
 
 """ Send Notification """
@@ -325,12 +336,10 @@ def compare_availability(df_current):
 
 # TODO: send SMS via SMTP https://gist.github.com/alexle/6576366
 
-
-# TODO: This notification method needs a new phone number from Twilio every 30 days? or trial expires after 30 days?
 # </editor-fold>
 
 
-def send_email(list_content):
+def send_email(set_new, set_adopted, list_content):
     """
 
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
@@ -340,20 +349,27 @@ def send_email(list_content):
     :return: If there's a change in availability, email me that change
     """
 
-    # Form message
+    # Form message - parameters
     msg = EmailMessage()
     msg['Subject'] = 'Fairfax County Animal Shelter Update!'
     msg['From'] = email
     msg['To'] = email
     msg.set_content('\r\n'.join(list_content))
 
-    with smtplib.SMTP('smtp.outlook.com', 587) as server:
-        server.ehlo()
-        server.starttls()
-        server.login(email, email_password)
-        server.send_message(msg)
-        # print('Email sent')
+    # Form message - attach image
+    for file in set_new:
+        with open('Output - Photos/{}'.format(file), 'rb') as f:
+            image_data = f.read()
+            image_type = imghdr.what(f.name)
+            image_name = f.name
+        msg.add_attachment(image_data, maintype='image', subtype=image_type, filename=image_name)
 
+    with smtplib.SMTP('smtp.outlook.com', 587) as smtp:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.login(email, email_password)
+        smtp.send_message(msg)
+        # print('Email sent')
 
 
 """ Run Infinite Loop """
@@ -388,7 +404,7 @@ def main(url1, url2, delay):
                 dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
                 df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
-                num_changes, list_to_message = compare_availability(df_current_dogs)
+                set_dogs_new, set_dogs_adopted, list_to_message = compare_availability(df_current_dogs)
                 # for i in list_to_message:
                 #     print(i)
 
@@ -396,16 +412,16 @@ def main(url1, url2, delay):
                 df_current_dogs.to_excel(
                     'Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
 
-                if num_changes == 0:
+                if len(set_dogs_new) + len(set_dogs_adopted) == 0:
                     print(
                         str(now.strftime('%Y-%m-%d %I:%M %p')) +
-                        ' - No Change (To break loop, press Ctrl + C in Console or Cmd + F2 in Terminal)')
+                        ' - No Change (To break loop, press Ctrl + C in Console or Fn + Cmd + F2 in Terminal)')
                     pass
                 else:
                     print(
                         str(now.strftime('%Y-%m-%d %I:%M %p')) +
                         ' - Change in Availability!')
-                    send_email(list_to_message)
+                    send_email(set_dogs_new, set_dogs_adopted, list_to_message)
 
             except:
                 print('Error')
