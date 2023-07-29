@@ -1,312 +1,245 @@
+"""
+July 28, 2023
 
-# Website Monitor
+Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for available dogs and alerts me when a new dog is available
+for adoption or a dog was adopted.
+"""
+
 
 import requests
-import os
 from lxml.html.clean import Cleaner
 from bs4 import BeautifulSoup
 from datetime import datetime
-import glob
-import re
 import pandas as pd
 from tabulate import tabulate
 
 
+# Set URL
+url_page1 = 'https://24petconnect.com/PP4352?at=DOG'
+url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 
-# https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
-
-
-# Set URL to track
-URL_TO_MONITOR = 'https://24petconnect.com/PP4352?at=DOG'
-
-today = datetime.today()
-print(today)
+# Current DateTime for exporting and naming files with current timestamp
+now = datetime.now()
 
 
-def process_html(string):
+def scrape_html(url):
 
-    soup = BeautifulSoup(string, features="lxml")
-    # using features='lxml' gives error:
-    # bs4.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser
-    # library?
-
-    # make the html look good
-    soup.prettify()
-
-    # remove script tags
-    for s in soup.select('script'):
-        s.extract()
-
-    # remove meta tags
-    for s in soup.select('meta'):
-        s.extract()
-
-    # convert to a string, remove '\r', and return
-    return str(soup).replace('\r', '')
-
-
-def webpage_was_changed(url):
-
-    # Informs GET request (prevents caching)
-    Columns = {
+    columns = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
         'Pragma': 'no-cache', 'Cache-Control': 'no-cache'}
 
-    # Send an HTTP GET request to a specified URL
-    response = requests.get(url, Columns=Columns)
+    # Send HTTP GET request to URL
+    response = requests.get(url, headers=columns)
+
+    def process_html(string):
+
+        soup = BeautifulSoup(string, features='lxml')
+        soup.prettify()
+
+        # Remove script tags
+        for s in soup.select('script'):
+            s.extract()
+
+        # Remove meta tags
+        for s in soup.select('meta'):
+            s.extract()
+
+        # convert to a string, remove '\r', and return
+        return str(soup).replace('\r', '')
+
+    html_processed = process_html(response.text)
+    # type(html_processed)  # Str
+    # len(html_processed)  # 144,615
+
+    def sanitize(dirty_html):
+        cleaner = Cleaner(
+            page_structure=True,
+            scripts=True,
+            meta=True,
+            embedded=True,
+            links=True,
+            style=True,
+            processing_instructions=True,
+            inline_style=True,
+            javascript=True,
+            comments=True,
+            frames=True,
+            forms=True,
+            annoying_tags=True,
+            remove_unknown_tags=True,
+            safe_attrs_only=True,
+            safe_attrs=frozenset(['src', 'color', 'href', 'title', 'class', 'name', 'id']),
+            remove_tags=('html', 'body', 'p', 'span', 'font', 'div', 'br')
+            )
+
+        return cleaner.clean_html(dirty_html)
+
+    html_sanitized = sanitize(html_processed)
+    # type(html_sanitized)  # Str
+    # len(html_sanitized)  # 42,273
+
+    # Truncate beginning of HTML
+    index_start = html_sanitized.find('Animals: ')
+    html_text = html_sanitized[index_start:]
+    # print(html_sanitized2)
+    # type(html_sanitized2)  # Str
+    # len(html_sanitized2)  # 10,850
+
+    # Turn HTML to BS4 object (only use this if you want to save text)
+    # html_bs = BeautifulSoup(html_text, 'lxml')
+    # print(html_bs)
+    # type(html_bs)  # BS4
+    # print(html_bs)
+
+    return html_text
+
+
+html_text_clean = scrape_html(url_page1)
+
+
+def create_dataframe_from_html(html):
+
+    # Create list from HTML string
+    list_text = [i.strip() for i in html.splitlines()]
+    # type(list_text)  # List
+    # len(list_text)  # 1,224
 
-    # Create current HTML text file
-    if not os.path.exists('/Users/jeff/Documents/Programming/Projects/Website-Monitor/Output/previous_content_{}.txt'.format(
-            today)):
-        open('/Users/jeff/Documents/Programming/Projects/Website-Monitor/Output/previous_content_{}.txt'.format(
-            today), 'w+').close()
+    # Create DataFrame from list
+    df = pd.DataFrame(list_text, columns=['Text'])
+    # len(df)  # 1,224
 
-    # Open previous HTML text file
-    # glob.glob()
-    # filehandle = open('/Users/jeff/Documents/Programming/Projects/Website-Monitor/Output/previous_content_{}.txt'.format(
-    #         today), 'r')
-    # previous_response_html = filehandle.read()
-    # print(previous_response_html)
-    # filehandle.close()
-    #
-    # processed_response_html = process_html(response.text)
-    #
-    # print(processed_response_html)
+    # Drop NAN rows
+    df2 = df[df['Text'] != ''].copy()
+    # len(df2)  # 479
 
-    test = glob.glob('/Users/jeff/Documents/Programming/Projects/Website-Monitor/Output/*.txt')
-    latest_saved_txt = test[-1]
+    df2.reset_index()
+    # print(tabulate(df2.head(20), tablefmt='psql', numalign='right', headers='keys', showindex=False))
+    # print(tabulate(df2.tail(20), tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
-    filehandle = open(latest_saved_txt, 'r')
-    previous_response_html = filehandle.read()
-    print(previous_response_html)
-    filehandle.close()
+    # Determine number of dogs available (if more than 30 dogs, there are two pages to scrape)
+    text_animals_available = df2['Text'][0]
+    animals_available = int(text_animals_available.split(' - ')[1].split('</h3>')[0].split(' of ')[1])
+    # print(animals_available)
 
-    processed_response_html = process_html(response.text)
+    # df2.loc[df2['Text'].str.contains('Animals: '), 'Availability on Page'] = df2['Text'].str.split(' - ').str[1].str.split(
+    #     '</h3>').str[0].str.split(' of ').str[0]
+    # df2.loc[df2['Text'].str.contains('Animals: '), 'Availability Total'] = df2['Text'].str.split(' - ').str[1].str.split(
+    #     '</h3>').str[0].str.split(' of ').str[1]
+    # print(tabulate(df2.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
-    print(processed_response_html)
+    for index, row in df2.iterrows():
 
+        # Store a single index to write all attributes to that belong to the same dog
+        if row['Text'] == 'Name:':
+            index_save = index
 
-    if processed_response_html == previous_response_html:
-        return False
-    else:
-        filehandle = open('/Users/jeff/Documents/Programming/Projects/Website-Monitor/Output/previous_content_{}.txt'.format(
-            today), 'w')
-        filehandle.write(processed_response_html)
-        filehandle.close()
-        return True
+        # Fill in Name
+        if row['Text'] == 'Name:':
+            df2.loc[index_save, 'Name'] = df2.loc[index + 1, 'Text']
 
+        # Fill in Gender
+        if row['Text'] == 'Gender:':
+            df2.loc[index_save, 'Gender'] = df2.loc[index + 1, 'Text']
 
-webpage_was_changed(URL_TO_MONITOR)
+        # Fill in Breed
+        if row['Text'] == 'Breed:':
+            df2.loc[index_save, 'Breed'] = df2.loc[index + 1, 'Text']
 
+        # Fill in Animal Type
+        if row['Text'] == 'Animal type:':
+            df2.loc[index_save, 'Animal Type'] = df2.loc[index + 1, 'Text']
 
+        # Fill in Age
+        if row['Text'] == 'Age:':
+            df2.loc[index_save, 'Age'] = df2.loc[index + 1, 'Text']
 
-""" Code line by line before putting in function """
+        # Fill in Brought to the Shelter
+        if row['Text'] == 'Brought to the shelter:':
+            df2.loc[index_save, 'Brought to Shelter'] = df2.loc[index + 1, 'Text']
 
+        # Fill in Located At
+        if row['Text'] == 'Located at:':
+            df2.loc[index_save, 'Location'] = df2.loc[index + 1, 'Text']
 
-URL_TO_MONITOR = 'https://24petconnect.com/PP4352?at=DOG'
+    # print(tabulate(df2.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
+    # Fill in Image (done separately, since this attribute appears after the index associated with the dog's name)
+    df2.loc[df2['Text'].str.contains('<img id="AnimalImage_'), 'Image'] = df2['Text']
+    df2['Image'].ffill(inplace=True)
 
-Columns = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
-    'Pragma': 'no-cache', 'Cache-Control': 'no-cache'}
+    # Drop rows where Name is NAN
+    df3 = df2[df2['Name'].notna()].copy()
+    # len(df3)  # 30
 
-# Send an HTTP GET request to a specified URL
-response = requests.get(URL_TO_MONITOR, Columns=Columns)
-type(response)
+    # Finish cleaning URLs in Image column (doesn't work until NANs are taken care of)
+    df3.loc[df3['Image'].str.contains(' src="'), 'Image'] = df3['Image'].str.split(' src="').str[1].str.split('">').str[0]
+    df3.reset_index(drop=True, inplace=True)
+    # print(tabulate(df3.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
-# Process HTML as text
-new = process_html(response.text)
-type(new)  # str
+    # Create ID column from latter part of Name
+    df3['ID'] = df3['Name'].str.extract('(\d*\.?\d+)', expand=True)
 
+    # Clean and remove ID from Name column
+    df3.loc[df3['Name'].str.contains(' \\([0-9]'), 'Name'] = df3['Name'].str.split(' \\([0-9]').str[0]
+    df4 = df3.applymap(lambda x: str(x).replace('&amp;', '&'))
 
-# Start string at actual contents/gets rids of all fluff leading up to dogs available for adoption
-index_start = new.find('Animals: ')
-print(index_start)
+    # Set Date Types
+    # print(df4.dtypes)
+    df4['Brought to Shelter'] = pd.to_datetime(df4['Brought to Shelter'])
+    df4['ID'] = df4['ID'].astype('int32')
 
-text = new[index_start:]
-print(text)
-type(text)  # str
+    # Current DateTime for exporting and naming files with current timestamp
+    df4['Scrape Datetime'] = now
 
-# Turn subset str to bs4 object
-soup = BeautifulSoup(text, "lxml")
-print(soup)
-type(soup)  # bs4
+    # print(df4.columns)
+    df5 = df4[['ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image', 'Scrape Datetime']].copy()
+    # print(df5.dtypes)
+    # print(tabulate(df5, tablefmt='psql', numalign='right', headers='keys', showindex=True))
 
+    return animals_available, df5
 
-# Export bs4 HTML as txt file
-with open('Output/previous_content1.txt', 'w+', encoding='utf-8') as f_out:
-    f_out.write(soup.prettify())
 
+dog_availability, df_dog = create_dataframe_from_html(html_text_clean)
 
-" Clean all tags "
 
-# Clean HTML / Replace <tags> with blanks
-clean = re.compile('<.*?>')
-text2 = re.sub(clean, '', text)
-type(text2)  # str
+def scrape_additional_pages(availability, url2, df1):
 
-# Turn subset str to bs4 object
-soup2 = BeautifulSoup(text2, "lxml")
-print(soup2)
+    if availability > 30:
+        print('More than one page')
 
-# Export bs4 HTML as txt file
-with open('Output/previous_content2 - truncate remove tags.txt', 'w+', encoding='utf-8') as f_out:
-    f_out.write(soup2.prettify())
+        # Scrape second page
+        html_text2 = scrape_html(url2)
 
+        # Turn second page to DF
+        _, df2 = create_dataframe_from_html(html_text2)
 
-" Keep URLs "
+        # Concatenate each DataFrame representing each page
+        df_concat = pd.concat([df1, df2])
 
+        # Create counter
+        df_concat['Counter'] = range(1, len(df_concat) + 1)
 
-def sanitize(dirty_html):
-    cleaner = Cleaner(
-        page_structure=True,
-        scripts=True,
-        meta=True,
-        embedded=True,
-        links=True,
-        style=True,
-        processing_instructions=True,
-        inline_style=True,
-        javascript=True,
-        comments=True,
-        frames=True,
-        forms=True,
-        annoying_tags=True,
-        remove_unknown_tags=True,
-        safe_attrs_only=True,
-        safe_attrs=frozenset(['src', 'color', 'href', 'title', 'class', 'name', 'id']),
-        remove_tags=('html', 'body', 'p', 'span', 'font', 'div', 'br')
-        )
+        # Keep only columns needed to save and to compare with previous iterations
+        df_concat2 = df_concat[[
+            # 'Counter'
+            'ID',
+            'Name',
+            # 'Gender',
+            # 'Breed',
+            # 'Age',
+            # 'Brought to Shelter',
+            # 'Location',
+            'Image',
+            'Scrape Datetime']].copy()
 
-    return cleaner.clean_html(dirty_html)
+        return df_concat2
 
 
-text3 = sanitize(text)
-type(text3)
+df_dog_concat = scrape_additional_pages(dog_availability, url_page2, df_dog)
+print(tabulate(df_dog_concat, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
-soup3 = BeautifulSoup(text3, "lxml")
+# Convert current datetime to custom string format
+now_text = now.strftime('%Y-%m-%d %H-%M-%S')
+print(now_text)
 
-# Export bs4 HTML as txt file
-with open('Output/previous_content5 - truncate auto clean3.txt', 'w+', encoding='utf-8') as f_out:
-    f_out.write(soup3.prettify())
-# TODO: keep, this is best one so far (gets rid of tags, but keeps link to dog photo)
-
-
-# Create DF from HTML
-type(soup3)
-lst = [i.get_text(strip=True, separator="~") for i in soup3.find("div", class_="gridResultsContinerInner").find_all("div")]
-final_lst = [i.split("~") for i in lst]
-
-column = [i.next for i in soup.find_all('div', {'class': 'gridResultsContinerInner'})]
-row = [i.next.next.text for i in soup.find_all('div', {'class': 'gridResultsContinerInner'})]
-
-df = pd.DataFrame(columns=column)
-df = df._append(pd.Series(row, index=column), ignore_index=True)
-print(tabulate(df.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-
-# Create DF from string
-soup3
-
-len(text3)  # 8812
-text_for_df = [i.strip() for i in text3.splitlines()]  # create a list of lines
-len(text_for_df)  # 983
-text_for_df
-
-df = pd.DataFrame(text_for_df, columns=['Column'])
-print(tabulate(df.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-len(df)  # 983
-
-
-# Drop blank lines
-
-df2 = df[df['Column'] != ''].copy()
-len(df2)
-
-df2.reset_index()
-
-print(tabulate(df2.head(20), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-
-for index, row in df2.iterrows():
-    # print(index)
-    # print(row['Column'])
-
-    # Set single index to write all new columns to
-    if row['Column'] == 'Name:':
-        index_save = index
-
-    # Fill in Image
-    if row['Column'].contains('<img id="AnimalImage_'):
-        print(index)
-
-    # Fill in Name
-    if row['Column'] == 'Name:':
-        df2.loc[index_save, 'Name'] = df2.loc[index + 1, 'Column']
-
-    # Fill in Gender
-    if row['Column'] == 'Gender:':
-        df2.loc[index_save, 'Gender'] = df2.loc[index + 1, 'Column']
-
-    # Fill in Breed
-    if row['Column'] == 'Breed:':
-        df2.loc[index_save, 'Breed'] = df2.loc[index + 1, 'Column']
-
-    # Fill in Animal Type
-    if row['Column'] == 'Animal type:':
-        df2.loc[index_save, 'Animal Type'] = df2.loc[index + 1, 'Column']
-
-    # Fill in Age
-    if row['Column'] == 'Age:':
-        df2.loc[index_save, 'Age'] = df2.loc[index + 1, 'Column']
-
-    # Fill in Brought to the Shelter
-    if row['Column'] == 'Brought to the shelter:':
-        df2.loc[index_save, 'Brought to Shelter'] = df2.loc[index + 1, 'Column']
-
-    # Fill in Located At
-    if row['Column'] == 'Located at:':
-        df2.loc[index_save, 'Location'] = df2.loc[index + 1, 'Column']
-
-
-print(tabulate(df2.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-
-# Fill in Image Link
-df2.loc[df2['Column'].str.contains('<img id="AnimalImage_'), 'Image'] = df2['Column']
-df2['Image'].ffill(inplace=True)
-print(tabulate(df2.head(20), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-
-# Drop rows where Name is NAN
-df3 = df2[df2['Name'].notna()].copy()
-len(df3)
-print(tabulate(df3.head(30), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-# Clean up values
-df3.loc[df3['Image'].str.contains(' src="'), 'Image'] = df3['Image'].str.split(' src="').str[1].str.split('">').str[0]
-
-print(tabulate(df3.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-df3.reset_index(drop=True, inplace=True)
-
-# Create ID column
-df3['ID'] = df3['Name'].str.extract('(\d*\.?\d+)', expand=True)
-print(tabulate(df3.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-# Clean and remove ID from Name column
-df3.loc[df3['Name'].str.contains(' \\([0-9]'), 'Name'] = df3['Name'].str.split(' \\([0-9]').str[0]
-df4 = df3.applymap(lambda x: str(x).replace('&amp;', '&'))
-print(tabulate(df4.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-# Date Types
-df4['Brought to Shelter'] = pd.to_datetime(df4['Brought to Shelter'])
-df4['ID'] = df4['ID'].astype('int32')
-
-
-df4.columns
-df5 = df4[['ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image']].copy()
-df5.dtypes
-print(tabulate(df5.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
+df_dog_concat.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
