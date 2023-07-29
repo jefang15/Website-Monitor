@@ -216,6 +216,7 @@ def concat_additional_pages(availability, url2, df1, current_time):
     pages of content
     :param url2: URL of second page of dogs on 24petconnect.com for Fairfax County Animal Shelter
     :param df1: cleaned DF (output from create_dataframe_from_html function) to be concatenated as needed
+    :param current_time: Current datetime to label and export results
     :return:
     """
 
@@ -257,74 +258,63 @@ def compare_availability(df_current):
 
     Identifies how many, and which, dogs are either newly available for adoption or were adopted since the last check.
 
-    :param df_current:
-    :return:
+    :param df_current: List and information of dogs in the latest scrape of adoption site
+    :return: Tells whether there are any changes in availability or not, and how many
     """
 
     # Reference most recent dog availability spreadsheet
     list_past_files = glob.glob('Output - Spreadsheets/*.xlsx')
+    list_past_files.sort(reverse=False)
     latest_file = list_past_files[-1]
     df_previous = pd.read_excel(latest_file)
 
     list_current_dogs = df_current['ID'].to_list()
     list_previous_dogs = df_previous['ID'].to_list()
 
+    set_current_dogs = set(list_current_dogs)
+    set_previous_dogs = set(list_previous_dogs)
 
-    # Blank list whose contents will end up in the email or text message body
-    list_content = []
+    # Determine if there is a change in availability
+    if set_current_dogs == set_previous_dogs:
+        diff = 0
+        list_content = []
+        return diff, list_content
 
+    else:
+        # Blank list to document any new and/or adopted dogs. This content will end up in the email or text message body.
+        list_content = []
 
-    # Identify new dogs
-    count_new = 0
-    list_new_dogs = []
+        # New dogs' IDs
+        set_dogs_new = set_current_dogs - set_previous_dogs  # New dogs
 
-    for dog in list_current_dogs:
-        if dog in list_previous_dogs:
-            pass
-        else:
-            list_new_dogs.append(dog)
-            count_new += 1
-
-    if count_new != 0:
-
-        # Number of new dogs for adoption
-        list_content.append(str(count_new) + ' New Dogs')
+        list_content.append(str(len(set_dogs_new)) + ' New Dogs')
         list_content.append('')
 
-        df_new_dogs = df_current[df_current['ID'].isin(list_new_dogs)]
+        # Gather information about new dogs
+        df_new_dogs = df_current[df_current['ID'].isin(set_dogs_new)].copy()
 
-        # New dogs for adoption info
         for index_new, row_new in df_new_dogs.iterrows():
             list_content.append(row_new['Name'])
             list_content.append(row_new['Image'])
             list_content.append('')
 
-    # Identify adopted dogs
-    count_adopted = 0
-    list_adopted_dogs = []
+        # Adopted dogs' IDs
+        set_dogs_adopted = set_previous_dogs - set_current_dogs  # Dogs that were adopted
 
-    for dog in list_previous_dogs:
-        if dog in list_current_dogs:
-            pass
-        else:
-            list_adopted_dogs.append(dog)
-            count_adopted += 1
-
-    if count_adopted != 0:
-
-        # Number of adopted dogs
-        list_content.append('Adopted Dogs: ' + str(count_adopted))
+        list_content.append(str(len(set_dogs_adopted)) + ' Adopted Dogs')
         list_content.append('')
 
-        df_adopted_dogs = df_previous[df_previous['ID'].isin(list_adopted_dogs)]
+        # Gather information about adopted dogs
+        df_adopted_dogs = df_previous[df_previous['ID'].isin(set_dogs_adopted)].copy()
 
-        # Adopted dogs info
         for index_adopted, row_adopted in df_adopted_dogs.iterrows():
             list_content.append(row_adopted['Name'])
             list_content.append(row_adopted['Image'])
             list_content.append('')
 
-    return count_new, count_adopted, list_content
+        diff = len(set_dogs_new) + len(df_adopted_dogs)
+
+        return diff, list_content
 
 
 """ Send Notification """
@@ -381,7 +371,7 @@ def send_email(list_content):
         server.starttls()
         server.login(email, email_password)
         server.send_message(msg)
-        print('Email sent. Press Ctrl + C to break loop')
+        # print('Email sent')
 
 
 
@@ -394,9 +384,9 @@ url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 
 
 # Set frequency to run script
-seconds = 60  # 60 seconds per minute
-minutes = 30  # 60 minutes per hour
-delay_seconds = seconds * minutes  # Runs every hour (3,600 seconds)
+minutes = 10
+seconds = 60
+delay_seconds = minutes * seconds  # Runs every 10 minutes
 
 
 def main(url1, url2, delay):
@@ -410,23 +400,27 @@ def main(url1, url2, delay):
         dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
         df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
-        now_text = now.strftime('%Y-%m-%d %H-%M-%S')
-        df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
-
-        count_new_dogs, count_adopted_dogs, list_to_message = compare_availability(df_current_dogs)
+        num_changes, list_to_message = compare_availability(df_current_dogs)
         # for i in list_to_message:
         #     print(i)
 
-        if count_new_dogs == 0 and count_adopted_dogs == 0:
-            print('No change. Press Ctrl + C to break loop')
+        now_text = now.strftime('%Y-%m-%d %H-%M-%S')
+        df_current_dogs.to_excel('Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+
+        if num_changes == 0:
+            print(
+                str(now.strftime('%Y-%m-%d %I:%M %p')) +
+                ' - No Change (To break loop, press Ctrl + C in Console or Cmd + F2 in Terminal)')
             pass
         else:
+            print(
+                str(now.strftime('%Y-%m-%d %I:%M %p')) +
+                ' - Change in Availability!')
             send_email(list_to_message)
 
         time.sleep(delay)
 
 
 main(url_page1, url_page2, delay_seconds)
-
 
 # Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
