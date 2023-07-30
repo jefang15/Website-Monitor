@@ -25,7 +25,6 @@ import time
 
 def scrape_html(url):
     """
-
     Scrapes URL with dogs available for adoption, and creates a cleaned string with HTML content that can be used to create a DF
     in the next step. This also subsets the HTML content to start where the dogs available for adoption are listed.
 
@@ -103,7 +102,6 @@ def scrape_html(url):
 
 def create_dataframe_from_html(html, current_time):
     """
-
     Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
 
     :param html: HTML string output from the scrape_html function
@@ -202,7 +200,6 @@ def create_dataframe_from_html(html, current_time):
 
 def concat_additional_pages(availability, url2, df1, current_time):
     """
-
     Scrapes the second page of the dog adoption site, if there is one, using the scrape_html function, creates a separate
     cleaned DF, and then concatenates the two cleaned DFs/pages together. If there is only one page, this function has no effect.
 
@@ -303,22 +300,17 @@ def compare_availability(df_current):
         return df_new, df_adopted
 
 
-# <editor-fold desc="Text Message Notification">
-""" Text Results """
-
-# TODO: send SMS via SMTP https://gist.github.com/alexle/6576366
-
-# </editor-fold>
+# TODO: send SMS via SMTP
 
 
-def send_email(df_new, df_adopted):
+def send_email(df_new, df_adopted, current_time):
     """
-
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
 
     :param df_new: DF of newly available dogs
     :param df_adopted: DF of adopted dogs
+    :param current_time: Time that website was scraped, to include as text at end of email body
     :return: If there's a change in availability, email me that change
     """
 
@@ -326,7 +318,7 @@ def send_email(df_new, df_adopted):
     msg = MIMEMultipart('multipart')  # To support mix of content types
     msg['From'] = email
     msg['To'] = email
-    msg['Subject'] = 'Fairfax County Animal Shelter Update!'
+    msg['Subject'] = '🐶 Fairfax County Animal Shelter Update!'
 
     " Form Email Body - New Dogs "
     if len(df_new) > 0:
@@ -343,13 +335,13 @@ def send_email(df_new, df_adopted):
         for index_new, row_new in df_new.iterrows():
 
             # Name
-            msg.attach(MIMEText('{}'.format(row_new['Name']), 'plain'))
+            msg.attach(MIMEText('<b>{}</b>'.format(row_new['Name']), 'html'))
 
             # Age
-            msg.attach(MIMEText('{}'.format(row_new['Age']), 'plain'))
+            msg.attach(MIMEText('  |  {}'.format(row_new['Age']), 'plain'))
 
             # Breed
-            msg.attach(MIMEText('{}'.format(row_new['Breed']), 'plain'))
+            msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
             # Photo
             with open('Output - Photos/{}'.format(row_new['ID']), 'rb') as f:
@@ -371,19 +363,28 @@ def send_email(df_new, df_adopted):
         for index_adopted, row_adopted in df_adopted.iterrows():
 
             # Name
-            msg.attach(MIMEText('{}'.format(row_adopted['Name']), 'plain'))
+            msg.attach(MIMEText('<b>{}</b>'.format(row_adopted['Name']), 'html'))
 
             # Age
-            msg.attach(MIMEText('{}'.format(row_adopted['Age']), 'plain'))
+            msg.attach(MIMEText('  |  {}'.format(row_adopted['Age']), 'plain'))
 
             # Breed
-            msg.attach(MIMEText('{}'.format(row_adopted['Breed']), 'plain'))
+            msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
             # Photo
             with open('Output - Photos/{}'.format(row_adopted['ID']), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
+
+    " Metadata "
+    # Time
+    time_for_email = current_time.strftime('%Y-%m-%d %I:%M %p')
+    msg.attach(MIMEText(time_for_email + '<br>', 'html'))
+
+    # Website link
+    homepage = MIMEText('https://24petconnect.com/PP4352?at=DOG', 'html')
+    msg.attach(homepage)
 
     " Send Email "
     with smtplib.SMTP('smtp.outlook.com', 587) as smtp:
@@ -405,47 +406,60 @@ seconds = 60
 delay_seconds = minutes * seconds  # Runs every 10 minutes
 
 
-def main(url1, url2, delay):
+def main(url1, url2):
+    """
+    Scrapes dog adoption site every 5 minutes during the day and emails any changes.
 
-    while True:
+    :param url1: First page of dog adoption site
+    :param url2: Second page of dog adoption site
+    :return: Sends email when there is new or adopted dog and includes notable information.
+    """
 
-        # Always check the time, but only check and scrape the website during the day
-        current_hour = int((datetime.now()).strftime('%H'))
+    while True:  # Only runs after 8 AM and before 10 PM (Open hours are 11 AM - 7 PM)
 
-        while current_hour >= 8 & current_hour <= 22:  # Only runs after 8 AM and before 10 PM (Open hours are 11 AM - 7 PM)
+        # Current DateTime for exporting and naming files with current timestamp
+        now = datetime.now()
 
-            try:  # Accounts for potential network connectivity issues?
+        try:  # Accounts for potential network connectivity issues?
 
-                # Current DateTime for exporting and naming files with current timestamp
-                now = datetime.now()
+            html_text_clean = scrape_html(url1)
+            dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
+            df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
-                html_text_clean = scrape_html(url1)
-                dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
-                df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
+            df_dogs_new, df_dogs_adopted = compare_availability(df_current_dogs)
 
-                df_dogs_new, df_dogs_adopted = compare_availability(df_current_dogs)
+            now_text = now.strftime('%Y-%m-%d %H-%M-%S')
+            df_current_dogs.to_excel(
+                'Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
 
-                now_text = now.strftime('%Y-%m-%d %H-%M-%S')
-                df_current_dogs.to_excel(
-                    'Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+            if len(df_dogs_new) + len(df_dogs_adopted) == 0:
+                print(
+                    str(now.strftime('%Y-%m-%d %I:%M %p'))
+                    + ' - No Change (To break loop, press Ctrl + C in Console or Fn + Cmd + F2 in Terminal)')
+                pass
+            else:
+                print(
+                    str(now.strftime('%Y-%m-%d %I:%M %p'))
+                    + ' - Change in Availability!')
+                send_email(df_dogs_new, df_dogs_adopted, now)
 
-                if len(df_dogs_new) + len(df_dogs_adopted) == 0:
-                    print(
-                        str(now.strftime('%Y-%m-%d %I:%M %p')) +
-                        ' - No Change (To break loop, press Ctrl + C in Console or Fn + Cmd + F2 in Terminal)')
-                    pass
-                else:
-                    print(
-                        str(now.strftime('%Y-%m-%d %I:%M %p')) +
-                        ' - Change in Availability!')
-                    send_email(df_dogs_new, df_dogs_adopted)
+        except:
+            print(
+                str(now.strftime('%Y-%m-%d %I:%M %p'))
+                + 'Error')
 
-            except:
-                print('Error')
+        # Time Delay (having this after code makes sure the code runs at least once even if during off hours)
+        current_hour = int(now.strftime('%H'))
 
-            time.sleep(delay)
+        if current_hour < 8:
+            delay = 8 * 60 * 60  # Skip running overnight and pick up again at 6 AM
+        else:
+            delay = 5 * 60  # During the day run every 5 minutes
+
+        time.sleep(delay)
 
 
-main(url_page1, url_page2, delay_seconds)
+main(url_page1, url_page2)
+
 
 # Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
