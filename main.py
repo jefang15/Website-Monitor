@@ -240,6 +240,25 @@ def concat_additional_pages(availability, url2, df1, current_time):
 
         return df_concat2
 
+    else:
+        # Create counter
+        df1['Counter'] = range(1, len(df1) + 1)
+
+        # Keep only columns needed to save and to compare with previous iterations
+        df1 = df1[[
+            'Counter',
+            'ID',
+            'Name',
+            'Gender',
+            'Breed',
+            'Age',
+            'Brought to Shelter',
+            'Location',
+            'Image',
+            'Scrape Datetime']].copy()
+
+        return df1
+
 
 def compare_availability(df_current):
     """
@@ -446,7 +465,7 @@ def main(url1, url2):
         except:
             print(
                 str(now.strftime('%Y-%m-%d %I:%M %p'))
-                + 'Error')
+                + ' - Error')
 
         # Time Delay (having this after code makes sure the code runs at least once even if during off hours)
         current_hour = int(now.strftime('%H'))
