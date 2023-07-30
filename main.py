@@ -240,6 +240,25 @@ def concat_additional_pages(availability, url2, df1, current_time):
 
         return df_concat2
 
+    else:
+        # Create counter
+        df1['Counter'] = range(1, len(df1) + 1)
+
+        # Keep only columns needed to save and to compare with previous iterations
+        df1 = df1[[
+            'Counter',
+            'ID',
+            'Name',
+            'Gender',
+            'Breed',
+            'Age',
+            'Brought to Shelter',
+            'Location',
+            'Image',
+            'Scrape Datetime']].copy()
+
+        return df1
+
 
 def compare_availability(df_current):
     """
@@ -446,17 +465,21 @@ def main(url1, url2):
         except:
             print(
                 str(now.strftime('%Y-%m-%d %I:%M %p'))
-                + 'Error')
+                + ' - Error')
 
-        # Time Delay (having this after code makes sure the code runs at least once even if during off hours)
-        current_hour = int(now.strftime('%H'))
+        " Time Delay "
+        # Having this after the main code makes sure that the code runs at least once for testing even if it's during off hours
 
-        if current_hour < 8:
-            delay = 8 * 60 * 60  # Skip running overnight and pick up again at 6 AM
-        else:
-            delay = 5 * 60  # During the day run every 5 minutes
+        hour_start = 8  # 8 AM - Time of day to start running script (script stops at midnight)
 
-        time.sleep(delay)
+        if int(now.strftime('%H')) > hour_start:  # If it's after 8 AM and before midnight, loop and run code every 5 minutes
+            delay_sec = 60 * 5  # 5 minutes
+        else:  # If it's after midnight and before 8 AM, calculate the number of seconds until 8 AM and set that as the delay
+            diff_hour = hour_start - int(now.strftime('%H')) - 1
+            diff_min = 60 - int(now.strftime('%M'))
+            delay_sec = 60 * (diff_min + (diff_hour * 60))
+
+        time.sleep(delay_sec)
 
 
 main(url_page1, url_page2)
