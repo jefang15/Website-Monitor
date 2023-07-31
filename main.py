@@ -472,7 +472,7 @@ def main(url1, url2):
 
         hour_start = 8  # 8 AM - Time of day to start running script (script stops at midnight)
 
-        if int(now.strftime('%H')) > hour_start:  # If it's after 8 AM and before midnight, loop and run code every 5 minutes
+        if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every 5 minutes
             delay_sec = 60 * 5  # 5 minutes
         else:  # If it's after midnight and before 8 AM, calculate the number of seconds until 8 AM and set that as the delay
             diff_hour = hour_start - int(now.strftime('%H')) - 1
@@ -486,3 +486,4 @@ main(url_page1, url_page2)
 
 
 # Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
+# Guide: https://github.com/acamso/demos/blob/master/_email/send_txt_msg.py
