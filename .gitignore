@@ -1,3 +1,5 @@
 password.py
 Virtual Environment/
 /.idea/
+.DS_Store
+__pycache__/password.cpython-39.pyc
