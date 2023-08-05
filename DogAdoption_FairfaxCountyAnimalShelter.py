@@ -1,8 +1,9 @@
 """
 July 28, 2023
 
-Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is available
-or was adopted. Prevents needing to frequently and manually visit and refresh the page and being able to identify what has changed.
+Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is
+available or was adopted. Prevents needing to frequently refresh the page and manually identifying changes.
+what has changed.
 """
 
 
@@ -321,6 +322,8 @@ def send_email(df_new, df_adopted, current_time):
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
 
+    Emojis at: https://emojipedia.org
+
     :param df_new: DF of newly available dogs
     :param df_adopted: DF of adopted dogs
     :param current_time: Time that website was scraped, to include as text at end of email body
@@ -359,7 +362,7 @@ def send_email(df_new, df_adopted, current_time):
 
             # Photo
             with open('Output - Fairfax Shelter Photos/{}.png'.format(row_new['ID']), 'rb') as f:
-                image_data = MIMEImage(f.read())
+                image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
 
@@ -393,7 +396,7 @@ def send_email(df_new, df_adopted, current_time):
                 msg.attach(MIMEText('<br></br>', 'html'))
 
     # Add Time to Body
-    time_for_email = current_time.strftime('%Y-%m-%d %I:%M %p')
+    time_for_email = current_time.strftime('%Y-%m-%d %:%M %p')
     msg.attach(MIMEText(time_for_email + '<br>', 'html'))
 
     # Add Website Link to Body
