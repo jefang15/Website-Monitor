@@ -1,9 +1,11 @@
 """
 August 1, 2023
 
-
+Scrapes the Vyne Apartment site (https://livevyne.com) for unit availability alerts me when there is a new unit, leased unit,
+or a change in price. Prevents needing to frequently and manually visit and refresh the page.
 """
-import numpy as np
+
+
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -11,14 +13,20 @@ import pandas as pd
 from tabulate import tabulate
 from datetime import datetime
 import glob
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from password import email, email_password
+import smtplib
+import time
 
 
 def scrape_html_selenium(url: str):
     """
-    Scrapes HTML content from a given floorplan's URL
+    Scrapes HTML content from a given floor plan's URL
 
     :param url: URL
-    :return: Cleaned HTML string containing key floorplan and unit information (such as units available, price, etc.)
+    :return: Cleaned HTML string containing key floor plan and unit information (such as units available, price, etc.)
     """
 
     # Set the options for the Chromium browser
@@ -38,25 +46,27 @@ def scrape_html_selenium(url: str):
 
     # Clean HTML
     html_soup = BeautifulSoup(html, features='lxml').text  # String
-    len(html_soup)  # 7,822
+    # len(html_soup)  # 7,822
 
     # Truncate beginning and end of HTML string
     index_start = html_soup.find('Available Units')
     html_soup = html_soup[index_start:]
-    len(html_soup)  # 4,054
+    # len(html_soup)  # 4,054
 
     index_end = html_soup.find('Have a question?')
     html_soup = html_soup[:index_end]
-    len(html_soup)  # 274
+    # len(html_soup)  # 274
 
     return html_soup
 
 
-def create_dataframe_from_html(html_str: str):
+def create_dataframe_from_html(floor_plan, html_str: str, current_time):
     """
     Converts the HTML string of key unit information to a DF
 
-    :param html_str:
+    :param floor_plan: Floor plan type to add to DF column
+    :param html_str: Cleaned HTML of floor plan website
+    :param current_time: Scraped datetime to include in DataFrame
     :return: DataFrame containing Unit, Price, Date Available columns
     """
 
@@ -105,28 +115,29 @@ def create_dataframe_from_html(html_str: str):
     df3['Price'] = df3['Price'].str.replace(',', '')
     df3['Price'] = df3['Price'].astype('int16')
 
+    # Add floor plan to DF
+    df3['Floor Plan'] = floor_plan
+
     # Add scraped DateTime to DF
-    now = datetime.now()
+    df3['Scrape Datetime'] = current_time
 
-    df3['Scrape Datetime'] = now
-
-    df4 = df3[['Unit', 'Price', 'Date Available', 'Scrape Datetime']].copy()
+    df4 = df3[['Floor Plan', 'Unit', 'Price', 'Date Available', 'Scrape Datetime']].copy()
 
     return df4
 
 
-def compare_availability(floorplan: str, df_scraped):
+def compare_availability(floor_plan: str, df_scraped):
     """
     Identifies how many and which apartment units are either newly available on the market, were leased, or had a price change
     since the last check.
 
-    :param floorplan: Indicating which floorplan is being scraped. For file naming and differentiating between floorplans.
+    :param floor_plan: Indicating which floor plan is being scraped. For file naming and differentiating between floor plans.
     :param df_scraped: Cleaned DataFrame containing current unit availability and prices from the website
     :return: 1 DF for new units, leased units, and units with prices changes
     """
 
-    # Previous Availability
-    list_past_files = glob.glob('Output - Vyne Spreadsheets/Vyne {}*.xlsx'.format(floorplan))
+    # Previous Availability (need to have an existing spreadsheet to compare to; create a blank one if it doesn't exist)
+    list_past_files = glob.glob('Output - Vyne Spreadsheets/Vyne {}*.xlsx'.format(floor_plan))
     list_past_files.sort(reverse=False)
     latest_file = list_past_files[-1]
     df_previous = pd.read_excel(latest_file)
@@ -136,7 +147,7 @@ def compare_availability(floorplan: str, df_scraped):
         df_scraped,
         df_previous,
         how='outer',
-        on='Unit')
+        on=['Floor Plan', 'Unit'])
 
     df_merged.loc[(df_merged['Price_y'].isna()), 'Change Status'] = 'New Unit'
     df_merged.loc[(df_merged['Price_x'].isna()), 'Change Status'] = 'Unit Leased'
@@ -156,29 +167,204 @@ def compare_availability(floorplan: str, df_scraped):
     return df_new, df_leased, df_change
 
 
+def send_email(floor_plan, df_new, df_leased, df_change, current_time, url):
+    """
+    Only sends an email if there is change in apartment unit availability. Email and password are stored as variables in a
+    separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
+
+    _x columns are current, _y columns are previous
+
+    Emojis at: https://emojipedia.org
+
+    :param floor_plan: Unit floor plan type
+    :param df_new: DF of new apartment units
+    :param df_leased: DF of leased apartment units
+    :param df_change: DF of changes in existing apartment units
+    :param current_time: Time that website was scraped, to include as text at end of email body
+    :param url: Floor plan URL, to include at end of email body
+    :return: If there's a change in availability, email me that change
+    """
+
+    # Form Email Parameters
+    msg = MIMEMultipart('multipart')  # To support mix of content types
+    msg['From'] = email
+    msg['To'] = email
+    msg['Subject'] = '🏠 Vyne Apt {} Update!'.format(floor_plan)
+
+    # Form Email Body - New Units
+    # <editor-fold desc="New">
+    if df_new.empty:
+        pass
+    else:
+        # Count of new units
+        if len(df_new) == 1:  # Only difference in this if/else is whether to print 'Unit' (singular) vs 'Units' (plural)
+            new_unit_count = '<b>' + '{} New {} Unit'.format(len(df_new), floor_plan) + '</b></font>' + '<br></br>'
+            # text = '<font face="Courier New, Courier, monospace">' + 'text' + '</font>'  # Sample font change
+            msg.attach(MIMEText(new_unit_count, 'html'))
+        else:
+            new_unit_count = '<b>' + '{} New {} Units'.format(len(df_new), floor_plan) + '</b></font>' + '<br></br>'
+            msg.attach(MIMEText(new_unit_count, 'html'))
+
+        # Fill email body with content
+        for index_new, row_new in df_new.iterrows():
+
+            print('ok email new unit count')
+            # Unit
+            msg.attach(MIMEText('<b>{}</b>'.format(row_new['Unit']), 'html'))
+
+            # Price
+            msg.attach(MIMEText('  |  ${}'.format(row_new['Price_x']), 'plain'))
+
+            # Date Available
+            msg.attach(MIMEText('  |  Available: {}'.format(row_new['Date Available_x']), 'plain'))
+
+            # Photo
+            with open('Output - Vyne Floor Plans/{}.png'.format(str(floor_plan)), 'rb') as f:
+                image_data = MIMEImage(f.read(), _subtype='png')
+                msg.attach(image_data)
+                msg.attach(MIMEText('<br></br>', 'html'))
+    # </editor-fold>
+
+    # Form Email Body - Leased Units
+    # <editor-fold desc="Leased">
+    if df_leased.empty:
+        pass
+    else:
+        # Count of leased units
+        if len(df_leased) == 1:  # Only difference in this if/else is whether to print 'Unit' (singular) vs 'Units' (plural)
+            leased_unit_count = '<b>' + '{} Leased {} Unit'.format(len(df_leased), floor_plan) + '</b></font>' + '<br></br>'
+            # text = '<font face="Courier New, Courier, monospace">' + 'text' + '</font>'  # Sample font change
+            msg.attach(MIMEText(leased_unit_count, 'html'))
+        else:
+            leased_unit_count = '<b>' + '{} Leased {} Units'.format(len(df_leased), floor_plan) + '</b></font>' + '<br></br>'
+            msg.attach(MIMEText(leased_unit_count, 'html'))
+
+        # Fill email body with content
+        for index_leased, row_leased in df_leased.iterrows():
+
+            # Unit
+            msg.attach(MIMEText('<b>{}</b>'.format(row_leased['Unit']), 'html'))
+
+            # Price
+            msg.attach(MIMEText('  |  ${}'.format(row_leased['Price_y']), 'plain'))
+
+            # Date Available
+            msg.attach(MIMEText('  |  Available: {}'.format(row_leased['Date Available_y']), 'plain'))
+
+            # Photo
+            with open('Output - Vyne Floor Plans/{}.png'.format(floor_plan), 'rb') as f:
+                image_data = MIMEImage(f.read(), _subtype='png')
+                msg.attach(image_data)
+                msg.attach(MIMEText('<br></br>', 'html'))
+    # </editor-fold>
+
+    # Form Email Body - Change in Unit Price
+    # <editor-fold desc="Changed">
+    if df_change.empty:
+        pass
+    else:
+        # Count of leased units
+        if len(df_change) == 1:  # Only difference in this if/else is whether to print 'Change' (singular) vs 'Changes' (plural)
+            change_unit_count = '<b>' + '{} {} Price Change'.format(len(df_change), floor_plan) + '</b></font>' + '<br></br>'
+            # text = '<font face="Courier New, Courier, monospace">' + 'text' + '</font>'  # Sample font change
+            msg.attach(MIMEText(change_unit_count, 'html'))
+        else:
+            change_unit_count = '<b>' + '{} {} Price Changes'.format(len(df_change), floor_plan) + '</b></font>' + '<br></br>'
+            msg.attach(MIMEText(change_unit_count, 'html'))
+
+        # Fill email body with content
+        for index_change, row_change in df_change.iterrows():
+
+            # Unit
+            msg.attach(MIMEText('<b>{}</b>'.format(row_change['Unit']), 'html'))
+
+            # Price
+            msg.attach(MIMEText('  |  ${}'.format(row_change['Price_x']), 'plain'))
+
+            # Price Change
+            if row_change['Price Change'] > 0:
+                msg.attach(MIMEText(' (+{})'.format(row_change['Price Change']), 'plain'))
+            elif row_change['Price Change'] < 0:
+                msg.attach(MIMEText(' ({})'.format(row_change['Price Change']), 'plain'))
+            else:
+                pass
+
+            # Date Available
+            msg.attach(MIMEText('  |  Available: {}'.format(row_change['Date Available_x']), 'plain'))
+
+            # Photo
+            with open('Output - Vyne Floor Plans/{}.png'.format(floor_plan), 'rb') as f:
+                image_data = MIMEImage(f.read(), _subtype='png')
+                msg.attach(image_data)
+                msg.attach(MIMEText('<br></br>', 'html'))
+    # </editor-fold>
+
+    # Add Time to Email Body
+    time_for_email = current_time.strftime('%Y-%m-%d %-I:%M %p')
+    msg.attach(MIMEText(time_for_email + '<br>', 'html'))
+
+    # Add Website Link to Email Body
+    homepage = MIMEText(url, 'html')
+    msg.attach(homepage)
+
+    # Send Email
+    with smtplib.SMTP('smtp.outlook.com', 587) as smtp:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.login(email, email_password)
+        smtp.send_message(msg)
+
+
 """ ########################################################################################################################## """
 """ Scrape Website """
 """ ########################################################################################################################## """
 
 
-vyne_dict = {'A1A': 'https://www.vyneapts.com/floorplans/a1a'}
+dict_a1a = {'A1A': 'https://www.vyneapts.com/floorplans/a1a'}  # 1 bed 1 bath
+dict_a2a = {'A2A': 'https://www.vyneapts.com/floorplans/a2a'}  # 1 bed 1 bath
+dict_a6d = {'A6D': 'https://www.vyneapts.com/floorplans/a6d'}  # 1 bed 1 bath
+dict_b1b = {'B1B': 'https://www.vyneapts.com/floorplans/b1b'}  # 2 bed 2 bath
+dict_b2b = {'B2B': 'https://www.vyneapts.com/floorplans/b2b'}  # 2 bed 2 bath
+dict_b3b = {'B3B': 'https://www.vyneapts.com/floorplans/b3b'}  # 2 bed 2 bath
+dict_b10b = {'B10B': 'https://www.vyneapts.com/floorplans/b10b'}  # 2 bed 2 bath
+dict_b12b = {'B12B': 'https://www.vyneapts.com/floorplans/b12b'}  # 2 bed 2 bath
+dict_s3a = {'S3A': 'https://www.vyneapts.com/floorplans/s3a'}  # Studio
+
+list_of_dicts = [dict_a1a, dict_a2a, dict_a6d, dict_b1b, dict_b2b, dict_b3b, dict_b10b, dict_b12b, dict_s3a]
 
 
-for k_floorplan, v_floorplan_url in vyne_dict.items():
-
-    html = scrape_html_selenium(v_floorplan_url)
-    print(html)
-
-    df_current = create_dataframe_from_html(html)
-    print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-    df_units_new, df_units_leased, df_units_change = compare_availability(k_floorplan, df_current)
-
-    if df_units_new.empty is True & df_units_leased.empty is True & df_units_change.empty is True:
+while True:
+    # Loop through each Dictionary in the list
+    for dict_floor_plan in list_of_dicts:
         now = datetime.now()
-        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change')
-        pass
-    else:
-        # Save to Excel only if there is some change (either new unit, leased unit, or change in price)
-        today = datetime.today().strftime('%Y-%m-%d %H%m%S')
-        df_current.to_excel('Output - Vyne Spreadsheets/Vyne {} {}.xlsx'.format(k_floorplan, today), index=False)
+        try:
+            # For each floor plan, scrape website, compare availability, and send notification
+            for k_floor_plan, v_floor_plan_url in dict_floor_plan.items():
+                # print(k_floor_plan)
+
+                html = scrape_html_selenium(v_floor_plan_url)
+                # print(html)
+
+                df_current = create_dataframe_from_html(k_floor_plan, html, now)
+                # print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+
+                df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
+
+                if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
+                    print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
+
+                else:
+                    print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
+
+                    # Save changes locally
+                    today = datetime.today().strftime('%Y-%m-%d %H%M%S')
+                    df_current.to_excel('Output - Vyne Spreadsheets/Vyne {} {}.xlsx'.format(k_floor_plan, today), index=False)
+
+                    send_email(k_floor_plan, df_units_new, df_units_leased, df_units_change, now, v_floor_plan_url)
+        except:
+            print(
+                str(now.strftime('%Y-%m-%d %I:%M %p'))
+                + ' - Error ({})'.format(k_floor_plan))
+
+    delay_sec = 60 * 5  # Run every hour
+    time.sleep(delay_sec)
