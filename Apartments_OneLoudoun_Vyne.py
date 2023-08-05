@@ -31,18 +31,18 @@ def scrape_html_selenium(url: str):
 
     # Set the options for the Chromium browser
     chromium_options = Options()
-    chromium_options.add_argument('--disable-extensions')
-    # chromium_options.add_argument('--headless')
+    chromium_options.add_argument('--headless=new')
 
     # Set the driver for the Chromium browser
     chrome_driver = webdriver.Chrome(options=chromium_options)
 
-    # Navigate to your website and close browser
+    # Navigate to your website
     chrome_driver.get(url)
 
     # Get HTML from URL
     html = chrome_driver.page_source
-    chrome_driver.quit()  # Don't run until HTML is created
+
+    # chrome_driver.quit()  # Don't run until HTML is created
 
     # Clean HTML
     html_soup = BeautifulSoup(html, features='lxml').text  # String
@@ -315,6 +315,51 @@ def send_email(floor_plan, df_new, df_leased, df_change, current_time, url):
         smtp.send_message(msg)
 
 
+def main(list_dicts):
+    """
+    Runs all previous functions to scrape website and compare unit availability.
+
+    :param list_dicts: List of dictionaries; each dictionary contains floor plan name as the Key and floor plan URL as the Value.
+    :return: Sends email if there is a change in availability or price.
+    """
+
+    while True:
+        # Loop through each Dictionary in the list
+        for dict_floor_plan in list_dicts:
+            now = datetime.now()
+            try:
+                # For each floor plan, scrape website, compare availability, and send notification
+                for k_floor_plan, v_floor_plan_url in dict_floor_plan.items():
+
+                    html = scrape_html_selenium(v_floor_plan_url)
+                    # print(html)
+
+                    df_current = create_dataframe_from_html(k_floor_plan, html, now)
+                    # print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+
+                    df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
+
+                    if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
+                        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
+
+                    else:
+                        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
+
+                        # Save changes locally
+                        today = datetime.today().strftime('%Y-%m-%d %H%M%S')
+                        df_current.to_excel(
+                            'Output - Vyne Spreadsheets/Vyne {} {}.xlsx'.format(k_floor_plan, today), index=False)
+
+                        send_email(k_floor_plan, df_units_new, df_units_leased, df_units_change, now, v_floor_plan_url)
+            except:
+                print(
+                    str(now.strftime('%Y-%m-%d %I:%M %p'))
+                    + ' - Error ({})'.format(k_floor_plan))
+
+        delay_sec = 60 * 30  # Run every hour
+        time.sleep(delay_sec)
+
+
 """ ########################################################################################################################## """
 """ Scrape Website """
 """ ########################################################################################################################## """
@@ -333,38 +378,7 @@ dict_s3a = {'S3A': 'https://www.vyneapts.com/floorplans/s3a'}  # Studio
 list_of_dicts = [dict_a1a, dict_a2a, dict_a6d, dict_b1b, dict_b2b, dict_b3b, dict_b10b, dict_b12b, dict_s3a]
 
 
-while True:
-    # Loop through each Dictionary in the list
-    for dict_floor_plan in list_of_dicts:
-        now = datetime.now()
-        try:
-            # For each floor plan, scrape website, compare availability, and send notification
-            for k_floor_plan, v_floor_plan_url in dict_floor_plan.items():
-                # print(k_floor_plan)
+main(list_of_dicts)
 
-                html = scrape_html_selenium(v_floor_plan_url)
-                # print(html)
 
-                df_current = create_dataframe_from_html(k_floor_plan, html, now)
-                # print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-                df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
-
-                if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
-                    print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
-
-                else:
-                    print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
-
-                    # Save changes locally
-                    today = datetime.today().strftime('%Y-%m-%d %H%M%S')
-                    df_current.to_excel('Output - Vyne Spreadsheets/Vyne {} {}.xlsx'.format(k_floor_plan, today), index=False)
-
-                    send_email(k_floor_plan, df_units_new, df_units_leased, df_units_change, now, v_floor_plan_url)
-        except:
-            print(
-                str(now.strftime('%Y-%m-%d %I:%M %p'))
-                + ' - Error ({})'.format(k_floor_plan))
-
-    delay_sec = 60 * 5  # Run every hour
-    time.sleep(delay_sec)
+# TODO: If and when S3A is first scraped, delete the blank spreadsheet saved in folder
