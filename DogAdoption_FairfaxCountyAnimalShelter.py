@@ -359,7 +359,7 @@ def send_email(df_new, df_adopted, current_time):
 
             # Photo
             with open('Output - Fairfax Shelter Photos/{}.png'.format(row_new['ID']), 'rb') as f:
-                image_data = MIMEImage(f.read())
+                image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
 
