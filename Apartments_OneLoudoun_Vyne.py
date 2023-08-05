@@ -3,441 +3,182 @@ August 1, 2023
 
 
 """
-
-
-
-from selenium import webdriver
+import numpy as np
 from selenium.webdriver.chrome.options import Options
-
-
-import re
-
-
-
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
-from lxml.html.clean import Cleaner
 import pandas as pd
+from tabulate import tabulate
+from datetime import datetime
+import glob
 
 
-def scrape_html_javascript(url):
+def scrape_html_selenium(url: str):
+    """
+    Scrapes HTML content from a given floorplan's URL
 
-    " Connect to URL "
-
-    # V1
-    options = Options()
-    options.add_argument('--headless')
-
-    driver = webdriver.Chrome(options=options)
-    driver.get(url)
-
-    # Or  # TODO: use this instead? or try the above V1 after some time (website looks out for robots)
-    # driver = webdriver.Chrome()
-    # driver.get(url)
-    # driver.quit()
-
-    " Clean HTML Content "
-    def process_html(string):
-
-        soup = BeautifulSoup(string, features='lxml')
-        soup.prettify()
-
-        # Remove script tags
-        for s in soup.select('script'):
-            s.extract()
-
-        # Remove meta tags
-        for s in soup.select('meta'):
-            s.extract()
-
-        # convert to a string, remove '\r', and return
-        return str(soup).replace('\r', '')
-
-    html_processed = process_html(driver.page_source)
-    # type(html_processed)  # Str
-
-    def sanitize(dirty_html):
-        cleaner = Cleaner(
-            page_structure=True,
-            scripts=True,
-            meta=True,
-            embedded=True,
-            links=True,
-            style=True,
-            processing_instructions=True,
-            inline_style=True,
-            javascript=True,
-            comments=True,
-            frames=True,
-            forms=True,
-            annoying_tags=True,
-            remove_unknown_tags=True,
-            safe_attrs_only=True,
-            safe_attrs=frozenset(['src', 'color', 'href', 'title', 'class', 'name', 'id']),
-            remove_tags=('html', 'body', 'p', 'span', 'font', 'div', 'br')
-            )
-
-        return cleaner.clean_html(dirty_html)
-
-    html_sanitized = sanitize(html_processed)
-    # type(html_sanitized)  # Str
-
-    # Truncate beginning and end of HTML string
-    index_start = html_sanitized.find('Available Units')
-    html_text = html_sanitized[index_start:]
-
-    index_end = html_text.find('Have a question?')
-    html_text2 = html_text[:index_end]
-
-    return html_text2
-
-
-
-" Connect to URL "
-
-
-url = 'https://www.vyneapts.com/floorplans/a1a'
-
-
-# V1
-options = Options()
-options.add_argument('--headless')  # TODO: code somewhat works without this argument
-
-driver = webdriver.Chrome(options=options)
-driver.get(url)
-
-
-# V2  # TODO: use this instead? or try the above V1 after some time (website looks out for robots)
-driver = webdriver.Chrome()
-driver.get(url)
-html = driver.page_source
-soup=BeautifulSoup(html,'html.parser')
-soup2 = soup.prettify()
-# driver.quit()
-
-
-# V7
-
-
-def scrape_html_selenium(url):
+    :param url: URL
+    :return: Cleaned HTML string containing key floorplan and unit information (such as units available, price, etc.)
+    """
 
     # Set the options for the Chromium browser
     chromium_options = Options()
     chromium_options.add_argument('--disable-extensions')
+    # chromium_options.add_argument('--headless')
 
     # Set the driver for the Chromium browser
     chrome_driver = webdriver.Chrome(options=chromium_options)
 
     # Navigate to your website and close browser
     chrome_driver.get(url)
-    chrome_driver.quit()  # Don't run until HTML is created
 
     # Get HTML from URL
     html = chrome_driver.page_source
+    chrome_driver.quit()  # Don't run until HTML is created
 
-    cleaner = re.compile('<.*?>')
+    # Clean HTML
+    html_soup = BeautifulSoup(html, features='lxml').text  # String
+    len(html_soup)  # 7,822
 
-# Set the options for the Chromium browser
-chrome_options = Options()
-chrome_options.add_argument('--disable-extensions')
+    # Truncate beginning and end of HTML string
+    index_start = html_soup.find('Available Units')
+    html_soup = html_soup[index_start:]
+    len(html_soup)  # 4,054
 
-# Set the driver for the Chromium browser
-chrome_driver = webdriver.Chrome(options=chrome_options)
+    index_end = html_soup.find('Have a question?')
+    html_soup = html_soup[:index_end]
+    len(html_soup)  # 274
 
-# Navigate to your website and close browser
-chrome_driver.get(url)
-chrome_driver.quit()  # Don't run until HTML is created
-
-html = chrome_driver.page_source
-print(html)
-soup=BeautifulSoup(html, features='lxml').text
-print(soup)
-type(soup)
-
-html_processed = process_html(html)
-print(html_processed)
-
-html_sanitized = sanitize(html_processed)
-print(html_sanitized)
-
-# TODO: V7 works
+    return html_soup
 
 
-
-CLEANR = re.compile('<.*?>')
-
-def cleanhtml(raw_html):
-  cleantext = re.sub(CLEANR, '', raw_html)
-  return cleantext
-
-html_clean = cleanhtml(html)
-soup = BeautifulSoup(html_clean, features='lxml')
-print(soup)
-
-# Truncate beginning of HTML
-index_start = html_clean.find('Available Units')
-index_start
-html_text = html_clean[index_start:]
-len(html_text)  # 7,335
-print(html_text)
-
-index_end = html_text.find('Have a question?')
-index_end
-html_text2 = html_text[:index_end]
-print(html_text2)
-
-
-
-" Clean HTML Content "
-
-
-def process_html(string):
-    # soup = BeautifulSoup(string, features='lxml')
-    soup=BeautifulSoup(html,'html.parser')
-    soup.prettify()
-
-    # Remove script tags
-    for s in soup.select('script'):
-        s.extract()
-
-    # Remove meta tags
-    for s in soup.select('meta'):
-        s.extract()
-
-    # Remove section tags
-    for s in soup.select('section'):
-        s.extract()
-
-    # Remove class tags
-    for s in soup.select('class'):
-        s.extract()
-
-    # convert to a string, remove '\r', and return
-    return str(soup).replace('\r', '')
-
-
-html_processed = process_html(html)
-print(html_processed)
-type(html_processed)  # Str
-len(html_processed)  # 101,030
-
-
-def sanitize(dirty_html):
-    cleaner = Cleaner(
-        page_structure=True,
-        scripts=True,
-        meta=True,
-        embedded=True,
-        links=True,
-        style=True,
-        processing_instructions=True,
-        inline_style=True,
-        javascript=True,
-        comments=True,
-        frames=True,
-        forms=True,
-        annoying_tags=True,
-        remove_unknown_tags=True,
-        safe_attrs_only=True,
-        safe_attrs=frozenset(['src', 'color', 'href', 'title', 'class', 'name', 'id']),
-        remove_tags=('html', 'body', 'p', 'span', 'font', 'div', 'br')
-        )
-    return cleaner.clean_html(dirty_html)
-
-
-html_sanitized = sanitize(html_processed)
-print(html_sanitized)
-type(html_sanitized)  # Str
-len(html_sanitized)  # 15,776
-
-# Truncate beginning of HTML
-html_sanitized = soup
-index_start = html_sanitized.find('Available Units')
-index_start
-html_text = html_sanitized[index_start:]
-len(html_text)  # 7,335
-print(html_text)
-
-
-index_end = html_text.find('Have a question?')
-index_end
-html_text2 = html_text[:index_end]
-# type(html_text2)
-# len(html_text2)
-print(html_text2)
-# type(html_text)  # Str
-# len(html_text)  # 10,850
-
-
-""" ########################################################################################################################## """
-""" Convert HTML to DataFrame """
-""" ########################################################################################################################## """
-
-
-def create_dataframe_from_html(html, current_time):
+def create_dataframe_from_html(html_str: str):
     """
-    Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
+    Converts the HTML string of key unit information to a DF
 
-    :param html: HTML string output from the scrape_html function
-    :param current_time: Current datetime
-    :return: count of number of dogs available (proxy for number of webpages that need scraping, and cleaned DF of dog attributes)
+    :param html_str:
+    :return: DataFrame containing Unit, Price, Date Available columns
     """
 
     # Create list from HTML string
-    list_text = [i.strip() for i in html.splitlines()]
+    list_html_text = [i.strip() for i in html_str.splitlines()]
     # type(list_text)  # List
-    # len(list_text)  # 1,224
+    # len(list_text)  # 63
 
     # Create DataFrame from list
-    df = pd.DataFrame(list_text, columns=['Text'])
-    # len(df)  # 1,224
+    df = pd.DataFrame(list_html_text, columns=['Unit'])
+    # len(df)  # 63
 
     # Drop NAN rows
-    df2 = df[df['Text'] != ''].copy()
-    # len(df2)  # 479
+    df2 = df[df['Unit'] != ''].copy()
+    # len(df2)  # 12
 
-    df2.reset_index(inplace=True)
+    df2.reset_index(drop=True, inplace=True)
 
+    # Build wide DF
     for index, row in df2.iterrows():
 
-        # Store a single index to write all attributes to that belong to the same dog
-        if row['Text'] == 'Name:':
+        # Store one index per unit and write all attributes associated with that unit to the index in question
+        if 'Apartment: ' in row['Unit']:
             index_save = index
 
-        # Fill in Name
-        if row['Text'] == 'Name:':
-            df2.loc[index_save, 'Name'] = df2.loc[index + 1, 'Text']
+        # Fill in Price
+        if 'Starting at:' in row['Unit']:
+            df2.loc[index_save, 'Price'] = df2.loc[index, 'Unit']
 
-        # Fill in Gender
-        if row['Text'] == 'Gender:':
-            df2.loc[index_save, 'Gender'] = df2.loc[index + 1, 'Text']
+        # Fill in Date Available
+        if 'Date Available:' in row['Unit']:
+            df2.loc[index_save, 'Date Available'] = df2.loc[index, 'Unit']
 
-        # Fill in Breed
-        if row['Text'] == 'Breed:':
-            df2.loc[index_save, 'Breed'] = df2.loc[index + 1, 'Text']
+    # Drop rows that contain NAN in any column
+    df3 = df2[~df2.isnull().any(axis=1)].copy()
+    # len(df3)  # 2
 
-        # Fill in Animal Type
-        if row['Text'] == 'Animal type:':
-            df2.loc[index_save, 'Animal Type'] = df2.loc[index + 1, 'Text']
+    # Clean column values
+    df3.loc[df3['Unit'].str.contains('Apartment: '), 'Unit'] = df3['Unit'].str.split('Apartment: # ').str[1]
+    df3.loc[df3['Date Available'].str.contains(
+        'Date Available: '), 'Date Available'] = df3['Date Available'].str.split('Date Available:  ').str[1]
+    df3.loc[df3['Price'].str.contains('Starting at: '), 'Price'] = df3['Price'].str.split('Starting at: ').str[1]
 
-        # Fill in Age
-        if row['Text'] == 'Age:':
-            df2.loc[index_save, 'Age'] = df2.loc[index + 1, 'Text']
-
-        # Fill in Brought to the Shelter
-        if row['Text'] == 'Brought to the shelter:':
-            df2.loc[index_save, 'Brought to Shelter'] = df2.loc[index + 1, 'Text']
-
-        # Fill in Located At
-        if row['Text'] == 'Located at:':
-            df2.loc[index_save, 'Location'] = df2.loc[index + 1, 'Text']
-
-    # Fill in Image (done separately, since this attribute appears after the index associated with the dog's name)
-    df2.loc[df2['Text'].str.contains('<img id="AnimalImage_'), 'Image'] = df2['Text']
-    df2['Image'].ffill(inplace=True)
-
-    # Drop rows where Name is NAN
-    df3 = df2[df2['Name'].notna()].copy()
-    # len(df3)  # 30
-
-    # Finish cleaning URLs in Image column (doesn't work until NANs are taken care of)
-    df3.loc[df3['Image'].str.contains(' src="'), 'Image'] = df3['Image'].str.split(' src="').str[1].str.split('">').str[0]
-    df3.reset_index(drop=True, inplace=True)
-    # print(tabulate(df3.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-    # Create ID column from latter part of Name
-    df3['ID'] = df3['Name'].str.extract('(\d*\.?\d+)', expand=True)
-
-    # Clean and remove ID from Name column
-    df3.loc[df3['Name'].str.contains(' \\([0-9]'), 'Name'] = df3['Name'].str.split(' \\([0-9]').str[0]
-    df4 = df3.applymap(lambda x: str(x).replace('&amp;', '&'))
-
-    # Set Date Types
-    # print(df4.dtypes)
-    df4['Brought to Shelter'] = pd.to_datetime(df4['Brought to Shelter'])
-    df4['ID'] = df4['ID'].astype('int32')
+    # Turn Price string to integer
+    df3['Price'] = df3['Price'].str.replace('$', '')
+    df3['Price'] = df3['Price'].str.replace(',', '')
+    df3['Price'] = df3['Price'].astype('int16')
 
     # Add scraped DateTime to DF
-    df4['Scrape Datetime'] = current_time
+    now = datetime.now()
 
-    # print(df4.columns)
-    df5 = df4[['ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image', 'Scrape Datetime']].copy()
-    # print(df5.dtypes)
-    # print(tabulate(df5, tablefmt='psql', numalign='right', headers='keys', showindex=True))
+    df3['Scrape Datetime'] = now
 
-    return animals_available, df5
+    df4 = df3[['Unit', 'Price', 'Date Available', 'Scrape Datetime']].copy()
 
-
-# Create list from HTML string
-list_text = [i.strip() for i in html_text2.splitlines()]
-# type(list_text)  # List
-# len(list_text)  # 1,224
-
-# Create DataFrame from list
-df = pd.DataFrame(list_text, columns=['Text'])
-# len(df)  # 1,224
-
-# Drop NAN rows
-df2 = df[df['Text'] != ''].copy()
-# len(df2)  # 479
-
-df2.reset_index(inplace=True)
+    return df4
 
 
-df2.head()
+def compare_availability(floorplan: str, df_scraped):
+    """
+    Identifies how many and which apartment units are either newly available on the market, were leased, or had a price change
+    since the last check.
 
-for index, row in df2.iterrows():
-    print(index)
-    # Store a single index to write all attributes to that belong to the same dog
-    if row['Text'] == 'Name:':
-        index_save = index
-    # Fill in Name
-    if row['Text'] == 'Name:':
-        df2.loc[index_save, 'Name'] = df2.loc[index + 1, 'Text']
-    # Fill in Gender
-    if row['Text'] == 'Gender:':
-        df2.loc[index_save, 'Gender'] = df2.loc[index + 1, 'Text']
-    # Fill in Breed
-    if row['Text'] == 'Breed:':
-        df2.loc[index_save, 'Breed'] = df2.loc[index + 1, 'Text']
-    # Fill in Animal Type
-    if row['Text'] == 'Animal type:':
-        df2.loc[index_save, 'Animal Type'] = df2.loc[index + 1, 'Text']
-    # Fill in Age
-    if row['Text'] == 'Age:':
-        df2.loc[index_save, 'Age'] = df2.loc[index + 1, 'Text']
-    # Fill in Brought to the Shelter
-    if row['Text'] == 'Brought to the shelter:':
-        df2.loc[index_save, 'Brought to Shelter'] = df2.loc[index + 1, 'Text']
-    # Fill in Located At
-    if row['Text'] == 'Located at:':
-        df2.loc[index_save, 'Location'] = df2.loc[index + 1, 'Text']
-# Fill in Image (done separately, since this attribute appears after the index associated with the dog's name)
-df2.loc[df2['Text'].str.contains('<img id="AnimalImage_'), 'Image'] = df2['Text']
-df2['Image'].ffill(inplace=True)
-# Drop rows where Name is NAN
-df3 = df2[df2['Name'].notna()].copy()
-# len(df3)  # 30
-# Finish cleaning URLs in Image column (doesn't work until NANs are taken care of)
-df3.loc[df3['Image'].str.contains(' src="'), 'Image'] = df3['Image'].str.split(' src="').str[1].str.split('">').str[0]
-df3.reset_index(drop=True, inplace=True)
-# print(tabulate(df3.head(10), tablefmt='psql', numalign='right', headers='keys', showindex=False))
-# Create ID column from latter part of Name
-df3['ID'] = df3['Name'].str.extract('(\d*\.?\d+)', expand=True)
-# Clean and remove ID from Name column
-df3.loc[df3['Name'].str.contains(' \\([0-9]'), 'Name'] = df3['Name'].str.split(' \\([0-9]').str[0]
-df4 = df3.applymap(lambda x: str(x).replace('&amp;', '&'))
-# Set Date Types
-# print(df4.dtypes)
-df4['Brought to Shelter'] = pd.to_datetime(df4['Brought to Shelter'])
-df4['ID'] = df4['ID'].astype('int32')
-# Add scraped DateTime to DF
-df4['Scrape Datetime'] = current_time
-# print(df4.columns)
-df5 = df4[['ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image', 'Scrape Datetime']].copy()
-# print(df5.dtypes)
-# print(tabulate(df5, tablefmt='psql', numalign='right', headers='keys', showindex=True))
-return animals_available, df5
+    :param floorplan: Indicating which floorplan is being scraped. For file naming and differentiating between floorplans.
+    :param df_scraped: Cleaned DataFrame containing current unit availability and prices from the website
+    :return: 1 DF for new units, leased units, and units with prices changes
+    """
+
+    # Previous Availability
+    list_past_files = glob.glob('Output - Vyne Spreadsheets/Vyne {}*.xlsx'.format(floorplan))
+    list_past_files.sort(reverse=False)
+    latest_file = list_past_files[-1]
+    df_previous = pd.read_excel(latest_file)
+
+    # Outer merge tells if a unit is new, leased, or still available. Upon merge, _x is current _y is previous.
+    df_merged = pd.merge(
+        df_scraped,
+        df_previous,
+        how='outer',
+        on='Unit')
+
+    df_merged.loc[(df_merged['Price_y'].isna()), 'Change Status'] = 'New Unit'
+    df_merged.loc[(df_merged['Price_x'].isna()), 'Change Status'] = 'Unit Leased'
+    df_merged.loc[(df_merged['Change Status'].isna()), 'Change Status'] = 'Same Availability'
+
+    # Calculate price change, if applicable
+    df_merged['Price Change'] = df_merged['Price_x'] - df_merged['Price_y']
+    df_merged['Price Change'].fillna(0, inplace=True)
+
+    # Create separate DF for each change status, which will inform if and what to send in email
+    df_new = df_merged[df_merged['Change Status'] == 'New Unit'].copy()
+    df_leased = df_merged[df_merged['Change Status'] == 'Unit Leased'].copy()
+    df_change = df_merged[
+        (df_merged['Change Status'] == 'Same Availability') &
+        (df_merged['Price Change'] != 0)].copy()
+
+    return df_new, df_leased, df_change
 
 
+""" ########################################################################################################################## """
+""" Scrape Website """
+""" ########################################################################################################################## """
+
+
+vyne_dict = {'A1A': 'https://www.vyneapts.com/floorplans/a1a'}
+
+
+for k_floorplan, v_floorplan_url in vyne_dict.items():
+
+    html = scrape_html_selenium(v_floorplan_url)
+    print(html)
+
+    df_current = create_dataframe_from_html(html)
+    print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+
+    df_units_new, df_units_leased, df_units_change = compare_availability(k_floorplan, df_current)
+
+    if df_units_new.empty is True & df_units_leased.empty is True & df_units_change.empty is True:
+        now = datetime.now()
+        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change')
+        pass
+    else:
+        # Save to Excel only if there is some change (either new unit, leased unit, or change in price)
+        today = datetime.today().strftime('%Y-%m-%d %H%m%S')
+        df_current.to_excel('Output - Vyne Spreadsheets/Vyne {} {}.xlsx'.format(k_floorplan, today), index=False)
