@@ -126,7 +126,7 @@ def create_dataframe_from_html(html, current_time):
 
     for index, row in df2.iterrows():
 
-        # Store a single index to write all attributes to that belong to the same dog
+        # Store one index per dog and write all attributes associated with that dog to the index in question
         if row['Text'] == 'Name:':
             index_save = index
 
@@ -263,7 +263,7 @@ def compare_availability(df_current):
     """
 
     # Previous Availability
-    list_past_files = glob.glob('Output - Spreadsheets/*.xlsx')
+    list_past_files = glob.glob('Output - Fairfax Shelter Spreadsheets/*.xlsx')
     list_past_files.sort(reverse=False)
     latest_file = list_past_files[-1]
     df_previous = pd.read_excel(latest_file)
@@ -282,7 +282,7 @@ def compare_availability(df_current):
 
     else:  # If change
 
-        " Compile Information About New Dogs "
+        # Compile Information About New Dogs
         # Flag new dogs' IDs
         set_new = set_current_dogs - set_previous_dogs  # New dogs
 
@@ -293,7 +293,7 @@ def compare_availability(df_current):
             # Save new dog photos
             image_url_new = row_new['Image']
             r = requests.get(image_url_new, allow_redirects=True)
-            with open('Output - Photos/{}'.format(row_new['ID']), 'wb') as f:
+            with open('Output - Fairfax Shelter Photos/{}.png'.format(row_new['ID']), 'wb') as f:
                 f.write(r.content)
 
         # Compile Information About Adopted Dogs
@@ -307,7 +307,7 @@ def compare_availability(df_current):
             # Save adopted dogs' photos locally
             image_url_adopted = row_adopted['Image']
             r = requests.get(image_url_adopted, allow_redirects=True)
-            with open('Output - Photos/{}'.format(row_adopted['ID']), 'wb') as f:
+            with open('Output - Fairfax Shelter Photos/{}'.format(row_adopted['ID']), 'wb') as f:
                 f.write(r.content)
 
         return df_new, df_adopted
@@ -327,13 +327,13 @@ def send_email(df_new, df_adopted, current_time):
     :return: If there's a change in availability, email me that change
     """
 
-    " Form Email Parameters "
+    # Form Email Parameters
     msg = MIMEMultipart('multipart')  # To support mix of content types
     msg['From'] = email
     msg['To'] = email
     msg['Subject'] = '🐶 Fairfax County Animal Shelter Update!'
 
-    " Form Email Body - New Dogs "
+    # Form Email Body - New Dogs
     if len(df_new) > 0:
 
         # Count of new dogs
@@ -357,12 +357,12 @@ def send_email(df_new, df_adopted, current_time):
             msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
             # Photo
-            with open('Output - Photos/{}'.format(row_new['ID']), 'rb') as f:
+            with open('Output - Fairfax Shelter Photos/{}'.format(row_new['ID']), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
 
-    " Form Email Body - Adopted Dogs "
+    # Form Email Body - Adopted Dogs
     if len(df_adopted) > 0:
 
         # Count of adopted dogs
@@ -385,21 +385,20 @@ def send_email(df_new, df_adopted, current_time):
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
             # Photo
-            with open('Output - Photos/{}'.format(row_adopted['ID']), 'rb') as f:
+            with open('Output - Fairfax Shelter Photos/{}'.format(row_adopted['ID']), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
 
-    " Metadata "
-    # Time
+    # Add Time to Body
     time_for_email = current_time.strftime('%Y-%m-%d %I:%M %p')
     msg.attach(MIMEText(time_for_email + '<br>', 'html'))
 
-    # Website link
+    # Add Website Link to Body
     homepage = MIMEText('https://24petconnect.com/PP4352?at=DOG', 'html')
     msg.attach(homepage)
 
-    " Send Email "
+    # Send Email
     with smtplib.SMTP('smtp.outlook.com', 587) as smtp:
         smtp.ehlo()
         smtp.starttls()
@@ -416,7 +415,7 @@ def main(url1, url2):
     :return: Sends email when there is new or adopted dog and includes notable information.
     """
 
-    while True:  # Only runs after 8 AM and before 10 PM (Open hours are 11 AM - 7 PM)
+    while True:  # Only runs after 8 AM and before 10 PM (shelter's hours are roughly 11 AM - 7 PM, depending on day)
 
         # Current DateTime for exporting and naming files with current timestamp
         now = datetime.now()
@@ -429,10 +428,6 @@ def main(url1, url2):
 
             df_dogs_new, df_dogs_adopted = compare_availability(df_current_dogs)
 
-            now_text = now.strftime('%Y-%m-%d %H-%M-%S')
-            df_current_dogs.to_excel(
-                'Output - Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
-
             if len(df_dogs_new) + len(df_dogs_adopted) == 0:
                 print(
                     str(now.strftime('%Y-%m-%d %I:%M %p'))
@@ -442,6 +437,12 @@ def main(url1, url2):
                 print(
                     str(now.strftime('%Y-%m-%d %I:%M %p'))
                     + ' - Change in Availability!')
+
+                # Save to Excel
+                now_text = now.strftime('%Y-%m-%d %H-%M-%S')
+                df_current_dogs.to_excel(
+                    'Output - Fairfax Shelter Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+
                 send_email(df_dogs_new, df_dogs_adopted, now)
 
         except:
@@ -449,9 +450,8 @@ def main(url1, url2):
                 str(now.strftime('%Y-%m-%d %I:%M %p'))
                 + ' - Error')
 
-        " Time Delay "
+        # Time delay
         # Having this after the main code makes sure that the code runs at least once for testing even if it's during off hours
-
         hour_start = 8  # 8 AM - Time of day to start running script (script stops at midnight)
 
         if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every 5 minutes
@@ -513,9 +513,9 @@ def troubleshoot(url1, url2):
     #         return(error)
 
 
-""" #################################################################################################################################### """
+""" ########################################################################################################################## """
 """ Scrape Website """
-""" #################################################################################################################################### """
+""" ########################################################################################################################## """
 
 
 # Set URL
