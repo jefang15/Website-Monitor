@@ -436,7 +436,7 @@ def main(url1, url2):
             if len(df_dogs_new) + len(df_dogs_adopted) == 0:
                 print(
                     str(now.strftime('%Y-%m-%d %I:%M %p'))
-                    + ' - No Change (To break loop, press Ctrl + C in Console or Fn + Cmd + F2 in Terminal)')
+                    + ' - No Change')
                 pass
             else:
                 print(
