@@ -307,7 +307,7 @@ def compare_availability(df_current):
             # Save adopted dogs' photos locally
             image_url_adopted = row_adopted['Image']
             r = requests.get(image_url_adopted, allow_redirects=True)
-            with open('Output - Fairfax Shelter Photos/{}'.format(row_adopted['ID']), 'wb') as f:
+            with open('Output - Fairfax Shelter Photos/{}.png'.format(row_adopted['ID']), 'wb') as f:
                 f.write(r.content)
 
         return df_new, df_adopted
@@ -345,6 +345,7 @@ def send_email(df_new, df_adopted, current_time):
             new_dog_count = '<b>' + '{} New Dogs'.format(len(df_new)) + '</b></font>' + '<br></br>'
             msg.attach(MIMEText(new_dog_count, 'html'))
 
+        # Fill email body with content
         for index_new, row_new in df_new.iterrows():
 
             # Name
@@ -357,7 +358,7 @@ def send_email(df_new, df_adopted, current_time):
             msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
             # Photo
-            with open('Output - Fairfax Shelter Photos/{}'.format(row_new['ID']), 'rb') as f:
+            with open('Output - Fairfax Shelter Photos/{}.png'.format(row_new['ID']), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -373,6 +374,7 @@ def send_email(df_new, df_adopted, current_time):
             adopted_dog_count = '<b>' + '{} Adopted Dogs'.format(len(df_adopted)) + '</b></font>' + '<br></br>'
             msg.attach(MIMEText(adopted_dog_count, 'html'))
 
+        # Fill email body with content
         for index_adopted, row_adopted in df_adopted.iterrows():
 
             # Name
@@ -385,7 +387,7 @@ def send_email(df_new, df_adopted, current_time):
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
             # Photo
-            with open('Output - Fairfax Shelter Photos/{}'.format(row_adopted['ID']), 'rb') as f:
+            with open('Output - Fairfax Shelter Photos/{}.png'.format(row_adopted['ID']), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -504,13 +506,13 @@ def troubleshoot(url1, url2):
     #     print(
     #         str(_now.strftime('%Y-%m-%d %I:%M %p'))
     #         + ' - Change in Availability!')
-    #     # send_email(_df_dogs_new, _df_dogs_adopted, _now)
-    #
-    # if len(errors) == 0:
-    #     print('No errors')
-    # else:
-    #     for error in errors:
-    #         return(error)
+    #     send_email(_df_dogs_new, _df_dogs_adopted, _now)
+
+    if len(errors) == 0:
+        print('No errors')
+    else:
+        for error in errors:
+            print(error)
 
 
 """ ########################################################################################################################## """
