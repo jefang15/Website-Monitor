@@ -64,7 +64,7 @@ def scrape_html_selenium(url: str):
 
 def create_dataframe_from_html(floor_plan, html_str: str, current_time):
     """
-    Converts the HTML string of key unit information to a DF
+    Converts the HTML string of key unit information to a DF.
 
     :param floor_plan: Floor plan type to add to DF column
     :param html_str: Cleaned HTML of floor plan website
@@ -98,8 +98,10 @@ def create_dataframe_from_html(floor_plan, html_str: str, current_time):
         if 'Starting at:' in row['Unit']:
             df2.loc[index_save, 'Price'] = df2.loc[index, 'Unit']
 
-        # Fill in Date Available
+        # Fill in Date Available (HTML changes if available now vs future date)
         if 'Date Available:' in row['Unit']:
+            df2.loc[index_save, 'Date Available'] = df2.loc[index, 'Unit']
+        if 'Available Now' in row['Unit']:
             df2.loc[index_save, 'Date Available'] = df2.loc[index, 'Unit']
 
     # Drop rows that contain NAN in any column
@@ -124,6 +126,8 @@ def create_dataframe_from_html(floor_plan, html_str: str, current_time):
     df3['Scrape Datetime'] = current_time
 
     df4 = df3[['Floor Plan', 'Unit', 'Price', 'Date Available', 'Scrape Datetime']].copy()
+
+    df4.reset_index(drop=True, inplace=True)
 
     return df4
 
@@ -210,7 +214,6 @@ def send_email(floor_plan, df_new, df_leased, df_change, current_time, url):
         # Fill email body with content
         for index_new, row_new in df_new.iterrows():
 
-            print('ok email new unit count')
             # Unit
             msg.attach(MIMEText('<b>{}</b>'.format(row_new['Unit']), 'html'))
 
@@ -368,6 +371,12 @@ def main(list_dicts):
                         # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
                         logging.info('Change in availability! (%s)', k_floor_plan)
 
+                        (logging.info(
+                            '{}'.format(k_floor_plan)
+                            + '\n\n'
+                            + df_current.to_string(index=False)
+                            + '\n'))
+
                         # Save changes locally
                         today = datetime.today().strftime('%Y-%m-%d %H%M%S')
                         df_current.to_excel(
@@ -377,10 +386,60 @@ def main(list_dicts):
             except:
                 # print(
                 #     str(now.strftime('%Y-%m-%d %I:%M %p'))
-                #     + ' - Error ({})'.format(k_floor_plan))
-                logging.error('Floor plan unavailable (%s)', k_floor_plan)  # , exc_info=True (shows full error)
+                #     + ' - Unable to connect to or scrape website ({})'.format(k_floor_plan))
+                logging.error(
+                    'Unable to connect to or scrape website (%s)', k_floor_plan)  # , exc_info=True (shows full error)
 
         delay_sec = 60 * 60  # Run every hour
+        time.sleep(delay_sec)
+
+
+def troubleshoot(list_dicts):
+    """
+    Same as main function, but prints statements to help pinpoint where errors occur and does not write to log
+
+    :param list_dicts: List of dictionaries; each dictionary contains floor plan name as the Key and floor plan URL as the Value.
+    :return: Sends email if there is a change in availability or price.
+    """
+
+    while True:
+        # Loop through each Dictionary in the list
+        for dict_floor_plan in list_dicts:
+            now = datetime.now()
+            try:
+                # For each floor plan, scrape website, compare availability, and send notification
+                for k_floor_plan, v_floor_plan_url in dict_floor_plan.items():
+                    print(k_floor_plan)
+
+                    html = scrape_html_selenium(v_floor_plan_url)
+                    print('Scraped website and cleaned HTML')
+                    # print(html)
+
+                    df_current = create_dataframe_from_html(k_floor_plan, html, now)
+                    print('Created DataFrame of current availability from HTML')
+                    print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+
+                    df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
+                    print('Created DataFrames for each change status')
+                    print('DF new length: ' + str(len(df_units_new)))
+                    print('DF leased length: ' + str(len(df_units_leased)))
+                    print('DF changed length: ' + str(len(df_units_change)))
+
+                    if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
+                        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
+                        pass
+
+                    else:
+                        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
+
+                        send_email(k_floor_plan, df_units_new, df_units_leased, df_units_change, now, v_floor_plan_url)
+                    print('')
+            except:
+                print(
+                    str(now.strftime('%Y-%m-%d %I:%M %p'))
+                    + ' - Unable to connect to or scrape website ({})'.format(k_floor_plan))
+
+        delay_sec = 60 * 15
         time.sleep(delay_sec)
 
 
@@ -403,6 +462,7 @@ list_of_dicts = [dict_a1a, dict_a2a, dict_a6d, dict_b1b, dict_b2b, dict_b3b, dic
 
 
 main(list_of_dicts)
+# troubleshoot(list_of_dicts)
 
 
 # TODO: If and when S3A is first scraped, delete the blank spreadsheet saved in folder
