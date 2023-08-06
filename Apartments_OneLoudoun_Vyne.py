@@ -119,6 +119,9 @@ def create_dataframe_from_html(floor_plan, html_str: str, current_time):
     df3['Price'] = df3['Price'].str.replace(',', '')
     df3['Price'] = df3['Price'].astype('int16')
 
+    # Change availability string
+    df3.loc[df3['Date Available'].str.contains('Available Now'), 'Date Available'] = 'Now'
+
     # Add floor plan to DF
     df3['Floor Plan'] = floor_plan
 
@@ -139,7 +142,8 @@ def compare_availability(floor_plan: str, df_scraped):
 
     :param floor_plan: Indicating which floor plan is being scraped. For file naming and differentiating between floor plans.
     :param df_scraped: Cleaned DataFrame containing current unit availability and prices from the website
-    :return: 1 DF for new units, leased units, and units with prices changes
+    :return: 1 DF for current status with all potential changes, only new units, only leased units, and only units with prices
+    changes
     """
 
     # Previous Availability (need to have an existing spreadsheet to compare to; create a blank one if it doesn't exist)
@@ -155,22 +159,37 @@ def compare_availability(floor_plan: str, df_scraped):
         how='outer',
         on=['Floor Plan', 'Unit'])
 
-    df_merged.loc[(df_merged['Price_y'].isna()), 'Change Status'] = 'New Unit'
-    df_merged.loc[(df_merged['Price_x'].isna()), 'Change Status'] = 'Unit Leased'
-    df_merged.loc[(df_merged['Change Status'].isna()), 'Change Status'] = 'Same Availability'
+    df_merged2 = df_merged.rename(
+        {
+            'Price_x': 'Price Current',  # TODO: eventually can delete (change column name convention for prices)
+            'Price_y': 'Price Previous',  # TODO: eventually can delete (change column name convention for prices)
+
+            'Price Current_x': 'Price Current',
+            'Price Current_y': 'Price Previous',
+            'Date Available_x': 'Date Available',
+            'Scrape Datetime_x': 'Scrape Datetime'
+        }, axis=1)
+
+    df_merged2.loc[(df_merged2['Price Previous'].isna()), 'Change Status'] = 'New Unit'
+    df_merged2.loc[(df_merged2['Price Current'].isna()), 'Change Status'] = 'Leased Unit'
+    df_merged2.loc[(df_merged2['Change Status'].isna()), 'Change Status'] = 'Still Available'
 
     # Calculate price change, if applicable
-    df_merged['Price Change'] = df_merged['Price_x'] - df_merged['Price_y']
-    df_merged['Price Change'].fillna(0, inplace=True)
+    df_merged2['Price Change'] = df_merged2['Price Current'] - df_merged2['Price Previous']
+    df_merged2['Price Change'].fillna(0, inplace=True)
 
     # Create separate DF for each change status, which will inform if and what to send in email
-    df_new = df_merged[df_merged['Change Status'] == 'New Unit'].copy()
-    df_leased = df_merged[df_merged['Change Status'] == 'Unit Leased'].copy()
-    df_change = df_merged[
-        (df_merged['Change Status'] == 'Same Availability') &
-        (df_merged['Price Change'] != 0)].copy()
+    df_new = df_merged2[df_merged2['Change Status'] == 'New Unit'].copy()
+    df_leased = df_merged2[df_merged2['Change Status'] == 'Leased Unit'].copy()
+    df_change = df_merged2[
+        (df_merged2['Change Status'] == 'Still Available') &
+        (df_merged2['Price Change'] != 0)].copy()
 
-    return df_new, df_leased, df_change
+    df_all = df_merged2[[
+        'Floor Plan', 'Unit', 'Price Current', 'Price Previous', 'Price Change', 'Change Status', 'Date Available',
+        'Scrape Datetime']].copy()
+
+    return df_all, df_new, df_leased, df_change
 
 
 def send_email(floor_plan, df_new, df_leased, df_change, current_time, url):
@@ -218,10 +237,10 @@ def send_email(floor_plan, df_new, df_leased, df_change, current_time, url):
             msg.attach(MIMEText('<b>{}</b>'.format(row_new['Unit']), 'html'))
 
             # Price
-            msg.attach(MIMEText('  |  ${}'.format(row_new['Price_x']), 'plain'))
+            msg.attach(MIMEText('  |  ${}'.format(row_new['Price Current']), 'plain'))
 
             # Date Available
-            msg.attach(MIMEText('  |  Available: {}'.format(row_new['Date Available_x']), 'plain'))
+            msg.attach(MIMEText('  |  Available: {}'.format(row_new['Date Available']), 'plain'))
 
             # Photo
             with open('Output - Vyne Floor Plans/{}.png'.format(str(floor_plan)), 'rb') as f:
@@ -251,10 +270,10 @@ def send_email(floor_plan, df_new, df_leased, df_change, current_time, url):
             msg.attach(MIMEText('<b>{}</b>'.format(row_leased['Unit']), 'html'))
 
             # Price
-            msg.attach(MIMEText('  |  ${}'.format(row_leased['Price_y']), 'plain'))
+            msg.attach(MIMEText('  |  ${}'.format(row_leased['Price Previous']), 'plain'))
 
             # Date Available
-            msg.attach(MIMEText('  |  Available: {}'.format(row_leased['Date Available_y']), 'plain'))
+            msg.attach(MIMEText('  |  Available: {}'.format(row_leased['Date Available']), 'plain'))
 
             # Photo
             with open('Output - Vyne Floor Plans/{}.png'.format(floor_plan), 'rb') as f:
@@ -284,7 +303,7 @@ def send_email(floor_plan, df_new, df_leased, df_change, current_time, url):
             msg.attach(MIMEText('<b>{}</b>'.format(row_change['Unit']), 'html'))
 
             # Price
-            msg.attach(MIMEText('  |  ${}'.format(row_change['Price_x']), 'plain'))
+            msg.attach(MIMEText('  |  ${}'.format(row_change['Price Current']), 'plain'))
 
             # Price Change
             if row_change['Price Change'] > 0:
@@ -295,7 +314,7 @@ def send_email(floor_plan, df_new, df_leased, df_change, current_time, url):
                 pass
 
             # Date Available
-            msg.attach(MIMEText('  |  Available: {}'.format(row_change['Date Available_x']), 'plain'))
+            msg.attach(MIMEText('  |  Available: {}'.format(row_change['Date Available']), 'plain'))
 
             # Photo
             with open('Output - Vyne Floor Plans/{}.png'.format(floor_plan), 'rb') as f:
@@ -360,7 +379,7 @@ def main(list_dicts):
                     df_current = create_dataframe_from_html(k_floor_plan, html, now)
                     # print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
-                    df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
+                    df_all, df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
 
                     if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
                         # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
@@ -374,12 +393,12 @@ def main(list_dicts):
                         (logging.info(
                             '{}'.format(k_floor_plan)
                             + '\n\n'
-                            + df_current.to_string(index=False)
+                            + df_all.to_string(index=False)
                             + '\n'))
 
                         # Save changes locally
                         today = datetime.today().strftime('%Y-%m-%d %H%M%S')
-                        df_current.to_excel(
+                        df_all.to_excel(
                             'Output - Vyne Spreadsheets/Vyne {} {}.xlsx'.format(k_floor_plan, today), index=False)
 
                         send_email(k_floor_plan, df_units_new, df_units_leased, df_units_change, now, v_floor_plan_url)
@@ -419,7 +438,7 @@ def troubleshoot(list_dicts):
                     print('Created DataFrame of current availability from HTML')
                     print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
-                    df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
+                    df_all, df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
                     print('Created DataFrames for each change status')
                     print('DF new length: ' + str(len(df_units_new)))
                     print('DF leased length: ' + str(len(df_units_leased)))
