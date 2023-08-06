@@ -279,8 +279,8 @@ def compare_availability(df_current):
 
     # Compare Current and Previous Availability
     if set_current_dogs == set_previous_dogs:  # If no change
-        df_new = []
-        df_adopted = []
+        df_new = pd.DataFrame()
+        df_adopted = pd.DataFrame()
         return df_new, df_adopted
 
     else:  # If change
@@ -320,6 +320,9 @@ def compare_availability(df_current):
 
 
 def send_email(df_new, df_adopted, current_time):
+
+    # TODO: add a summary section upfront
+
     """
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
@@ -453,12 +456,26 @@ def main(url1, url2):
 
             df_dogs_new, df_dogs_adopted = compare_availability(df_current_dogs)
 
-            if len(df_dogs_new) + len(df_dogs_adopted) == 0:
-                logging.info('No change')
+            if df_dogs_new.empty & df_dogs_adopted.empty:
+                print(str(
+                    now.strftime('%Y-%m-%d %I:%M:%S %p'))
+                      + '  DogAdoption_FairfaxCountyAnimalShelter, Line 460  INFO  No Change')
+
+                # logging.info('No change')
 
                 pass
             else:
-                logging.info('Change in availability!')
+                # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability!')
+
+                # logging.info('Change in availability!')
+
+                if df_dogs_new.empty is False:
+                    for _, row in df_dogs_new.iterrows():
+                        logging.info('New dog: %s (ID %s)', row['Name'], row['ID'])
+
+                if df_dogs_adopted.empty is False:
+                    for _, row in df_dogs_adopted.iterrows():
+                        logging.info('Adopted dog: %s (ID %s)', row['Name'], row['ID'])
 
                 # Save to Excel
                 now_text = now.strftime('%Y-%m-%d %H-%M-%S')
@@ -468,14 +485,16 @@ def main(url1, url2):
                 send_email(df_dogs_new, df_dogs_adopted, now)
 
         except:
-            logging.error('Unable to connect to or scrape website', exc_info=True)
+            # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Unable to connect to or scrape website')
+
+            logging.error('Unable to connect to or scrape website')
 
         # Time delay
         # Having this after the main code makes sure that the code runs at least once for testing even if it's during off hours
         hour_start = 8  # 8 AM - Time of day to start running script (script stops at midnight)
 
-        if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every 5 minutes
-            delay_sec = 60 * 5  # 5 minutes
+        if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every minute
+            delay_sec = 60 * 1
         else:  # If it's after midnight and before 8 AM, calculate the number of seconds until 8 AM and set that as the delay
             diff_hour = hour_start - int(now.strftime('%H')) - 1
             diff_min = 60 - int(now.strftime('%M'))
