@@ -19,6 +19,8 @@ from email.mime.image import MIMEImage
 from password import email, email_password
 import smtplib
 import time
+import logging
+import sys
 
 
 def scrape_html_selenium(url: str):
@@ -323,6 +325,24 @@ def main(list_dicts):
     :return: Sends email if there is a change in availability or price.
     """
 
+    # Write to log
+    logging.basicConfig(
+        filename='Apartments_OneLoudoun_Vyne.log',
+        format='%(asctime)s   %(module)s, Line %(lineno)d   %(levelname)s   %(message)s',
+        datefmt='%Y-%m-%d %I:%M:%S %p',
+        filemode='a',  # Append to log (rather than, 'w', over-wright)
+        level=logging.INFO)  # Set minimum level to INFO and above
+
+    # Print log in console
+    formatter = logging.Formatter(
+        fmt='%(asctime)s  %(module)s, Line %(lineno)d  %(levelname)s  %(message)s',
+        datefmt='%Y-%m-%d %I:%M:%S %p')
+    screen_handler = logging.StreamHandler(stream=sys.stdout)  # stream=sys.stdout is similar to normal print
+    screen_handler.setFormatter(formatter)
+    logging.getLogger().addHandler(screen_handler)
+
+    logging.info('Started running script')
+
     while True:
         # Loop through each Dictionary in the list
         for dict_floor_plan in list_dicts:
@@ -340,10 +360,13 @@ def main(list_dicts):
                     df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
 
                     if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
-                        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
+                        # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
+                        logging.info('No change (%s)', k_floor_plan)
+                        pass
 
                     else:
-                        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
+                        # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
+                        logging.info('Change in availability! (%s)', k_floor_plan)
 
                         # Save changes locally
                         today = datetime.today().strftime('%Y-%m-%d %H%M%S')
@@ -352,11 +375,12 @@ def main(list_dicts):
 
                         send_email(k_floor_plan, df_units_new, df_units_leased, df_units_change, now, v_floor_plan_url)
             except:
-                print(
-                    str(now.strftime('%Y-%m-%d %I:%M %p'))
-                    + ' - Error ({})'.format(k_floor_plan))
+                # print(
+                #     str(now.strftime('%Y-%m-%d %I:%M %p'))
+                #     + ' - Error ({})'.format(k_floor_plan))
+                logging.error('Floor plan unavailable (%s)', k_floor_plan)  # , exc_info=True (shows full error)
 
-        delay_sec = 60 * 30  # Run every hour
+        delay_sec = 60 * 60  # Run every hour
         time.sleep(delay_sec)
 
 
