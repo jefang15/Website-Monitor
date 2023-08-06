@@ -457,9 +457,11 @@ def main(url1, url2):
             df_dogs_new, df_dogs_adopted = compare_availability(df_current_dogs)
 
             if df_dogs_new.empty & df_dogs_adopted.empty:
-                # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change')
+                print(str(
+                    now.strftime('%Y-%m-%d %I:%M:%S %p'))
+                      + '  DogAdoption_FairfaxCountyAnimalShelter, Line 444  INFO  No Change')
 
-                logging.info('No change')
+                # logging.info('No change')
 
                 pass
             else:
@@ -491,8 +493,8 @@ def main(url1, url2):
         # Having this after the main code makes sure that the code runs at least once for testing even if it's during off hours
         hour_start = 8  # 8 AM - Time of day to start running script (script stops at midnight)
 
-        if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every 5 minutes
-            delay_sec = 60 * 5  # 5 minutes
+        if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every minute
+            delay_sec = 60 * 1
         else:  # If it's after midnight and before 8 AM, calculate the number of seconds until 8 AM and set that as the delay
             diff_hour = hour_start - int(now.strftime('%H')) - 1
             diff_min = 60 - int(now.strftime('%M'))
