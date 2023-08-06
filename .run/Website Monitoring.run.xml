@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Website Monitoring" type="CompoundRunConfigurationType">
+    <toRun name="Apartments_OneLoudoun_Vyne" type="PythonConfigurationType" />
+    <toRun name="DogAdoption_FairfaxCountyAnimalShelter" type="PythonConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
