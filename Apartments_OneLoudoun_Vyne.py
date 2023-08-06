@@ -96,7 +96,7 @@ def create_dataframe_from_html(floor_plan, html_str: str, current_time):
 
         # Fill in Price
         if 'Starting at:' in row['Unit']:
-            df2.loc[index_save, 'Price'] = df2.loc[index, 'Unit']
+            df2.loc[index_save, 'Price Current'] = df2.loc[index, 'Unit']
 
         # Fill in Date Available (HTML changes if available now vs future date)
         if 'Date Available:' in row['Unit']:
@@ -112,12 +112,13 @@ def create_dataframe_from_html(floor_plan, html_str: str, current_time):
     df3.loc[df3['Unit'].str.contains('Apartment: '), 'Unit'] = df3['Unit'].str.split('Apartment: # ').str[1]
     df3.loc[df3['Date Available'].str.contains(
         'Date Available: '), 'Date Available'] = df3['Date Available'].str.split('Date Available:  ').str[1]
-    df3.loc[df3['Price'].str.contains('Starting at: '), 'Price'] = df3['Price'].str.split('Starting at: ').str[1]
+    df3.loc[df3['Price Current'].str.contains('Starting at: '), 'Price Current'] = df3['Price Current'].str.split(
+        'Starting at: ').str[1]
 
     # Turn Price string to integer
-    df3['Price'] = df3['Price'].str.replace('$', '')
-    df3['Price'] = df3['Price'].str.replace(',', '')
-    df3['Price'] = df3['Price'].astype('int16')
+    df3['Price Current'] = df3['Price Current'].str.replace('$', '')
+    df3['Price Current'] = df3['Price Current'].str.replace(',', '')
+    df3['Price Current'] = df3['Price Current'].astype('int16')
 
     # Change availability string
     df3.loc[df3['Date Available'].str.contains('Available Now'), 'Date Available'] = 'Now'
@@ -128,7 +129,7 @@ def create_dataframe_from_html(floor_plan, html_str: str, current_time):
     # Add scraped DateTime to DF
     df3['Scrape Datetime'] = current_time
 
-    df4 = df3[['Floor Plan', 'Unit', 'Price', 'Date Available', 'Scrape Datetime']].copy()
+    df4 = df3[['Floor Plan', 'Unit', 'Price Current', 'Date Available', 'Scrape Datetime']].copy()
 
     df4.reset_index(drop=True, inplace=True)
 
@@ -159,11 +160,13 @@ def compare_availability(floor_plan: str, df_scraped):
         how='outer',
         on=['Floor Plan', 'Unit'])
 
+    # Drop columns from saved spreadsheet whose column names we will reuse and recreate
+    df_merged = df_merged.drop('Price Previous', axis=1)
+    df_merged = df_merged.drop('Price Change', axis=1)
+    df_merged = df_merged.drop('Change Status', axis=1)
+
     df_merged2 = df_merged.rename(
         {
-            'Price_x': 'Price Current',  # TODO: eventually can delete (change column name convention for prices)
-            'Price_y': 'Price Previous',  # TODO: eventually can delete (change column name convention for prices)
-
             'Price Current_x': 'Price Current',
             'Price Current_y': 'Price Previous',
             'Date Available_x': 'Date Available',
@@ -178,16 +181,18 @@ def compare_availability(floor_plan: str, df_scraped):
     df_merged2['Price Change'] = df_merged2['Price Current'] - df_merged2['Price Previous']
     df_merged2['Price Change'].fillna(0, inplace=True)
 
-    # Create separate DF for each change status, which will inform if and what to send in email
-    df_new = df_merged2[df_merged2['Change Status'] == 'New Unit'].copy()
-    df_leased = df_merged2[df_merged2['Change Status'] == 'Leased Unit'].copy()
-    df_change = df_merged2[
-        (df_merged2['Change Status'] == 'Still Available') &
-        (df_merged2['Price Change'] != 0)].copy()
-
     df_all = df_merged2[[
         'Floor Plan', 'Unit', 'Price Current', 'Price Previous', 'Price Change', 'Change Status', 'Date Available',
         'Scrape Datetime']].copy()
+
+    df_all.sort_values(by=['Floor Plan', 'Unit'], inplace=True)
+
+    # Create separate DF for each change status, which will inform if and what to send in email
+    df_new = df_all[df_all['Change Status'] == 'New Unit'].copy()
+    df_leased = df_all[df_all['Change Status'] == 'Leased Unit'].copy()
+    df_change = df_all[
+        (df_all['Change Status'] == 'Still Available') &
+        (df_all['Price Change'] != 0)].copy()
 
     return df_all, df_new, df_leased, df_change
 
@@ -383,19 +388,67 @@ def main(list_dicts):
 
                     if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
                         print(str(
-                            now.strftime('%Y-%m-%d %I:%M %p'))
-                              + '  Apartments_OneLoudoun_Vyne, Line 393  INFO  No Change ({})'.format(k_floor_plan))
+                            now.strftime('%Y-%m-%d %I:%M:%S %p'))
+                              + '  Apartments_OneLoudoun_Vyne, Line 390  INFO  No Change ({})'.format(k_floor_plan))
                         # logging.info('No change (%s)', k_floor_plan)
                         pass
 
                     else:
                         # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
-                        logging.info('Change in availability! (%s)', k_floor_plan)
 
-                        (logging.info(
-                            '\n\n'
-                            + df_all.to_string(index=False)
-                            + '\n'))
+                        # logging.info('Change in availability! (%s)', k_floor_plan)
+                        # (logging.info(
+                        #     '\n\n'
+                        #     + df_all.to_string(index=False)
+                        #     + '\n'))
+
+                        # <editor-fold desc="New">
+                        if df_units_new.empty is False:
+                            for _, row in df_units_new.iterrows():
+                                logging.info(
+                                    'New %s unit: %s ($%s)',
+                                    row['Floor Plan'], row['Unit'], row['Price Current'])
+
+                            (logging.info(
+                                '\n\n'
+                                + df_units_new.to_string(index=False)
+                                + '\n'))
+                        # </editor-fold>
+
+                        # <editor-fold desc="Leased">
+                        if df_units_leased.empty is False:
+                            for _, row in df_units_leased.iterrows():
+                                logging.info(
+                                    'Leased %s unit: %s ($%s)',
+                                    row['Floor Plan'], row['Unit'], row['Price Previous'])
+
+                            (logging.info(
+                                '\n\n'
+                                + df_units_leased.to_string(index=False)
+                                + '\n'))
+                        # </editor-fold>
+
+                        # <editor-fold desc="Price change">
+                        if df_units_change.empty is False:
+                            for _, row in df_units_change.iterrows():
+
+                                # Price Change
+                                if row['Price Change'] > 0:
+                                    logging.info('%s price change: %s +%s ($%s)',
+                                                 row['Floor Plan'], row['Unit'], row['Price Change'], row['Price Current'])
+                                elif row['Price Change'] < 0:
+                                    logging.info('%s price change: %s %s ($%s)',
+                                                 row['Floor Plan'], row['Unit'], row['Price Change'], row['Price Current'])
+                                else:
+                                    pass
+
+                                logging.info('Price change: %s', row['Unit'])
+
+                            (logging.info(
+                                '\n\n'
+                                + df_units_change.to_string(index=False)
+                                + '\n'))
+                        # </editor-fold>
 
                         # Save changes locally
                         today = datetime.today().strftime('%Y-%m-%d %H%M%S')
@@ -461,6 +514,27 @@ def troubleshoot(list_dicts):
 
         delay_sec = 60 * 15
         time.sleep(delay_sec)
+
+
+def create_blank_spreadsheets(floor_plan:str):
+    """
+    Creates empty Excel files with the correct column headers for each floor plan. Only need to run this once when scraping the
+    webpages for the first time. compare_availability function needs an existing spreadsheet to compare to, even if empty.
+
+    :param floor_plan:
+    :return:
+    """
+
+    df = pd.DataFrame(columns=[
+        'Floor Plan', 'Unit', 'Price Current', 'Price Previous', 'Price Change', 'Change Status', 'Date Available',
+        'Scrape Datetime'])
+
+    df.to_excel('Output - Vyne Spreadsheets/Vyne {}.xlsx'.format(floor_plan), index=False)
+
+
+# list_floor_plans = ['A1A', 'A2A', 'A6D', 'B1B', 'B2B', 'B3B', 'B10B', 'B12B', 'S3A']
+# for plan in list_floor_plans:
+#     create_blank_spreadsheets(plan)
 
 
 """ ########################################################################################################################## """
