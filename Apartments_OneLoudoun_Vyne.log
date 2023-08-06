@@ -148,3 +148,71 @@ Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Dat
 
 2023-08-06 02:00:33 PM   Apartments_OneLoudoun_Vyne, Line 386   INFO   No change (B12B)
 2023-08-06 02:00:35 PM   Apartments_OneLoudoun_Vyne, Line 409   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-06 04:24:53 PM   Apartments_OneLoudoun_Vyne, Line 371   INFO   Started running script
+2023-08-06 04:24:58 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New A1A unit: E407 ($2164)
+2023-08-06 04:24:58 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New A1A unit: E730 ($2352)
+2023-08-06 04:24:58 PM   Apartments_OneLoudoun_Vyne, Line 411   INFO   
+
+Floor Plan Unit  Price Current Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A1A E407           2164            NaN             0      New Unit      9/28/2023 2023-08-06 16:24:53.623692
+       A1A E730           2352            NaN             0      New Unit     10/10/2023 2023-08-06 16:24:53.623692
+
+2023-08-06 04:25:02 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New A2A unit: W116 ($2282)
+2023-08-06 04:25:02 PM   Apartments_OneLoudoun_Vyne, Line 411   INFO   
+
+Floor Plan Unit  Price Current Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A2A W116           2282            NaN             0      New Unit     10/12/2023 2023-08-06 16:24:58.377715
+
+2023-08-06 04:25:07 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New A6D unit: W111 ($2502)
+2023-08-06 04:25:07 PM   Apartments_OneLoudoun_Vyne, Line 411   INFO   
+
+Floor Plan Unit  Price Current Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A6D W111           2502            NaN             0      New Unit      8/17/2023 2023-08-06 16:25:02.402054
+
+2023-08-06 04:25:10 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B1B unit: E534 ($2558)
+2023-08-06 04:25:10 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B1B unit: E634 ($2755)
+2023-08-06 04:25:10 PM   Apartments_OneLoudoun_Vyne, Line 411   INFO   
+
+Floor Plan Unit  Price Current Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       B1B E534           2558            NaN             0      New Unit            Now 2023-08-06 16:25:07.045830
+       B1B E634           2755            NaN             0      New Unit            Now 2023-08-06 16:25:07.045830
+
+2023-08-06 04:25:14 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B2B unit: W218 ($2555)
+2023-08-06 04:25:14 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B2B unit: W317 ($2685)
+2023-08-06 04:25:14 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B2B unit: W515 ($2730)
+2023-08-06 04:25:14 PM   Apartments_OneLoudoun_Vyne, Line 411   INFO   
+
+Floor Plan Unit  Price Current Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       B2B W218           2555            NaN             0      New Unit       9/1/2023 2023-08-06 16:25:10.619505
+       B2B W317           2685            NaN             0      New Unit      10/7/2023 2023-08-06 16:25:10.619505
+       B2B W515           2730            NaN             0      New Unit     10/17/2023 2023-08-06 16:25:10.619505
+
+2023-08-06 04:25:18 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B3B unit: E406 ($2735)
+2023-08-06 04:25:18 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B3B unit: E702 ($2680)
+2023-08-06 04:25:18 PM   Apartments_OneLoudoun_Vyne, Line 411   INFO   
+
+Floor Plan Unit  Price Current Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       B3B E406           2735            NaN             0      New Unit      11/4/2023 2023-08-06 16:25:14.508190
+       B3B E702           2680            NaN             0      New Unit      9/13/2023 2023-08-06 16:25:14.508190
+
+2023-08-06 04:25:21 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B10B unit: E364 ($2525)
+2023-08-06 04:25:21 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B10B unit: E564 ($2537)
+2023-08-06 04:25:21 PM   Apartments_OneLoudoun_Vyne, Line 411   INFO   
+
+Floor Plan Unit  Price Current Price Previous  Price Change Change Status Date Available            Scrape Datetime
+      B10B E364           2525            NaN             0      New Unit       9/7/2023 2023-08-06 16:25:18.373861
+      B10B E564           2537            NaN             0      New Unit            Now 2023-08-06 16:25:18.373861
+
+2023-08-06 04:25:25 PM   Apartments_OneLoudoun_Vyne, Line 407   INFO   New B12B unit: E361 ($2600)
+2023-08-06 04:25:25 PM   Apartments_OneLoudoun_Vyne, Line 411   INFO   
+
+Floor Plan Unit  Price Current Price Previous  Price Change Change Status Date Available            Scrape Datetime
+      B12B E361           2600            NaN             0      New Unit     10/18/2023 2023-08-06 16:25:21.741463
+
+2023-08-06 04:25:28 PM   Apartments_OneLoudoun_Vyne, Line 457   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-06 04:26:49 PM   Apartments_OneLoudoun_Vyne, Line 371   INFO   Started running script
+2023-08-06 04:27:28 PM   Apartments_OneLoudoun_Vyne, Line 457   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-06 04:27:52 PM   Apartments_OneLoudoun_Vyne, Line 371   INFO   Started running script
+2023-08-06 04:28:27 PM   Apartments_OneLoudoun_Vyne, Line 457   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-06 04:30:08 PM   Apartments_OneLoudoun_Vyne, Line 371   INFO   Started running script
+2023-08-06 04:30:43 PM   Apartments_OneLoudoun_Vyne, Line 463   ERROR   Unable to connect to or scrape website (S3A)
