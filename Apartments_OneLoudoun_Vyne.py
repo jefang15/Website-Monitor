@@ -382,8 +382,10 @@ def main(list_dicts):
                     df_all, df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
 
                     if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
-                        # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
-                        logging.info('No change (%s)', k_floor_plan)
+                        print(str(
+                            now.strftime('%Y-%m-%d %I:%M %p'))
+                              + '  Apartments_OneLoudoun_Vyne, Line 393  INFO  No Change ({})'.format(k_floor_plan))
+                        # logging.info('No change (%s)', k_floor_plan)
                         pass
 
                     else:
@@ -408,7 +410,7 @@ def main(list_dicts):
                 logging.error(
                     'Unable to connect to or scrape website (%s)', k_floor_plan)  # , exc_info=True (shows full error)
 
-        delay_sec = 60 * 60  # Run every hour
+        delay_sec = 60 * 30
         time.sleep(delay_sec)
 
 
