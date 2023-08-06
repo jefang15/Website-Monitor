@@ -459,7 +459,7 @@ def main(url1, url2):
             if df_dogs_new.empty & df_dogs_adopted.empty:
                 print(str(
                     now.strftime('%Y-%m-%d %I:%M:%S %p'))
-                      + '  DogAdoption_FairfaxCountyAnimalShelter, Line 444  INFO  No Change')
+                      + '  DogAdoption_FairfaxCountyAnimalShelter, Line 460  INFO  No Change')
 
                 # logging.info('No change')
 
