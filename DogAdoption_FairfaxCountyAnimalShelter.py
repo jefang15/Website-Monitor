@@ -19,6 +19,8 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from password import email, email_password
 import time
+import logging
+import sys
 
 
 def scrape_html(url):
@@ -420,6 +422,24 @@ def main(url1, url2):
     :return: Sends email when there is new or adopted dog and includes notable information.
     """
 
+    # Write to log
+    logging.basicConfig(
+        filename='DogAdoption_FairfaxCountyAnimalShelter.log',
+        format='%(asctime)s   %(module)s, Line %(lineno)d   %(levelname)s   %(message)s',
+        datefmt='%Y-%m-%d %I:%M:%S %p',
+        filemode='a',  # Append to log (rather than, 'w', over-wright)
+        level=logging.INFO)  # Set minimum level to INFO and above
+
+    # Print log in console
+    formatter = logging.Formatter(
+        fmt='%(asctime)s  %(module)s, Line %(lineno)d  %(levelname)s  %(message)s',
+        datefmt='%Y-%m-%d %I:%M:%S %p')
+    screen_handler = logging.StreamHandler(stream=sys.stdout)  # stream=sys.stdout is similar to normal print
+    screen_handler.setFormatter(formatter)
+    logging.getLogger().addHandler(screen_handler)
+
+    logging.info('Started running script')
+
     while True:  # Only runs after 8 AM and before 10 PM (shelter's hours are roughly 11 AM - 7 PM, depending on day)
 
         # Current DateTime for exporting and naming files with current timestamp
@@ -434,14 +454,11 @@ def main(url1, url2):
             df_dogs_new, df_dogs_adopted = compare_availability(df_current_dogs)
 
             if len(df_dogs_new) + len(df_dogs_adopted) == 0:
-                print(
-                    str(now.strftime('%Y-%m-%d %I:%M %p'))
-                    + ' - No Change')
+                logging.info('No change')
+
                 pass
             else:
-                print(
-                    str(now.strftime('%Y-%m-%d %I:%M %p'))
-                    + ' - Change in Availability!')
+                logging.info('Change in availability!')
 
                 # Save to Excel
                 now_text = now.strftime('%Y-%m-%d %H-%M-%S')
@@ -451,9 +468,7 @@ def main(url1, url2):
                 send_email(df_dogs_new, df_dogs_adopted, now)
 
         except:
-            print(
-                str(now.strftime('%Y-%m-%d %I:%M %p'))
-                + ' - Error')
+            logging.error('Unable to connect to or scrape website', exc_info=True)
 
         # Time delay
         # Having this after the main code makes sure that the code runs at least once for testing even if it's during off hours
