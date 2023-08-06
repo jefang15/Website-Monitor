@@ -391,8 +391,7 @@ def main(list_dicts):
                         logging.info('Change in availability! (%s)', k_floor_plan)
 
                         (logging.info(
-                            '{}'.format(k_floor_plan)
-                            + '\n\n'
+                            '\n\n'
                             + df_all.to_string(index=False)
                             + '\n'))
 
