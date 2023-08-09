@@ -23,7 +23,7 @@ import logging
 import sys
 
 
-def scrape_html(url):
+def scrape_html(url: str):
     """
     Scrapes URL with dogs available for adoption, and creates a cleaned string with HTML content that can be used to create a DF
     in the next step. This also subsets the HTML content to start where the dogs available for adoption are listed.
@@ -99,7 +99,7 @@ def scrape_html(url):
     return html_text
 
 
-def create_dataframe_from_html(html, current_time):
+def create_dataframe_from_html(html: str, current_time: datetime):
     """
     Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
 
@@ -195,7 +195,7 @@ def create_dataframe_from_html(html, current_time):
     return animals_available, df5
 
 
-def concat_additional_pages(availability, url2, df1, current_time):
+def concat_additional_pages(availability: int, url2: str, df1, current_time: datetime):
     """
     Scrapes the second page of the dog adoption site, if there is one, using the scrape_html function, creates a separate
     cleaned DF, and then concatenates the two cleaned DFs/pages together. If there is only one page, this function has no effect.
@@ -257,16 +257,18 @@ def concat_additional_pages(availability, url2, df1, current_time):
         return df1
 
 
-def compare_availability(df_current):
+def compare_availability(folder_spreadsheets: str, folder_photos: str, df_current):
     """
     Identifies how many, and which, dogs are either newly available for adoption or were adopted since the last check.
 
+    :param folder_spreadsheets: Folder path to location where spreadsheets are saved
+    :param folder_photos: Folder path to location where images are saved
     :param df_current: List and information of dogs in the latest scrape of adoption site
     :return: Tells whether there are any changes in availability or not, and how many
     """
 
     # Previous Availability
-    list_past_files = glob.glob('Output - Fairfax Shelter Spreadsheets/*.xlsx')
+    list_past_files = glob.glob('{}/*.xlsx'.format(folder_spreadsheets))
     list_past_files.sort(reverse=False)
     latest_file = list_past_files[-1]
     df_previous = pd.read_excel(latest_file)
@@ -296,7 +298,7 @@ def compare_availability(df_current):
             # Save new dog photos
             image_url_new = row_new['Image']
             r = requests.get(image_url_new, allow_redirects=True)
-            with open('Output - Fairfax Shelter Photos/{}.png'.format(row_new['ID']), 'wb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_new['ID']), 'wb') as f:
                 f.write(r.content)
 
         # Compile Information About Adopted Dogs
@@ -310,25 +312,20 @@ def compare_availability(df_current):
             # Save adopted dogs' photos locally
             image_url_adopted = row_adopted['Image']
             r = requests.get(image_url_adopted, allow_redirects=True)
-            with open('Output - Fairfax Shelter Photos/{}.png'.format(row_adopted['ID']), 'wb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_adopted['ID']), 'wb') as f:
                 f.write(r.content)
 
         return df_new, df_adopted
 
 
-# TODO: send SMS via SMTP
-
-
-def send_email(df_new, df_adopted, current_time):
-
-    # TODO: add a summary section upfront
-
+def send_email(folder_photos: str, df_new, df_adopted, current_time: datetime):
     """
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
 
     Emojis at: https://emojipedia.org
 
+    :param folder_photos: DF of newly available dogs
     :param df_new: DF of newly available dogs
     :param df_adopted: DF of adopted dogs
     :param current_time: Time that website was scraped, to include as text at end of email body
@@ -366,7 +363,7 @@ def send_email(df_new, df_adopted, current_time):
             msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
             # Photo
-            with open('Output - Fairfax Shelter Photos/{}.png'.format(row_new['ID']), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_new['ID']), 'rb') as f:
                 image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -395,7 +392,7 @@ def send_email(df_new, df_adopted, current_time):
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
             # Photo
-            with open('Output - Fairfax Shelter Photos/{}.png'.format(row_adopted['ID']), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_adopted['ID']), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -416,10 +413,13 @@ def send_email(df_new, df_adopted, current_time):
         smtp.send_message(msg)
 
 
-def main(url1, url2):
+def main(folder_spreadsheets: str, folder_photos:str , file_name: str, url1: str, url2: str):
     """
     Scrapes dog adoption site every 5 minutes during the day and emails any changes.
 
+    :param folder_spreadsheets: Folder path to location where spreadsheets are saved
+    :param folder_photos: Folder path to location where images are saved
+    :param file_name: Name of Python script (without any file types)
     :param url1: First page of dog adoption site
     :param url2: Second page of dog adoption site
     :return: Sends email when there is new or adopted dog and includes notable information.
@@ -427,15 +427,15 @@ def main(url1, url2):
 
     # Write to log
     logging.basicConfig(
-        filename='DogAdoption_FairfaxCountyAnimalShelter.log',
-        format='%(asctime)s   %(module)s, Line %(lineno)d   %(levelname)s   %(message)s',
+        filename='Logs/' + file_name + '.log',
+        format='%(asctime)s   %(module)s   %(levelname)s   %(message)s',
         datefmt='%Y-%m-%d %I:%M:%S %p',
         filemode='a',  # Append to log (rather than, 'w', over-wright)
         level=logging.INFO)  # Set minimum level to INFO and above
 
     # Print log in console
     formatter = logging.Formatter(
-        fmt='%(asctime)s  %(module)s, Line %(lineno)d  %(levelname)s  %(message)s',
+        fmt='%(asctime)s  %(module)s  %(levelname)s  %(message)s',
         datefmt='%Y-%m-%d %I:%M:%S %p')
     screen_handler = logging.StreamHandler(stream=sys.stdout)  # stream=sys.stdout is similar to normal print
     screen_handler.setFormatter(formatter)
@@ -454,12 +454,12 @@ def main(url1, url2):
             dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
             df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
-            df_dogs_new, df_dogs_adopted = compare_availability(df_current_dogs)
+            df_dogs_new, df_dogs_adopted = compare_availability(folder_spreadsheets, folder_photos, df_current_dogs)
 
             if df_dogs_new.empty & df_dogs_adopted.empty:
                 print(str(
                     now.strftime('%Y-%m-%d %I:%M:%S %p'))
-                      + '  DogAdoption_FairfaxCountyAnimalShelter, Line 460  INFO  No Change')
+                      + '  {}  INFO  No Change'.format(file_name))
 
                 # logging.info('No change')
 
@@ -480,12 +480,12 @@ def main(url1, url2):
                 # Save to Excel
                 now_text = now.strftime('%Y-%m-%d %H-%M-%S')
                 df_current_dogs.to_excel(
-                    'Output - Fairfax Shelter Spreadsheets/Fairfax County Animal Shelter {}.xlsx'.format(now_text), index=False)
+                    '{}/Fairfax County Animal Shelter {}.xlsx'.format(folder_spreadsheets, now_text), index=False)
 
                 send_email(df_dogs_new, df_dogs_adopted, now)
 
         except:
-            # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Unable to connect to or scrape website')
+            print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Unable to connect to or scrape website')
 
             logging.error('Unable to connect to or scrape website')
 
@@ -503,55 +503,6 @@ def main(url1, url2):
         time.sleep(delay_sec)
 
 
-def troubleshoot(url1, url2):
-    """
-    If there is an error in the code, this tells which function breaks.
-
-    :param url1:
-    :param url2:
-    :return:
-    """
-
-    errors = []
-
-    _now = datetime.now()
-    if _now is None:
-        errors.append('No current time')
-
-    _html_text_clean = scrape_html(url1)
-    if _html_text_clean is None:
-        errors.append('Not able to scrape HTML')
-
-    _dog_availability, _df_dog = create_dataframe_from_html(_html_text_clean, _now)
-    if _dog_availability is None or _df_dog is None:
-        errors.append('Not able to create DataFrame from HTML')
-
-    _df_current_dogs = concat_additional_pages(_dog_availability, url2, _df_dog, _now)
-    if _df_current_dogs is None:
-        errors.append('Not able to scrape second page')
-
-    _df_dogs_new, _df_dogs_adopted = compare_availability(_df_current_dogs)
-    if _df_dogs_new is None or _df_dogs_adopted is None:
-        errors.append('Not able to compare availability')
-
-    # if len(_df_dogs_new) + len(_df_dogs_adopted) == 0:
-    #     print(
-    #         str(_now.strftime('%Y-%m-%d %I:%M %p'))
-    #         + ' - No Change (To break loop, press Ctrl + C in Console or Fn + Cmd + F2 in Terminal)')
-    #     pass
-    # else:
-    #     print(
-    #         str(_now.strftime('%Y-%m-%d %I:%M %p'))
-    #         + ' - Change in Availability!')
-    #     send_email(_df_dogs_new, _df_dogs_adopted, _now)
-
-    if len(errors) == 0:
-        print('No errors')
-    else:
-        for error in errors:
-            print(error)
-
-
 """ ########################################################################################################################## """
 """ Scrape Website """
 """ ########################################################################################################################## """
@@ -562,9 +513,13 @@ url_page1 = 'https://24petconnect.com/PP4352?at=DOG'
 url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 
 
-main(url_page1, url_page2)
+main(
+    'Output - Fairfax Shelter Spreadsheets',
+    'Output - Fairfax Shelter Photos',
+    'DogAdoption_FairfaxCountyAnimalShelter',
+    url_page1,
+    url_page2)
 # troubleshoot(url_page1, url_page2)
 
 
 # Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
-# Guide: https://github.com/acamso/demos/blob/master/_email/send_txt_msg.py
