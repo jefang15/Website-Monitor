@@ -184,6 +184,8 @@ def create_dataframe_from_html(floor_plan: str, html_str: str, current_time: dat
     df3['Price Current'] = df3['Price Current'].str.replace(',', '')
     df3['Price Current'] = df3['Price Current'].astype('int16')
 
+    df3['Unit'] = df3['Unit'].astype('int16')
+
     # Change availability string
     df3.loc[df3['Date Available'].str.contains('Available Now'), 'Date Available'] = 'Now'
 
@@ -214,7 +216,7 @@ def compare_availability(folder_path: str, apartment_name: str, floor_plan: str,
     """
 
     # Previous Availability (need to have an existing spreadsheet to compare to; create a blank one if it doesn't exist)
-    list_past_files = glob.glob('{}/{} {}*.xlsx'.format(folder_path, apartment_name, floor_plan))
+    list_past_files = glob.glob('{}/{} {} *.xlsx'.format(folder_path, apartment_name, floor_plan))
     list_past_files.sort(reverse=False)
     latest_file = list_past_files[-1]
     df_previous = pd.read_excel(latest_file)
@@ -427,7 +429,7 @@ def main(log_name, list_dicts, folder_path, apartment_name, floor_plan_folder):
 
     # Write to log
     logging.basicConfig(
-        filename=log_name,
+        filename='Logs/' + log_name + '.log',
         format='%(asctime)s   %(module)s   %(levelname)s   %(message)s',
         datefmt='%Y-%m-%d %I:%M:%S %p',
         filemode='a',  # Append to log (rather than, 'w', over-wright)
@@ -529,8 +531,8 @@ def main(log_name, list_dicts, folder_path, apartment_name, floor_plan_folder):
                         df_all.to_excel(
                             '{}/{} {} {}.xlsx'.format(folder_path, apartment_name, k_floor_plan, today), index=False)
 
-                        send_email(apartment_name, floor_plan_folder, k_floor_plan, df_units_new, df_units_leased,
-                                   df_units_changed, now, v_floor_plan_url)
+                        # send_email(apartment_name, floor_plan_folder, k_floor_plan, df_units_new, df_units_leased,
+                        #            df_units_changed, now, v_floor_plan_url)
             except:
                 # print(
                 #     str(now.strftime('%Y-%m-%d %I:%M %p'))
@@ -552,29 +554,29 @@ def main(log_name, list_dicts, folder_path, apartment_name, floor_plan_folder):
 # now = datetime.now()
 #
 # # Preview HTML
-# url_preview = 'https://exoreston.com/floorplans/a2/#detail-view'
-# df_preview = view_html(url_preview)
-# print(tabulate(df_preview, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+# # url_preview = 'https://exoreston.com/floorplans/a2/#detail-view'
+# # df_preview = view_html(url_preview)
+# # print(tabulate(df_preview, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
-# html_test = scrape_html_selenium('https://exoreston.com/floorplans/a2/#detail-view')
+# html_test = scrape_html_selenium('https://exoreston.com/floorplans/a2c/#detail-view')
 # print(html_test)
 #
-# df_test = create_dataframe_from_html('A2', html_test, now)
+# df_test = create_dataframe_from_html('A2C', html_test, now)
 # print(tabulate(df_test, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
-# list_floor_plans = ['A1', 'A1A', 'A2', 'A2A', 'A2B', 'A2C', 'A3', 'A5', 'A6', 'A6A']
-# for plan in list_floor_plans:
-#     create_blank_spreadsheets('Output - Exo Spreadsheets', 'Exo', plan)
+# # list_floor_plans = ['A1', 'A1A', 'A2', 'A2A', 'A2B', 'A2C', 'A3', 'A5', 'A6', 'A6A']
+# # for plan in list_floor_plans:
+# #     create_blank_spreadsheets('Output - Exo Spreadsheets', 'Exo', plan)
 #
 # df_all, df_units_new, df_units_leased, df_units_change = compare_availability(
-#     'Output - Exo Spreadsheets', 'Exo', 'A2', df_test)
+#     'Output - Exo Spreadsheets', 'Exo', 'A2C', df_test)
 # print(tabulate(df_all, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(df_units_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(df_units_leased, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(df_units_change, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
-# send_email('Exo', 'Output - Exo Floor Plans', 'A2', df_units_new, df_units_leased,
-#            df_units_change, now, 'https://exoreston.com/floorplans/a2/#detail-view')
+# # send_email('Exo', 'Output - Exo Floor Plans', 'A6', df_units_new, df_units_leased,
+# #            df_units_change, now, 'https://exoreston.com/floorplans/a6/#detail-view')
 
 # </editor-fold>
 
@@ -593,5 +595,5 @@ dict_a6a = {'A6A': 'https://exoreston.com/floorplans/a6a/#detail-view'}  # 1 bed
 list_of_dicts = [dict_a1, dict_a1a, dict_a2, dict_a2a, dict_a2b, dict_a2c, dict_a3, dict_a5, dict_a6, dict_a6a]
 
 
-main('Logs/Apartments_Reston_Exo.log', list_of_dicts, 'Output - Exo Spreadsheets', 'Exo',
+main('Apartments_Reston_Exo', list_of_dicts, 'Output - Exo Spreadsheets', 'Exo',
      'Output - Exo Floor Plans')
