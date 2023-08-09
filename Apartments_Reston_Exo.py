@@ -100,13 +100,13 @@ def scrape_html_selenium(url: str):
     return html_soup
 
 
-def create_blank_spreadsheets(folder_path: str, apartment_name: str, floor_plan: str,):
+def create_blank_spreadsheets(apartment_name: str, folder_path: str, floor_plan: str):
     """
     Creates empty Excel files with the correct column headers for each floor plan. Only need to run this once when scraping the
     webpages for the first time. compare_availability function needs an existing spreadsheet to compare to, even if empty.
 
-    :param folder_path: Folder path to save spreadsheets
     :param apartment_name: Apartment name to help create directory to save spreadsheets
+    :param folder_path: Folder path to save spreadsheets
     :param floor_plan: Floor plan as a string, used to specify file name
     :return:
     """
@@ -202,13 +202,13 @@ def create_dataframe_from_html(floor_plan: str, html_str: str, current_time: dat
     return df4
 
 
-def compare_availability(folder_path: str, apartment_name: str, floor_plan: str, df_scraped):
+def compare_availability(apartment_name: str, folder_spreadsheets: str, floor_plan: str, df_scraped):
     """
     Identifies how many and which apartment units are either newly available on the market, were leased, or had a price change
     since the last check.
 
-    :param folder_path: Folder path in which spreadsheets are saved.
-    :param apartment_name: Name of apartment to help build directory
+    :param apartment_name: Name of apartment to help build file path name
+    :param folder_spreadsheets: Folder path in which spreadsheets are saved
     :param floor_plan: Indicates which floor plan is being scraped. For file naming and differentiating between floor plans.
     :param df_scraped: Cleaned DataFrame containing current unit availability and prices from the website
     :return: 1 DF for current status with all potential changes, only new units, only leased units, and only units with prices
@@ -216,7 +216,7 @@ def compare_availability(folder_path: str, apartment_name: str, floor_plan: str,
     """
 
     # Previous Availability (need to have an existing spreadsheet to compare to; create a blank one if it doesn't exist)
-    list_past_files = glob.glob('{}/{} {} *.xlsx'.format(folder_path, apartment_name, floor_plan))
+    list_past_files = glob.glob('{}/{} {} *.xlsx'.format(folder_spreadsheets, apartment_name, floor_plan))
     list_past_files.sort(reverse=False)
     latest_file = list_past_files[-1]
     df_previous = pd.read_excel(latest_file)
@@ -265,18 +265,16 @@ def compare_availability(folder_path: str, apartment_name: str, floor_plan: str,
     return df_all, df_new, df_leased, df_change
 
 
-def send_email(apartment_name: str, floor_plan_folder: str, floor_plan: str, df_new, df_leased, df_change, current_time: datetime,
+def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new, df_leased, df_change, current_time: datetime,
                url: str):
     """
     Only sends an email if there is change in apartment unit availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
 
-    _x columns are current, _y columns are previous
-
     Emojis at: https://emojipedia.org
 
     :param apartment_name: Name of apartment, to include in email subject line
-    :param floor_plan_folder: Folder path where floor plan images are saved
+    :param folder_photos: Folder path where floor plan images are saved
     :param floor_plan: Unit floor plan type
     :param df_new: DF of new apartment units
     :param df_leased: DF of leased apartment units
@@ -319,7 +317,7 @@ def send_email(apartment_name: str, floor_plan_folder: str, floor_plan: str, df_
             msg.attach(MIMEText('  |  Available: {}'.format(row_new['Date Available']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(floor_plan_folder, floor_plan), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, floor_plan), 'rb') as f:
                 image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -352,7 +350,7 @@ def send_email(apartment_name: str, floor_plan_folder: str, floor_plan: str, df_
             msg.attach(MIMEText('  |  Available: {}'.format(row_leased['Date Available']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(floor_plan_folder, floor_plan), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, floor_plan), 'rb') as f:
                 image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -393,7 +391,7 @@ def send_email(apartment_name: str, floor_plan_folder: str, floor_plan: str, df_
             msg.attach(MIMEText('  |  Available: {}'.format(row_change['Date Available']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(floor_plan_folder, floor_plan), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, floor_plan), 'rb') as f:
                 image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -415,21 +413,21 @@ def send_email(apartment_name: str, floor_plan_folder: str, floor_plan: str, df_
         smtp.send_message(msg)
 
 
-def main(log_name, list_dicts, folder_path, apartment_name, floor_plan_folder):
+def main(apartment_name: str, file_name: str, folder_spreadsheets: str,  folder_photos: str, list_dicts: list):
     """
     Runs all previous functions to scrape website and compare unit availability.
 
-    :param log_name: Name for log file with '.log' at the end
+    :param apartment_name: Name of apartment, for output files
+    :param file_name: Name for log file (without '.log' at the end); same as Python script
+    :param folder_spreadsheets: Folder path in which spreadsheets are saved
+    :param folder_photos: Folder path in which floor plan images are saved
     :param list_dicts: List of dictionaries; each dictionary contains floor plan name as the Key and floor plan URL as the Value.
-    :param folder_path: Folder path in which spreadsheets are saved
-    :param apartment_name: Name of apartment, for file name
-    :param floor_plan_folder: Folder path in which floor plan images are saved
     :return: Sends email if there is a change in availability or price.
     """
 
     # Write to log
     logging.basicConfig(
-        filename='Logs/' + log_name + '.log',
+        filename='Logs/' + file_name + '.log',
         format='%(asctime)s   %(module)s   %(levelname)s   %(message)s',
         datefmt='%Y-%m-%d %I:%M:%S %p',
         filemode='a',  # Append to log (rather than, 'w', over-wright)
@@ -460,12 +458,12 @@ def main(log_name, list_dicts, folder_path, apartment_name, floor_plan_folder):
                     # print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
                     df_all, df_units_new, df_units_leased, df_units_changed = compare_availability(
-                        'Output - Exo Spreadsheets', 'Exo', k_floor_plan, df_current)
+                        'Exo', folder_spreadsheets, k_floor_plan, df_current)
 
                     if df_units_new.empty & df_units_leased.empty & df_units_changed.empty:
                         print(str(
                             now.strftime('%Y-%m-%d %I:%M:%S %p'))
-                              + '  {}  INFO  No Change ({})'.format(log_name, k_floor_plan))
+                              + '  {}  INFO  No Change ({})'.format(file_name, k_floor_plan))
                         # logging.info('No change (%s)', k_floor_plan)
                         pass
 
@@ -529,10 +527,11 @@ def main(log_name, list_dicts, folder_path, apartment_name, floor_plan_folder):
                         # Save changes locally
                         today = datetime.today().strftime('%Y-%m-%d %H%M%S')
                         df_all.to_excel(
-                            '{}/{} {} {}.xlsx'.format(folder_path, apartment_name, k_floor_plan, today), index=False)
+                            '{}/{} {} {}.xlsx'.format(
+                                folder_spreadsheets, apartment_name, k_floor_plan, today), index=False)
 
-                        # send_email(apartment_name, floor_plan_folder, k_floor_plan, df_units_new, df_units_leased,
-                        #            df_units_changed, now, v_floor_plan_url)
+                        send_email(apartment_name, folder_photos, k_floor_plan, df_units_new, df_units_leased,
+                                   df_units_changed, now, v_floor_plan_url)
             except:
                 # print(
                 #     str(now.strftime('%Y-%m-%d %I:%M %p'))
@@ -595,5 +594,9 @@ dict_a6a = {'A6A': 'https://exoreston.com/floorplans/a6a/#detail-view'}  # 1 bed
 list_of_dicts = [dict_a1, dict_a1a, dict_a2, dict_a2a, dict_a2b, dict_a2c, dict_a3, dict_a5, dict_a6, dict_a6a]
 
 
-main('Apartments_Reston_Exo', list_of_dicts, 'Output - Exo Spreadsheets', 'Exo',
-     'Output - Exo Floor Plans')
+main(
+    'Exo',
+    'Apartments_Reston_Exo',
+    'Output - Exo Spreadsheets',
+    'Output - Exo Floor Plans',
+    list_of_dicts)
