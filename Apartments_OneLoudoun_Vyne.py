@@ -62,6 +62,22 @@ def scrape_html_selenium(url: str):
     return html_soup
 
 
+def create_blank_spreadsheets(floor_plan: str):
+    """
+    Creates empty Excel files with the correct column headers for each floor plan. Only need to run this once when scraping the
+    webpages for the first time. compare_availability function needs an existing spreadsheet to compare to, even if empty.
+
+    :param floor_plan:
+    :return:
+    """
+
+    df = pd.DataFrame(columns=[
+        'Floor Plan', 'Unit', 'Price Current', 'Price Previous', 'Price Change', 'Change Status', 'Date Available',
+        'Scrape Datetime'])
+
+    df.to_excel('Output - Vyne Spreadsheets/Vyne {}.xlsx'.format(floor_plan), index=False)
+
+
 def create_dataframe_from_html(floor_plan: str, html_str: str, current_time: datetime):
     """
     Converts the HTML string of key unit information to a DF.
@@ -477,79 +493,15 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str, folder_p
         time.sleep(delay_sec)
 
 
-def troubleshoot(list_dicts: list):
-    """
-    Same as main function, but prints statements to help pinpoint where errors occur and does not write to log
-
-    :param list_dicts: List of dictionaries; each dictionary contains floor plan name as the Key and floor plan URL as the Value.
-    :return: Sends email if there is a change in availability or price.
-    """
-
-    while True:
-        # Loop through each Dictionary in the list
-        for dict_floor_plan in list_dicts:
-            now = datetime.now()
-            try:
-                # For each floor plan, scrape website, compare availability, and send notification
-                for k_floor_plan, v_floor_plan_url in dict_floor_plan.items():
-                    print(k_floor_plan)
-
-                    html = scrape_html_selenium(v_floor_plan_url)
-                    print('Scraped website and cleaned HTML')
-                    # print(html)
-
-                    df_current = create_dataframe_from_html(k_floor_plan, html, now)
-                    print('Created DataFrame of current availability from HTML')
-                    print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-
-                    df_all, df_units_new, df_units_leased, df_units_change = compare_availability(k_floor_plan, df_current)
-                    print('Created DataFrames for each change status')
-                    print('DF new length: ' + str(len(df_units_new)))
-                    print('DF leased length: ' + str(len(df_units_leased)))
-                    print('DF changed length: ' + str(len(df_units_change)))
-
-                    if df_units_new.empty & df_units_leased.empty & df_units_change.empty:
-                        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - No Change ({})'.format(k_floor_plan))
-                        pass
-
-                    else:
-                        print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
-
-                        send_email(k_floor_plan, df_units_new, df_units_leased, df_units_change, now, v_floor_plan_url)
-                    print('')
-            except:
-                print(
-                    str(now.strftime('%Y-%m-%d %I:%M %p'))
-                    + ' - Unable to connect to or scrape website ({})'.format(k_floor_plan))
-
-        delay_sec = 60 * 15
-        time.sleep(delay_sec)
-
-
-def create_blank_spreadsheets(floor_plan: str):
-    """
-    Creates empty Excel files with the correct column headers for each floor plan. Only need to run this once when scraping the
-    webpages for the first time. compare_availability function needs an existing spreadsheet to compare to, even if empty.
-
-    :param floor_plan:
-    :return:
-    """
-
-    df = pd.DataFrame(columns=[
-        'Floor Plan', 'Unit', 'Price Current', 'Price Previous', 'Price Change', 'Change Status', 'Date Available',
-        'Scrape Datetime'])
-
-    df.to_excel('Output - Vyne Spreadsheets/Vyne {}.xlsx'.format(floor_plan), index=False)
+""" ########################################################################################################################## """
+""" Scrape Website """
+""" ########################################################################################################################## """
 
 
 # list_floor_plans = ['A1A', 'A2A', 'A6D', 'B1B', 'B2B', 'B3B', 'B10B', 'B12B', 'S3A']
 # for plan in list_floor_plans:
 #     create_blank_spreadsheets(plan)
-
-
-""" ########################################################################################################################## """
-""" Scrape Website """
-""" ########################################################################################################################## """
+# TODO: If and when S3A is first scraped, delete the blank spreadsheet saved in folder
 
 
 dict_a1a = {'A1A': 'https://www.vyneapts.com/floorplans/a1a'}  # 1 bed 1 bath
@@ -571,8 +523,3 @@ main(
     'Output - Vyne Spreadsheets',
     'Output - Vyne Floor Plans',
     list_of_dicts)
-
-# troubleshoot(list_of_dicts)
-
-
-# TODO: If and when S3A is first scraped, delete the blank spreadsheet saved in folder
