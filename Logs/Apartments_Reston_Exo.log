@@ -1,0 +1,61 @@
+2023-08-08 12:19:27 AM   Apartments_Reston_Exo   INFO   Started running script
+2023-08-08 12:19:31 AM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A1)
+2023-08-08 12:19:38 AM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A1A)
+2023-08-08 12:19:43 AM   Apartments_Reston_Exo   INFO   New Iris A2 unit: 1512 ($2650)
+2023-08-08 12:19:43 AM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan Unit  Price Current Price Previous  Price Change Change Status   Date Available            Scrape Datetime
+    Iris         A2 1512           2650            NaN             0      New Unit October 24, 2023 2023-08-08 00:19:38.001690
+
+2023-08-08 12:19:49 AM   Apartments_Reston_Exo   INFO   New Iris A2A unit: 1304 ($2311)
+2023-08-08 12:19:49 AM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan Unit  Price Current Price Previous  Price Change Change Status  Date Available            Scrape Datetime
+    Iris        A2A 1304           2311            NaN             0      New Unit August 18, 2023 2023-08-08 00:19:44.628539
+
+2023-08-08 12:19:55 AM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A2B)
+2023-08-08 12:19:59 AM   Apartments_Reston_Exo   INFO   New Iris A2C unit: 802 ($2296)
+2023-08-08 12:19:59 AM   Apartments_Reston_Exo   INFO   New Ora A2C unit: 1522 ($2603)
+2023-08-08 12:19:59 AM   Apartments_Reston_Exo   INFO   New Ora A2C unit: 522 ($2208)
+2023-08-08 12:19:59 AM   Apartments_Reston_Exo   INFO   New Ora A2C unit: 622 ($2218)
+2023-08-08 12:19:59 AM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan Unit  Price Current Price Previous  Price Change Change Status     Date Available            Scrape Datetime
+    Iris        A2C  802           2296            NaN             0      New Unit   November 3, 2023 2023-08-08 00:19:55.378549
+     Ora        A2C 1522           2603            NaN             0      New Unit  September 2, 2023 2023-08-08 00:19:55.378549
+     Ora        A2C  522           2208            NaN             0      New Unit September 25, 2023 2023-08-08 00:19:55.378549
+     Ora        A2C  622           2218            NaN             0      New Unit September 27, 2023 2023-08-08 00:19:55.378549
+
+2023-08-08 12:20:05 AM   Apartments_Reston_Exo   INFO   New Iris A3 unit: 1511 ($2555)
+2023-08-08 12:20:05 AM   Apartments_Reston_Exo   INFO   New Iris A3 unit: 511 ($2365)
+2023-08-08 12:20:05 AM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan Unit  Price Current Price Previous  Price Change Change Status  Date Available            Scrape Datetime
+    Iris         A3 1511           2555            NaN             0      New Unit             Now 2023-08-08 00:20:01.189586
+    Iris         A3  511           2365            NaN             0      New Unit October 7, 2023 2023-08-08 00:20:01.189586
+
+2023-08-08 12:20:11 AM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A5)
+2023-08-08 12:20:16 AM   Apartments_Reston_Exo   INFO   New Iris A6 unit: 1407 ($2415)
+2023-08-08 12:20:16 AM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan Unit  Price Current Price Previous  Price Change Change Status   Date Available            Scrape Datetime
+    Iris         A6 1407           2415            NaN             0      New Unit October 17, 2023 2023-08-08 00:20:11.665927
+
+2023-08-08 12:20:21 AM   Apartments_Reston_Exo   INFO   New Iris A6A unit: 1107 ($2310)
+2023-08-08 12:20:21 AM   Apartments_Reston_Exo   INFO   New Iris A6A unit: 907 ($2200)
+2023-08-08 12:20:21 AM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan Unit  Price Current Price Previous  Price Change Change Status  Date Available            Scrape Datetime
+    Iris        A6A 1107           2310            NaN             0      New Unit October 7, 2023 2023-08-08 00:20:17.471005
+    Iris        A6A  907           2200            NaN             0      New Unit             Now 2023-08-08 00:20:17.471005
+
+2023-08-08 09:12:12 PM   Apartments_Reston_Exo   INFO   Started running script
+2023-08-08 09:12:20 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A1)
+2023-08-08 09:12:24 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A1A)
+2023-08-08 09:12:38 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A2B)
+2023-08-08 09:12:54 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A5)
+2023-08-08 09:22:30 PM   Apartments_Reston_Exo   INFO   Started running script
+2023-08-08 09:22:38 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A1)
+2023-08-08 09:22:42 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A1A)
+2023-08-08 09:22:55 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A2B)
+2023-08-08 09:23:08 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A5)
