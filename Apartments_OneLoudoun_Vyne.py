@@ -480,8 +480,8 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str, folder_p
                             '{}/{} {} {}.xlsx'.format(
                                 folder_spreadsheets, apartment_name, k_floor_plan, today), index=False)
 
-                        send_email(apartment_name, folder_spreadsheets, folder_photos, k_floor_plan, df_units_new,
-                                   df_units_leased, df_units_changed, now, v_floor_plan_url)
+                        send_email(apartment_name, folder_photos, k_floor_plan, df_units_new, df_units_leased,
+                                   df_units_changed, now, v_floor_plan_url)
             except:
                 # print(
                 #     str(now.strftime('%Y-%m-%d %I:%M %p'))
