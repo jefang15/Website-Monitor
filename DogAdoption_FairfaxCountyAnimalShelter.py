@@ -21,6 +21,7 @@ from password import email, email_password
 import time
 import logging
 import sys
+from tabulate import tabulate
 
 
 def scrape_html(url: str):
@@ -264,7 +265,7 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
     :param folder_spreadsheets: Folder path to location where spreadsheets are saved
     :param folder_photos: Folder path to location where images are saved
     :param df_current: List and information of dogs in the latest scrape of adoption site
-    :return: Tells whether there are any changes in availability or not, and how many
+    :return: 2 separate DataFrames, one for new dogs and one for adopted dogs, if applicable
     """
 
     # Previous Availability
@@ -318,13 +319,14 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
         return df_new, df_adopted
 
 
-def send_email(folder_photos: str, df_new, df_adopted, current_time: datetime):
+def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time: datetime):
     """
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
 
     Emojis at: https://emojipedia.org
 
+    :param shelter_name: Name of dog shelter
     :param folder_photos: DF of newly available dogs
     :param df_new: DF of newly available dogs
     :param df_adopted: DF of adopted dogs
@@ -336,7 +338,7 @@ def send_email(folder_photos: str, df_new, df_adopted, current_time: datetime):
     msg = MIMEMultipart('multipart')  # To support mix of content types
     msg['From'] = email
     msg['To'] = email
-    msg['Subject'] = '🐶 Fairfax County Animal Shelter Update!'
+    msg['Subject'] = '🐶 {} Update!'.format(shelter_name)
 
     # Form Email Body - New Dogs
     if len(df_new) > 0:
@@ -413,10 +415,11 @@ def send_email(folder_photos: str, df_new, df_adopted, current_time: datetime):
         smtp.send_message(msg)
 
 
-def main(folder_spreadsheets: str, folder_photos:str , file_name: str, url1: str, url2: str):
+def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_name: str, url1: str, url2: str):
     """
     Scrapes dog adoption site every 5 minutes during the day and emails any changes.
 
+    :param shelter_name: Name of dog shelter
     :param folder_spreadsheets: Folder path to location where spreadsheets are saved
     :param folder_photos: Folder path to location where images are saved
     :param file_name: Name of Python script (without any file types)
@@ -480,12 +483,12 @@ def main(folder_spreadsheets: str, folder_photos:str , file_name: str, url1: str
                 # Save to Excel
                 now_text = now.strftime('%Y-%m-%d %H-%M-%S')
                 df_current_dogs.to_excel(
-                    '{}/Fairfax County Animal Shelter {}.xlsx'.format(folder_spreadsheets, now_text), index=False)
+                    '{}/{} {}.xlsx'.format(folder_spreadsheets, shelter_name, now_text), index=False)
 
-                send_email(df_dogs_new, df_dogs_adopted, now)
+                send_email(shelter_name, folder_photos, df_dogs_new, df_dogs_adopted, now)
 
         except:
-            print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Unable to connect to or scrape website')
+            print(str(now.strftime('%Y-%m-%d %I:%M:%S %p')) + ' - Unable to connect to or scrape website')
 
             logging.error('Unable to connect to or scrape website')
 
@@ -508,18 +511,41 @@ def main(folder_spreadsheets: str, folder_photos:str , file_name: str, url1: str
 """ ########################################################################################################################## """
 
 
+# <editor-fold desc="Troubleshoot">
+# _now = datetime.now()
+#
+# _html = scrape_html('https://24petconnect.com/PP4352?at=DOG')
+# print(_html)
+#
+# _count, _df_html = create_dataframe_from_html(_html, _now)
+# print(_count)
+# print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+#
+# _df_concat = concat_additional_pages(_count, 'https://24petconnect.com/PP4352?index=30&at=DOG', _df_html, _now)
+# print(tabulate(_df_concat, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+#
+# _df_new, _df_adopted = compare_availability(
+#     'Output - Fairfax Shelter Spreadsheets', 'Output - Fairfax Shelter Photos', _df_concat)
+# print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+# print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+#
+# send_email(
+#     'Fairfax County Animal Shelter', 'Output - Fairfax Shelter Photos', _df_new, _df_adopted, _now)
+# </editor-fold>
+
+
 # Set URL
 url_page1 = 'https://24petconnect.com/PP4352?at=DOG'
 url_page2 = 'https://24petconnect.com/PP4352?index=30&at=DOG'
 
 
 main(
+    'Fairfax County Animal Shelter',
     'Output - Fairfax Shelter Spreadsheets',
     'Output - Fairfax Shelter Photos',
     'DogAdoption_FairfaxCountyAnimalShelter',
     url_page1,
     url_page2)
-# troubleshoot(url_page1, url_page2)
 
 
 # Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
