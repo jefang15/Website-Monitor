@@ -466,8 +466,6 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str, folder_p
                                 else:
                                     pass
 
-                                logging.info('Price change: %s', row['Unit'])
-
                             (logging.info(
                                 '\n\n'
                                 + df_units_changed.to_string(index=False)
