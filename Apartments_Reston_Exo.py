@@ -261,6 +261,7 @@ def compare_availability(apartment_name: str, folder_spreadsheets: str, floor_pl
     df_change = df_all[
         (df_all['Change Status'] == 'Still Available') &
         (df_all['Price Change'] != 0)].copy()
+    df_all = df_all[(df_all['Change Status'] == 'New Unit') | (df_all['Change Status'] == 'Still Available')].copy()
 
     return df_all, df_new, df_leased, df_change
 
