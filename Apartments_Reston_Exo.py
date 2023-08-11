@@ -253,6 +253,10 @@ def compare_availability(apartment_name: str, folder_spreadsheets: str, floor_pl
         'Building', 'Floor Plan', 'Unit', 'Price Current', 'Price Previous', 'Price Change', 'Change Status', 'Date Available',
         'Scrape Datetime']].copy()
 
+    df_all['Price Current'] = df_all['Price Current'].astype('int')
+    df_all['Price Previous'] = df_all['Price Previous'].astype('int')
+    df_all['Price Change'] = df_all['Price Change'].astype('int')
+
     df_all.sort_values(by=['Building', 'Floor Plan', 'Unit'], inplace=True)
 
     # Create separate DF for each change status, which will inform if and what to send in email
@@ -531,6 +535,7 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str,  folder_
 
                         send_email(apartment_name, folder_photos, k_floor_plan, df_units_new, df_units_leased,
                                    df_units_changed, now, v_floor_plan_url)
+                        pass
             except:
                 # print(
                 #     str(now.strftime('%Y-%m-%d %I:%M %p'))
