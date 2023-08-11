@@ -400,3 +400,173 @@ Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date 
 2023-08-10 07:33:59 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
 2023-08-10 07:56:10 AM   Apartments_OneLoudoun_Vyne   INFO   Started running script
 2023-08-10 07:56:48 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 08:15:12 AM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-08-10 08:16:08 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 08:47:01 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 09:17:45 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 09:48:23 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 10:19:07 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 10:49:45 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 11:20:21 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 11:51:01 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 12:21:42 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 12:52:25 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 01:23:09 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 01:53:52 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 02:24:30 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 02:55:08 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 03:25:37 PM   Apartments_OneLoudoun_Vyne   INFO   Leased B10B unit: E564 ($2525)
+2023-08-10 03:25:37 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+      B10B E564            NaN            2525           0.0   Leased Unit            NaN             NaT
+
+2023-08-10 03:25:46 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 03:56:13 PM   Apartments_OneLoudoun_Vyne   INFO   New B1B unit: E527 ($2793)
+2023-08-10 03:56:13 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       B1B E527           2793             NaN           0.0      New Unit     11/28/2023 2023-08-10 15:56:09.999045
+
+2023-08-10 03:56:36 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 04:27:16 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 04:57:56 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 05:28:38 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 05:59:15 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 06:29:54 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 07:00:30 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 07:31:08 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 08:01:54 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 08:32:47 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 09:03:31 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-10 09:34:16 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 12:38:04 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 01:08:40 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 01:39:14 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 02:09:48 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 02:40:22 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 03:10:56 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 03:41:16 AM   Apartments_OneLoudoun_Vyne   INFO   New B2B unit: W417 ($2783)
+2023-08-11 03:41:16 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       B2B W417           2783             NaN           0.0      New Unit     10/23/2023 2023-08-11 03:41:13.239980
+
+2023-08-11 03:41:22 AM   Apartments_OneLoudoun_Vyne   INFO   New B3B unit: E702 ($2680)
+2023-08-11 03:41:22 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       B3B E702           2680             NaN           0.0      New Unit      9/13/2023 2023-08-11 03:41:19.181723
+
+2023-08-11 03:41:35 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 04:12:08 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 04:42:41 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 05:13:14 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 05:43:49 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 06:14:35 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 06:45:13 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 07:15:48 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 07:46:34 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 08:08:43 AM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-08-11 08:09:14 AM   Apartments_OneLoudoun_Vyne   INFO   New B2B unit: W417 ($2783)
+2023-08-11 08:09:14 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       B2B W417           2783             NaN           0.0      New Unit     10/23/2023 2023-08-11 08:09:10.379362
+
+2023-08-11 08:37:28 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 09:08:09 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 09:38:48 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 10:09:24 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 10:40:05 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 11:10:53 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 11:41:35 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 12:12:12 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 12:42:45 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 01:13:23 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 01:44:01 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 02:14:39 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 02:45:16 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 03:15:52 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 03:46:00 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E407 +16 ($2206)
+2023-08-11 03:46:00 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E730 +23 ($2401)
+2023-08-11 03:46:00 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A1A E407           2206            2190            16 Still Available      9/28/2023 2023-08-11 15:45:52.854054
+       A1A E730           2401            2378            23 Still Available     10/10/2023 2023-08-11 15:45:52.854054
+
+2023-08-11 03:46:07 PM   Apartments_OneLoudoun_Vyne   INFO   New A2A unit: W507 ($2318)
+2023-08-11 03:46:07 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A2A W507           2318             NaN           0.0      New Unit     10/15/2023 2023-08-11 15:46:02.603915
+
+2023-08-11 03:46:07 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W116 +23.0 ($2331)
+2023-08-11 03:46:07 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A2A W116           2331          2308.0          23.0 Still Available     10/12/2023 2023-08-11 15:46:02.603915
+
+2023-08-11 03:46:13 PM   Apartments_OneLoudoun_Vyne   INFO   A6D price change: W111 +41 ($2569)
+2023-08-11 03:46:13 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A6D W111           2569            2528            41 Still Available      8/18/2023 2023-08-11 15:46:08.973215
+
+2023-08-11 03:46:19 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E527 -175 ($2618)
+2023-08-11 03:46:19 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E534 +33 ($2591)
+2023-08-11 03:46:19 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E634 +33 ($2788)
+2023-08-11 03:46:19 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B1B E527           2618            2793          -175 Still Available     11/28/2023 2023-08-11 15:46:15.403477
+       B1B E534           2591            2558            33 Still Available            Now 2023-08-11 15:46:15.403477
+       B1B E634           2788            2755            33 Still Available            Now 2023-08-11 15:46:15.403477
+
+2023-08-11 03:46:25 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W218 +33 ($2588)
+2023-08-11 03:46:25 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W317 +23 ($2708)
+2023-08-11 03:46:25 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W417 -40 ($2743)
+2023-08-11 03:46:25 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W515 +23 ($2753)
+2023-08-11 03:46:25 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W218           2588            2555            33 Still Available       9/1/2023 2023-08-11 15:46:21.446241
+       B2B W317           2708            2685            23 Still Available      10/7/2023 2023-08-11 15:46:21.446241
+       B2B W417           2743            2783           -40 Still Available     10/23/2023 2023-08-11 15:46:21.446241
+       B2B W515           2753            2730            23 Still Available     10/17/2023 2023-08-11 15:46:21.446241
+
+2023-08-11 03:46:31 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E406 +23 ($2758)
+2023-08-11 03:46:31 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E502 +23 ($2768)
+2023-08-11 03:46:31 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E702 +46 ($2726)
+2023-08-11 03:46:31 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B3B E406           2758            2735            23 Still Available      11/4/2023 2023-08-11 15:46:28.105344
+       B3B E502           2768            2745            23 Still Available      11/7/2023 2023-08-11 15:46:28.105344
+       B3B E702           2726            2680            46 Still Available      9/13/2023 2023-08-11 15:46:28.105344
+
+2023-08-11 03:46:37 PM   Apartments_OneLoudoun_Vyne   INFO   B10B price change: E364 +33 ($2558)
+2023-08-11 03:46:37 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+      B10B E364           2558            2525            33 Still Available       9/7/2023 2023-08-11 15:46:33.945856
+
+2023-08-11 03:46:42 PM   Apartments_OneLoudoun_Vyne   INFO   B12B price change: E361 +23 ($2623)
+2023-08-11 03:46:42 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+      B12B E361           2623            2600            23 Still Available     10/18/2023 2023-08-11 15:46:39.262067
+
+2023-08-11 03:46:48 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 04:17:26 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 04:48:05 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 05:18:45 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 05:49:29 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-08-11 06:08:20 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-08-11 07:41:15 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-08-11 07:41:46 PM   Apartments_OneLoudoun_Vyne   INFO   Leased B3B unit: E702 ($2726)
+2023-08-11 07:41:46 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       B3B E702            NaN            2726             0   Leased Unit            NaN             NaT

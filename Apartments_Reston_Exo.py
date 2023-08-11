@@ -253,9 +253,9 @@ def compare_availability(apartment_name: str, folder_spreadsheets: str, floor_pl
         'Building', 'Floor Plan', 'Unit', 'Price Current', 'Price Previous', 'Price Change', 'Change Status', 'Date Available',
         'Scrape Datetime']].copy()
 
-    df_all['Price Current'] = df_all['Price Current'].astype('int')
-    df_all['Price Previous'] = df_all['Price Previous'].astype('int')
-    df_all['Price Change'] = df_all['Price Change'].astype('int')
+    df_all['Price Current'] = df_all['Price Current'].astype('int', errors='ignore')
+    df_all['Price Previous'] = df_all['Price Previous'].astype('int', errors='ignore')
+    df_all['Price Change'] = df_all['Price Change'].astype('int', errors='ignore')
 
     df_all.sort_values(by=['Building', 'Floor Plan', 'Unit'], inplace=True)
 
@@ -459,83 +459,87 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str,  folder_
                     html = scrape_html_selenium(v_floor_plan_url)
                     # print(html)
 
-                    df_current = create_dataframe_from_html(k_floor_plan, html, now)
-                    # print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+                    if html:
 
-                    df_all, df_units_new, df_units_leased, df_units_changed = compare_availability(
-                        'Exo', folder_spreadsheets, k_floor_plan, df_current)
+                        df_current = create_dataframe_from_html(k_floor_plan, html, now)
+                        # print(tabulate(df_current, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 
-                    if df_units_new.empty & df_units_leased.empty & df_units_changed.empty:
+                        df_all, df_units_new, df_units_leased, df_units_changed = compare_availability(
+                            'Exo', folder_spreadsheets, k_floor_plan, df_current)
+
+                        if df_units_new.empty & df_units_leased.empty & df_units_changed.empty:
+                            print(str(
+                                now.strftime('%Y-%m-%d %I:%M:%S %p'))
+                                  + '  {}  INFO  No Change ({})'.format(file_name, k_floor_plan))
+                            # logging.info('No change (%s)', k_floor_plan)
+                            pass
+
+                        else:
+                            # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
+
+                            # <editor-fold desc="New">
+                            if df_units_new.empty is False:
+                                for _, row in df_units_new.iterrows():
+                                    logging.info(
+                                        'New %s %s unit: %s ($%s)',
+                                        row['Building'], row['Floor Plan'], row['Unit'], row['Price Current'])
+
+                                (logging.info(
+                                    '\n\n'
+                                    + df_units_new.to_string(index=False)
+                                    + '\n'))
+                            # </editor-fold>
+
+                            # <editor-fold desc="Leased">
+                            if df_units_leased.empty is False:
+                                for _, row in df_units_leased.iterrows():
+                                    logging.info(
+                                        'Leased %s %s unit: %s ($%s)',
+                                        row['Building'], row['Floor Plan'], row['Unit'], row['Price Previous'])
+
+                                (logging.info(
+                                    '\n\n'
+                                    + df_units_leased.to_string(index=False)
+                                    + '\n'))
+                            # </editor-fold>
+
+                            # <editor-fold desc="Price change">
+                            if df_units_changed.empty is False:
+                                for _, row in df_units_changed.iterrows():
+
+                                    # Price Change
+                                    if row['Price Change'] > 0:
+                                        logging.info('%s %s price change: %s +%s ($%s)', row['Building'], row['Floor Plan'],
+                                                     row['Unit'], row['Price Change'], row['Price Current'])
+                                    elif row['Price Change'] < 0:
+                                        logging.info('%s %s price change: %s %s ($%s)', row['Building'], row['Floor Plan'],
+                                                     row['Unit'], row['Price Change'], row['Price Current'])
+                                    else:
+                                        pass
+
+                                (logging.info(
+                                    '\n\n'
+                                    + df_units_changed.to_string(index=False)
+                                    + '\n'))
+                            # </editor-fold>
+
+                            # Save changes locally
+                            today = datetime.today().strftime('%Y-%m-%d %H%M%S')
+                            df_all.to_excel(
+                                '{}/{} {} {}.xlsx'.format(
+                                    folder_spreadsheets, apartment_name, k_floor_plan, today), index=False)
+
+                            send_email(apartment_name, folder_photos, k_floor_plan, df_units_new, df_units_leased,
+                                       df_units_changed, now, v_floor_plan_url)
+                            pass
+                    else:
                         print(str(
                             now.strftime('%Y-%m-%d %I:%M:%S %p'))
-                              + '  {}  INFO  No Change ({})'.format(file_name, k_floor_plan))
-                        # logging.info('No change (%s)', k_floor_plan)
-                        pass
+                              + '  {}  INFO  No {} units'.format(file_name, k_floor_plan))
 
-                    else:
-                        # print(str(now.strftime('%Y-%m-%d %I:%M %p')) + ' - Change in Availability! ({})'.format(k_floor_plan))
+                        # logging.info('No {} units'.format(k_floor_plan))
 
-                        # logging.info('Change in availability! (%s)', k_floor_plan)
-                        # (logging.info(
-                        #     '\n\n'
-                        #     + df_all.to_string(index=False)
-                        #     + '\n'))
-
-                        # <editor-fold desc="New">
-                        if df_units_new.empty is False:
-                            for _, row in df_units_new.iterrows():
-                                logging.info(
-                                    'New %s %s unit: %s ($%s)',
-                                    row['Building'], row['Floor Plan'], row['Unit'], row['Price Current'])
-
-                            (logging.info(
-                                '\n\n'
-                                + df_units_new.to_string(index=False)
-                                + '\n'))
-                        # </editor-fold>
-
-                        # <editor-fold desc="Leased">
-                        if df_units_leased.empty is False:
-                            for _, row in df_units_leased.iterrows():
-                                logging.info(
-                                    'Leased %s %s unit: %s ($%s)',
-                                    row['Building'], row['Floor Plan'], row['Unit'], row['Price Previous'])
-
-                            (logging.info(
-                                '\n\n'
-                                + df_units_leased.to_string(index=False)
-                                + '\n'))
-                        # </editor-fold>
-
-                        # <editor-fold desc="Price change">
-                        if df_units_changed.empty is False:
-                            for _, row in df_units_changed.iterrows():
-
-                                # Price Change
-                                if row['Price Change'] > 0:
-                                    logging.info('%s %s price change: %s +%s ($%s)', row['Building'], row['Floor Plan'],
-                                                 row['Unit'], row['Price Change'], row['Price Current'])
-                                elif row['Price Change'] < 0:
-                                    logging.info('%s %s price change: %s %s ($%s)', row['Building'], row['Floor Plan'],
-                                                 row['Unit'], row['Price Change'], row['Price Current'])
-                                else:
-                                    pass
-
-                            (logging.info(
-                                '\n\n'
-                                + df_units_changed.to_string(index=False)
-                                + '\n'))
-                        # </editor-fold>
-
-                        # Save changes locally
-                        today = datetime.today().strftime('%Y-%m-%d %H%M%S')
-                        df_all.to_excel(
-                            '{}/{} {} {}.xlsx'.format(
-                                folder_spreadsheets, apartment_name, k_floor_plan, today), index=False)
-
-                        send_email(apartment_name, folder_photos, k_floor_plan, df_units_new, df_units_leased,
-                                   df_units_changed, now, v_floor_plan_url)
-                        pass
+                        break
             except:
                 # print(
                 #     str(now.strftime('%Y-%m-%d %I:%M %p'))
