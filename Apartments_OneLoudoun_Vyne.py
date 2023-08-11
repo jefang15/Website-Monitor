@@ -205,6 +205,10 @@ def compare_availability(apartment_name: str, folder_spreadsheets: str, floor_pl
 
     df_all.sort_values(by=['Floor Plan', 'Unit'], inplace=True)
 
+    df_all['Price Current'] = df_all['Price Current'].astype('int')
+    df_all['Price Previous'] = df_all['Price Previous'].astype('int')
+    df_all['Price Change'] = df_all['Price Change'].astype('int')
+
     # Create separate DF for each change status, which will inform if and what to send in email
     df_new = df_all[df_all['Change Status'] == 'New Unit'].copy()
     df_leased = df_all[df_all['Change Status'] == 'Leased Unit'].copy()
@@ -216,8 +220,8 @@ def compare_availability(apartment_name: str, folder_spreadsheets: str, floor_pl
     return df_all, df_new, df_leased, df_change
 
 
-def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new, df_leased, df_change, current_time: datetime,
-               url: str):
+def send_email(apartment_name: str, folder_photos: str, floor_plan: str, building_floor_plan: str, df_new, df_leased, df_change,
+               current_time: datetime, url: str):
     """
     Only sends an email if there is change in apartment unit availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
@@ -227,6 +231,7 @@ def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new,
     :param apartment_name: Name of apartment, to help build directory
     :param folder_photos: Folder path to location where floorplans are saved
     :param floor_plan: Unit floor plan type
+    :param building_floor_plan: Image file name for the building's floor plan
     :param df_new: DF of new apartment units
     :param df_leased: DF of leased apartment units
     :param df_change: DF of changes in existing apartment units
@@ -234,6 +239,9 @@ def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new,
     :param url: Floor plan URL, to include at end of email body
     :return: If there's a change in availability, email me that change
     """
+
+    # TODO: Try HTML (since text appears as attachment in Outlook.com instead of in body of email)
+    # TODO: https://stackoverflow.com/questions/882712/send-html-emails-with-python
 
     # Form Email Parameters
     msg = MIMEMultipart('multipart')  # To support mix of content types
@@ -348,6 +356,12 @@ def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new,
                 msg.attach(MIMEText('<br></br>', 'html'))
     # </editor-fold>
 
+    # Photo
+    with open('{}/{}.png'.format(folder_photos, building_floor_plan), 'rb') as f:
+        image_data2 = MIMEImage(f.read(), _subtype='png')
+        msg.attach(image_data2)
+        msg.attach(MIMEText('<br></br>', 'html'))
+
     # Add Time to Email Body
     time_for_email = current_time.strftime('%Y-%m-%d %-I:%M %p')
     msg.attach(MIMEText(time_for_email + '<br>', 'html'))
@@ -364,7 +378,8 @@ def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new,
         smtp.send_message(msg)
 
 
-def main(apartment_name: str, file_name: str, folder_spreadsheets: str, folder_photos: str, list_dicts: list):
+def main(apartment_name: str, file_name: str, folder_spreadsheets: str, folder_photos: str, list_dicts: list,
+         building_floor_plan: str):
     """
     Runs all previous functions to scrape website and compare unit availability.
 
@@ -373,6 +388,7 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str, folder_p
     :param folder_spreadsheets: Folder path in which spreadsheets are saved
     :param folder_photos: Folder path to location where images are saved
     :param list_dicts: List of dictionaries; each dictionary contains floor plan name as the Key and floor plan URL as the Value.
+    :param building_floor_plan: Image file name for the building's floor plan
     :return: Sends email if there is a change in availability or price.
     """
 
@@ -479,8 +495,9 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str, folder_p
                             '{}/{} {} {}.xlsx'.format(
                                 folder_spreadsheets, apartment_name, k_floor_plan, today), index=False)
 
-                        send_email(apartment_name, folder_photos, k_floor_plan, df_units_new, df_units_leased,
-                                   df_units_changed, now, v_floor_plan_url)
+                        send_email(apartment_name, folder_photos, k_floor_plan, building_floor_plan, df_units_new,
+                                   df_units_leased, df_units_changed, now, v_floor_plan_url)
+                        pass
             except:
                 # print(
                 #     str(now.strftime('%Y-%m-%d %I:%M %p'))
@@ -521,4 +538,5 @@ main(
     'Apartments_OneLoudoun_Vyne',
     'Output - Vyne Spreadsheets',
     'Output - Vyne Floor Plans',
-    list_of_dicts)
+    list_of_dicts,
+    'Building Floor Plan')
