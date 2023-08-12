@@ -3,7 +3,6 @@ July 28, 2023
 
 Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is
 available or was adopted. Prevents needing to frequently refresh the page and manually identifying changes.
-what has changed.
 """
 
 
@@ -486,7 +485,6 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
                     '{}/{} {}.xlsx'.format(folder_spreadsheets, shelter_name, now_text), index=False)
 
                 send_email(shelter_name, folder_photos, df_dogs_new, df_dogs_adopted, now)
-
         except:
             print(str(now.strftime('%Y-%m-%d %I:%M:%S %p')) + ' - Unable to connect to or scrape website')
 

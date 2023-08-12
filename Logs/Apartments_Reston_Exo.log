@@ -702,3 +702,12 @@ Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change 
 2023-08-11 05:38:25 PM   Apartments_Reston_Exo   ERROR   Unable to connect to or scrape website (A5)
 2023-08-11 05:43:42 PM   Apartments_Reston_Exo   INFO   Started running script
 2023-08-11 07:45:23 PM   Apartments_Reston_Exo   INFO   Started running script
+2023-08-12 08:02:24 AM   Apartments_Reston_Exo   INFO   Started running script
+2023-08-12 04:46:55 PM   Apartments_Reston_Exo   INFO   Started running script
+2023-08-12 04:47:47 PM   Apartments_Reston_Exo   INFO   Iris A6A price change: 907 -38 ($2100)
+2023-08-12 04:47:47 PM   Apartments_Reston_Exo   INFO   Iris A6A price change: 1107 -40 ($2405)
+2023-08-12 04:47:47 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change Status  Date Available            Scrape Datetime
+    Iris        A6A   907           2100            2138           -38 Still Available             Now 2023-08-12 16:47:42.638143
+    Iris        A6A  1107           2405            2445           -40 Still Available October 7, 2023 2023-08-12 16:47:42.638143
