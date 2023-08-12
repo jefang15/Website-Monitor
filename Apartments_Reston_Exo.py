@@ -23,53 +23,13 @@ import logging
 import sys
 
 
-def view_html(url: str):
-    """
-    Returns the full, cleaned HTML (as a DataFrame) from a URL for view. Mainly just used to determine what the HTML looks like
-    under different availability scenarios and where the core content is.
-
-    :param url: URL link as string
-    :return: Cleaned HTML presented as a DataFrame
-    """
-
-    chromium_options = Options()
-    chromium_options.add_argument('--headless=new')
-
-    # Set the driver for the Chromium browser
-    chrome_driver = webdriver.Chrome(options=chromium_options)
-
-    # Navigate to your website
-    chrome_driver.get(url)
-
-    # Get HTML from URL
-    html = chrome_driver.page_source
-
-    # chrome_driver.quit()  # Don't run until HTML is created
-
-    # Clean HTML
-    html_soup = BeautifulSoup(html, features='lxml').text  # String
-
-    list_html_text = [i.strip() for i in html_soup.splitlines()]
-    # type(list_text)  # List
-    # len(list_text)  # 63
-
-    # Create DataFrame from list
-    df = pd.DataFrame(list_html_text, columns=['Unit'])
-
-    # Drop NAN rows
-    df2 = df[df['Unit'] != ''].copy()
-
-    df2.reset_index(drop=True, inplace=True)
-
-    return df2
-
-
-def scrape_html_selenium(url: str):
+def scrape_html_selenium(url: str, purpose: str):
     """
     Scrapes HTML content from a given floor plan's URL and trims the HTML to the core content. This is used for production.
 
-    :param url: URL
-    :return: Cleaned HTML string containing key floor plan and unit information (such as units available, price, etc.)
+    :param url: URL to scrape
+    :param purpose: 'Production' or 'Testing' to indicate if this function will be used for production or testing (view full HTML)
+    :return: Cleaned HTML string containing either just key information (if 'Production') or full webpage HTML (if 'Testing')
     """
 
     # Set the options for the Chromium browser
@@ -90,14 +50,16 @@ def scrape_html_selenium(url: str):
     # Clean HTML
     html_soup = BeautifulSoup(html, features='lxml').text  # String
 
-    # Truncate beginning and end of HTML string
-    index_start = html_soup.find('Check Availability', html_soup.find('Check Availability')+1)  # Index of second occurrence
-    html_soup = html_soup[index_start:]
+    if purpose == 'Production':
+        # Truncate beginning and end of HTML string
+        index_start = html_soup.find('Check Availability', html_soup.find('Check Availability')+1)  # Index of second occurrence
+        html_soup = html_soup[index_start:]
 
-    index_end = html_soup.find('* Pricing and availability are subject to change. ')
-    html_soup = html_soup[:index_end]
-
-    return html_soup
+        index_end = html_soup.find('* Pricing and availability are subject to change. ')
+        html_soup = html_soup[:index_end]
+        return html_soup
+    else:
+        return html_soup
 
 
 def create_blank_spreadsheets(apartment_name: str, folder_path: str, floor_plan: str):
@@ -456,7 +418,7 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str,  folder_
                 # For each floor plan, scrape website, compare availability, and send notification
                 for k_floor_plan, v_floor_plan_url in dict_floor_plan.items():
 
-                    html = scrape_html_selenium(v_floor_plan_url)
+                    html = scrape_html_selenium(v_floor_plan_url, 'Production')
                     # print(html)
 
                     if html:
@@ -562,10 +524,8 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str,  folder_
 #
 # # Preview HTML
 # # url_preview = 'https://exoreston.com/floorplans/a2/#detail-view'
-# # df_preview = view_html(url_preview)
-# # print(tabulate(df_preview, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
-# html_test = scrape_html_selenium('https://exoreston.com/floorplans/a2c/#detail-view')
+# html_test = scrape_html_selenium('https://exoreston.com/floorplans/a2c/#detail-view', 'Testing')
 # print(html_test)
 #
 # df_test = create_dataframe_from_html('A2C', html_test, now)

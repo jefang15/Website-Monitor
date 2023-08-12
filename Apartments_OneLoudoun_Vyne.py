@@ -75,7 +75,7 @@ def create_blank_spreadsheets(floor_plan: str):
         'Floor Plan', 'Unit', 'Price Current', 'Price Previous', 'Price Change', 'Change Status', 'Date Available',
         'Scrape Datetime'])
 
-    df.to_excel('Output - Vyne Spreadsheets/Vyne {}.xlsx'.format(floor_plan), index=False)
+    df.to_excel('Output - Vyne Spreadsheets/Vyne {} 0000-00-00 000000.xlsx'.format(floor_plan), index=False)
 
 
 def create_dataframe_from_html(floor_plan: str, html_str: str, current_time: datetime):
