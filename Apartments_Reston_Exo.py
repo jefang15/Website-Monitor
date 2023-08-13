@@ -308,7 +308,7 @@ def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new,
         for index_leased, row_leased in df_leased.iterrows():
 
             # Unit
-            msg.attach(MIMEText('<b>{}</b>'.format(row_leased['Unit']), 'html'))
+            msg.attach(MIMEText('<b>{} {}</b>'.format(row_new['Building'], row_leased['Unit']), 'html'))
 
             # Price
             msg.attach(MIMEText('  |  ${}'.format(row_leased['Price Previous']), 'plain'))
@@ -341,7 +341,7 @@ def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new,
         for index_change, row_change in df_change.iterrows():
 
             # Unit
-            msg.attach(MIMEText('<b>{}</b>'.format(row_change['Unit']), 'html'))
+            msg.attach(MIMEText('<b>{} {}</b>'.format(row_new['Building'], row_change['Unit']), 'html'))
 
             # Price
             msg.attach(MIMEText('  |  ${}'.format(row_change['Price Current']), 'plain'))
