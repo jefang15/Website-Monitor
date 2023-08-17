@@ -240,14 +240,22 @@ def send_email(apartment_name: str, folder_photos: str, floor_plan: str, buildin
     :return: If there's a change in availability, email me that change
     """
 
-    # TODO: Try HTML (since text appears as attachment in Outlook.com instead of in body of email)
-    # TODO: https://stackoverflow.com/questions/882712/send-html-emails-with-python
-
     # Form Email Parameters
     msg = MIMEMultipart('multipart')  # To support mix of content types
     msg['From'] = email
     msg['To'] = email
     msg['Subject'] = '🏠 {} Apt {} Update!'.format(apartment_name, floor_plan)
+
+    if len(df_new) > 0 and len(df_leased) > 0:
+        msg.attach(MIMEText('<b>Summary: new and leased units</b><br></br>', 'html'))
+    elif len(df_new) > 0 and len(df_change) > 0:
+        msg.attach(MIMEText('<b>Summary: new and changed units</b><br></br>', 'html'))
+    elif len(df_leased) > 0 and len(df_change) > 0:
+        msg.attach(MIMEText('<b>Summary: leased and changed units</b><br></br>', 'html'))
+    elif len(df_new) > 0 and len(df_leased) > 0 and len(df_change) > 0:
+        msg.attach(MIMEText('<b>Summary: new, leased, and changed units</b><br></br>', 'html'))
+    else:
+        pass
 
     # Form Email Body - New Units
     # <editor-fold desc="New">

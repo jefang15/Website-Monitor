@@ -257,6 +257,17 @@ def send_email(apartment_name: str, folder_photos: str, floor_plan: str, df_new,
     msg['To'] = email
     msg['Subject'] = '🏠 {} Apt {} Update!'.format(apartment_name, floor_plan)
 
+    if len(df_new) > 0 and len(df_leased) > 0:
+        msg.attach(MIMEText('<b>Summary: new and leased units</b><br></br>', 'html'))
+    elif len(df_new) > 0 and len(df_change) > 0:
+        msg.attach(MIMEText('<b>Summary: new and changed units</b><br></br>', 'html'))
+    elif len(df_leased) > 0 and len(df_change) > 0:
+        msg.attach(MIMEText('<b>Summary: leased and changed units</b><br></br>', 'html'))
+    elif len(df_new) > 0 and len(df_leased) > 0 and len(df_change) > 0:
+        msg.attach(MIMEText('<b>Summary: new, leased, and changed units</b><br></br>', 'html'))
+    else:
+        pass
+
     # Form Email Body - New Units
     # <editor-fold desc="New">
     if df_new.empty:
