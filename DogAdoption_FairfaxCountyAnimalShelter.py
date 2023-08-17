@@ -339,6 +339,11 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
     msg['To'] = email
     msg['Subject'] = '🐶 {} Update!'.format(shelter_name)
 
+    if len(df_new) > 0 and len(df_adopted) > 0:
+        msg.attach(MIMEText('<b>Summary: new and adopted dogs</b><br></br>', 'html'))
+    else:
+        pass
+
     # Form Email Body - New Dogs
     if len(df_new) > 0:
 
