@@ -404,7 +404,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
                 msg.attach(MIMEText('<br></br>', 'html'))
 
     # Add Time to Body
-    time_for_email = current_time.strftime('%Y-%m-%d %:%M %p')
+    time_for_email = current_time.strftime('%Y-%m-%d %H:%M %p')
     msg.attach(MIMEText(time_for_email + '<br>', 'html'))
 
     # Add Website Link to Body
