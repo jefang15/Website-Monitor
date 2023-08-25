@@ -457,10 +457,10 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str,  folder_
                                         'New %s %s unit: %s ($%s)',
                                         row['Building'], row['Floor Plan'], row['Unit'], row['Price Current'])
 
-                                (logging.info(
+                                logging.info(
                                     '\n\n'
                                     + df_units_new.to_string(index=False)
-                                    + '\n'))
+                                    + '\n')
                             # </editor-fold>
 
                             # <editor-fold desc="Leased">
@@ -470,10 +470,10 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str,  folder_
                                         'Leased %s %s unit: %s ($%s)',
                                         row['Building'], row['Floor Plan'], row['Unit'], row['Price Previous'])
 
-                                (logging.info(
+                                logging.info(
                                     '\n\n'
                                     + df_units_leased.to_string(index=False)
-                                    + '\n'))
+                                    + '\n')
                             # </editor-fold>
 
                             # <editor-fold desc="Price change">
@@ -490,10 +490,10 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str,  folder_
                                     else:
                                         pass
 
-                                (logging.info(
+                                logging.info(
                                     '\n\n'
                                     + df_units_changed.to_string(index=False)
-                                    + '\n'))
+                                    + '\n')
                             # </editor-fold>
 
                             # Save changes locally
