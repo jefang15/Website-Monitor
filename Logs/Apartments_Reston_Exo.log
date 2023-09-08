@@ -1045,3 +1045,70 @@ Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change 
 Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change Status  Date Available            Scrape Datetime
     Iris        A6A  1107           2463            2469            -6 Still Available October 7, 2023 2023-08-25 11:22:47.866208
 
+2023-08-25 04:28:20 PM   Apartments_Reston_Exo   INFO   Started running script
+2023-08-28 12:55:43 PM   Apartments_Reston_Exo   INFO   New Ora A2A unit: 1124 ($2386)
+2023-08-28 12:55:43 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change Change Status    Date Available            Scrape Datetime
+     Ora        A2A  1124           2386             NaN             0      New Unit September 4, 2023 2023-08-28 12:55:39.100065
+
+2023-08-28 12:55:53 PM   Apartments_Reston_Exo   INFO   New Ora A2C unit: 1222 ($2399)
+2023-08-28 12:55:53 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change Change Status   Date Available            Scrape Datetime
+     Ora        A2C  1222           2399             NaN             0      New Unit November 4, 2023 2023-08-28 12:55:49.189599
+
+2023-08-29 12:58:44 PM   Apartments_Reston_Exo   INFO   Iris A2 price change: 1512 -64 ($2742)
+2023-08-29 12:58:44 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change Status     Date Available            Scrape Datetime
+    Iris         A2  1512           2742            2806           -64 Still Available September 30, 2023 2023-08-29 12:58:39.981371
+
+2023-08-29 12:58:51 PM   Apartments_Reston_Exo   INFO   Iris A2A price change: 1304 -64 ($2400)
+2023-08-29 12:58:51 PM   Apartments_Reston_Exo   INFO   Ora A2A price change: 1124 -64 ($2322)
+2023-08-29 12:58:51 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change Status    Date Available            Scrape Datetime
+    Iris        A2A  1304           2400            2464           -64 Still Available               Now 2023-08-29 12:58:47.690268
+     Ora        A2A  1124           2322            2386           -64 Still Available September 9, 2023 2023-08-29 12:58:47.690268
+
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   Iris A2C price change: 802 -64 ($2385)
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   Iris A2C price change: 1002 -64 ($2397)
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   Ora A2C price change: 422 -64 ($2295)
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   Ora A2C price change: 522 -64 ($2297)
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   Ora A2C price change: 622 -64 ($2307)
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   Ora A2C price change: 722 -64 ($2394)
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   Ora A2C price change: 1222 -64 ($2335)
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   Ora A2C price change: 1522 -64 ($2692)
+2023-08-29 12:59:02 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change Status     Date Available            Scrape Datetime
+    Iris        A2C   802           2385            2449           -64 Still Available   November 3, 2023 2023-08-29 12:58:58.148677
+    Iris        A2C  1002           2397            2461           -64 Still Available September 26, 2023 2023-08-29 12:58:58.148677
+     Ora        A2C   422           2295            2359           -64 Still Available                Now 2023-08-29 12:58:58.148677
+     Ora        A2C   522           2297            2361           -64 Still Available September 25, 2023 2023-08-29 12:58:58.148677
+     Ora        A2C   622           2307            2371           -64 Still Available September 27, 2023 2023-08-29 12:58:58.148677
+     Ora        A2C   722           2394            2458           -64 Still Available   October 30, 2023 2023-08-29 12:58:58.148677
+     Ora        A2C  1222           2335            2399           -64 Still Available   November 4, 2023 2023-08-29 12:58:58.148677
+     Ora        A2C  1522           2692            2756           -64 Still Available  September 2, 2023 2023-08-29 12:58:58.148677
+
+2023-08-29 12:59:10 PM   Apartments_Reston_Exo   INFO   Iris A3 price change: 511 -64 ($2454)
+2023-08-29 12:59:10 PM   Apartments_Reston_Exo   INFO   Iris A3 price change: 1511 -61 ($2640)
+2023-08-29 12:59:10 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change Status  Date Available            Scrape Datetime
+    Iris         A3   511           2454            2518           -64 Still Available October 7, 2023 2023-08-29 12:59:05.929265
+    Iris         A3  1511           2640            2701           -61 Still Available             Now 2023-08-29 12:59:05.929265
+
+2023-08-29 12:59:21 PM   Apartments_Reston_Exo   INFO   Iris A6 price change: 1407 -64 ($2504)
+2023-08-29 12:59:21 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change Status   Date Available            Scrape Datetime
+    Iris         A6  1407           2504            2568           -64 Still Available October 17, 2023 2023-08-29 12:59:16.959820
+
+2023-08-29 12:59:27 PM   Apartments_Reston_Exo   INFO   Iris A6A price change: 1107 -64 ($2399)
+2023-08-29 12:59:27 PM   Apartments_Reston_Exo   INFO   
+
+Building Floor Plan  Unit  Price Current  Price Previous  Price Change   Change Status  Date Available            Scrape Datetime
+    Iris        A6A  1107           2399            2463           -64 Still Available October 7, 2023 2023-08-29 12:59:23.418117
+
