@@ -523,7 +523,7 @@ def main(apartment_name: str, file_name: str, folder_spreadsheets: str, folder_p
                 logging.error(
                     'Unable to connect to or scrape website (%s)', k_floor_plan)  # , exc_info=True (shows full error)
 
-        delay_sec = 60 * 15
+        delay_sec = 60 * 60 * 6
         time.sleep(delay_sec)
 
 

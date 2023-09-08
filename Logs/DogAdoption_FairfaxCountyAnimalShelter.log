@@ -201,3 +201,85 @@
 2023-08-25 11:05:57 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Eeyore (ID 53955258)
 2023-08-25 12:36:39 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Tulip (ID 53901018)
 2023-08-25 01:37:04 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Toby (ID 52250151)
+2023-08-25 04:25:59 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-08-25 04:26:03 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Peewee Herman (ID 53922302)
+2023-08-25 05:16:23 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Eeyore (ID 53955258)
+2023-08-25 07:07:33 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Dandelion (ID 53855913)
+2023-08-25 07:32:41 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Archy (ID 52240828)
+2023-08-26 12:16:47 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Phili (ID 31710442)
+2023-08-26 01:07:56 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Tessa (ID 53929107)
+2023-08-26 01:12:58 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Old Dan (ID 46085293)
+2023-08-26 01:53:13 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Tyson (ID 51352246)
+2023-08-26 01:58:15 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Tulip (ID 53901018)
+2023-08-26 02:13:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Ham Sandwich (ID 53855381)
+2023-08-26 02:18:24 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Tiger (ID 51477201)
+2023-08-26 02:18:24 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Kronk (ID 53951265)
+2023-08-26 02:33:28 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Priscilla (ID 53878069)
+2023-08-26 03:33:42 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Ace (ID 53845289)
+2023-08-26 03:43:46 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Blue (ID 49234891)
+2023-08-27 11:51:45 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Bob (ID 53917149)
+2023-08-27 12:11:53 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Rocky (ID 37810713)
+2023-08-27 12:11:53 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Lucky (ID 53835842)
+2023-08-27 01:07:08 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Nigel (ID 53803185)
+2023-08-27 02:02:25 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Blue (ID 49234891)
+2023-08-27 03:52:56 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: King (ID 53740272)
+2023-08-27 05:23:22 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Priscilla (ID 53878069)
+2023-08-29 01:56:47 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Rocky (ID 37810713)
+2023-08-29 02:31:57 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Ham Sandwich (ID 53855381)
+2023-08-30 01:08:16 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Leyla (ID 53991766)
+2023-08-30 03:57:11 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Leyla (ID 53991766)
+2023-08-31 05:57:50 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Flapjack (ID 53993991)
+2023-08-31 06:32:59 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Bruno (ID 53917416)
+2023-08-31 06:32:59 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Herbert (ID 53938646)
+2023-08-31 06:38:02 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Freckles (ID 53927374)
+2023-08-31 06:48:11 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-08-31 06:53:12 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Laky (ID 52147209)
+2023-08-31 07:13:18 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Freckles (ID 53927374)
+2023-09-01 08:30:44 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-01 08:35:44 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-01 08:40:44 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 06:29:27 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-09-02 06:30:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Douglas (ID 53764177)
+2023-09-02 06:30:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Gandalf (ID 53956484)
+2023-09-02 06:30:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Pretty Boy Floyd (ID 54018711)
+2023-09-02 06:30:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Theia (ID 54023960)
+2023-09-02 06:30:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Scout (ID 40596616)
+2023-09-02 06:30:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Ace (ID 53845289)
+2023-09-02 06:30:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Herbert (ID 53938646)
+2023-09-02 07:07:14 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 07:23:32 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 07:48:38 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 08:03:40 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 08:48:49 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 08:58:50 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 09:59:02 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 10:09:03 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 10:40:28 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-02 10:46:48 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-05 01:31:38 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Scout (ID 40596616)
+2023-09-05 02:31:54 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Rex (ID 37965986)
+2023-09-05 02:31:54 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Karma (ID 53909206)
+2023-09-05 02:36:57 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Bob (ID 53917149)
+2023-09-05 02:57:04 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Herbert (ID 53938646)
+2023-09-05 03:52:18 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Flapjack (ID 53993991)
+2023-09-05 04:07:23 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Thornberry (ID 53805691)
+2023-09-05 04:07:23 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Pretty Boy Floyd (ID 54018711)
+2023-09-05 05:27:43 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Ricky (ID 53958568)
+2023-09-05 05:52:51 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Brixx (ID 53695525)
+2023-09-06 12:26:24 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Chloe (ID 53945931)
+2023-09-07 08:25:21 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Juan Wick (Shelby Puppy 6 - Or (ID 6)
+2023-09-07 08:25:21 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Daisy (Shelby Puppy 9 - Pink) (ID 9)
+2023-09-07 08:30:26 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Gerald (Shelby Puppy 2 Red) (ID 2)
+2023-09-07 08:30:26 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Dobie Gillis (Shelby Puppy 7 P (ID 7)
+2023-09-07 08:35:31 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Dobie Gray (Shelby Puppy 3 Bro (ID 3)
+2023-09-07 08:35:31 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Duke (Shelby Puppy 5 - Aqua) (ID 5)
+2023-09-07 08:35:31 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Cisco (Shelby Puppy 8 Black) (ID 8)
+2023-09-07 12:29:53 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Bella (ID 53796307)
+2023-09-07 12:29:53 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Toby (ID 54084896)
+2023-09-07 01:28:55 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Dobie Gray (Shelby Puppy 3 Bro (ID 3)
+2023-09-07 01:39:01 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Cisco (Shelby Puppy 8 Black) (ID 8)
+2023-09-07 01:39:01 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Daisy (Shelby Puppy 9 - Pink) (ID 9)
+2023-09-07 02:04:53 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Gerald (Shelby Puppy 2 Red) (ID 2)
+2023-09-07 02:04:53 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Duke (Shelby Puppy 5 - Aqua) (ID 5)
+2023-09-07 02:14:58 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Juan Wick (Shelby Puppy 6 - Or (ID 6)
+2023-09-07 02:14:58 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Dobie Gillis (Shelby Puppy 7 P (ID 7)
