@@ -1380,3 +1380,322 @@ Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Dat
 Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
       B12B E643           2918            2938           -20 Still Available     11/25/2023 2023-09-07 16:44:06.069377
 
+2023-09-08 04:46:16 PM   Apartments_OneLoudoun_Vyne   INFO   Leased A2A unit: W112 ($2387)
+2023-09-08 04:46:16 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       A2A W112            NaN            2387             0   Leased Unit            NaN             NaT
+
+2023-09-08 04:46:26 PM   Apartments_OneLoudoun_Vyne   INFO   Leased B1B unit: E529 ($2808)
+2023-09-08 04:46:26 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       B1B E529            NaN            2808             0   Leased Unit            NaN             NaT
+
+2023-09-08 04:46:26 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E329 +25 ($2798.0)
+2023-09-08 04:46:26 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available         Scrape Datetime
+       B1B E329         2798.0            2773            25 Still Available     11/21/2023 2023-09-08 16:46:21.696
+
+2023-09-09 04:53:45 AM   Apartments_OneLoudoun_Vyne   INFO   New A2A unit: W112 ($2387)
+2023-09-09 04:53:45 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A2A W112           2387             NaN             0      New Unit      11/7/2023 2023-09-09 04:53:41.332894
+
+2023-09-09 04:53:49 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A2A)
+2023-09-10 10:58:47 PM   Apartments_OneLoudoun_Vyne   INFO   Leased A2A unit: W507 ($2372)
+2023-09-10 10:58:47 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       A2A W507            NaN            2372             0   Leased Unit            NaN             NaT
+
+2023-09-11 05:09:00 AM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -4 ($2944)
+2023-09-11 05:09:00 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2944            2948            -4 Still Available      2/29/2024 2023-09-11 05:08:57.553683
+
+2023-09-11 05:10:00 PM   Apartments_OneLoudoun_Vyne   INFO   New A1A unit: E518 ($2503.0)
+2023-09-11 05:10:00 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A1A E518         2503.0             NaN             0      New Unit     11/20/2023 2023-09-11 17:09:50.813989
+
+2023-09-11 05:10:00 PM   Apartments_OneLoudoun_Vyne   INFO   Leased A1A unit: E102 ($2876.0)
+2023-09-11 05:10:00 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       A1A E102            NaN          2876.0             0   Leased Unit            NaN             NaT
+
+2023-09-11 05:11:06 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E329 +3 ($2801)
+2023-09-11 05:11:06 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E527 +3 ($2821)
+2023-09-11 05:11:06 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B1B E329           2801            2798             3 Still Available     11/21/2023 2023-09-11 17:11:02.536330
+       B1B E527           2821            2818             3 Still Available     11/28/2023 2023-09-11 17:11:02.536330
+
+2023-09-11 05:11:38 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W417 +3 ($2936)
+2023-09-11 05:11:38 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W515 +3 ($2946)
+2023-09-11 05:11:38 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W417           2936            2933             3 Still Available     10/23/2023 2023-09-11 17:11:34.280327
+       B2B W515           2946            2943             3 Still Available     10/17/2023 2023-09-11 17:11:34.280327
+
+2023-09-11 05:12:02 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E406 +3 ($2951)
+2023-09-11 05:12:02 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E502 +3 ($2961)
+2023-09-11 05:12:02 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B3B E406           2951            2948             3 Still Available      11/4/2023 2023-09-11 17:11:59.071345
+       B3B E502           2961            2958             3 Still Available      11/7/2023 2023-09-11 17:11:59.071345
+
+2023-09-11 05:12:24 PM   Apartments_OneLoudoun_Vyne   INFO   B12B price change: E643 +3 ($2921)
+2023-09-11 05:12:24 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+      B12B E643           2921            2918             3 Still Available     11/25/2023 2023-09-11 17:12:20.732543
+
+2023-09-12 05:13:14 AM   Apartments_OneLoudoun_Vyne   INFO   New A1A unit: E605 ($2403)
+2023-09-12 05:13:14 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A1A E605           2403             NaN             0      New Unit     11/18/2023 2023-09-12 05:13:06.723272
+
+2023-09-12 05:14:36 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E518 +29 ($2532)
+2023-09-12 05:14:36 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E605 +29 ($2432)
+2023-09-12 05:14:36 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A1A E518           2532            2503            29 Still Available     11/20/2023 2023-09-12 17:14:27.281088
+       A1A E605           2432            2403            29 Still Available     11/18/2023 2023-09-12 17:14:27.281088
+
+2023-09-12 05:14:55 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -4 ($2940)
+2023-09-12 05:14:55 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2940            2944            -4 Still Available      2/29/2024 2023-09-12 17:14:51.076667
+
+2023-09-13 05:16:06 AM   Apartments_OneLoudoun_Vyne   INFO   Leased A1A unit: E605 ($2432)
+2023-09-13 05:16:06 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       A1A E605            NaN            2432             0   Leased Unit            NaN             NaT
+
+2023-09-13 05:17:49 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -4 ($2936)
+2023-09-13 05:17:49 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2936            2940            -4 Still Available      2/29/2024 2023-09-13 17:17:44.934222
+
+2023-09-14 02:45:08 PM   Apartments_OneLoudoun_Vyne   INFO   New A1A unit: E605 ($2403)
+2023-09-14 02:45:08 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A1A E605           2403             NaN             0      New Unit     11/18/2023 2023-09-14 14:44:52.887949
+
+2023-09-14 08:45:56 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E605 +29 ($2432)
+2023-09-14 08:45:56 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A1A E605           2432            2403            29 Still Available     11/18/2023 2023-09-14 20:45:46.348846
+
+2023-09-14 08:46:20 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -3 ($2933)
+2023-09-14 08:46:20 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2933            2936            -3 Still Available      2/29/2024 2023-09-14 20:46:15.178425
+
+2023-09-15 09:06:40 AM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-09-15 11:49:03 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -4 ($2929)
+2023-09-15 11:49:03 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2929            2933            -4 Still Available      2/29/2024 2023-09-15 23:49:00.005990
+
+2023-09-16 05:50:53 PM   Apartments_OneLoudoun_Vyne   INFO   Leased B2B unit: W515 ($2946)
+2023-09-16 05:50:53 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       B2B W515            NaN            2946             0   Leased Unit            NaN             NaT
+
+2023-09-17 07:06:34 AM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -4 ($2925)
+2023-09-17 07:06:34 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2925            2929            -4 Still Available      2/29/2024 2023-09-17 07:06:31.141309
+
+2023-09-17 07:23:34 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -3 ($2922)
+2023-09-17 07:23:34 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2922            2925            -3 Still Available      2/29/2024 2023-09-17 19:23:29.342358
+
+2023-09-18 09:12:32 PM   Apartments_OneLoudoun_Vyne   INFO   New A1A unit: E726 ($2428)
+2023-09-18 09:12:32 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A1A E726           2428             NaN             0      New Unit     11/18/2023 2023-09-18 21:12:22.775975
+
+2023-09-18 09:12:32 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E518 -18 ($2514)
+2023-09-18 09:12:32 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E605 -18 ($2414)
+2023-09-18 09:12:32 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A1A E518           2514          2532.0           -18 Still Available     11/20/2023 2023-09-18 21:12:22.775975
+       A1A E605           2414          2432.0           -18 Still Available     11/18/2023 2023-09-18 21:12:22.775975
+
+2023-09-18 09:12:42 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W112 -18 ($2369)
+2023-09-18 09:12:42 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W116 -18 ($2369)
+2023-09-18 09:12:42 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W414 -18 ($2379)
+2023-09-18 09:12:42 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A2A W112           2369            2387           -18 Still Available      11/7/2023 2023-09-18 21:12:37.586600
+       A2A W116           2369            2387           -18 Still Available     10/12/2023 2023-09-18 21:12:37.586600
+       A2A W414           2379            2397           -18 Still Available     10/16/2023 2023-09-18 21:12:37.586600
+
+2023-09-18 09:12:56 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -4 ($2918)
+2023-09-18 09:12:56 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2918            2922            -4 Still Available      9/20/2023 2023-09-18 21:12:52.492414
+
+2023-09-19 11:21:51 AM   Apartments_OneLoudoun_Vyne   INFO   Leased B1B unit: E329 ($2801)
+2023-09-19 11:21:51 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       B1B E329            NaN            2801             0   Leased Unit            NaN             NaT
+
+2023-09-19 05:22:24 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E726 +11 ($2439)
+2023-09-19 05:22:24 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A1A E726           2439            2428            11 Still Available     11/18/2023 2023-09-19 17:22:17.734939
+
+2023-09-19 05:22:39 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E527 +83 ($2904)
+2023-09-19 05:22:39 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B1B E527           2904            2821            83 Still Available     11/28/2023 2023-09-19 17:22:36.169231
+
+2023-09-19 05:22:46 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 +61 ($2979)
+2023-09-19 05:22:46 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W417 +74 ($3010)
+2023-09-19 05:22:46 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2979            2918            61 Still Available      9/20/2023 2023-09-19 17:22:42.859834
+       B2B W417           3010            2936            74 Still Available     10/23/2023 2023-09-19 17:22:42.859834
+
+2023-09-19 05:22:53 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E406 +74 ($3025)
+2023-09-19 05:22:53 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E502 +93 ($3054)
+2023-09-19 05:22:53 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B3B E406           3025            2951            74 Still Available      11/4/2023 2023-09-19 17:22:49.563020
+       B3B E502           3054            2961            93 Still Available      11/7/2023 2023-09-19 17:22:49.563020
+
+2023-09-19 05:23:06 PM   Apartments_OneLoudoun_Vyne   INFO   B12B price change: E643 +83 ($3004)
+2023-09-19 05:23:06 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+      B12B E643           3004            2921            83 Still Available     11/25/2023 2023-09-19 17:23:00.343220
+
+2023-09-20 06:10:28 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E518 -34 ($2480)
+2023-09-20 06:10:28 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E605 -34 ($2380)
+2023-09-20 06:10:28 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E726 -34 ($2405)
+2023-09-20 06:10:28 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A1A E518           2480            2514           -34 Still Available     11/20/2023 2023-09-20 18:10:18.975005
+       A1A E605           2380            2414           -34 Still Available     11/18/2023 2023-09-20 18:10:18.975005
+       A1A E726           2405            2439           -34 Still Available     11/18/2023 2023-09-20 18:10:18.975005
+
+2023-09-20 06:10:37 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W112 -34 ($2335)
+2023-09-20 06:10:37 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W116 -34 ($2335)
+2023-09-20 06:10:37 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W414 -34 ($2345)
+2023-09-20 06:10:37 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A2A W112           2335            2369           -34 Still Available      11/7/2023 2023-09-20 18:10:32.097548
+       A2A W116           2335            2369           -34 Still Available     10/12/2023 2023-09-20 18:10:32.097548
+       A2A W414           2345            2379           -34 Still Available     10/16/2023 2023-09-20 18:10:32.097548
+
+2023-09-20 06:10:49 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E527 +3 ($2907)
+2023-09-20 06:10:49 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B1B E527           2907            2904             3 Still Available     11/28/2023 2023-09-20 18:10:44.584105
+
+2023-09-20 06:10:57 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -1 ($2978)
+2023-09-20 06:10:57 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W417 +3 ($3013)
+2023-09-20 06:10:57 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2978            2979            -1 Still Available            Now 2023-09-20 18:10:52.481688
+       B2B W417           3013            3010             3 Still Available     10/23/2023 2023-09-20 18:10:52.481688
+
+2023-09-20 06:11:05 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E406 +3 ($3028)
+2023-09-20 06:11:05 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E502 +3 ($3057)
+2023-09-20 06:11:05 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B3B E406           3028            3025             3 Still Available      11/4/2023 2023-09-20 18:11:00.987035
+       B3B E502           3057            3054             3 Still Available      11/7/2023 2023-09-20 18:11:00.987035
+
+2023-09-20 06:11:17 PM   Apartments_OneLoudoun_Vyne   INFO   B12B price change: E643 +3 ($3007)
+2023-09-20 06:11:17 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+      B12B E643           3007            3004             3 Still Available     11/25/2023 2023-09-20 18:11:13.380552
+
+2023-09-21 06:15:50 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E518 -10 ($2470)
+2023-09-21 06:15:50 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E605 -10 ($2370)
+2023-09-21 06:15:50 PM   Apartments_OneLoudoun_Vyne   INFO   A1A price change: E726 -10 ($2395)
+2023-09-21 06:15:50 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A1A E518           2470            2480           -10 Still Available     11/20/2023 2023-09-21 18:15:35.577175
+       A1A E605           2370            2380           -10 Still Available     11/18/2023 2023-09-21 18:15:35.577175
+       A1A E726           2395            2405           -10 Still Available     11/18/2023 2023-09-21 18:15:35.577175
+
+2023-09-21 06:15:59 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W112 -10 ($2325)
+2023-09-21 06:15:59 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W116 -10 ($2325)
+2023-09-21 06:15:59 PM   Apartments_OneLoudoun_Vyne   INFO   A2A price change: W414 -10 ($2335)
+2023-09-21 06:15:59 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       A2A W112           2325            2335           -10 Still Available      11/7/2023 2023-09-21 18:15:53.527542
+       A2A W116           2325            2335           -10 Still Available     10/12/2023 2023-09-21 18:15:53.527542
+       A2A W414           2335            2345           -10 Still Available     10/16/2023 2023-09-21 18:15:53.527542
+
+2023-09-21 06:16:09 PM   Apartments_OneLoudoun_Vyne   INFO   B1B price change: E527 +3 ($2910)
+2023-09-21 06:16:09 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B1B E527           2910            2907             3 Still Available     11/28/2023 2023-09-21 18:16:04.283927
+
+2023-09-21 06:16:21 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W417 +3 ($3016)
+2023-09-21 06:16:21 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W417           3016            3013             3 Still Available     10/23/2023 2023-09-21 18:16:12.324903
+
+2023-09-21 06:16:27 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E406 +3 ($3031)
+2023-09-21 06:16:27 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E502 +3 ($3060)
+2023-09-21 06:16:27 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B3B E406           3031            3028             3 Still Available      11/4/2023 2023-09-21 18:16:23.387250
+       B3B E502           3060            3057             3 Still Available      11/7/2023 2023-09-21 18:16:23.387250
+
+2023-09-21 06:16:38 PM   Apartments_OneLoudoun_Vyne   INFO   B12B price change: E643 +3 ($3010)
+2023-09-21 06:16:38 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+      B12B E643           3010            3007             3 Still Available     11/25/2023 2023-09-21 18:16:34.287701
+
+2023-09-21 10:12:08 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
