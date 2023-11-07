@@ -500,7 +500,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
         hour_start = 8  # 8 AM - Time of day to start running script (script stops at midnight)
 
         if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every minute
-            delay_sec = 60 * 5
+            delay_sec = 60 * 30  # Runs every 30 minutes
         else:  # If it's after midnight and before 8 AM, calculate the number of seconds until 8 AM and set that as the delay
             diff_hour = hour_start - int(now.strftime('%H')) - 1
             diff_min = 60 - int(now.strftime('%M'))
