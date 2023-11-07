@@ -1699,3 +1699,113 @@ Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Dat
       B12B E643           3010            3007             3 Still Available     11/25/2023 2023-09-21 18:16:34.287701
 
 2023-09-21 10:12:08 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-09-22 04:14:38 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -3 ($2975)
+2023-09-22 04:14:38 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2975            2978            -3 Still Available            Now 2023-09-22 16:14:33.865523
+
+2023-09-23 06:03:10 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -3 ($2972)
+2023-09-23 06:03:10 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2972            2975            -3 Still Available            Now 2023-09-23 18:03:03.270774
+
+2023-09-24 06:12:24 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -3 ($2969)
+2023-09-24 06:12:24 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2969            2972            -3 Still Available            Now 2023-09-24 18:12:20.500279
+
+2023-09-25 06:15:17 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -3 ($2966)
+2023-09-25 06:15:17 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2966            2969            -3 Still Available            Now 2023-09-25 18:15:12.766461
+
+2023-09-26 12:16:10 AM   Apartments_OneLoudoun_Vyne   INFO   New B1B unit: E102 ($2878.0)
+2023-09-26 12:16:10 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       B1B E102         2878.0             NaN             0      New Unit            Now 2023-09-26 00:16:05.384052
+
+2023-09-26 12:16:10 AM   Apartments_OneLoudoun_Vyne   INFO   Leased B1B unit: E527 ($2910.0)
+2023-09-26 12:16:10 AM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available Scrape Datetime
+       B1B E527            NaN          2910.0             0   Leased Unit            NaN             NaT
+
+2023-09-26 09:53:12 PM   Apartments_OneLoudoun_Vyne   INFO   New A1A unit: E328 ($2398)
+2023-09-26 09:53:13 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change Change Status Date Available            Scrape Datetime
+       A1A E328           2398             NaN             0      New Unit     11/28/2023 2023-09-26 21:53:02.184384
+
+2023-09-26 09:53:28 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W119 -3 ($2963)
+2023-09-26 09:53:28 PM   Apartments_OneLoudoun_Vyne   INFO   B2B price change: W417 -38 ($2978)
+2023-09-26 09:53:28 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B2B W119           2963            2966            -3 Still Available            Now 2023-09-26 21:53:23.895937
+       B2B W417           2978            3016           -38 Still Available     10/23/2023 2023-09-26 21:53:23.895937
+
+2023-09-26 09:53:33 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E406 -38 ($2993)
+2023-09-26 09:53:33 PM   Apartments_OneLoudoun_Vyne   INFO   B3B price change: E502 -57 ($3003)
+2023-09-26 09:53:33 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+       B3B E406           2993            3031           -38 Still Available      11/4/2023 2023-09-26 21:53:28.587246
+       B3B E502           3003            3060           -57 Still Available      11/7/2023 2023-09-26 21:53:28.587246
+
+2023-09-26 09:53:41 PM   Apartments_OneLoudoun_Vyne   INFO   B12B price change: E643 -47 ($2963)
+2023-09-26 09:53:41 PM   Apartments_OneLoudoun_Vyne   INFO   
+
+Floor Plan Unit  Price Current  Price Previous  Price Change   Change Status Date Available            Scrape Datetime
+      B12B E643           2963            3010           -47 Still Available     11/25/2023 2023-09-26 21:53:37.038678
+
+2023-09-28 06:32:37 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-08 10:36:46 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-10 02:23:20 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-13 01:04:13 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A1A)
+2023-10-13 01:04:24 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A2A)
+2023-10-13 01:04:34 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A6D)
+2023-10-13 01:04:45 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B1B)
+2023-10-13 01:04:55 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B2B)
+2023-10-13 01:05:05 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B3B)
+2023-10-13 01:05:16 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B10B)
+2023-10-13 01:05:26 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B12B)
+2023-10-13 01:05:36 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-10-13 02:47:22 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-13 02:47:45 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A1A)
+2023-10-13 02:47:55 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A2A)
+2023-10-13 02:48:06 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A6D)
+2023-10-13 02:48:16 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B1B)
+2023-10-13 02:48:27 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B2B)
+2023-10-13 02:48:37 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B3B)
+2023-10-13 02:48:47 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B10B)
+2023-10-13 02:48:58 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B12B)
+2023-10-13 02:49:08 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-10-13 03:45:13 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-13 03:45:35 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A1A)
+2023-10-13 03:45:45 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A2A)
+2023-10-13 03:45:56 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A6D)
+2023-10-13 03:46:06 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B1B)
+2023-10-13 03:46:17 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B2B)
+2023-10-13 03:46:28 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B3B)
+2023-10-13 03:46:38 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B10B)
+2023-10-13 03:46:48 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B12B)
+2023-10-13 03:46:58 PM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-10-13 09:03:12 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-13 11:06:19 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-14 05:06:55 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A1A)
+2023-10-14 05:07:05 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A2A)
+2023-10-14 05:07:16 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (A6D)
+2023-10-14 05:07:26 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B1B)
+2023-10-14 05:07:36 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B2B)
+2023-10-14 05:07:47 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B3B)
+2023-10-14 05:07:57 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B10B)
+2023-10-14 05:08:07 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (B12B)
+2023-10-14 05:08:18 AM   Apartments_OneLoudoun_Vyne   ERROR   Unable to connect to or scrape website (S3A)
+2023-10-14 04:24:48 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-16 03:45:54 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
+2023-10-20 10:19:55 PM   Apartments_OneLoudoun_Vyne   INFO   Started running script
