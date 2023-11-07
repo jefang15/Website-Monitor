@@ -369,3 +369,477 @@
 2023-09-21 02:49:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Cinnamon Roll (ID 54126049)
 2023-09-21 07:16:06 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Ice (ID 54039534)
 2023-09-21 10:12:08 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-09-22 10:16:13 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Boyie Marie (ID 54039475)
+2023-09-22 10:16:13 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Zeke (ID 54138664)
+2023-09-22 10:46:21 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Marley (ID 54080819)
+2023-09-22 10:51:24 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Lee (ID 54190366)
+2023-09-22 01:17:05 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Boyie Marie (ID 54039475)
+2023-09-22 02:12:52 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-22 02:32:56 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Ricky (ID 53958568)
+2023-09-22 03:03:06 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Marley (ID 54080819)
+2023-09-22 04:13:31 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Effie (ID 54067058)
+2023-09-22 04:13:31 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Shannon (ID 54092772)
+2023-09-22 04:38:40 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Flapjack (ID 53993991)
+2023-09-23 01:04:18 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-09-23 01:04:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Bobby Jersey Jr. (ID 51938575)
+2023-09-23 01:04:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Rosie (ID 54035241)
+2023-09-23 01:04:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Poppy Seed (ID 54119588)
+2023-09-23 01:54:35 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Effie (ID 54067058)
+2023-09-23 01:54:35 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Kobe (ID 54125968)
+2023-09-23 03:55:10 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Poppy Seed (ID 54119588)
+2023-09-23 05:05:37 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-23 05:55:53 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Lukey (ID 54072243)
+2023-09-23 08:57:07 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-24 02:16:55 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-24 02:36:59 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Lee (ID 54190366)
+2023-09-24 07:08:01 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-24 07:28:04 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-25 08:05:46 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-26 02:44:39 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Flapjack (ID 53993991)
+2023-09-26 09:13:33 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-27 08:44:49 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-09-27 12:35:48 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Gigi (ID 54081431)
+2023-09-27 12:35:48 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Eddie (ID 54087105)
+2023-09-27 03:06:30 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Liv (ID 54127641)
+2023-09-27 04:16:54 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Sahara (ID 54127540)
+2023-09-28 06:32:37 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-09-28 06:32:40 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Jorge (ID 54127551)
+2023-09-28 07:35:28 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Eggplant (ID 52439053)
+2023-09-28 08:15:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Kikou (ID 54197604)
+2023-09-28 08:35:54 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Rocky (ID 54048642)
+2023-09-28 08:51:02 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Bopit (ID 54144304)
+2023-09-28 08:51:02 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Rose Marie (ID 54190078)
+2023-09-28 11:33:00 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-29 12:22:22 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Bosco (ID 53984498)
+2023-09-29 12:37:39 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Bandit (in foster) (ID 52592711)
+2023-09-29 01:43:39 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-29 02:03:49 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Gigi (ID 54081431)
+2023-09-29 02:18:58 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Rose Marie (ID 54190078)
+2023-09-29 06:15:56 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Bandit (ID 52592711)
+2023-09-29 06:36:09 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Gandalf (ID 53956484)
+2023-09-29 06:36:09 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Flapjack (ID 53993991)
+2023-09-29 07:51:29 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Paisley (ID 54137985)
+2023-09-29 08:07:07 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-29 08:12:39 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-30 10:37:42 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-30 01:49:22 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-09-30 01:54:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-01 08:15:48 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-01 11:53:20 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Liv (ID 54127641)
+2023-10-01 12:54:08 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Zora Lee (ID 54059080)
+2023-10-01 03:36:24 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Hank Hill (ID 53990540)
+2023-10-01 05:31:56 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Bopit (ID 54144304)
+2023-10-02 09:26:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-02 09:57:17 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-02 01:33:37 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-02 05:04:57 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-02 05:14:59 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Bandit (ID 52592711)
+2023-10-03 12:31:48 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Rocky (ID 37810713)
+2023-10-03 01:32:06 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Bopit (ID 54144304)
+2023-10-03 01:37:09 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Kikou (ID 54197604)
+2023-10-03 02:27:22 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Bopit (ID 54144304)
+2023-10-03 04:22:47 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Rose Marie (ID 54190078)
+2023-10-03 04:32:51 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Terra (ID 52215057)
+2023-10-03 05:03:00 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Georgia (ID 52647762)
+2023-10-04 03:07:04 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Shannon (ID 54092772)
+2023-10-05 11:45:58 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Honey (ID 54212362)
+2023-10-05 12:31:12 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Ice (ID 54039534)
+2023-10-05 12:46:17 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Beth (ID 54126328)
+2023-10-05 01:06:25 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Zeus (ID 53956606)
+2023-10-05 01:11:31 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Smokie (ID 54102636)
+2023-10-05 04:02:43 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Rose Marie (ID 54190078)
+2023-10-05 06:58:24 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Smokie (ID 54102636)
+2023-10-05 07:03:27 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Rocky (ID 37810713)
+2023-10-06 10:11:15 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Pearl (ID 54169398)
+2023-10-06 10:16:21 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Penelope (ID 54458957)
+2023-10-06 10:16:21 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Cronos (ID 54521298)
+2023-10-06 01:37:38 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Honey (ID 54212362)
+2023-10-06 04:33:18 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Sweet Tart (ID 54092548)
+2023-10-06 07:14:19 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Penelope (ID 54458957)
+2023-10-07 11:36:11 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Zeus (ID 54521349)
+2023-10-07 12:56:43 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Pretty Boy Floyd (ID 54018711)
+2023-10-07 01:16:49 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Ice (ID 54039534)
+2023-10-07 03:57:26 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Scout (ID 40596616)
+2023-10-07 04:37:37 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Bosco (ID 53984498)
+2023-10-08 09:45:42 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Merley (ID 54497675)
+2023-10-08 09:45:42 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Oso (ID 54521379)
+2023-10-08 12:36:23 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Oso (ID 54521379)
+2023-10-08 01:56:43 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Pearl (ID 54169398)
+2023-10-08 03:12:02 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Beth (ID 54126328)
+2023-10-08 03:52:15 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Merley (ID 54497675)
+2023-10-08 04:12:23 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Jorge (ID 54127551)
+2023-10-08 04:52:34 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Eddie (ID 54087105)
+2023-10-08 05:32:45 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Terra (ID 52215057)
+2023-10-10 08:45:53 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Pinkett aka Hulk (ID 49772093)
+2023-10-10 02:23:46 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-10-11 09:55:30 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Nacho (ID 54174284)
+2023-10-11 11:14:09 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Basket (ID 54025520)
+2023-10-11 11:14:09 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Consuela (ID 54528573)
+2023-10-11 11:24:13 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Marshie (ID 54490351)
+2023-10-11 11:24:13 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Mallow (ID 54490442)
+2023-10-11 02:32:57 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Baxter (ID 54507757)
+2023-10-11 05:12:16 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Paisley (ID 54137985)
+2023-10-11 06:22:36 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Akn (ID 54079046)
+2023-10-12 08:55:33 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Bella (ID 53796307)
+2023-10-12 09:35:44 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Basket (ID 54025520)
+2023-10-12 01:01:31 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Steve (ID 51555314)
+2023-10-12 01:01:31 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Covi (ID 52818117)
+2023-10-12 01:06:34 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Flea (ID 54497446)
+2023-10-12 05:37:40 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Covi (ID 52818117)
+2023-10-12 05:57:49 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Flea (ID 54497446)
+2023-10-13 09:10:55 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Basket (ID 54025520)
+2023-10-13 10:36:14 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:41:16 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Snicklefritz (ID 54495498)
+2023-10-13 10:47:33 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:53:48 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:58:48 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:04:09 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:09:09 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:14:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:19:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:24:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:29:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:34:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:39:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:44:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:49:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:54:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 12:35:53 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 12:40:53 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 12:52:09 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 12:57:09 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:02:14 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:08:34 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:14:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:21:14 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:26:19 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:32:39 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:38:00 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:43:21 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:48:41 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:54:02 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 01:59:22 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 02:04:42 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 02:10:03 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 02:15:24 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 02:20:44 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 02:26:05 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 02:31:25 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 02:36:25 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 02:47:22 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-10-13 02:47:43 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 03:45:13 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-10-13 03:45:33 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 03:50:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 03:56:14 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 04:01:35 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 04:06:35 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 04:11:37 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Akn (ID 54079046)
+2023-10-13 04:11:37 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Nacho (ID 54174284)
+2023-10-13 04:22:57 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 04:28:02 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 04:33:02 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 04:38:03 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Sweet Tart (ID 54092548)
+2023-10-13 04:59:29 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 06:14:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 09:03:12 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-10-13 09:03:13 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Rosie (ID 54035241)
+2023-10-13 09:24:39 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 09:30:59 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 09:37:19 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 09:52:22 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:03:38 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:08:38 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:14:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:21:18 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:26:23 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:37:39 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:43:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 10:48:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:01:37 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:06:17 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-10-13 11:27:37 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:32:42 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:47:49 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:52:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-13 11:59:14 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 12:05:34 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:01:56 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:07:17 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:12:37 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:17:57 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:23:18 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:28:38 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:33:59 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:39:19 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:44:40 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 08:49:40 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 09:34:47 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 09:39:52 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 09:44:57 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 09:51:17 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 09:57:37 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 10:03:57 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 10:20:14 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 10:36:32 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 10:42:52 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 10:47:52 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 11:24:43 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Benji (ID 54121521)
+2023-10-14 11:24:43 AM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Ladybug (ID 54507445)
+2023-10-14 11:44:56 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 11:49:56 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 11:54:56 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 11:59:56 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 12:04:56 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 12:09:56 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 12:14:56 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 12:44:01 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Perseus (ID 54534038)
+2023-10-14 01:28:52 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Ladybug (ID 54507445)
+2023-10-14 01:43:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 01:48:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 01:53:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 01:58:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 02:03:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 04:24:48 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-10-14 04:24:49 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Benji (ID 54121521)
+2023-10-14 04:24:49 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Cronos (ID 54521298)
+2023-10-14 04:24:49 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Perseus (ID 54534038)
+2023-10-14 04:34:55 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   New dog: Rosie (ID 54511495)
+2023-10-14 04:46:13 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 04:52:28 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 05:23:50 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 05:28:55 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-14 05:33:55 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-15 12:36:10 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Basket (ID 54025520)
+2023-10-15 12:56:18 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Consuela (ID 54528573)
+2023-10-15 05:38:48 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-10-15 08:14:25 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Rocky (ID 54048642)
+2023-10-15 08:34:34 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Max (ID 52749253)
+2023-10-15 10:55:04 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Bobby Jersey Jr. (ID 51938575)
+2023-10-15 10:55:04 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Oso (ID 52956984)
+2023-10-15 10:55:04 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Rip (ID 53672328)
+2023-10-15 11:25:15 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Ranger (ID 39356902)
+2023-10-15 11:25:15 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Steve (ID 51555314)
+2023-10-15 11:25:15 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Wilson (ID 51828627)
+2023-10-15 11:25:15 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Jihoo (ID 52897433)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Moe (ID 53666446)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Douglas (ID 53764177)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Chance (ID 53789816)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Zeus (ID 53956606)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Ricky (ID 53958568)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Lukey (ID 54072243)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Zeke (ID 54138664)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Marshie (ID 54490351)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Mallow (ID 54490442)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Snicklefritz (ID 54495498)
+2023-10-15 11:35:20 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Adopted dog: Baxter (ID 54507757)
+2023-10-15 11:45:25 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-15 11:50:26 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-15 11:55:27 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:00:28 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:00:29 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:05:30 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:10:31 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:15:32 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:20:32 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:25:33 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:30:34 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:35:35 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:40:36 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:45:36 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:50:38 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:55:39 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:00:39 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:05:40 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:10:41 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:15:42 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:20:43 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:25:44 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:30:44 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:35:45 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:40:46 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:45:47 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:50:48 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:55:49 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:00:50 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:05:51 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:10:51 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:15:52 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:20:53 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:25:54 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:30:55 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:35:56 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:40:57 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:45:57 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:50:58 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:55:59 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:01:00 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:06:01 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:11:02 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:16:02 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:21:03 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:26:04 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:31:05 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:36:06 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:41:06 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:46:08 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:51:08 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:56:09 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:01:10 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:06:11 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:11:12 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:16:13 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:21:13 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:26:14 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:31:15 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:36:15 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:41:16 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:46:16 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:51:17 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 12:56:18 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:01:19 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:06:20 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:11:21 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:16:22 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:21:22 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:26:25 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:31:26 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:36:26 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:41:28 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:46:29 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:51:30 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 01:56:31 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:01:31 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:06:32 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:11:33 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:16:35 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:21:36 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:26:37 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:31:38 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:36:38 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:41:40 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:46:41 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:51:41 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 02:56:42 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:01:43 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:06:44 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:11:45 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:16:46 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:21:46 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:26:47 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:31:48 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:36:49 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:41:50 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:46:51 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:51:52 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 03:56:53 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:01:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:06:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:11:55 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:16:56 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:21:56 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:26:57 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:31:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:36:59 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:42:00 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:47:01 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:52:02 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 04:57:22 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:02:23 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:07:24 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:12:24 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:17:25 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:22:26 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:27:27 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:32:28 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:37:29 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:42:30 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:47:31 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:52:32 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 05:57:32 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:02:33 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:07:34 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:12:35 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:17:36 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:22:37 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:27:38 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:32:39 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:37:40 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:42:41 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:47:41 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:52:42 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 06:57:43 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:02:44 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:07:45 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:12:46 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:17:47 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:22:48 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:27:49 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:32:50 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:37:51 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:42:52 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:47:53 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:52:53 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 07:57:54 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:02:55 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:07:55 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:12:56 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:17:57 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:22:57 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:27:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:32:59 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:38:00 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:43:01 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:48:02 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:53:03 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 08:58:04 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:03:04 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:08:05 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:13:06 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:18:06 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:23:07 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:28:08 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:33:08 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:38:09 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:43:09 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:48:10 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:53:11 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 09:58:12 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:03:12 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:08:13 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:13:14 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:18:15 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:23:16 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:28:16 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:33:17 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:38:18 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:43:19 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:48:19 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:53:20 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 10:58:21 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:03:22 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:08:23 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:13:23 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:18:24 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:23:25 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:28:26 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:33:27 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:38:27 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:43:28 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:48:29 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:53:30 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-16 11:58:31 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-17 12:03:31 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-17 08:00:33 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-20 10:19:55 PM   DogAdoption_FairfaxCountyAnimalShelter   INFO   Started running script
+2023-10-20 10:19:57 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-20 10:49:58 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-20 11:19:59 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-20 11:50:00 PM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-21 12:20:01 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-21 08:00:02 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-21 08:30:03 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-21 09:00:04 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-21 09:30:05 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-21 10:00:06 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
+2023-10-21 10:30:07 AM   DogAdoption_FairfaxCountyAnimalShelter   ERROR   Unable to connect to or scrape website
