@@ -186,7 +186,7 @@ def create_dataframe_from_html(html: str, current_time: datetime):
 
     # print(df4.columns)
     df5 = df4[[
-        'Counter','ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image', 'Scrape Datetime']].copy()
+        'Counter', 'ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image', 'Scrape Datetime']].copy()
     # print(df5.dtypes)
 
     return df5
@@ -300,6 +300,9 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             # Age
             msg.attach(MIMEText('  |  {}'.format(row_new['Age']), 'plain'))
 
+            # Gender
+            msg.attach(MIMEText('  |  {}'.format(row_new['Gender']), 'plain'))
+
             # Breed
             msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
@@ -329,6 +332,9 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             # Age
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Age']), 'plain'))
 
+            # Gender
+            msg.attach(MIMEText('  |  {}'.format(row_adopted['Gender']), 'plain'))
+
             # Breed
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
@@ -343,7 +349,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
     msg.attach(MIMEText(time_for_email + '<br>', 'html'))
 
     # Add Website Link to Body
-    homepage = MIMEText('https://24petconnect.com/PP4352?at=DOG', 'html')
+    homepage = MIMEText('https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=', 'html')
     msg.attach(homepage)
 
     # Send Email
@@ -457,11 +463,8 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # # print(_count)
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
-# _df_concat = concat_additional_pages(_count, 'https://24petconnect.com/PP4352?index=30&at=DOG', _df_html, _now)
-# print(tabulate(_df_concat, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-#
 # _df_new, _df_adopted = compare_availability(
-#     'Output - Fairfax Shelter Spreadsheets', 'Output - Fairfax Shelter Photos', _df_concat)
+#     'Output - Fairfax Shelter Spreadsheets', 'Output - Fairfax Shelter Photos', _df_html)
 # print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
