@@ -1,7 +1,7 @@
 """
 July 28, 2023
 
-Scrapes the Fairfax County Animal Shelter site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is
+Scrapes the Fairfax County Animal Shelter site (petango.com) for dogs available for adoption and alerts me when a new dog is
 available or was adopted. Prevents needing to frequently refresh the page and manually identifying changes.
 """
 
@@ -23,14 +23,14 @@ import sys
 from tabulate import tabulate
 
 
-def scrape_html(url: str):
+def scrape_html_petango(url: str):
     """
     Scrapes URL with dogs available for adoption, and creates a cleaned string with HTML content that can be used to create a DF
     in the next step. This also subsets the HTML content to start where the dogs available for adoption are listed.
 
     An HTML version (BeautifulSoup object) can be returned as well, if desired.
 
-    :param url: URL for dog adoption site on 24petconnect.com for Fairfax County Animal Shelter
+    :param url: URL for dog adoption site on petango.com for Fairfax County Animal Shelter
     :return: a string of HTML content
     """
 
