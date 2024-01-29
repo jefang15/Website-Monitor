@@ -343,46 +343,52 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
     list_current_dogs = df_current['ID'].to_list()
     list_previous_dogs = df_previous['ID'].to_list()
 
-    set_current_dogs = set(list_current_dogs)
-    set_previous_dogs = set(list_previous_dogs)
-
-    # Compare Current and Previous Availability
-    if set_current_dogs == set_previous_dogs:  # If no change
-        df_new = pd.DataFrame()
+    if len(list_previous_dogs) == 0:
+        df_new = df_current
         df_adopted = pd.DataFrame()
-        return df_new, df_adopted
-
-    else:  # If change
-
-        # Compile Information About New Dogs
-        # Flag new dogs' IDs
-        set_new = set_current_dogs - set_previous_dogs  # New dogs
-
-        # Gather information about new dogs
-        df_new = df_current[df_current['ID'].isin(set_new)].copy()
-
-        for index_new, row_new in df_new.iterrows():
-            # Save new dog photos
-            image_url_new = row_new['Image']
-            r = requests.get(image_url_new, allow_redirects=True)
-            with open('{}/{}.png'.format(folder_photos, row_new['ID']), 'wb') as f:
-                f.write(r.content)
-
-        # Compile Information About Adopted Dogs
-        # Flag adopted dogs' IDs
-        set_adopted = set_previous_dogs - set_current_dogs  # Dogs that were adopted
-
-        # Gather information about adopted dogs
-        df_adopted = df_previous[df_previous['ID'].isin(set_adopted)].copy()
-
-        for index_adopted, row_adopted in df_adopted.iterrows():
-            # Save adopted dogs' photos locally
-            image_url_adopted = row_adopted['Image']
-            r = requests.get(image_url_adopted, allow_redirects=True)
-            with open('{}/{}.png'.format(folder_photos, row_adopted['ID']), 'wb') as f:
-                f.write(r.content)
 
         return df_new, df_adopted
+    else:
+        set_current_dogs = set(list_current_dogs)
+        set_previous_dogs = set(list_previous_dogs)
+
+        # Compare Current and Previous Availability
+        if set_current_dogs == set_previous_dogs:  # If no change
+            df_new = pd.DataFrame()
+            df_adopted = pd.DataFrame()
+            return df_new, df_adopted
+
+        else:  # If change
+
+            # Compile Information About New Dogs
+            # Flag new dogs' IDs
+            set_new = set_current_dogs - set_previous_dogs  # New dogs
+
+            # Gather information about new dogs
+            df_new = df_current[df_current['ID'].isin(set_new)].copy()
+
+            for index_new, row_new in df_new.iterrows():
+                # Save new dog photos
+                image_url_new = row_new['Image']
+                r = requests.get(image_url_new, allow_redirects=True)
+                with open('{}/{}.png'.format(folder_photos, row_new['ID']), 'wb') as f:
+                    f.write(r.content)
+
+            # Compile Information About Adopted Dogs
+            # Flag adopted dogs' IDs
+            set_adopted = set_previous_dogs - set_current_dogs  # Dogs that were adopted
+
+            # Gather information about adopted dogs
+            df_adopted = df_previous[df_previous['ID'].isin(set_adopted)].copy()
+
+            for index_adopted, row_adopted in df_adopted.iterrows():
+                # Save adopted dogs' photos locally
+                image_url_adopted = row_adopted['Image']
+                r = requests.get(image_url_adopted, allow_redirects=True)
+                with open('{}/{}.png'.format(folder_photos, row_adopted['ID']), 'wb') as f:
+                    f.write(r.content)
+
+            return df_new, df_adopted
 
 
 def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time):
@@ -585,6 +591,30 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 
 # <editor-fold desc="Troubleshoot">
 # _now = datetime.now()
+#
+# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - FOHA Spreadsheets'))
+#
+# if len(spreadsheets_folder) == 0:
+#
+#     # Create blank, first Excel file for folder
+#     df_blank = pd.DataFrame(columns=[
+#         'Counter',
+#         'ID',
+#         'Name',
+#         'Gender',
+#         'Breed',
+#         'Age',
+#         'Brought to Shelter',
+#         'Location',
+#         'Image',
+#         'Scrape Datetime'])
+#
+#     df_blank.to_excel(
+#         '{}/{} {}.xlsx'.format(
+#             'Output - FOHA Spreadsheets', 'Friends of Homeless Animals', datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
+#         index=False)
+# else:
+#     pass
 #
 # _html = scrape_html_24petconnect('https://24petconnect.com/13168/?at=DOG')
 # print(_html)
