@@ -173,7 +173,6 @@ def create_dataframe_from_html(html: str, current_time: str):
     df3.loc[df3['Image'].str.contains(' src="'), 'Image'] = df3['Image'].str.split(' src="').str[1].str.split('">').str[0]
     df3['Image'] = 'https://24petconnect.com' + df3['Image']
     df3.reset_index(drop=True, inplace=True)
-    print(df3['Image'])
 
     # Create ID column from latter part of Name
     df3['ID'] = df3['Name'].str.extract('(\d*\.?\d+)', expand=True)
