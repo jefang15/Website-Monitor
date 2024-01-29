@@ -1,7 +1,7 @@
 """
-July 28, 2023
+January 28, 2024
 
-Scrapes the Fairfax County Animal Shelter site (petango.com) for dogs available for adoption and alerts me when a new dog is
+Scrapes the Loudoun County Animal Services site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is
 available or was adopted. Prevents needing to frequently refresh the page and manually identifying changes.
 """
 
@@ -23,14 +23,14 @@ import sys
 from tabulate import tabulate
 
 
-def scrape_html_petango(url: str):
+def scrape_html_24petconnect(url: str):
     """
     Scrapes URL with dogs available for adoption, and creates a cleaned string with HTML content that can be used to create a DF
     in the next step. This also subsets the HTML content to start where the dogs available for adoption are listed.
 
     An HTML version (BeautifulSoup object) can be returned as well, if desired.
 
-    :param url: URL for dog adoption site on petango.com for Fairfax County Animal Shelter
+    :param url: URL for dog adoption site on 24petconnect.com
     :return: a string of HTML content
     """
 
@@ -88,16 +88,18 @@ def scrape_html_petango(url: str):
 
     html_sanitized = sanitize(html_processed)
     # type(html_sanitized)  # Str
+    # len(html_sanitized)  # 42,273
 
     # Truncate beginning of HTML
-    index_start = html_sanitized.find('<li>') + 4  # Gets rid of the 4 characters in <li>
+    index_start = html_sanitized.find('Animals: ')
     html_text = html_sanitized[index_start:]
-    type(html_text)  # Str
+    # type(html_text)  # Str
+    # len(html_text)  # 10,850
 
     return html_text
 
 
-def create_dataframe_from_html(html: str, current_time: datetime):
+def create_dataframe_from_html(html: str, current_time: str):
     """
     Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
 
@@ -119,77 +121,141 @@ def create_dataframe_from_html(html: str, current_time: datetime):
     df2 = df[df['Text'] != ''].copy()
     # len(df2)  # 479
 
-    df2.reset_index(inplace=True, drop=True)
+    df2.reset_index()
 
-    # Create new columns for each data point and initialize them with None
-    df2['Image'] = None
-    df2['ID'] = None
-    df2['Name'] = None
-    df2['Gender'] = None
-    df2['Breed'] = None
-    df2['Age'] = None
-    df2['Brought to Shelter'] = None
-    df2['Location'] = None
+    # Determine number of dogs available (if more than 30 dogs, there are two pages to scrape)
+    text_animals_available = df2['Text'][0]
+    animals_available = int(text_animals_available.split(' - ')[1].split('</h3>')[0].split(' of ')[1])
 
     for index, row in df2.iterrows():
+
         # Store one index per dog and write all attributes associated with that dog to the index in question
-        if ' src="' in row['Text']:
+        if row['Text'] == 'Name:':
             index_save = index
 
-        # Save information based on row distance from ' src="'
-
-        # Fill in Image
-        df2.loc[index_save, 'Image'] = df2.loc[index_save, 'Text']
-
         # Fill in Name
-        if index == index_save + 1:
-            df2.loc[index_save, 'Name'] = df2.loc[index, 'Text']
-
-        # Fill in ID
-        if index == index_save + 2:
-            df2.loc[index_save, 'ID'] = df2.loc[index, 'Text']
+        if row['Text'] == 'Name:':
+            df2.loc[index_save, 'Name'] = df2.loc[index + 1, 'Text']
 
         # Fill in Gender
-        if index == index_save + 4:
-            df2.loc[index_save, 'Gender'] = df2.loc[index, 'Text']
+        if row['Text'] == 'Gender:':
+            df2.loc[index_save, 'Gender'] = df2.loc[index + 1, 'Text']
 
         # Fill in Breed
-        if index == index_save + 5:
-            df2.loc[index_save, 'Breed'] = df2.loc[index, 'Text']
+        if row['Text'] == 'Breed:':
+            df2.loc[index_save, 'Breed'] = df2.loc[index + 1, 'Text']
+
+        # Fill in Animal Type
+        if row['Text'] == 'Animal type:':
+            df2.loc[index_save, 'Animal Type'] = df2.loc[index + 1, 'Text']
 
         # Fill in Age
-        if index == index_save + 6:
-            df2.loc[index_save, 'Age'] = df2.loc[index, 'Text']
+        if row['Text'] == 'Age:':
+            df2.loc[index_save, 'Age'] = df2.loc[index + 1, 'Text']
 
-    df3 = df2[~df2['Image'].isna()].copy()
+        # Fill in Brought to the Shelter
+        if row['Text'] == 'Brought to the shelter:':
+            df2.loc[index_save, 'Brought to Shelter'] = df2.loc[index + 1, 'Text']
 
-    # Clean text
-    df3.loc[df3['Image'].str.contains(' src="'), 'Image'] = df3['Image'].str.split(' src="').str[1].str.split('"></a>').str[0]
-    df3.loc[df3['Name'].str.contains('spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg">'), 'Name'] = df3['Name'].str.split(
-        'spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg">').str[1].str.split('</a>').str[0]
+        # Fill in Located At
+        if row['Text'] == 'Located at:':
+            df2.loc[index_save, 'Location'] = df2.loc[index + 1, 'Text']
 
-    # # Drop rows where Gender is NAN (proxy for when a row doesn't actually represent a unique dog and is just HTML filler)
-    df4 = df3[df3['Gender'].notna()].copy()
+    # Fill in Image (done separately, since this attribute appears after the index associated with the dog's name)
+    df2.loc[df2['Text'].str.contains('<img id="AnimalImage_'), 'Image'] = df2['Text']
+    df2['Image'].ffill(inplace=True)
 
-    del df4['Text']
+    # Drop rows where Name is NAN
+    df3 = df2[df2['Name'].notna()].copy()
+    # len(df3)  # 30
 
-    # Create counter
-    df4['Counter'] = range(1, len(df4) + 1)
+    # Finish cleaning URLs in Image column (doesn't work until NANs are taken care of)
+    df3.loc[df3['Image'].str.contains(' src="'), 'Image'] = df3['Image'].str.split(' src="').str[1].str.split('">').str[0]
+    df3['Image'] = 'https://24petconnect.com' + df3['Image']
+    df3.reset_index(drop=True, inplace=True)
+
+    # Create ID column from latter part of Name
+    df3['ID'] = df3['Name'].str.extract('(\d*\.?\d+)', expand=True)
+
+    # Clean and remove ID from Name column
+    df3.loc[df3['Name'].str.contains(' \\([0-9]'), 'Name'] = df3['Name'].str.split(' \\([0-9]').str[0]
+    df4 = df3.applymap(lambda x: str(x).replace('&amp;', '&'))
 
     # Set Date Types
     # print(df4.dtypes)
+    df4['Brought to Shelter'] = pd.to_datetime(df4['Brought to Shelter'])
     df4['ID'] = df4['ID'].astype('int32')
-    df4['Counter'] = df4['Counter'].astype('int8')
 
     # Add scraped DateTime to DF
     df4['Scrape Datetime'] = current_time
 
     # print(df4.columns)
-    df5 = df4[[
-        'Counter', 'ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image', 'Scrape Datetime']].copy()
+    df5 = df4[['ID', 'Name', 'Gender', 'Breed', 'Age', 'Brought to Shelter', 'Location', 'Image', 'Scrape Datetime']].copy()
     # print(df5.dtypes)
 
-    return df5
+    return animals_available, df5
+
+
+def concat_additional_pages(availability: int, url2: str, df1, current_time: str):
+    """
+    Scrapes the second page of the dog adoption site, if there is one, using the scrape_html function, creates a separate
+    cleaned DF, and then concatenates the two cleaned DFs/pages together. If there is only one page, this function has no effect.
+
+    :param availability: number of dogs available on the first page, if there are more than 30 dogs then there are at least 2
+    pages of content
+    :param url2: URL of second page of dogs on 24petconnect.com
+    :param df1: cleaned DF (output from create_dataframe_from_html function) to be concatenated as needed
+    :param current_time: Current datetime to label and export results
+    :return:
+    """
+
+    if availability > 30:
+
+        # Scrape second page
+        html_text2 = scrape_html_24petconnect(url2)
+
+        # Turn second page to DF
+        _, df2 = create_dataframe_from_html(html_text2, current_time)
+
+        # Concatenate each DataFrame representing each page
+        df_concat = pd.concat([df1, df2])
+
+        # Create counter
+        df_concat['Counter'] = range(1, len(df_concat) + 1)
+
+        # Keep only columns needed to save and to compare with previous iterations
+        df_concat2 = df_concat[[
+            'Counter',
+            'ID',
+            'Name',
+            'Gender',
+            'Breed',
+            'Age',
+            'Brought to Shelter',
+            'Location',
+            'Image',
+            'Scrape Datetime']].copy()
+
+        return df_concat2
+
+    else:
+        # Create counter
+        df1['Counter'] = range(1, len(df1) + 1)
+
+        # Keep only columns needed to save and to compare with previous iterations
+        df1 = df1[[
+            'Counter',
+            'ID',
+            'Name',
+            'Gender',
+            'Breed',
+            'Age',
+            'Brought to Shelter',
+            'Location',
+            'Image',
+            'Scrape Datetime']].copy()
+
+        return df1
 
 
 def compare_availability(folder_spreadsheets: str, folder_photos: str, df_current):
@@ -253,7 +319,7 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
         return df_new, df_adopted
 
 
-def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time: datetime):
+def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time: str):
     """
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
@@ -300,9 +366,6 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             # Age
             msg.attach(MIMEText('  |  {}'.format(row_new['Age']), 'plain'))
 
-            # Gender
-            msg.attach(MIMEText('  |  {}'.format(row_new['Gender']), 'plain'))
-
             # Breed
             msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
@@ -332,9 +395,6 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             # Age
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Age']), 'plain'))
 
-            # Gender
-            msg.attach(MIMEText('  |  {}'.format(row_adopted['Gender']), 'plain'))
-
             # Breed
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
@@ -349,7 +409,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
     msg.attach(MIMEText(time_for_email + '<br>', 'html'))
 
     # Add Website Link to Body
-    homepage = MIMEText('https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=', 'html')
+    homepage = MIMEText('https://24petconnect.com/LODN?at=DOG', 'html')
     msg.attach(homepage)
 
     # Send Email
@@ -360,7 +420,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
         smtp.send_message(msg)
 
 
-def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_name: str, url: str):
+def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_name: str, url1: str, url2: str):
     """
     Scrapes dog adoption site every 5 minutes during the day and emails any changes.
 
@@ -368,7 +428,8 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
     :param folder_spreadsheets: Folder path to location where spreadsheets are saved
     :param folder_photos: Folder path to location where images are saved
     :param file_name: Name of Python script (without any file types)
-    :param url: Webpage of dog adoption site
+    :param url1: First page of dog adoption site
+    :param url2: Second page of dog adoption site
     :return: Sends email when there is new or adopted dog and includes notable information.
     """
 
@@ -397,10 +458,11 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 
         try:  # Accounts for potential network connectivity issues?
 
-            html_text_clean = scrape_html_petango(url)
-            df_dog = create_dataframe_from_html(html_text_clean, now)
+            html_text_clean = scrape_html_24petconnect(url1)
+            dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
+            df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
-            df_dogs_new, df_dogs_adopted = compare_availability(folder_spreadsheets, folder_photos, df_dog)
+            df_dogs_new, df_dogs_adopted = compare_availability(folder_spreadsheets, folder_photos, df_current_dogs)
 
             if df_dogs_new.empty & df_dogs_adopted.empty:
                 print(str(
@@ -425,7 +487,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 
                 # Save to Excel
                 now_text = now.strftime('%Y-%m-%d %H-%M-%S')
-                df_dog.to_excel(
+                df_current_dogs.to_excel(
                     '{}/{} {}.xlsx'.format(folder_spreadsheets, shelter_name, now_text), index=False)
 
                 send_email(shelter_name, folder_photos, df_dogs_new, df_dogs_adopted, now)
@@ -439,7 +501,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
         hour_start = 8  # 8 AM - Time of day to start running script (script stops at midnight)
 
         if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every minute
-            delay_sec = 60 * 10  # Run every 10 minutes
+            delay_sec = 60 * 10
         else:  # If it's after midnight and before 8 AM, calculate the number of seconds until 8 AM and set that as the delay
             diff_hour = hour_start - int(now.strftime('%H')) - 1
             diff_min = 60 - int(now.strftime('%M'))
@@ -456,33 +518,40 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # <editor-fold desc="Troubleshoot">
 # _now = datetime.now()
 #
-# _html = scrape_html_petango('https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=')
+# _html = scrape_html_24petconnect('https://24petconnect.com/LODN?at=DOG')
 # print(_html)
 #
-# _df_html = create_dataframe_from_html(_html, _now)
-# # print(_count)
+# _count, _df_html = create_dataframe_from_html(_html, _now.strftime('%Y-%m-%d %H:%M:%S'))
+# print(_count)
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
+# # Write first results to Excel
+# _df_html.to_excel(
+#     '{}/{} {}.xlsx'.format(
+#         'Output - Loudoun Shelter Spreadsheets', 'Loudoun County Animal Services', _now.strftime('%Y-%m-%d %H-%M-%S')),
+#     index=False)
+#
 # _df_new, _df_adopted = compare_availability(
-#     'Output - Fairfax Shelter Spreadsheets', 'Output - Fairfax Shelter Photos', _df_html)
+#     'Output - Loudoun Shelter Spreadsheets', 'Output - Loudoun Shelter Photos', _df_html)
 # print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # send_email(
-#     'Fairfax County Animal Shelter', 'Output - Fairfax Shelter Photos', _df_new, _df_adopted, _now)
+#     'Loudoun County Animal Services', 'Output - Loudoun Shelter Photos', _df_new, _df_adopted, _now)
 # </editor-fold>
 
 
 # Set URL
-url_page = 'https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID='
-
+url_page1 = 'https://24petconnect.com/LODN?at=DOG'
+url_page2 = 'https://24petconnect.com/LODN?index=30&at=DOG'
 
 main(
-    'Fairfax County Animal Shelter',
-    'Output - Fairfax Shelter Spreadsheets',
-    'Output - Fairfax Shelter Photos',
-    'DogAdoption_FairfaxCountyAnimalShelter',
-    url_page)
+    'Loudoun County Animal Services',
+    'Output - Loudoun Shelter Spreadsheets',
+    'Output - Loudoun Shelter Photos',
+    'DogAdoption_LoudounCountyAnimalServices',
+    url_page1,
+    url_page2)
 
 
 # Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
