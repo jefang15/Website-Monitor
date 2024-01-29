@@ -397,7 +397,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 
         try:  # Accounts for potential network connectivity issues?
 
-            html_text_clean = scrape_html(url)
+            html_text_clean = scrape_html_petango(url)
             df_dog = create_dataframe_from_html(html_text_clean, now)
 
             df_dogs_new, df_dogs_adopted = compare_availability(folder_spreadsheets, folder_photos, df_dog)
@@ -456,7 +456,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # <editor-fold desc="Troubleshoot">
 # _now = datetime.now()
 #
-# _html = scrape_html('https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=')
+# _html = scrape_html_petango('https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=')
 # print(_html)
 #
 # _df_html = create_dataframe_from_html(_html, _now)
