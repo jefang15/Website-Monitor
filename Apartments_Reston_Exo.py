@@ -576,6 +576,6 @@ list_of_dicts = [dict_a1, dict_a1a, dict_a2, dict_a2a, dict_a2b, dict_a2c, dict_
 main(
     'Exo',
     'Apartments_Reston_Exo',
-    'Output - Exo Spreadsheets',
-    'Output - Exo Floor Plans',
+    'Output - Apartments - Reston, Exo/Spreadsheets',
+    'Output - Apartments - Reston, Exo/Floor Plans',
     list_of_dicts)
