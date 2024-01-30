@@ -601,7 +601,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # <editor-fold desc="Troubleshoot">
 # _now = datetime.now()
 #
-# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - FOHA Spreadsheets'))
+# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Dog Adoption - FOHA/Spreadsheets'))
 #
 # if len(spreadsheets_folder) == 0:
 #
@@ -620,7 +620,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 #
 #     df_blank.to_excel(
 #         '{}/{} {}.xlsx'.format(
-#             'Output - FOHA Spreadsheets', 'Friends of Homeless Animals', datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
+#             'Output - Dog Adoption - FOHA/Spreadsheets', 'Friends of Homeless Animals', datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
 #         index=False)
 # else:
 #     pass
@@ -633,12 +633,12 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # _df_new, _df_adopted = compare_availability(
-#     'Output - FOHA Spreadsheets', 'Output - FOHA Photos', _df_html)
+#     'Output - Dog Adoption - FOHA/Spreadsheets', 'Output - Dog Adoption - FOHA/Photos', _df_html)
 # print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # send_email(
-#     'Friends of Homeless Animals', 'Output - FOHA Photos', _df_new, _df_adopted, _now)
+#     'Friends of Homeless Animals', 'Output - Dog Adoption - FOHA/Photos', _df_new, _df_adopted, _now)
 # </editor-fold>
 
 
@@ -650,8 +650,8 @@ url_page4 = 'https://24petconnect.com/13168?index=90&at=DOG'
 
 main(
     'Friends of Homeless Animals',
-    'Output - FOHA Spreadsheets',
-    'Output - FOHA Photos',
+    'Output - Dog Adoption - FOHA/Spreadsheets',
+    'Output - Dog Adoption - FOHA/Photos',
     'DogAdoption_FriendsOfHomelessAnimals',
     url_page1,
     url_page2,
