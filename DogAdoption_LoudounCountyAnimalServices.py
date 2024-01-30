@@ -518,7 +518,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # <editor-fold desc="Troubleshoot">
 # _now = datetime.now()
 #
-# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Loudoun Shelter Spreadsheets'))
+# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Dog Adoption - Loudoun County/Spreadsheets'))
 #
 # if len(spreadsheets_folder) == 0:
 #
@@ -537,7 +537,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 #
 #     df_blank.to_excel(
 #         '{}/{} {}.xlsx'.format(
-#             'Output - Loudoun Shelter Spreadsheets',
+#             'Output - Dog Adoption - Loudoun County/Spreadsheets',
 #             'Loudoun County Animal Shelter',
 #             datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
 #         index=False)
@@ -552,12 +552,12 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # _df_new, _df_adopted = compare_availability(
-#     'Output - Loudoun Shelter Spreadsheets', 'Output - Loudoun Shelter Photos', _df_html)
+#     'Output - Dog Adoption - Loudoun County/Spreadsheets', 'Output - Dog Adoption - Loudoun County/Photos', _df_html)
 # print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # send_email(
-#     'Loudoun County Animal Services', 'Output - Loudoun Shelter Photos', _df_new, _df_adopted, _now)
+#     'Loudoun County Animal Services', 'Output - Dog Adoption - Loudoun County/Photos', _df_new, _df_adopted, _now)
 # </editor-fold>
 
 
@@ -567,8 +567,8 @@ url_page2 = 'https://24petconnect.com/LODN?index=30&at=DOG'
 
 main(
     'Loudoun County Animal Services',
-    'Output - Loudoun Shelter Spreadsheets',
-    'Output - Loudoun Shelter Photos',
+    'Output - Dog Adoption - Loudoun County/Spreadsheets',
+    'Output - Dog Adoption - Loudoun County/Photos',
     'DogAdoption_LoudounCountyAnimalServices',
     url_page1,
     url_page2)

@@ -522,7 +522,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # <editor-fold desc="Troubleshoot">
 # _now = datetime.now()
 #
-# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Montgomery County Spreadsheets'))
+# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Dog Adoption - Montgomery County/Spreadsheets'))
 #
 # if len(spreadsheets_folder) == 0:
 #
@@ -541,8 +541,8 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 #
 #     df_blank.to_excel(
 #         '{}/{} {}.xlsx'.format(
-#             'Output - Montgomery County Spreadsheets',
-#             'Montgomery County Animal Shelter',
+#             'Output - Dog Adoption - Montgomery County/Spreadsheets',
+#             'Montgomery County Animal Services',
 #             datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
 #         index=False)
 # else:
@@ -556,12 +556,12 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # _df_new, _df_adopted = compare_availability(
-#     'Output - Montgomery County Spreadsheets', 'Output - Montgomery County Photos', _df_html)
+#     'Output - Dog Adoption - Montgomery County/Spreadsheets', 'Output - Dog Adoption - Montgomery County/Photos', _df_html)
 # print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # send_email(
-#     'Montgomery County Animal Services', 'Output - Montgomery County Photos', _df_new, _df_adopted, _now)
+#     'Montgomery County Animal Services', 'Output - Dog Adoption - Montgomery County/Photos', _df_new, _df_adopted, _now)
 # </editor-fold>
 
 
@@ -571,8 +571,8 @@ url_page2 = 'https://24petconnect.com/MONT?index=30&at=DOG'
 
 main(
     'Montgomery County Animal Services',
-    'Output - Montgomery County Spreadsheets',
-    'Output - Montgomery County Photos',
+    'Output - Dog Adoption - Montgomery County/Spreadsheets',
+    'Output - Dog Adoption - Montgomery County/Photos',
     'DogAdoption_MontgomeryCountyAnimalServices',
     url_page1,
     url_page2)
