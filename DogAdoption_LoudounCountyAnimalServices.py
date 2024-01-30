@@ -99,7 +99,7 @@ def scrape_html_24petconnect(url: str):
     return html_text
 
 
-def create_dataframe_from_html(html: str, current_time: str):
+def create_dataframe_from_html(html: str, current_time):
     """
     Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
 
@@ -196,7 +196,7 @@ def create_dataframe_from_html(html: str, current_time: str):
     return animals_available, df5
 
 
-def concat_additional_pages(availability: int, url2: str, df1, current_time: str):
+def concat_additional_pages(availability: int, url2: str, df1, current_time):
     """
     Scrapes the second page of the dog adoption site, if there is one, using the scrape_html function, creates a separate
     cleaned DF, and then concatenates the two cleaned DFs/pages together. If there is only one page, this function has no effect.
@@ -299,7 +299,7 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
             # Save new dog photos
             image_url_new = row_new['Image']
             r = requests.get(image_url_new, allow_redirects=True)
-            with open('{}/{}.png'.format(folder_photos, row_new['ID']), 'wb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_new['Name']), 'wb') as f:
                 f.write(r.content)
 
         # Compile Information About Adopted Dogs
@@ -313,13 +313,13 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
             # Save adopted dogs' photos locally
             image_url_adopted = row_adopted['Image']
             r = requests.get(image_url_adopted, allow_redirects=True)
-            with open('{}/{}.png'.format(folder_photos, row_adopted['ID']), 'wb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_adopted['Name']), 'wb') as f:
                 f.write(r.content)
 
         return df_new, df_adopted
 
 
-def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time: str):
+def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time):
     """
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
@@ -370,7 +370,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(folder_photos, row_new['ID']), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_new['Name']), 'rb') as f:
                 image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -399,7 +399,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(folder_photos, row_adopted['ID']), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_adopted['Name']), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -518,18 +518,38 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # <editor-fold desc="Troubleshoot">
 # _now = datetime.now()
 #
+# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Loudoun Shelter Spreadsheets'))
+#
+# if len(spreadsheets_folder) == 0:
+#
+#     # Create blank, first Excel file for folder
+#     df_blank = pd.DataFrame(columns=[
+#         'Counter',
+#         'ID',
+#         'Name',
+#         'Gender',
+#         'Breed',
+#         'Age',
+#         'Brought to Shelter',
+#         'Location',
+#         'Image',
+#         'Scrape Datetime'])
+#
+#     df_blank.to_excel(
+#         '{}/{} {}.xlsx'.format(
+#             'Output - Loudoun Shelter Spreadsheets',
+#             'Loudoun County Animal Shelter',
+#             datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
+#         index=False)
+# else:
+#     pass
+#
 # _html = scrape_html_24petconnect('https://24petconnect.com/LODN?at=DOG')
 # print(_html)
 #
 # _count, _df_html = create_dataframe_from_html(_html, _now.strftime('%Y-%m-%d %H:%M:%S'))
 # print(_count)
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-#
-# # Write first results to Excel
-# _df_html.to_excel(
-#     '{}/{} {}.xlsx'.format(
-#         'Output - Loudoun Shelter Spreadsheets', 'Loudoun County Animal Services', _now.strftime('%Y-%m-%d %H-%M-%S')),
-#     index=False)
 #
 # _df_new, _df_adopted = compare_availability(
 #     'Output - Loudoun Shelter Spreadsheets', 'Output - Loudoun Shelter Photos', _df_html)
