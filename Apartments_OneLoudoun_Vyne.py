@@ -565,7 +565,7 @@ list_of_dicts = [dict_a1a, dict_a2a, dict_a6d, dict_b1b, dict_b2b, dict_b3b, dic
 main(
     'Vyne',
     'Apartments_OneLoudoun_Vyne',
-    'Output - Vyne Spreadsheets',
-    'Output - Vyne Floor Plans',
+    'Output - Apartments - One Loudoun, Vyne/Spreadsheets',
+    'Output - Apartments - One Loudoun, Vyne/Floor Plans',
     list_of_dicts,
     'Building Floor Plan')

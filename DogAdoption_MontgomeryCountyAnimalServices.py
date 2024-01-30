@@ -1,8 +1,12 @@
 """
-January 28, 2024
+Scrapes the Montgomery County Animal Services site (24petconnect.com) for dogs available for adoption and alerts me when a new
+dog is available or was adopted. Prevents needing to frequently refresh the page and manually identifying changes.
 
-Scrapes the Friends of Homeless Animals site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is
-available or was adopted. Prevents needing to frequently refresh the page and manually identifying changes.
+https://www.montgomerycountymd.gov/animalservices/index.html
+
+"Hidden Gems are animals who have been available for over 30 days. These animals are marked with a diamond on their photo and
+are labeled as Hidden Gems in their bios. Their adoption fees are $0 thanks to Friends of Montgomery County Animals (FMCA) who
+have agreed to sponsor their adoption fees!"
 """
 
 
@@ -104,7 +108,7 @@ def create_dataframe_from_html(html: str, current_time):
     Creates a DataFrame from the HTML content with each attribute as a separate column for each dog.
 
     :param html: HTML string output from the scrape_html function
-    :param current_time: Current datetime (use ":" for HMS)
+    :param current_time: Current datetime
     :return: count of number of dogs available (proxy for number of webpages that need scraping, and cleaned DF of dog attributes)
     """
 
@@ -171,6 +175,7 @@ def create_dataframe_from_html(html: str, current_time):
 
     # Finish cleaning URLs in Image column (doesn't work until NANs are taken care of)
     df3.loc[df3['Image'].str.contains(' src="'), 'Image'] = df3['Image'].str.split(' src="').str[1].str.split('">').str[0]
+    df3['Image'] = 'https://24petconnect.com' + df3['Image']
     df3.reset_index(drop=True, inplace=True)
 
     # Create ID column from latter part of Name
@@ -182,8 +187,7 @@ def create_dataframe_from_html(html: str, current_time):
 
     # Set Date Types
     # print(df4.dtypes)
-
-    # df4['Brought to Shelter'] = pd.to_datetime(df4['Brought to Shelter'])  # All dates are string "Unknown date"
+    df4['Brought to Shelter'] = pd.to_datetime(df4['Brought to Shelter'])
     df4['ID'] = df4['ID'].astype('int32')
 
     # Add scraped DateTime to DF
@@ -196,7 +200,7 @@ def create_dataframe_from_html(html: str, current_time):
     return animals_available, df5
 
 
-def concat_additional_pages(availability: int, url2: str, url3: str, url4: str, df1, current_time):
+def concat_additional_pages(availability: int, url2: str, df1, current_time):
     """
     Scrapes the second page of the dog adoption site, if there is one, using the scrape_html function, creates a separate
     cleaned DF, and then concatenates the two cleaned DFs/pages together. If there is only one page, this function has no effect.
@@ -204,14 +208,12 @@ def concat_additional_pages(availability: int, url2: str, url3: str, url4: str, 
     :param availability: number of dogs available on the first page, if there are more than 30 dogs then there are at least 2
     pages of content
     :param url2: URL of second page of dogs on 24petconnect.com
-    :param url3: URL of third page of dogs on 24petconnect.com
-    :param url4: URL of fourth page of dogs on 24petconnect.com
     :param df1: cleaned DF (output from create_dataframe_from_html function) to be concatenated as needed
-    :param current_time: Current datetime to label and export results (use ":" for HMS)
+    :param current_time: Current datetime to label and export results
     :return:
     """
 
-    if 30 < availability < 59:
+    if availability > 30:
 
         # Scrape second page
         html_text2 = scrape_html_24petconnect(url2)
@@ -226,7 +228,7 @@ def concat_additional_pages(availability: int, url2: str, url3: str, url4: str, 
         df_concat['Counter'] = range(1, len(df_concat) + 1)
 
         # Keep only columns needed to save and to compare with previous iterations
-        df_concat_clean = df_concat[[
+        df_concat2 = df_concat[[
             'Counter',
             'ID',
             'Name',
@@ -238,71 +240,7 @@ def concat_additional_pages(availability: int, url2: str, url3: str, url4: str, 
             'Image',
             'Scrape Datetime']].copy()
 
-        return df_concat_clean
-
-    elif 60 <= availability < 89:
-
-        # Scrape second and third pages
-        html_text2 = scrape_html_24petconnect(url2)
-        html_text3 = scrape_html_24petconnect(url3)
-
-        # Turn second and third pages to DF
-        _, df2 = create_dataframe_from_html(html_text2, current_time)
-        _, df3 = create_dataframe_from_html(html_text3, current_time)
-
-        # Concatenate each DataFrame representing each page
-        df_concat = pd.concat([df1, df2, df3])
-
-        # Create counter
-        df_concat['Counter'] = range(1, len(df_concat) + 1)
-
-        # Keep only columns needed to save and to compare with previous iterations
-        df_concat_clean = df_concat[[
-            'Counter',
-            'ID',
-            'Name',
-            'Gender',
-            'Breed',
-            'Age',
-            'Brought to Shelter',
-            'Location',
-            'Image',
-            'Scrape Datetime']].copy()
-
-        return df_concat_clean
-
-    elif 90 <= availability < 119:
-
-        # Scrape second and third pages
-        html_text2 = scrape_html_24petconnect(url2)
-        html_text3 = scrape_html_24petconnect(url3)
-        html_text4 = scrape_html_24petconnect(url4)
-
-        # Turn second, third, and fourth pages to DF
-        _, df2 = create_dataframe_from_html(html_text2, current_time)
-        _, df3 = create_dataframe_from_html(html_text3, current_time)
-        _, df4 = create_dataframe_from_html(html_text4, current_time)
-
-        # Concatenate each DataFrame representing each page
-        df_concat = pd.concat([df1, df2, df3, df4])
-
-        # Create counter
-        df_concat['Counter'] = range(1, len(df_concat) + 1)
-
-        # Keep only columns needed to save and to compare with previous iterations
-        df_concat_clean = df_concat[[
-            'Counter',
-            'ID',
-            'Name',
-            'Gender',
-            'Breed',
-            'Age',
-            'Brought to Shelter',
-            'Location',
-            'Image',
-            'Scrape Datetime']].copy()
-
-        return df_concat_clean
+        return df_concat2
 
     else:
         # Create counter
@@ -343,62 +281,46 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
     list_current_dogs = df_current['ID'].to_list()
     list_previous_dogs = df_previous['ID'].to_list()
 
-    if len(list_previous_dogs) == 0:
-        df_new = df_current
+    set_current_dogs = set(list_current_dogs)
+    set_previous_dogs = set(list_previous_dogs)
+
+    # Compare Current and Previous Availability
+    if set_current_dogs == set_previous_dogs:  # If no change
+        df_new = pd.DataFrame()
         df_adopted = pd.DataFrame()
+        return df_new, df_adopted
+
+    else:  # If change
+
+        # Compile Information About New Dogs
+        # Flag new dogs' IDs
+        set_new = set_current_dogs - set_previous_dogs  # New dogs
+
+        # Gather information about new dogs
+        df_new = df_current[df_current['ID'].isin(set_new)].copy()
 
         for index_new, row_new in df_new.iterrows():
             # Save new dog photos
             image_url_new = row_new['Image']
             r = requests.get(image_url_new, allow_redirects=True)
-            with open('{}/{}.png'.format(
-                    folder_photos, str(row_new['Name']) + ' (' + str(row_new['ID']) + ')'), 'wb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_new['Name']), 'wb') as f:
+                f.write(r.content)
+
+        # Compile Information About Adopted Dogs
+        # Flag adopted dogs' IDs
+        set_adopted = set_previous_dogs - set_current_dogs  # Dogs that were adopted
+
+        # Gather information about adopted dogs
+        df_adopted = df_previous[df_previous['ID'].isin(set_adopted)].copy()
+
+        for index_adopted, row_adopted in df_adopted.iterrows():
+            # Save adopted dogs' photos locally
+            image_url_adopted = row_adopted['Image']
+            r = requests.get(image_url_adopted, allow_redirects=True)
+            with open('{}/{}.png'.format(folder_photos, row_adopted['Name']), 'wb') as f:
                 f.write(r.content)
 
         return df_new, df_adopted
-    else:
-        set_current_dogs = set(list_current_dogs)
-        set_previous_dogs = set(list_previous_dogs)
-
-        # Compare Current and Previous Availability
-        if set_current_dogs == set_previous_dogs:  # If no change
-            df_new = pd.DataFrame()
-            df_adopted = pd.DataFrame()
-            return df_new, df_adopted
-
-        else:  # If change
-
-            # Compile Information About New Dogs
-            # Flag new dogs' IDs
-            set_new = set_current_dogs - set_previous_dogs  # New dogs
-
-            # Gather information about new dogs
-            df_new = df_current[df_current['ID'].isin(set_new)].copy()
-
-            for index_new, row_new in df_new.iterrows():
-                # Save new dog photos
-                image_url_new = row_new['Image']
-                r = requests.get(image_url_new, allow_redirects=True)
-                with open('{}/{}.png'.format(
-                        folder_photos, str(row_new['Name']) + ' (' + str(row_new['ID']) + ')'), 'wb') as f:
-                    f.write(r.content)
-
-            # Compile Information About Adopted Dogs
-            # Flag adopted dogs' IDs
-            set_adopted = set_previous_dogs - set_current_dogs  # Dogs that were adopted
-
-            # Gather information about adopted dogs
-            df_adopted = df_previous[df_previous['ID'].isin(set_adopted)].copy()
-
-            for index_adopted, row_adopted in df_adopted.iterrows():
-                # Save adopted dogs' photos locally
-                image_url_adopted = row_adopted['Image']
-                r = requests.get(image_url_adopted, allow_redirects=True)
-                with open('{}/{}.png'.format(
-                        folder_photos, str(row_adopted['Name']) + ' (' + str(row_adopted['ID']) + ')'), 'wb') as f:
-                    f.write(r.content)
-
-            return df_new, df_adopted
 
 
 def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time):
@@ -452,7 +374,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(folder_photos, str(row_new['Name']) + ' (' + str(row_new['ID']) + ')'), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_new['Name']), 'rb') as f:
                 image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -481,8 +403,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(
-                    folder_photos, str(row_adopted['Name']) + ' (' + str(row_adopted['ID']) + ')'), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, row_adopted['Name']), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -503,8 +424,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
         smtp.send_message(msg)
 
 
-def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_name: str, url1: str, url2: str, url3: str,
-         url4: str):
+def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_name: str, url1: str, url2: str):
     """
     Scrapes dog adoption site every 5 minutes during the day and emails any changes.
 
@@ -514,8 +434,6 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
     :param file_name: Name of Python script (without any file types)
     :param url1: First page of dog adoption site
     :param url2: Second page of dog adoption site
-    :param url3: Third page of dog adoption site
-    :param url4: Fourth page of dog adoption site
     :return: Sends email when there is new or adopted dog and includes notable information.
     """
 
@@ -545,13 +463,15 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
         try:  # Accounts for potential network connectivity issues?
 
             html_text_clean = scrape_html_24petconnect(url1)
-            dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now.strftime('%Y-%m-%d %H:%M:%S'))
-            df_current_dogs = concat_additional_pages(dog_availability, url2, url3, url4, df_dog, now.strftime('%Y-%m-%d %H:%M:%S'))
+            dog_availability, df_dog = create_dataframe_from_html(html_text_clean, now)
+            df_current_dogs = concat_additional_pages(dog_availability, url2, df_dog, now)
 
             df_dogs_new, df_dogs_adopted = compare_availability(folder_spreadsheets, folder_photos, df_current_dogs)
 
             if df_dogs_new.empty & df_dogs_adopted.empty:
-                print(str(now.strftime('%Y-%m-%d %I:%M:%S %p')) + '  {}  INFO  No Change'.format(file_name))
+                print(str(
+                    now.strftime('%Y-%m-%d %I:%M:%S %p'))
+                      + '  {}  INFO  No Change'.format(file_name))
 
                 # logging.info('No change')
 
@@ -570,8 +490,9 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
                         logging.info('Adopted dog: %s (ID %s)', row['Name'], row['ID'])
 
                 # Save to Excel
+                now_text = now.strftime('%Y-%m-%d %H-%M-%S')
                 df_current_dogs.to_excel(
-                    '{}/{} {}.xlsx'.format(folder_spreadsheets, shelter_name, now.strftime('%Y-%m-%d %H-%M-%S')), index=False)
+                    '{}/{} {}.xlsx'.format(folder_spreadsheets, shelter_name, now_text), index=False)
 
                 send_email(shelter_name, folder_photos, df_dogs_new, df_dogs_adopted, now)
         except:
@@ -601,7 +522,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # <editor-fold desc="Troubleshoot">
 # _now = datetime.now()
 #
-# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - FOHA Spreadsheets'))
+# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Montgomery County Spreadsheets'))
 #
 # if len(spreadsheets_folder) == 0:
 #
@@ -620,12 +541,14 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 #
 #     df_blank.to_excel(
 #         '{}/{} {}.xlsx'.format(
-#             'Output - FOHA Spreadsheets', 'Friends of Homeless Animals', datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
+#             'Output - Montgomery County Spreadsheets',
+#             'Montgomery County Animal Shelter',
+#             datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
 #         index=False)
 # else:
 #     pass
 #
-# _html = scrape_html_24petconnect('https://24petconnect.com/13168/?at=DOG')
+# _html = scrape_html_24petconnect('https://24petconnect.com/MONT?at=DOG')
 # print(_html)
 #
 # _count, _df_html = create_dataframe_from_html(_html, _now.strftime('%Y-%m-%d %H:%M:%S'))
@@ -633,30 +556,26 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # _df_new, _df_adopted = compare_availability(
-#     'Output - FOHA Spreadsheets', 'Output - FOHA Photos', _df_html)
+#     'Output - Montgomery County Spreadsheets', 'Output - Montgomery County Photos', _df_html)
 # print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # send_email(
-#     'Friends of Homeless Animals', 'Output - FOHA Photos', _df_new, _df_adopted, _now)
+#     'Montgomery County Animal Services', 'Output - Montgomery County Photos', _df_new, _df_adopted, _now)
 # </editor-fold>
 
 
 # Set URL
-url_page1 = 'https://24petconnect.com/13168/?at=DOG'
-url_page2 = 'https://24petconnect.com/13168?index=30&at=DOG'
-url_page3 = 'https://24petconnect.com/13168?index=60&at=DOG'
-url_page4 = 'https://24petconnect.com/13168?index=90&at=DOG'
+url_page1 = 'https://24petconnect.com/MONT?at=DOG'
+url_page2 = 'https://24petconnect.com/MONT?index=30&at=DOG'
 
 main(
-    'Friends of Homeless Animals',
-    'Output - FOHA Spreadsheets',
-    'Output - FOHA Photos',
-    'DogAdoption_FriendsOfHomelessAnimals',
+    'Montgomery County Animal Services',
+    'Output - Montgomery County Spreadsheets',
+    'Output - Montgomery County Photos',
+    'DogAdoption_MontgomeryCountyAnimalServices',
     url_page1,
-    url_page2,
-    url_page3,
-    url_page4)
+    url_page2)
 
 
 # Guide: https://medium.com/swlh/tutorial-creating-a-webpage-monitor-using-python-and-running-it-on-a-raspberry-pi-df763c142dac
