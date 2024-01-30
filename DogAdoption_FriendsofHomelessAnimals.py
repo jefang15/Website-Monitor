@@ -347,6 +347,14 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
         df_new = df_current
         df_adopted = pd.DataFrame()
 
+        for index_new, row_new in df_new.iterrows():
+            # Save new dog photos
+            image_url_new = row_new['Image']
+            r = requests.get(image_url_new, allow_redirects=True)
+            with open('{}/{}.png'.format(
+                    folder_photos, str(row_new['Name']) + ' (' + str(row_new['ID']) + ')'), 'wb') as f:
+                f.write(r.content)
+
         return df_new, df_adopted
     else:
         set_current_dogs = set(list_current_dogs)
@@ -371,7 +379,8 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
                 # Save new dog photos
                 image_url_new = row_new['Image']
                 r = requests.get(image_url_new, allow_redirects=True)
-                with open('{}/{}.png'.format(folder_photos, row_new['ID']), 'wb') as f:
+                with open('{}/{}.png'.format(
+                        folder_photos, str(row_new['Name']) + ' (' + str(row_new['ID']) + ')'), 'wb') as f:
                     f.write(r.content)
 
             # Compile Information About Adopted Dogs
@@ -385,7 +394,8 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
                 # Save adopted dogs' photos locally
                 image_url_adopted = row_adopted['Image']
                 r = requests.get(image_url_adopted, allow_redirects=True)
-                with open('{}/{}.png'.format(folder_photos, row_adopted['ID']), 'wb') as f:
+                with open('{}/{}.png'.format(
+                        folder_photos, str(row_adopted['Name']) + ' (' + str(row_adopted['ID']) + ')'), 'wb') as f:
                     f.write(r.content)
 
             return df_new, df_adopted
@@ -442,7 +452,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             msg.attach(MIMEText('  |  {}'.format(row_new['Breed']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(folder_photos, row_new['ID']), 'rb') as f:
+            with open('{}/{}.png'.format(folder_photos, str(row_new['Name']) + ' (' + str(row_new['ID']) + ')'), 'rb') as f:
                 image_data = MIMEImage(f.read(), _subtype='png')
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -471,7 +481,8 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
             msg.attach(MIMEText('  |  {}'.format(row_adopted['Breed']), 'plain'))
 
             # Photo
-            with open('{}/{}.png'.format(folder_photos, row_adopted['ID']), 'rb') as f:
+            with open('{}/{}.png'.format(
+                    folder_photos, str(row_adopted['Name']) + ' (' + str(row_adopted['ID']) + ')'), 'rb') as f:
                 image_data = MIMEImage(f.read())
                 msg.attach(image_data)
                 msg.attach(MIMEText('<br></br>', 'html'))
@@ -540,9 +551,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
             df_dogs_new, df_dogs_adopted = compare_availability(folder_spreadsheets, folder_photos, df_current_dogs)
 
             if df_dogs_new.empty & df_dogs_adopted.empty:
-                print(str(
-                    now.strftime('%Y-%m-%d %I:%M:%S %p'))
-                      + '  {}  INFO  No Change'.format(file_name))
+                print(str(now.strftime('%Y-%m-%d %I:%M:%S %p')) + '  {}  INFO  No Change'.format(file_name))
 
                 # logging.info('No change')
 
@@ -622,12 +631,6 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # _count, _df_html = create_dataframe_from_html(_html, _now.strftime('%Y-%m-%d %H:%M:%S'))
 # print(_count)
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-#
-# # Write first results to Excel
-# _df_html.to_excel(
-#     '{}/{} {}.xlsx'.format(
-#         'Output - FOHA Spreadsheets', 'Friends of Homeless Animals', _now.strftime('%Y-%m-%d %H-%M-%S')),
-#     index=False)
 #
 # _df_new, _df_adopted = compare_availability(
 #     'Output - FOHA Spreadsheets', 'Output - FOHA Photos', _df_html)
