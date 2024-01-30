@@ -1,8 +1,8 @@
 """
-July 28, 2023
-
 Scrapes the Fairfax County Animal Shelter site (petango.com) for dogs available for adoption and alerts me when a new dog is
 available or was adopted. Prevents needing to frequently refresh the page and manually identifying changes.
+
+https://www.fairfaxcounty.gov/animalshelter/adopt-dog
 """
 
 
@@ -253,7 +253,7 @@ def compare_availability(folder_spreadsheets: str, folder_photos: str, df_curren
         return df_new, df_adopted
 
 
-def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time: datetime):
+def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, current_time: datetime, website_url):
     """
     Only sends an email if there is change in adoptable dog availability. Email and password are stored as variables in a
     separate password.py file (and imported á la a package at the top) in the same directory that is not version controlled.
@@ -265,6 +265,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
     :param df_new: DF of newly available dogs
     :param df_adopted: DF of adopted dogs
     :param current_time: Time that website was scraped, to include as text at end of email body
+    :param website_url: Shelter website to include in email body.
     :return: If there's a change in availability, email me that change
     """
 
@@ -349,7 +350,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
     msg.attach(MIMEText(time_for_email + '<br>', 'html'))
 
     # Add Website Link to Body
-    homepage = MIMEText('https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=', 'html')
+    homepage = MIMEText('{}'.format(website_url), 'html')
     msg.attach(homepage)
 
     # Send Email
@@ -428,7 +429,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
                 df_dog.to_excel(
                     '{}/{} {}.xlsx'.format(folder_spreadsheets, shelter_name, now_text), index=False)
 
-                send_email(shelter_name, folder_photos, df_dogs_new, df_dogs_adopted, now)
+                send_email(shelter_name, folder_photos, df_dogs_new, df_dogs_adopted, now, url)
         except:
             print(str(now.strftime('%Y-%m-%d %I:%M:%S %p')) + ' - Unable to connect to or scrape website')
 
