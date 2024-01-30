@@ -1,8 +1,8 @@
 """
-January 28, 2024
-
 Scrapes the Loudoun County Animal Services site (24petconnect.com) for dogs available for adoption and alerts me when a new dog is
 available or was adopted. Prevents needing to frequently refresh the page and manually identifying changes.
+
+https://www.loudoun.gov/534/Available-Pets
 """
 
 
