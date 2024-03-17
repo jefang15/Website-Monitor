@@ -163,7 +163,8 @@ def create_dataframe_from_html(html: str, current_time):
 
     # Fill in Image (done separately, since this attribute appears after the index associated with the dog's name)
     df2.loc[df2['Text'].str.contains('<img id="AnimalImage_'), 'Image'] = df2['Text']
-    df2['Image'].ffill(inplace=True)
+
+    df2['Image'] = df2['Image'].ffill()
 
     # Drop rows where Name is NAN
     df3 = df2[df2['Name'].notna()].copy()
@@ -178,7 +179,7 @@ def create_dataframe_from_html(html: str, current_time):
 
     # Clean and remove ID from Name column
     df3.loc[df3['Name'].str.contains(' \\([0-9]'), 'Name'] = df3['Name'].str.split(' \\([0-9]').str[0]
-    df4 = df3.applymap(lambda x: str(x).replace('&amp;', '&'))
+    df4 = df3.map(lambda x: str(x).replace('&amp;', '&'))
 
     # Set Date Types
     # print(df4.dtypes)
@@ -497,7 +498,7 @@ def send_email(shelter_name: str, folder_photos: str, df_new, df_adopted, curren
     msg.attach(homepage)
 
     # Send Email
-    with smtplib.SMTP('smtp.outlook.com', 587) as smtp:
+    with smtplib.SMTP('smtp.office365.com', 587) as smtp:
         smtp.ehlo()
         smtp.starttls()
         smtp.login(email, email_password)
@@ -600,46 +601,46 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 
 
 # <editor-fold desc="Troubleshoot">
-# _now = datetime.now()
-#
-# spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Dog Adoption - FOHA/Spreadsheets'))
-#
-# if len(spreadsheets_folder) == 0:
-#
-#     # Create blank, first Excel file for folder
-#     df_blank = pd.DataFrame(columns=[
-#         'Counter',
-#         'ID',
-#         'Name',
-#         'Gender',
-#         'Breed',
-#         'Age',
-#         'Brought to Shelter',
-#         'Location',
-#         'Image',
-#         'Scrape Datetime'])
-#
-#     df_blank.to_excel(
-#         '{}/{} {}.xlsx'.format(
-#             'Output - Dog Adoption - FOHA/Spreadsheets', 'Friends of Homeless Animals', datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
-#         index=False)
-# else:
-#     pass
-#
-# _html = scrape_html_24petconnect('https://24petconnect.com/13168/?at=DOG')
-# print(_html)
-#
-# _count, _df_html = create_dataframe_from_html(_html, _now.strftime('%Y-%m-%d %H:%M:%S'))
-# print(_count)
-# print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-#
-# _df_new, _df_adopted = compare_availability(
-#     'Output - Dog Adoption - FOHA/Spreadsheets', 'Output - Dog Adoption - FOHA/Photos', _df_html)
-# print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-# print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
-#
-# send_email(
-#     'Friends of Homeless Animals', 'Output - Dog Adoption - FOHA/Photos', _df_new, _df_adopted, _now)
+_now = datetime.now()
+
+spreadsheets_folder = glob.glob('{}/*.xlsx'.format('Output - Dog Adoption - FOHA/Spreadsheets'))
+
+if len(spreadsheets_folder) == 0:
+
+    # Create blank, first Excel file for folder
+    df_blank = pd.DataFrame(columns=[
+        'Counter',
+        'ID',
+        'Name',
+        'Gender',
+        'Breed',
+        'Age',
+        'Brought to Shelter',
+        'Location',
+        'Image',
+        'Scrape Datetime'])
+
+    df_blank.to_excel(
+        '{}/{} {}.xlsx'.format(
+            'Output - Dog Adoption - FOHA/Spreadsheets', 'Friends of Homeless Animals', datetime.now().strftime('%Y-%m-%d %H-%M-%S')),
+        index=False)
+else:
+    pass
+
+_html = scrape_html_24petconnect('https://24petconnect.com/13168/?at=DOG')
+print(_html)
+
+_count, _df_html = create_dataframe_from_html(_html, _now.strftime('%Y-%m-%d %H:%M:%S'))
+print(_count)
+print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+
+_df_new, _df_adopted = compare_availability(
+    'Output - Dog Adoption - FOHA/Spreadsheets', 'Output - Dog Adoption - FOHA/Photos', _df_html)
+print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
+
+send_email(
+    'Friends of Homeless Animals', 'Output - Dog Adoption - FOHA/Photos', _df_new, _df_adopted, _now, _html)
 # </editor-fold>
 
 
