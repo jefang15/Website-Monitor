@@ -470,7 +470,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # send_email(
-#     'Fairfax County Animal Shelter', 'Output - Dog Adoption - Fairfax County/Photos', _df_new, _df_adopted, _now)
+#     'Fairfax County Animal Shelter', 'Output - Dog Adoption - Fairfax County/Photos', _df_new, _df_adopted, _now, _html)
 # </editor-fold>
 
 

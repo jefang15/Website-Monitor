@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Dog Adoption" type="CompoundRunConfigurationType">
-    <toRun name="DogAdoption_FairfaxCountyAnimalShelter" type="PythonConfigurationType" />
-    <toRun name="DogAdoption_FriendsOfHomelessAnimals" type="PythonConfigurationType" />
-    <toRun name="DogAdoption_LoudounCountyAnimalServices" type="PythonConfigurationType" />
-    <toRun name="DogAdoption_MontgomeryCountyAnimalServices" type="PythonConfigurationType" />
-    <method v="2" />
-  </configuration>
-</component>

@@ -167,7 +167,7 @@ def create_dataframe_from_html(html: str, current_time):
 
     # Fill in Image (done separately, since this attribute appears after the index associated with the dog's name)
     df2.loc[df2['Text'].str.contains('<img id="AnimalImage_'), 'Image'] = df2['Text']
-    df2['Image'].ffill(inplace=True)
+    df2['Image'] = df2['Image'].ffill()
 
     # Drop rows where Name is NAN
     df3 = df2[df2['Name'].notna()].copy()
@@ -183,7 +183,7 @@ def create_dataframe_from_html(html: str, current_time):
 
     # Clean and remove ID from Name column
     df3.loc[df3['Name'].str.contains(' \\([0-9]'), 'Name'] = df3['Name'].str.split(' \\([0-9]').str[0]
-    df4 = df3.applymap(lambda x: str(x).replace('&amp;', '&'))
+    df4 = df3.map(lambda x: str(x).replace('&amp;', '&'))
 
     # Set Date Types
     # print(df4.dtypes)
@@ -506,7 +506,7 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
         hour_start = 8  # 8 AM - Time of day to start running script (script stops at midnight)
 
         if int(now.strftime('%H')) >= hour_start:  # If it's after 8 AM and before midnight, loop and run code every minute
-            delay_sec = 60 * 10
+            delay_sec = 60 * 120
         else:  # If it's after midnight and before 8 AM, calculate the number of seconds until 8 AM and set that as the delay
             diff_hour = hour_start - int(now.strftime('%H')) - 1
             diff_min = 60 - int(now.strftime('%M'))
@@ -557,12 +557,14 @@ def main(shelter_name: str, folder_spreadsheets: str, folder_photos: str, file_n
 # print(tabulate(_df_html, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # _df_new, _df_adopted = compare_availability(
-#     'Output - Dog Adoption - Montgomery County/Spreadsheets', 'Output - Dog Adoption - Montgomery County/Photos', _df_html)
+#     'Output - Dog Adoption - Montgomery County/Spreadsheets',
+#     'Output - Dog Adoption - Montgomery County/Photos', _df_html)
 # print(tabulate(_df_new, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 # print(tabulate(_df_adopted, tablefmt='psql', numalign='right', headers='keys', showindex=False))
 #
 # send_email(
-#     'Montgomery County Animal Services', 'Output - Dog Adoption - Montgomery County/Photos', _df_new, _df_adopted, _now)
+#     'Montgomery County Animal Services', 'Output - Dog Adoption - Montgomery County/Photos', _df_new,
+#     _df_adopted, _now, _html)
 # </editor-fold>
 
 
