@@ -9,16 +9,20 @@ https://secure.glaciernationalparklodges.com/booking/lodging
 
 import os
 from bs4 import BeautifulSoup
-import smtplib
-from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from password import email, email_password
 import time
 import json
 from datetime import datetime, timedelta
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
+from googleapiclient.discovery import build
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+import os.path
+import base64
+from email.mime.text import MIMEText
 
 
 def _scrape_html(_date):
@@ -30,7 +34,7 @@ def _scrape_html(_date):
     """
 
     # Path to GeckoDriver
-    _gecko_service = Service('Output - Lodging - Glacier National Park/geckodriver')
+    _gecko_service = Service('/Users/jeff/Documents/Programming/Projects/Website-Monitor/geckodriver')
 
     # Setup Firefox WebDriver options (needed due to JavaScript)
     _firefox_options = Options()
@@ -167,21 +171,55 @@ def _save_historical_data(_new_data):
         json.dump(_historical_data, _file, indent=4)
 
 
-def _send_email(_email, _email_password, _changes):
+def authenticate_gmail():
+    """
+    Handles OAuth 2.0 authentication (allows Python script to securely access a Gmail account without requiring the password)
+
+    :return: Credentials (information like the access token, refresh token, and token expiry time) used to authenticate API
+    requests to Google services/the Gmail API
+    """
+
+    _scopes = ['https://www.googleapis.com/auth/gmail.send']
+
+    creds = None
+
+    # The token.json file stores the user's access and refresh tokens (prevents manual authentication on subsequent runs)
+    if os.path.exists('token.json'):
+        creds = Credentials.from_authorized_user_file('token.json', _scopes)
+    # If no valid credentials are available, request new ones
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(
+                '/Users/jeff/Documents/Programming/Projects/Website-Monitor/credentials.json',
+                _scopes)
+            creds = flow.run_local_server(port=0)
+        # Save the credentials for the next run
+        with open('token.json', 'w') as token:
+            token.write(creds.to_json())
+
+    return creds
+
+
+def _send_email(_from_email, _to_email, _creds, _changes):
     """
     Configure Email.
 
-    :param _email:
-    :param _email_password:
-    :param _changes:
+    Emojis at: https://emojipedia.org
+
+    :param _from_email: Gmail
+    :param _to_email: Outlook, etc.
+    :param _creds: Credentials for Gmail API access
+    :param _changes: Changes in availability
     :return:
     """
 
     # Form Email Parameters
     _msg = MIMEMultipart('multipart')  # To support mix of content types
-    _msg['From'] = email
-    _msg['To'] = email
-    _msg['Subject'] = 'Glacier Lodging Availability and Price Changes!'
+    _msg['From'] = _from_email
+    _msg['To'] = _to_email
+    _msg['Subject'] = '🛏️ Glacier Lodging Availability and Price Changes!'
 
     # Static itinerary
     _static_text = (
@@ -222,23 +260,36 @@ def _send_email(_email, _email_password, _changes):
         # Append lodge information
         _text += f"Lodge: {_change['Lodge']}<br>Room Type: {_change['Room Type']}<br>Price: {_change['Price']}<br><br>"
 
-    _part = MIMEText(_text, "html")  # Change to "html"
+    _part = MIMEText(_text, 'html')  # Change to "html"
     _msg.attach(_part)
 
-    with smtplib.SMTP('smtp.outlook.com', 587) as smtp:
-        smtp.ehlo()
-        smtp.starttls()
-        smtp.login(email, email_password)
-        smtp.send_message(_msg)
+    # Convert the message to a format that Gmail API can accept (base64 encoding)
+    raw_message = base64.urlsafe_b64encode(_msg.as_bytes()).decode()
+
+    # Build the Gmail service
+    _service = build('gmail', 'v1', credentials=_creds)
+
+    # Send the email using the Gmail API
+    try:
+        message = {
+            'raw': raw_message
+        }
+        send_result = _service.users().messages().send(userId='me', body=message).execute()
+        print(f"Email sent successfully with ID: {send_result['id']}")
+    except Exception as error:
+        print(f"An error occurred: {error}")
 
 
-def _compare_and_notify(_email, _email_password, _new_data, _old_data):
+def _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
     """
     Compare new data with old data and send emails for new availability or price decreases of existing availability for each
     lodge.
 
-    :param _new_data:
-    :param _old_data:
+    :param _from_email: Gmail
+    :param _to_email: Outlook, etc.
+    :param _creds: Credentials for Gmail API access
+    :param _new_data: Current availability
+    :param _old_data: Previous availability
     :return:
     """
 
@@ -282,15 +333,19 @@ def _compare_and_notify(_email, _email_password, _new_data, _old_data):
 
     # Send one email for all changes (if any)
     if _changes:
-        _send_email(_email, _email_password, _changes)
+        _send_email(_from_email, _to_email, _creds, _changes)
 
 
-def _check_availability(_email, _email_password):
+def _check_availability(_from_email, _to_email, _creds):
     """
     Main function to scrape all dates and send notification as needed.
 
-    :return:
+    :param _from_email: Gmail
+    :param _to_email: Outlook, etc.
+    :param _creds: Credentials for Gmail API access
+    :return: Sends email if there are changes in availability
     """
+
     _old_data = _load_previous_data()
     _new_data = {}
 
@@ -304,7 +359,7 @@ def _check_availability(_email, _email_password):
         _new_data[_start_date.strftime('%Y-%m-%d')] = _availability
         _start_date += _delta
 
-    _compare_and_notify(_email, _email_password, _new_data, _old_data)
+    _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data)
 
     # Save both the current and historical data
     _save_current_data(_new_data)
@@ -313,9 +368,16 @@ def _check_availability(_email, _email_password):
 
 if __name__ == '__main__':
     while True:
-        print('Checking availability...')
-        _check_availability(email, email_password)
 
-        print('Sleeping...')
-        time.sleep(60*60*1)  # Sleep for 30 minutes (1800 seconds)
+        from_email = 'nanookgolightly@gmail.com'
+        to_email = 'jeffreyfang@msn.com'
+
+        now = datetime.now()
+        print(now)
+
+        creds = authenticate_gmail()
+        _check_availability(from_email, to_email, creds)
+
+        print('Sleeping for 30 minutes...')
+        time.sleep(1800)  # Sleep for 30 minutes (1800 seconds)
 
