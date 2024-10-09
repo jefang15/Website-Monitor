@@ -15,3 +15,5 @@ credentials.json
 token.json
 geckodriver
 geckodriver.log
+
+__pycache__/password.cpython-311.pyc
