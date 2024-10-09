@@ -318,8 +318,8 @@ def main():
     " Set Up Parameters "
 
     _website_url = 'https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID='
-    _directory_previous_availability = 'Output - Dog Adoption - Fairfax County/Previous_Availability.json'
-    _directory_historical_availability = 'Output - Dog Adoption - Fairfax County/Historical_Availability.json'
+    _directory_previous_availability = 'Output - Dog Adoption - Fairfax County/Fairfax_Previous_Availability.json'
+    _directory_historical_availability = 'Output - Dog Adoption - Fairfax County/Fairfax_Historical_Availability.json'
     _directory_photos = 'Output - Dog Adoption - Fairfax County/Photos'
     _directory_credentials = '/Users/jeff/Documents/Programming/Projects/Website-Monitor/credentials.json'
     _from_email = 'nanookgolightly@gmail.com'
@@ -390,8 +390,8 @@ if __name__ == "__main__":
 
 
 # website_url = 'https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID='
-# directory_previous_availability = 'Output - Dog Adoption - Fairfax County/Previous_Availability.json'
-# directory_historical_availability = 'Output - Dog Adoption - Fairfax County/Historical_Availability.json'
+# directory_previous_availability = 'Output - Dog Adoption - Fairfax County/Fairfax_Previous_Availability.json'
+# directory_historical_availability = 'Output - Dog Adoption - Fairfax County/Fairfax_Historical_Availability.json'
 # directory_photos = 'Output - Dog Adoption - Fairfax County/Photos'
 # directory_credentials = '/Users/jeff/Documents/Programming/Projects/Website-Monitor/credentials.json'
 # from_email = 'nanookgolightly@gmail.com'
