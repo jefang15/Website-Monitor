@@ -107,38 +107,43 @@ def save_current_data(_current_availability, _directory_previous_availability):
     Save the current availability over the Previous_Availability.json file (so that the current availability will be "old" for
     the next time the script runs).
 
-    :param _current_availability: Current availability (output of _scrape_html function)
+    :param _current_availability: List of current availability (output of _scrape_html function)
     :param _directory_previous_availability: File path to folder containing the Previous_Availability.json file.
     :return:
     """
 
+    _current_availability2 = sorted(_current_availability, key=lambda x: x['Name'])
+
     # Create a timestamp for when the scrape was performed
     timestamped_data = {
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        'data': _current_availability
+        'data': _current_availability2
     }
 
     with open(_directory_previous_availability, 'w') as _file:
         json.dump(timestamped_data, _file, indent=4)  # Set indent for pretty printing
 
 
-def save_historical_data(_new_data, _directory_historical_availability):
+def save_historical_data(_current_availability, _directory_historical_availability):
     """
     Save and append all current availability to a separate archival file.
 
-    :param _new_data: Current availability (output of _scrape_html function)
+    :param _current_availability: Current availability (output of _scrape_html function)
     :param _directory_historical_availability: File path to folder containing the Previous_Availability.json file.
     :return:
     """
+
     if os.path.exists(_directory_historical_availability):
         with open(_directory_historical_availability, 'r') as _file:
             _historical_data = json.load(_file)
     else:
         _historical_data = []
 
+    _current_availability2 = sorted(_current_availability, key=lambda x: x['Name'])
+
     _timestamped_data = {
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        'data': _new_data
+        'data': _current_availability2
     }
     _historical_data.append(_timestamped_data)
 
@@ -146,6 +151,30 @@ def save_historical_data(_new_data, _directory_historical_availability):
 
     with open(_directory_historical_availability, 'w') as _file:
         json.dump(_historical_data2, _file, indent=4)
+
+
+def compare_dogs(_current_dogs, _previous_dogs):
+    """
+    Compare the current list of dogs with the previous list based on stable attributes. Identifies new dogs and adopted dogs.
+
+    :param _current_dogs: List of current dog availability (output of scrape_html function)
+    :param _previous_dogs: List of previous dog availability (output of load_previous_data function)
+    :return: Lists of new dogs and adopted dogs
+    """
+
+    # Create sets for IDs of current and previous dogs
+    _current_dog_ids = {dog['ID'] for dog in _current_dogs}
+    _previous_dog_ids = {dog['ID'] for dog in _previous_dogs}
+
+    # Find IDs of new and adopted dogs
+    _new_dog_ids = _current_dog_ids - _previous_dog_ids
+    _adopted_dog_ids = _previous_dog_ids - _current_dog_ids
+
+    # Get new and adopted dogs based on ID matches
+    _new_dogs = [dog for dog in _current_dogs if dog['ID'] in _new_dog_ids]
+    _adopted_dogs = [dog for dog in _previous_dogs if dog['ID'] in _adopted_dog_ids]
+
+    return _new_dogs, _adopted_dogs
 
 
 def download_new_dog_photos(_new_dogs, _photo_directory):
@@ -235,11 +264,12 @@ def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopt
 
     # Add section for new dogs if there are any
     if _new_dogs:
-        _html_content += '<h1>New Dogs Available for Adoption</h1>'
+        _html_content += '<h1>New Dogs</h1>'
         for dog in _new_dogs:
             _html_content += f"""
                         <p>
                             <b>{dog['Name']}</b> <br>
+                            {dog['Gender']}<br>
                             {dog['Breed']}<br>
                             {dog['Age']}<br>
                             {'<img src="cid:' + dog['Name'] + '_' + dog['ID'] + '"><br>' if 'Photo_Path' in dog else ''}
@@ -248,18 +278,19 @@ def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopt
 
     # Add section for adopted dogs if there are any
     if _adopted_dogs:
-        _html_content += "<h1>Dogs Adopted</h1>"
+        _html_content += "<h1>Adopted Dogs</h1>"
         for dog in _adopted_dogs:
             _html_content += f"""
                         <p>
                             <b>{dog['Name']}</b> <br>
+                            {dog['Gender']}<br>
                             {dog['Breed']}<br>
                             {dog['Age']}<br>
                             {'<img src="cid:' + dog['Name'] + '_' + dog['ID'] + '"><br>' if 'Photo_Path' in dog else ''}
                         </p>
                     """
 
-    _html_content += f"<p>For full details, visit <a href='{_website_url}'>{_shelter_name}</a>.</p>"
+    _html_content += f"<p>More details at <a href='{_website_url}'>{_shelter_name}</a></p>"
     _html_content += "</body></html>"
 
     _msg.attach(MIMEText(_html_content, 'html'))
@@ -324,20 +355,9 @@ def main():
             continue  # Skip to the next iteration of the loop
 
         _current_availability = scrape_html(_website_url)
-
         _previous_availability = load_previous_data(_directory_previous_availability)
 
-        _new_dogs = []
-        _adopted_dogs = []
-
-        # Compare current availability with previous availability
-        for _current_dog in _current_availability:
-            if _current_dog not in _previous_availability:
-                _new_dogs.append(_current_dog)
-
-        for _previous_dog in _previous_availability:
-            if _previous_dog not in _current_availability:
-                _adopted_dogs.append(_previous_dog)
+        _new_dogs, _adopted_dogs = compare_dogs(_current_availability, _previous_availability)
 
         if _new_dogs or _adopted_dogs:
             # Save the current availability
@@ -397,8 +417,7 @@ if __name__ == "__main__":
 # type(previous_availability)  # List
 # # print(previous_availability)
 #
-# new_dogs = [dog for dog in current_availability if dog not in previous_availability]
-# adopted_dogs = [dog for dog in previous_availability if dog not in current_availability]
+# new_dogs, adopted_dogs = compare_dogs(current_availability, previous_availability)
 #
 # type(new_dogs)  # List
 # print(new_dogs)
