@@ -105,33 +105,38 @@ def save_current_data(_current_availability, _directory_previous_availability):
     :return:
     """
 
+    _current_availability2 = sorted(_current_availability, key=lambda x: x['name'])
+
     # Create a timestamp for when the scrape was performed
     timestamped_data = {
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        'data': _current_availability
+        'data': _current_availability2
     }
 
     with open(_directory_previous_availability, 'w') as _file:
         json.dump(timestamped_data, _file, indent=4)  # Set indent for pretty printing
 
 
-def save_historical_data(_new_data, _directory_historical_availability):
+def save_historical_data(_current_availability, _directory_historical_availability):
     """
     Save and append all current availability to a separate archival file.
 
-    :param _new_data: Current availability (output of _scrape_html function)
+    :param _current_availability: Current availability (output of _scrape_html function)
     :param _directory_historical_availability: File path to folder containing the Previous_Availability.json file.
     :return:
     """
+
     if os.path.exists(_directory_historical_availability):
         with open(_directory_historical_availability, 'r') as _file:
             _historical_data = json.load(_file)
     else:
         _historical_data = []
 
+    _current_availability2 = sorted(_current_availability, key=lambda x: x['name'])
+
     _timestamped_data = {
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        'data': _new_data
+        'data': _current_availability2
     }
     _historical_data.append(_timestamped_data)
 
