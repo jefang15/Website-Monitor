@@ -18313,3 +18313,139 @@ WebDriver BiDi listening on ws://127.0.0.1:57003
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 DevTools listening on ws://127.0.0.1:57003/devtools/browser/39deee64-0912-42db-9c0d-4f4bf15130fd
 1728441383800	Marionette	INFO	Stopped listening on port 57008
+1728441606223	geckodriver	INFO	Listening on 127.0.0.1:57067
+1728441606742	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/bd/0_z4vd_x5xj6376_vh94ljfm0000gn/T/rust_mozprofileh12Iwu"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1728441608073	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1728441608923	Marionette	INFO	Listening on port 57073
+WebDriver BiDi listening on ws://127.0.0.1:57068
+1728441609154	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:57068/devtools/browser/5c73084c-4847-40e5-989b-6ce9be3d5f10
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-W33X8MB, line 157: uncaught exception: [object Object]
+JavaScript error: https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom=08-29-2025&nights=1 line 722 > injectedScript, line 1: ReferenceError: rpiWebClient is not defined
+1728441618353	Marionette	INFO	Stopped listening on port 57073
+JavaScript warning: https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js, line 8: Script terminated by timeout at:
+cae/Y3.set@https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js:8:42203
+updateNow@https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js:360:92617
+
+1728441619169	geckodriver	INFO	Listening on 127.0.0.1:57158
+1728441619684	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/bd/0_z4vd_x5xj6376_vh94ljfm0000gn/T/rust_mozprofile9OyYIB"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1728441620109	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1728441620473	Marionette	INFO	Listening on port 57164
+WebDriver BiDi listening on ws://127.0.0.1:57159
+1728441620775	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:57159/devtools/browser/cd81692b-7ac4-4f41-9b0d-ee5829e4d315
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-W33X8MB, line 152: uncaught exception: [object Object]
+JavaScript error: https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom=08-30-2025&nights=1 line 821 > injectedScript, line 1: ReferenceError: rpiWebClient is not defined
+1728441628568	Marionette	INFO	Stopped listening on port 57164
+1728441629249	geckodriver	INFO	Listening on 127.0.0.1:57241
+1728441629757	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/bd/0_z4vd_x5xj6376_vh94ljfm0000gn/T/rust_mozprofileNdTBF0"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1728441630191	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1728441630538	Marionette	INFO	Listening on port 57247
+WebDriver BiDi listening on ws://127.0.0.1:57242
+1728441630833	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:57242/devtools/browser/83d47d81-d9f1-4613-8dd7-e43b436d38e1
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-W33X8MB, line 157: uncaught exception: [object Object]
+JavaScript error: https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom=08-31-2025&nights=1 line 722 > injectedScript, line 1: ReferenceError: rpiWebClient is not defined
+1728441638231	Marionette	INFO	Stopped listening on port 57247
+JavaScript warning: https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js, line 8: Script terminated by timeout at:
+cae/Y3.set@https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js:8:42203
+updateNow@https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js:360:92617
+
+1728441638909	geckodriver	INFO	Listening on 127.0.0.1:57321
+1728441639415	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/bd/0_z4vd_x5xj6376_vh94ljfm0000gn/T/rust_mozprofileq6h2Bi"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1728441639810	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1728441640134	Marionette	INFO	Listening on port 57327
+WebDriver BiDi listening on ws://127.0.0.1:57322
+1728441640428	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:57322/devtools/browser/a18f9930-657c-419f-b9ac-f4377f80a63c
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-W33X8MB, line 152: uncaught exception: [object Object]
+JavaScript error: https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom=09-01-2025&nights=1 line 821 > injectedScript, line 1: ReferenceError: rpiWebClient is not defined
+1728441648125	Marionette	INFO	Stopped listening on port 57327
+1728441648807	geckodriver	INFO	Listening on 127.0.0.1:57405
+1728441649314	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/bd/0_z4vd_x5xj6376_vh94ljfm0000gn/T/rust_mozprofileKFjBWh"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1728441649733	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1728441650068	Marionette	INFO	Listening on port 57411
+WebDriver BiDi listening on ws://127.0.0.1:57406
+1728441650367	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:57406/devtools/browser/1ab5423f-6570-435d-8efa-17798ff7b2d6
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-W33X8MB, line 152: uncaught exception: [object Object]
+JavaScript error: https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom=09-02-2025&nights=1 line 821 > injectedScript, line 1: ReferenceError: rpiWebClient is not defined
+1728441657913	Marionette	INFO	Stopped listening on port 57411
+JavaScript warning: https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js, line 8: Script terminated by timeout at:
+cae/Y3.set@https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js:8:42203
+updateNow@https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js:360:92617
+
+1728441658796	geckodriver	INFO	Listening on 127.0.0.1:57484
+1728441659310	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/bd/0_z4vd_x5xj6376_vh94ljfm0000gn/T/rust_mozprofileFxsjFV"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1728441659835	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1728441660181	Marionette	INFO	Listening on port 57490
+WebDriver BiDi listening on ws://127.0.0.1:57485
+1728441660328	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:57485/devtools/browser/90a239a7-8c6c-422a-91f5-5e843e37b4f7
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-W33X8MB, line 152: uncaught exception: [object Object]
+JavaScript error: https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom=09-03-2025&nights=1 line 821 > injectedScript, line 1: ReferenceError: rpiWebClient is not defined
+1728441669391	Marionette	INFO	Stopped listening on port 57490
+JavaScript warning: https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js, line 8: Script terminated by timeout at:
+cae/Y3.set@https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js:8:42203
+updateNow@https://client.xanterracdn.com/assets/index-BmL1f_ku.min.js:360:92617
+
+1728441672025	geckodriver	INFO	Listening on 127.0.0.1:57561
+1728441672543	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/bd/0_z4vd_x5xj6376_vh94ljfm0000gn/T/rust_mozprofile034jKC"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1728441673148	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1728441673646	Marionette	INFO	Listening on port 57567
+WebDriver BiDi listening on ws://127.0.0.1:57562
+1728441674136	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:57562/devtools/browser/6d4cd33c-cde4-47ac-8657-b0aa13451f67
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-W33X8MB, line 157: uncaught exception: [object Object]
+JavaScript error: https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom=09-04-2025&nights=1 line 722 > injectedScript, line 1: ReferenceError: rpiWebClient is not defined
+1728441682555	Marionette	INFO	Stopped listening on port 57567
+1728441683422	geckodriver	INFO	Listening on 127.0.0.1:57642
+1728441683931	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/bd/0_z4vd_x5xj6376_vh94ljfm0000gn/T/rust_mozprofileu3Jgk3"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1728441684323	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1728441684662	Marionette	INFO	Listening on port 57648
+WebDriver BiDi listening on ws://127.0.0.1:57643
+1728441685021	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:57643/devtools/browser/a28bc56b-9199-4295-b77f-4c0c9b0ba11a
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-W33X8MB, line 157: uncaught exception: [object Object]
+JavaScript error: https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom=09-05-2025&nights=1 line 722 > injectedScript, line 1: ReferenceError: rpiWebClient is not defined
+1728441693002	Marionette	INFO	Stopped listening on port 57648

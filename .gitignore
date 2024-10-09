@@ -10,3 +10,8 @@ Output - Dog Adoption - Fairfax County/Spreadsheets/
 Output - Dog Adoption - FOHA/Spreadsheets/
 Output - Dog Adoption - Loudoun County/Spreadsheets/
 Output - Dog Adoption - Montgomery County/Spreadsheets/
+
+credentials.json
+token.json
+geckodriver
+geckodriver.log
