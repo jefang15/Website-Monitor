@@ -205,3 +205,1292 @@
 2024-03-16 07:42:45 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KRISTOFF (A288401) (ID 288401)
 2024-03-16 07:42:45 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROSSY (A273743) (ID 273743)
 2024-03-16 08:03:33 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+<<<<<<< Updated upstream
+=======
+2024-03-17 10:15:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-17 12:18:57 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SPROUT (A288391) (ID 288391)
+2024-03-17 03:49:15 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KRISTOFF (A288401) (ID 288401)
+2024-03-17 04:39:20 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KRISTOFF (A288401) (ID 288401)
+2024-03-18 12:29:22 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MISHA (A288399) (ID 288399)
+2024-03-18 02:20:12 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROBIN (A288190) (ID 288190)
+2024-03-18 02:20:12 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KRISTOFF (A288401) (ID 288401)
+2024-03-19 09:44:38 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: AARON (A288191) (ID 288191)
+2024-03-20 08:15:12 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-20 02:49:39 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: WILLOW (A284104) (ID 284104)
+2024-03-21 03:37:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NINA (A288278) (ID 288278)
+2024-03-21 03:37:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: WINSTON (A288279) (ID 288279)
+2024-03-21 03:37:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TINY (A189893) (ID 189893)
+2024-03-21 05:37:40 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SABLE (A287585) (ID 287585)
+2024-03-22 01:40:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SHAGGY (A288277) (ID 288277)
+2024-03-22 01:40:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: VELMA (A288293) (ID 288293)
+2024-03-22 01:40:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DOZER (A177131) (ID 177131)
+2024-03-22 01:40:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CARMEN (A288265) (ID 288265)
+2024-03-22 01:46:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-23 10:21:16 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-23 11:21:18 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: WON TON (A288547) (ID 288547)
+2024-03-23 11:21:18 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: WREN (A288548) (ID 288548)
+2024-03-23 12:21:20 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: WILLOW (A284104) (ID 284104)
+2024-03-23 07:04:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: REESE (A288394) (ID 288394)
+2024-03-24 08:59:51 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-24 12:59:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: WON TON (A288547) (ID 288547)
+2024-03-24 12:59:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: WREN (A288548) (ID 288548)
+2024-03-24 01:59:58 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DUNCAN (A288558) (ID 288558)
+2024-03-25 08:27:41 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-25 03:19:09 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DUNCAN (A288558) (ID 288558)
+2024-03-26 08:11:25 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-26 05:54:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TANNA (A288591) (ID 288591)
+2024-03-27 02:44:37 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PETUNIA (A288588) (ID 288588)
+2024-03-27 03:44:40 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LEGO (A288599) (ID 288599)
+2024-03-27 03:44:40 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BIG MAC (A288600) (ID 288600)
+2024-03-28 08:17:22 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-28 01:34:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ZOOLANDER (A288587) (ID 288587)
+2024-03-28 01:34:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: WOODCHUCK (A288590) (ID 288590)
+2024-03-28 01:34:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NELLY (A288592) (ID 288592)
+2024-03-28 01:34:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BAKU (A288595) (ID 288595)
+2024-03-28 09:28:57 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LEO (A203609) (ID 203609)
+2024-03-28 09:28:57 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ZOOLANDER (A288587) (ID 288587)
+2024-03-28 09:28:57 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TANNA (A288591) (ID 288591)
+2024-03-29 08:11:35 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-29 12:08:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NELLY (A288592) (ID 288592)
+2024-03-29 05:06:51 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PETUNIA (A288588) (ID 288588)
+2024-03-30 08:41:23 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-30 01:10:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-03-30 01:10:22 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NELLY (A288592) (ID 288592)
+2024-03-30 01:10:22 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: EEVA (A286665) (ID 286665)
+2024-03-30 01:10:22 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BAKU (A288595) (ID 288595)
+2024-03-30 01:10:22 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-03-30 06:51:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NELLY (A288592) (ID 288592)
+2024-03-31 02:01:53 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ZOOLANDER (A288587) (ID 288587)
+2024-03-31 02:01:53 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NINA (A288278) (ID 288278)
+2024-04-01 01:12:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-04-01 02:08:45 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-04-01 03:08:54 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: POTOMAC (A288722) (ID 288722)
+2024-04-01 03:08:54 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: VELMA (A288293) (ID 288293)
+2024-04-01 05:19:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: WOODCHUCK (A288590) (ID 288590)
+2024-04-02 11:21:06 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TOBEE (A288795) (ID 288795)
+2024-04-02 11:21:06 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ZOOLANDER (A288587) (ID 288587)
+2024-04-02 12:51:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NALA (A277218) (ID 277218)
+2024-04-03 08:51:50 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-04-03 10:30:51 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-04-03 10:30:54 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ZOOLANDER (A288587) (ID 288587)
+2024-04-03 10:30:54 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TOBEE (A288795) (ID 288795)
+2024-04-03 10:30:59 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-04-03 08:32:30 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-04-03 09:07:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-04-04 03:01:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: EEVA (A286665) (ID 286665)
+2024-04-05 11:28:47 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-04-05 11:28:50 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BLAKE (A288842) (ID 288842)
+2024-04-05 11:28:50 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MS PIGGY (A288857) (ID 288857)
+2024-04-05 11:28:50 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BIG MAC (A288600) (ID 288600)
+2024-04-05 11:28:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BLAINE (A288841) (ID 288841)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SYLVESTER (A288844) (ID 288844)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BABY (A288852) (ID 288852)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PUMPKIN (A288870) (ID 288870)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PIXIE (A288873) (ID 288873)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PIPER (A288875) (ID 288875)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PEEWEE (A288878) (ID 288878)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: POPPY (A288881) (ID 288881)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PANDORA (A288883) (ID 288883)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PHILIS (A288884) (ID 288884)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PORTER (A288885) (ID 288885)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PATCHES (A288886) (ID 288886)
+2024-04-05 12:09:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PIGLET (A288888) (ID 288888)
+2024-04-05 03:09:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PIGLET (A288888) (ID 288888)
+2024-04-05 04:39:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BLAKE (A288842) (ID 288842)
+2024-04-05 06:09:46 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MS PIGGY (A288857) (ID 288857)
+2024-04-06 11:20:44 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BIG MAC (A288600) (ID 288600)
+2024-04-06 11:20:44 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TEDDY (A288750) (ID 288750)
+2024-04-06 12:50:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RITA (A288856) (ID 288856)
+2024-04-06 12:50:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PATCHES (A288886) (ID 288886)
+2024-04-06 03:51:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TEDDY (A288750) (ID 288750)
+2024-04-06 04:31:21 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BLAINE (A288841) (ID 288841)
+2024-04-06 04:31:21 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PHILIS (A288884) (ID 288884)
+2024-04-06 06:01:34 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SYLVESTER (A288844) (ID 288844)
+2024-04-06 06:01:34 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RITA (A288856) (ID 288856)
+2024-04-06 06:01:34 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PEEWEE (A288878) (ID 288878)
+2024-04-07 12:10:35 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NALA (A277218) (ID 277218)
+2024-04-07 12:10:35 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PORTER (A288885) (ID 288885)
+2024-04-07 12:50:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NALA (A277218) (ID 277218)
+2024-04-07 12:50:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BABY (A288852) (ID 288852)
+2024-04-07 05:21:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: WINSTON (A288279) (ID 288279)
+2024-04-08 04:31:35 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PUMPKIN (A288870) (ID 288870)
+2024-04-08 05:21:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NALA (A277218) (ID 277218)
+2024-04-08 06:01:46 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PIXIE (A288873) (ID 288873)
+2024-04-09 12:10:46 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: POPPY (A288881) (ID 288881)
+2024-04-09 05:21:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ALFREDO (A286156) (ID 286156)
+2024-04-09 05:21:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PANDORA (A288883) (ID 288883)
+2024-04-10 11:21:16 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ALFREDO (A286156) (ID 286156)
+2024-04-10 11:21:16 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ECLIPSE (A289105) (ID 289105)
+2024-04-10 03:01:37 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PANDORA (A288883) (ID 288883)
+2024-04-10 06:01:57 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PIPER (A288875) (ID 288875)
+2024-04-16 09:39:16 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MINDY (A288692) (ID 288692)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROCKY (A289308) (ID 289308)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RUBY (A289441) (ID 289441)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TOPPER (A289443) (ID 289443)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SNICKERS (A289445) (ID 289445)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: OMELET (A289446) (ID 289446)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ATHENA (A289447) (ID 289447)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BATMAN (A289449) (ID 289449)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PHOENIX (A289451) (ID 289451)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROBIN (A289452) (ID 289452)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BOZO (A289456) (ID 289456)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PATTY (A289459) (ID 289459)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ELLIOT (A289460) (ID 289460)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: YUKON (A289461) (ID 289461)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ODESSA (A286039) (ID 286039)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ZOOLANDER (A288587) (ID 288587)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LEGO (A288599) (ID 288599)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BIG MAC (A288600) (ID 288600)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: POTOMAC (A288722) (ID 288722)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PANDORA (A288883) (ID 288883)
+2024-04-16 09:49:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ECLIPSE (A289105) (ID 289105)
+2024-04-17 08:21:52 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-04-17 05:22:54 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PATTY (A289459) (ID 289459)
+2024-04-18 12:01:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ATHENA (A289447) (ID 289447)
+2024-04-18 12:01:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BATMAN (A289449) (ID 289449)
+2024-04-18 04:31:40 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PHOENIX (A289451) (ID 289451)
+2024-04-18 05:21:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SNICKERS (A289445) (ID 289445)
+2024-04-18 05:21:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROBIN (A289452) (ID 289452)
+2024-04-19 09:50:45 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ATHENA (A289447) (ID 289447)
+2024-04-19 09:50:46 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BATMAN (A289449) (ID 289449)
+2024-04-19 11:20:57 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KITA (A289314) (ID 289314)
+2024-04-19 11:21:03 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-04-19 12:01:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SNICKERS (A289445) (ID 289445)
+2024-04-19 12:01:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SQUISHMALLOW (A289820) (ID 289820)
+2024-04-19 01:31:20 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: OMELET (A289446) (ID 289446)
+2024-04-19 02:21:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: YUKON (A289461) (ID 289461)
+2024-04-19 03:01:33 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ATHENA (A289447) (ID 289447)
+2024-04-19 06:01:54 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ELLIOT (A289460) (ID 289460)
+2024-04-20 12:51:03 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TOPPER (A289443) (ID 289443)
+2024-04-21 11:20:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SADIE (A275054) (ID 275054)
+2024-04-21 11:20:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ONION RING (A289920) (ID 289920)
+2024-04-21 01:30:51 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BOZO (A289456) (ID 289456)
+2024-04-21 04:31:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BATMAN (A289449) (ID 289449)
+2024-04-22 09:51:07 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ONION RING (A289920) (ID 289920)
+2024-04-22 12:01:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ONION RING (A289920) (ID 289920)
+2024-04-22 03:01:45 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SNICKERS (A289445) (ID 289445)
+2024-04-22 06:52:09 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MINDY (A288692) (ID 288692)
+2024-04-24 11:20:36 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SADIE (A275054) (ID 275054)
+2024-04-24 12:10:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SADIE (A275054) (ID 275054)
+2024-04-25 12:51:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NEPTUNE (A258339) (ID 258339)
+2024-04-25 12:51:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JUPITER (A258684) (ID 258684)
+2024-04-25 12:51:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MISS MUFFETT (A289188) (ID 289188)
+2024-04-25 12:51:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HONEY (A289885) (ID 289885)
+2024-04-25 12:51:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CLEMENTINE (A289937) (ID 289937)
+2024-04-25 12:51:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RAY O' SUNSHINE (A290050) (ID 290050)
+2024-04-25 02:21:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SADIE (A275054) (ID 275054)
+2024-04-25 02:21:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SHAGGY (A288277) (ID 288277)
+2024-04-25 05:22:00 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RAY O' SUNSHINE (A290050) (ID 290050)
+2024-04-25 06:02:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KITA (A289314) (ID 289314)
+2024-04-26 03:51:44 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FOXY (A286909) (ID 286909)
+2024-04-26 04:31:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MISS MUFFETT (A289188) (ID 289188)
+2024-04-27 11:21:03 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: YUKON (A289461) (ID 289461)
+2024-04-27 03:01:27 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FOXY (A286909) (ID 286909)
+2024-04-28 09:50:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROCKETECH (A290097) (ID 290097)
+2024-04-28 09:50:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: VARO (A290099) (ID 290099)
+2024-04-28 09:50:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MIKEN (A290100) (ID 290100)
+2024-04-28 09:50:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MIZUNO (A290101) (ID 290101)
+2024-04-28 11:20:49 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BRYNLEE (A214247) (ID 214247)
+2024-04-28 11:20:49 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DALLAS (A224687) (ID 224687)
+2024-04-28 11:20:49 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SPROCKET (A259865) (ID 259865)
+2024-04-28 12:51:03 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GHOST (A290090) (ID 290090)
+2024-04-28 12:51:03 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ARIELLE (A290091) (ID 290091)
+2024-04-29 02:21:05 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BLUE (A290046) (ID 290046)
+2024-04-29 03:01:12 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RUBY (A289441) (ID 289441)
+2024-04-29 04:31:24 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROCKETECH (A290097) (ID 290097)
+2024-04-29 05:21:32 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DALLAS (A224687) (ID 224687)
+2024-04-29 06:01:38 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SQUISHMALLOW (A289820) (ID 289820)
+2024-04-30 09:50:31 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ARIELLE (A290091) (ID 290091)
+2024-04-30 10:40:38 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MIZUNO (A290101) (ID 290101)
+2024-04-30 11:20:45 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BRYNLEE (A214247) (ID 214247)
+2024-04-30 12:50:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PEANUT (A290086) (ID 290086)
+2024-04-30 05:21:33 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROCKY (A289308) (ID 289308)
+2024-05-01 09:50:16 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ARIELLE (A290091) (ID 290091)
+2024-05-01 11:20:29 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BRYNLEE (A214247) (ID 214247)
+2024-05-01 11:20:29 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LULEE (A290127) (ID 290127)
+2024-05-01 11:20:29 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROCKY (A290139) (ID 290139)
+2024-05-01 12:50:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BLUE (A290046) (ID 290046)
+2024-05-01 01:30:48 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SPROCKET (A259865) (ID 259865)
+2024-05-01 01:30:48 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: YUKON (A289461) (ID 289461)
+2024-05-01 02:20:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PEANUT (A290086) (ID 290086)
+2024-05-01 02:20:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: VARO (A290099) (ID 290099)
+2024-05-01 03:01:01 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PEEWEE (A288878) (ID 288878)
+2024-05-01 03:01:02 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PEANUT (A290086) (ID 290086)
+2024-05-01 03:51:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JAKE (A187126) (ID 187126)
+2024-05-01 03:51:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JACKPOT (A199453) (ID 199453)
+2024-05-01 04:31:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MACKEYLA (A261825) (ID 261825)
+2024-05-01 04:31:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KANNO (A272975) (ID 272975)
+2024-05-01 05:21:27 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MACKEYLA (A261825) (ID 261825)
+2024-05-01 05:21:27 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KANNO (A272975) (ID 272975)
+2024-05-02 02:21:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PEEWEE (A288878) (ID 288878)
+2024-05-02 05:21:31 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ONION RING (A289920) (ID 289920)
+2024-05-02 05:21:31 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PEANUT (A290086) (ID 290086)
+2024-05-02 05:21:31 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MIKEN (A290100) (ID 290100)
+2024-05-03 12:51:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JACKPOT (A199453) (ID 199453)
+2024-05-04 12:00:57 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BABYBEL (A290247) (ID 290247)
+2024-05-04 12:51:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JAKE (A187126) (ID 187126)
+2024-05-05 11:20:41 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NESQUIK (A284622) (ID 284622)
+2024-05-05 11:20:47 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-05 06:01:31 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ARIELLE (A290091) (ID 290091)
+2024-05-06 08:20:14 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 08:30:15 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 08:40:16 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 08:50:16 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 09:10:18 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 09:40:21 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 10:20:24 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 10:30:25 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 11:00:28 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-06 11:20:30 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BELLE (A290047) (ID 290047)
+2024-05-06 11:20:30 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TIANA (A290259) (ID 290259)
+2024-05-06 12:50:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KASHA (A290044) (ID 290044)
+2024-05-06 05:21:22 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NEPTUNE (A258339) (ID 258339)
+2024-05-07 11:20:28 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CLEMENTINE (A289937) (ID 289937)
+2024-05-07 01:30:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ORION (A290355) (ID 290355)
+2024-05-07 02:20:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ECLIPSE (A290366) (ID 290366)
+2024-05-07 03:00:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BRUCE (A290424) (ID 290424)
+2024-05-07 04:31:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BABYBEL (A290247) (ID 290247)
+2024-05-07 04:31:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ECLIPSE (A290366) (ID 290366)
+2024-05-08 09:51:10 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CLEMENTINE (A289937) (ID 289937)
+2024-05-08 03:01:46 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: YUKON (A289461) (ID 289461)
+2024-05-08 04:31:58 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: POLLY POCKET (A290367) (ID 290367)
+2024-05-09 10:31:05 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BRUCE (A290424) (ID 290424)
+2024-05-09 06:01:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROCKY (A290139) (ID 290139)
+2024-05-10 12:51:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SUE (A290429) (ID 290429)
+2024-05-10 02:21:20 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BELLE (A290047) (ID 290047)
+2024-05-10 03:51:32 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SASHA (A205330) (ID 205330)
+2024-05-10 03:51:32 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MILL (A290285) (ID 290285)
+2024-05-10 04:31:38 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SASHA (A205330) (ID 205330)
+2024-05-10 06:01:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FOX (A290240) (ID 290240)
+2024-05-10 06:01:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KERTIE (A290426) (ID 290426)
+2024-05-10 06:01:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TONKA (A290427) (ID 290427)
+2024-05-10 06:01:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JUPITER (A258684) (ID 258684)
+2024-05-10 06:01:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TIANA (A290259) (ID 290259)
+2024-05-10 06:01:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: POLLY POCKET (A290367) (ID 290367)
+2024-05-11 12:01:03 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FOX (A290240) (ID 290240)
+2024-05-11 12:51:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NESQUIK (A284622) (ID 284622)
+2024-05-11 12:51:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: YUKON (A289461) (ID 289461)
+2024-05-11 12:51:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: GHOST (A290090) (ID 290090)
+2024-05-11 01:31:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TONKA (A290427) (ID 290427)
+2024-05-11 02:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SUE (A290429) (ID 290429)
+2024-05-11 03:01:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BRYNLEE (A214247) (ID 214247)
+2024-05-11 03:51:37 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KASHA (A290044) (ID 290044)
+2024-05-11 03:51:37 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KERTIE (A290426) (ID 290426)
+2024-05-11 04:31:43 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KASHA (A290044) (ID 290044)
+2024-05-13 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BELLE (A290047) (ID 290047)
+2024-05-13 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BUMBLE JACK (A290726) (ID 290726)
+2024-05-13 08:11:44 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-14 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LYLA (A290781) (ID 290781)
+2024-05-15 12:01:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FOX (A290240) (ID 290240)
+2024-05-15 04:31:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MILL (A290285) (ID 290285)
+2024-05-16 11:20:59 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PANDORA (A288883) (ID 288883)
+2024-05-16 12:01:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ORION (A290355) (ID 290355)
+2024-05-16 12:51:15 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FOX (A290240) (ID 290240)
+2024-05-16 05:21:48 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PANDORA (A288883) (ID 288883)
+2024-05-17 08:43:23 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-05-17 11:23:43 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BUBBY (A152088) (ID 152088)
+2024-05-17 03:04:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BUMBLE JACK (A290726) (ID 290726)
+2024-05-18 01:40:44 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ALFREDO (A286156) (ID 286156)
+2024-05-18 05:21:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BELLE (A290047) (ID 290047)
+2024-05-20 12:00:51 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BUMBLE JACK (A290726) (ID 290726)
+2024-05-20 04:31:20 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BUMBLE JACK (A290726) (ID 290726)
+2024-05-21 11:20:31 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GOING MERRY (A290093) (ID 290093)
+2024-05-21 11:20:31 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NAUTILUS (A290094) (ID 290094)
+2024-05-21 11:20:31 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: EMPRESS (A290095) (ID 290095)
+2024-05-21 11:20:31 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JAMMY DODGER (A290096) (ID 290096)
+2024-05-21 12:50:43 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TRIXIE (A290092) (ID 290092)
+2024-05-21 01:30:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: GOING MERRY (A290093) (ID 290093)
+2024-05-21 04:31:12 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NAUTILUS (A290094) (ID 290094)
+2024-05-21 04:31:12 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JAMMY DODGER (A290096) (ID 290096)
+2024-05-22 11:21:20 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DARRELL (A291023) (ID 291023)
+2024-05-22 05:21:59 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NAUTILUS (A290094) (ID 290094)
+2024-05-22 06:02:05 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NAUTILUS (A290094) (ID 290094)
+2024-05-23 09:20:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-05-23 09:20:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NAUTILUS (A290094) (ID 290094)
+2024-05-23 09:20:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: EEVA (A286665) (ID 286665)
+2024-05-24 09:50:53 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SOLDIER (A291164) (ID 291164)
+2024-05-24 01:31:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CHARLIE (A288732) (ID 288732)
+2024-05-24 01:31:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: POLLO (A290422) (ID 290422)
+2024-05-24 06:01:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NAUTILUS (A290094) (ID 290094)
+2024-05-25 12:00:53 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: EMPRESS (A290095) (ID 290095)
+2024-05-25 01:31:05 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: REAGAN (A291363) (ID 291363)
+2024-05-25 03:01:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LYLA (A290781) (ID 290781)
+2024-05-26 11:20:36 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DEXTER (A217188) (ID 217188)
+2024-05-26 11:20:36 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JAZZY (A291348) (ID 291348)
+2024-05-26 12:50:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HANK (A291375) (ID 291375)
+2024-05-27 12:51:35 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: YOYO (A291382) (ID 291382)
+2024-05-27 12:51:35 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LILA (A291383) (ID 291383)
+2024-05-27 12:51:35 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SASHA (A291384) (ID 291384)
+2024-05-27 12:51:35 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BLONDIE (A291385) (ID 291385)
+2024-05-27 12:51:40 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-05-28 01:31:29 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SOLDIER (A291164) (ID 291164)
+2024-05-28 05:21:58 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: REAGAN (A291363) (ID 291363)
+2024-05-29 11:21:09 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SOLDIER (A291164) (ID 291164)
+2024-05-29 12:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TILLY (A288860) (ID 288860)
+2024-05-29 12:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PADDLE BOARD (A288864) (ID 288864)
+2024-05-29 12:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CANOE (A288867) (ID 288867)
+2024-05-29 12:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SAIL (A288869) (ID 288869)
+2024-05-29 12:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TUGBOAT (A288876) (ID 288876)
+2024-05-29 12:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KAYAK (A288880) (ID 288880)
+2024-05-29 12:51:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CHARLIE (A288732) (ID 288732)
+2024-05-29 02:21:39 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FIBI (A264690) (ID 264690)
+2024-05-29 02:21:39 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SOLDIER (A291164) (ID 291164)
+2024-05-30 04:31:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KAYAK (A288880) (ID 288880)
+2024-05-31 10:31:10 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FIBI (A264690) (ID 264690)
+2024-05-31 02:21:37 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SAIL (A288869) (ID 288869)
+2024-05-31 03:51:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TUGBOAT (A288876) (ID 288876)
+2024-05-31 06:02:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FIBI (A264690) (ID 264690)
+2024-05-31 06:02:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: AKAIRA (A290592) (ID 290592)
+2024-05-31 06:02:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LOVER BOY (A291350) (ID 291350)
+2024-05-31 06:02:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SWEETUMS (A291355) (ID 291355)
+2024-05-31 06:02:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PADDLE BOARD (A288864) (ID 288864)
+2024-06-01 09:51:02 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LILA (A291383) (ID 291383)
+2024-06-01 12:01:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SASHA (A291384) (ID 291384)
+2024-06-01 12:51:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CANOE (A288867) (ID 288867)
+2024-06-01 01:31:33 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FIBI (A264690) (ID 264690)
+2024-06-01 01:31:33 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HANK (A291375) (ID 291375)
+2024-06-01 02:21:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LOVER BOY (A291350) (ID 291350)
+2024-06-01 03:51:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SWEETUMS (A291355) (ID 291355)
+2024-06-01 05:22:14 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KASHA (A290044) (ID 290044)
+2024-06-02 11:20:29 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JAZZY (A291348) (ID 291348)
+2024-06-02 11:20:35 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-06-02 01:40:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TILLY (A288860) (ID 288860)
+2024-06-03 12:01:21 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FLAIR (A287884) (ID 287884)
+2024-06-04 12:01:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SOPHIE (A256323) (ID 256323)
+2024-06-04 12:01:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CLEO (A256324) (ID 256324)
+2024-06-04 12:01:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LORA (A283560) (ID 283560)
+2024-06-04 12:01:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DORIS (A291543) (ID 291543)
+2024-06-06 07:01:32 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-06-06 12:51:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PABLO (A291522) (ID 291522)
+2024-06-06 02:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HONEY BUN (A291349) (ID 291349)
+2024-06-06 02:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SWEETIE PIE (A291351) (ID 291351)
+2024-06-06 02:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MAIN SQUEEZE (A291352) (ID 291352)
+2024-06-06 02:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CUTIE PIE (A291353) (ID 291353)
+2024-06-06 02:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DARLING (A291354) (ID 291354)
+2024-06-06 02:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LOVEBUG (A291356) (ID 291356)
+2024-06-06 02:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SASHA (A291384) (ID 291384)
+2024-06-06 05:21:46 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MAIN SQUEEZE (A291352) (ID 291352)
+2024-06-07 11:20:57 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PABLO (A291522) (ID 291522)
+2024-06-07 12:51:10 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SUE (A290429) (ID 290429)
+2024-06-07 05:21:44 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CLEMENTINE (A289937) (ID 289937)
+2024-06-07 06:01:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SOPHIE (A256323) (ID 256323)
+2024-06-07 06:01:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DARLING (A291354) (ID 291354)
+2024-06-08 12:01:05 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SWEETIE PIE (A291351) (ID 291351)
+2024-06-08 12:01:05 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CUTIE PIE (A291353) (ID 291353)
+2024-06-08 12:51:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CLEO (A256324) (ID 256324)
+2024-06-08 01:31:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HONEY BUN (A291349) (ID 291349)
+2024-06-08 01:31:16 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LOVEBUG (A291356) (ID 291356)
+2024-06-08 03:51:33 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: OSCAR (A291602) (ID 291602)
+2024-06-08 03:51:33 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BOSS (A291682) (ID 291682)
+2024-06-08 04:31:39 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TRIXIE (A290092) (ID 290092)
+2024-06-08 06:01:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: YOYO (A291382) (ID 291382)
+2024-06-09 12:00:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HONEY BUN (A291349) (ID 291349)
+2024-06-10 09:10:23 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BUBBY (A152088) (ID 152088)
+2024-06-10 09:10:29 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-06-10 11:20:43 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CHICCO (A291544) (ID 291544)
+2024-06-10 01:31:00 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TILLY (A288860) (ID 288860)
+2024-06-11 11:20:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BUBBY (A152088) (ID 152088)
+2024-06-12 10:40:31 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DORIS (A291543) (ID 291543)
+2024-06-12 11:20:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NALA (A291765) (ID 291765)
+2024-06-12 12:10:44 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KYUSS (A270419) (ID 270419)
+2024-06-12 02:21:00 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HONEY BUN (A291349) (ID 291349)
+2024-06-12 03:01:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FLAIR (A287884) (ID 287884)
+2024-06-13 08:00:07 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HONEY BUN (A291349) (ID 291349)
+2024-06-13 09:50:21 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DORIS (A291543) (ID 291543)
+2024-06-14 11:20:31 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NALA (A291765) (ID 291765)
+2024-06-14 12:10:39 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ZENA (A291806) (ID 291806)
+2024-06-14 12:10:39 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROXIE (A291809) (ID 291809)
+2024-06-14 12:50:46 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DORIS (A291543) (ID 291543)
+2024-06-14 04:31:12 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: AKAIRA (A290592) (ID 290592)
+2024-06-14 06:01:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: OSCAR (A291602) (ID 291602)
+2024-06-14 06:01:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BOSS (A291682) (ID 291682)
+2024-06-15 10:40:26 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NALA (A291765) (ID 291765)
+2024-06-15 12:50:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PABLO (A291522) (ID 291522)
+2024-06-15 01:30:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LUNA (A291393) (ID 291393)
+2024-06-15 05:21:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HONEY BUN (A291349) (ID 291349)
+2024-06-15 06:51:30 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TILLY (A288860) (ID 288860)
+2024-06-16 11:20:29 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ECLIPSE (A290366) (ID 290366)
+2024-06-16 11:20:29 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LUNA (A291393) (ID 291393)
+2024-06-16 03:00:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ECLIPSE (A290366) (ID 290366)
+2024-06-16 04:31:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CHICCO (A291544) (ID 291544)
+2024-06-17 11:21:17 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: REESE CUP (A292185) (ID 292185)
+2024-06-17 02:21:40 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DARRELL (A291023) (ID 291023)
+2024-06-17 03:01:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: COMET (A291640) (ID 291640)
+2024-06-17 03:01:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CUPID (A291641) (ID 291641)
+2024-06-17 03:01:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NALA (A291765) (ID 291765)
+2024-06-18 11:21:07 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BUBBY (A152088) (ID 152088)
+2024-06-18 01:31:24 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KIKI (A292214) (ID 292214)
+2024-06-18 01:31:24 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROSE (A292217) (ID 292217)
+2024-06-21 11:20:30 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KIKI (A292214) (ID 292214)
+2024-06-21 11:20:30 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROSE (A292217) (ID 292217)
+2024-06-22 12:01:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BLONDIE (A291385) (ID 291385)
+2024-06-22 05:22:02 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: COMET (A291640) (ID 291640)
+2024-06-24 03:51:30 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LUNA (A291393) (ID 291393)
+2024-06-24 04:31:37 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ZENA (A291806) (ID 291806)
+2024-06-25 09:20:43 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-06-25 12:01:01 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROXIE (A291809) (ID 291809)
+2024-06-25 03:01:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: REESE CUP (A292185) (ID 292185)
+2024-06-26 12:51:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: WUFFIE (A292239) (ID 292239)
+2024-06-26 02:21:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ISAAC (A292780) (ID 292780)
+2024-06-26 03:01:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: EMU (A292768) (ID 292768)
+2024-06-27 01:31:09 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BILLIE (A292790) (ID 292790)
+2024-06-27 01:31:09 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CHUNKY BOY (A292791) (ID 292791)
+2024-06-27 01:31:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-06-27 03:01:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KYUSS (A270419) (ID 270419)
+2024-06-28 05:21:32 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SUE (A290429) (ID 290429)
+2024-06-29 12:10:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PRINCESS (A292935) (ID 292935)
+2024-06-29 05:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HONEY (A289885) (ID 289885)
+2024-06-29 05:21:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LULEE (A290127) (ID 290127)
+2024-06-29 05:21:28 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-06-29 06:01:34 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PRINCESS (A292935) (ID 292935)
+2024-06-30 12:50:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DEXTER (A217188) (ID 217188)
+2024-06-30 03:01:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BILLIE (A292790) (ID 292790)
+2024-06-30 03:01:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CHUNKY BOY (A292791) (ID 292791)
+2024-07-03 03:10:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HONEY (A289885) (ID 289885)
+2024-07-03 03:10:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JACK (A291885) (ID 291885)
+2024-07-03 03:10:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BILLIE (A292790) (ID 292790)
+2024-07-03 03:10:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CHUNKY BOY (A292791) (ID 292791)
+2024-07-03 03:10:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: POLLO (A290422) (ID 290422)
+2024-07-03 03:10:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ISAAC (A292780) (ID 292780)
+2024-07-03 12:13:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LUNA (A291393) (ID 291393)
+2024-07-05 12:10:38 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROXIE (A291809) (ID 291809)
+2024-07-05 12:10:38 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JACK (A291885) (ID 291885)
+2024-07-05 12:50:45 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SOLDIER (A291164) (ID 291164)
+2024-07-05 03:01:03 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SOLDIER (A291164) (ID 291164)
+2024-07-05 03:01:03 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CUPID (A291641) (ID 291641)
+2024-07-06 11:21:22 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SOLDIER (A291164) (ID 291164)
+2024-07-06 12:01:27 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KOBI (A293083) (ID 293083)
+2024-07-06 12:01:27 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CHARLI (A293085) (ID 293085)
+2024-07-06 03:51:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KOBI (A293083) (ID 293083)
+2024-07-08 10:40:51 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SOLDIER (A291164) (ID 291164)
+2024-07-08 05:21:33 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: EMU (A292768) (ID 292768)
+2024-07-09 10:40:34 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SOLDIER (A291164) (ID 291164)
+2024-07-09 11:20:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SKINK (A292743) (ID 292743)
+2024-07-09 11:20:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: AXOLOTL (A292744) (ID 292744)
+2024-07-09 11:20:42 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MUD SKIPPER (A292745) (ID 292745)
+2024-07-10 02:20:58 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CHARLI (A293085) (ID 293085)
+2024-07-10 02:21:04 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-10 04:31:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SOLDIER (A291164) (ID 291164)
+2024-07-11 03:10:59 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BLOO (A293081) (ID 293081)
+2024-07-11 03:11:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-11 04:31:14 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SKINK (A292743) (ID 292743)
+2024-07-11 04:31:14 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MUD SKIPPER (A292745) (ID 292745)
+2024-07-11 06:01:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: AXOLOTL (A292744) (ID 292744)
+2024-07-12 09:50:19 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BILLIE (A292790) (ID 292790)
+2024-07-12 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SALAMANDER (A292739) (ID 292739)
+2024-07-12 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NEWT (A292740) (ID 292740)
+2024-07-12 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TOAD (A292741) (ID 292741)
+2024-07-12 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FROG (A292742) (ID 292742)
+2024-07-12 04:31:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SALAMANDER (A292739) (ID 292739)
+2024-07-13 09:51:10 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BILLIE (A292790) (ID 292790)
+2024-07-13 11:21:21 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MIA (A231182) (ID 231182)
+2024-07-13 11:21:21 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KYRO (A280838) (ID 280838)
+2024-07-13 02:21:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROXIE (A291809) (ID 291809)
+2024-07-14 12:51:34 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FROG (A292742) (ID 292742)
+2024-07-15 12:51:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MIA (A231182) (ID 231182)
+2024-07-15 12:51:25 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NEWT (A292740) (ID 292740)
+2024-07-15 05:21:58 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TOAD (A292741) (ID 292741)
+2024-07-16 09:50:56 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BOW (A293729) (ID 293729)
+2024-07-16 10:41:03 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BATMAN (A289449) (ID 289449)
+2024-07-16 01:31:24 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BOW (A293729) (ID 293729)
+2024-07-16 04:31:30 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CHUNKY BOY (A292791) (ID 292791)
+2024-07-17 11:10:46 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GIGI (A293020) (ID 293020)
+2024-07-17 12:00:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PUDDING (A293722) (ID 293722)
+2024-07-17 12:00:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JELLO (A293723) (ID 293723)
+2024-07-17 12:00:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RAY BAN (A293731) (ID 293731)
+2024-07-17 02:21:14 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: GIGI (A293020) (ID 293020)
+2024-07-18 12:00:53 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CRAYOLA (A293599) (ID 293599)
+2024-07-18 12:00:53 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SKRIBBLES (A293600) (ID 293600)
+2024-07-18 12:00:59 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-20 11:20:33 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HARLEY (A293873) (ID 293873)
+2024-07-20 11:20:33 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FREDERICK (A293880) (ID 293880)
+2024-07-20 11:20:33 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KIWI (A293881) (ID 293881)
+2024-07-20 11:20:33 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: APRIL (A293886) (ID 293886)
+2024-07-20 01:40:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BILLIE (A292790) (ID 292790)
+2024-07-20 02:20:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TONY (A293770) (ID 293770)
+2024-07-20 02:21:02 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-20 03:51:12 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BATMAN (A289449) (ID 289449)
+2024-07-20 03:51:12 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SASHA (A291384) (ID 291384)
+2024-07-20 03:51:18 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-21 08:33:51 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-07-24 07:56:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GLEN (A293974) (ID 293974)
+2024-07-24 07:56:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TARA (A293975) (ID 293975)
+2024-07-24 07:56:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CRAYOLA (A293599) (ID 293599)
+2024-07-24 07:56:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PUDDING (A293722) (ID 293722)
+2024-07-24 07:56:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JELLO (A293723) (ID 293723)
+2024-07-24 07:56:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HARLEY (A293873) (ID 293873)
+2024-07-24 07:56:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KIWI (A293881) (ID 293881)
+2024-07-27 06:16:57 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-07-27 06:17:01 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JEFFERY (A294050) (ID 294050)
+2024-07-27 06:17:01 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RAY BAN (A293731) (ID 293731)
+2024-07-27 06:17:01 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FRANKIE (A293880) (ID 293880)
+2024-07-27 06:17:01 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: APRIL (A293886) (ID 293886)
+2024-07-27 08:01:02 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 08:11:02 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 08:21:03 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 08:31:02 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 08:41:03 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 08:51:03 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 09:01:03 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 09:11:03 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 09:21:03 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 09:31:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 09:41:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 09:51:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 10:01:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 10:11:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 10:21:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 10:31:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 10:41:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 10:51:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 11:01:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 11:11:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 11:21:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 11:31:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 11:41:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 11:51:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 12:01:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 12:11:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 12:21:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 12:31:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 12:41:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 12:51:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 01:01:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 01:11:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 01:21:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 01:31:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 01:41:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 01:51:09 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 02:01:09 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 02:11:09 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 02:21:09 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 02:31:09 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 02:41:09 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 02:51:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 03:01:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 03:11:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 03:21:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 03:31:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 03:41:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 03:51:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 04:01:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 04:11:11 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 04:21:11 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 04:31:11 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 04:41:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 04:51:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 05:01:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 05:11:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 05:21:13 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 05:31:13 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 05:41:13 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 05:51:13 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 06:01:13 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 06:11:13 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 06:21:14 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 06:31:14 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 06:41:14 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 06:51:14 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 07:01:14 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 07:11:14 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 07:21:14 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 07:31:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 07:41:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 07:51:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 08:01:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 08:11:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 08:21:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RAY BAN (A293731) (ID 293731)
+2024-07-27 08:21:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SONIA (A294200) (ID 294200)
+2024-07-27 08:21:18 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 09:21:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-27 09:31:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 08:20:40 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 09:30:50 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 09:40:50 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 09:50:50 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 11:20:59 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RIZZLER (A294002) (ID 294002)
+2024-07-28 06:51:45 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RIZZLER (A294002) (ID 294002)
+2024-07-28 07:01:47 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 08:11:52 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 08:21:52 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 08:31:52 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 09:41:59 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 09:51:59 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-28 10:01:59 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 08:10:11 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 08:20:11 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 09:30:17 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 09:40:17 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 09:50:17 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 06:01:09 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 06:11:09 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 08:21:20 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 08:31:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-29 08:41:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-30 08:20:45 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-30 01:31:17 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-30 01:41:17 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-30 01:51:17 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 09:00:37 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 09:10:37 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 09:50:41 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SONIA (A294200) (ID 294200)
+2024-07-31 01:21:03 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 01:31:03 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 01:41:03 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 01:51:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: CHIFFON (A294252) (ID 294252)
+2024-07-31 01:51:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ALABASTER (A294253) (ID 294253)
+2024-07-31 08:51:52 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 11:02:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 11:12:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 11:22:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 11:32:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 11:42:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-07-31 11:52:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 08:30:09 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 09:50:18 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SONIA (A294200) (ID 294200)
+2024-08-01 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SKRIBBLES (A293600) (ID 293600)
+2024-08-01 12:50:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JELLO (A293723) (ID 293723)
+2024-08-01 01:40:48 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 01:50:48 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 02:00:48 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 02:10:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: WUFFIE (A292239) (ID 292239)
+2024-08-01 04:11:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 04:21:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 04:31:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 08:41:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 08:51:34 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-01 09:01:34 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-02 08:10:54 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-02 08:20:55 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-02 08:30:55 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-02 12:51:20 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JELLO (A293723) (ID 293723)
+2024-08-03 08:00:31 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 12:00:58 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SWEETUMS (A291355) (ID 291355)
+2024-08-03 12:00:58 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JAY JR (A294246) (ID 294246)
+2024-08-03 12:00:58 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PHANIE (A294317) (ID 294317)
+2024-08-03 12:51:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JACK (A294245) (ID 294245)
+2024-08-03 01:11:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 01:21:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 01:31:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 05:41:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 05:51:34 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 06:01:34 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 08:11:48 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 08:21:48 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 08:31:48 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-03 11:42:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-04 12:50:43 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-04 02:00:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-04 02:10:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-04 02:20:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-04 02:30:51 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SWEETUMS (A291355) (ID 291355)
+2024-08-04 08:31:30 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-04 08:41:30 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-04 08:51:31 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-05 08:00:52 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-05 08:10:52 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-05 12:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JEFFERY (A294050) (ID 294050)
+2024-08-05 12:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ALABASTER (A294253) (ID 294253)
+2024-08-05 01:21:27 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-05 01:31:27 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-05 01:41:27 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-05 01:51:29 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TARA (A293975) (ID 293975)
+2024-08-05 02:21:32 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROXIE (A291809) (ID 291809)
+2024-08-05 03:51:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PABLO (A291522) (ID 291522)
+2024-08-05 05:22:03 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JACK (A294245) (ID 294245)
+2024-08-05 06:52:14 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ALABASTER (A294253) (ID 294253)
+2024-08-06 08:20:50 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-06 11:31:08 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-06 11:41:08 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-06 11:51:08 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-06 12:51:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PABLO (A291522) (ID 291522)
+2024-08-06 05:21:51 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PHANIE (A294317) (ID 294317)
+2024-08-07 08:20:34 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 08:30:35 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 09:10:39 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SONIA (A294200) (ID 294200)
+2024-08-07 11:40:59 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 11:50:59 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 12:00:59 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 01:31:09 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RIGATONI (A293819) (ID 293819)
+2024-08-07 01:31:09 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SUNNY (A294260) (ID 294260)
+2024-08-07 01:31:09 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RAY (A294261) (ID 294261)
+2024-08-07 07:11:45 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 07:21:45 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 07:31:45 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 08:41:52 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 08:51:52 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-07 09:01:52 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 08:20:15 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 08:30:15 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 08:40:18 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SUNNY (A294260) (ID 294260)
+2024-08-08 08:40:18 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RAY (A294261) (ID 294261)
+2024-08-08 09:10:23 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RIGATONI (A293819) (ID 293819)
+2024-08-08 09:50:28 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TONY (A293770) (ID 293770)
+2024-08-08 11:40:41 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 11:50:41 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 12:00:41 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 12:50:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RIGATONI (A293819) (ID 293819)
+2024-08-08 01:10:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 01:20:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 01:30:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-08 01:40:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TARA (A293975) (ID 293975)
+2024-08-08 02:21:00 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SCOUT (A216683) (ID 216683)
+2024-08-08 02:21:00 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KALIA (A292175) (ID 292175)
+2024-08-08 02:21:00 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: STELLA (A294847) (ID 294847)
+2024-08-08 03:01:06 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KALIA (A292175) (ID 292175)
+2024-08-08 03:51:13 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TONY (A293770) (ID 293770)
+2024-08-08 04:31:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: CHIFFON (A294252) (ID 294252)
+2024-08-08 06:01:29 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RIGATONI (A293819) (ID 293819)
+2024-08-09 09:10:14 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-09 09:20:14 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-09 10:40:23 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SONIA (A294200) (ID 294200)
+2024-08-09 01:30:40 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-09 01:40:40 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-09 01:50:40 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-09 03:50:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KALIA (A292175) (ID 292175)
+2024-08-10 08:30:56 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-10 08:40:57 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-10 08:50:57 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-10 01:01:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-10 01:11:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-10 01:21:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-10 01:31:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-10 01:41:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-10 01:51:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-11 09:03:44 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-08-11 02:24:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SCOUT (A216683) (ID 216683)
+2024-08-11 06:04:40 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROXIE (A291809) (ID 291809)
+2024-08-11 07:04:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-11 07:14:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-11 07:24:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-11 08:34:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-11 08:44:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-11 08:54:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-14 09:21:22 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PANDORA (A289325) (ID 289325)
+2024-08-14 09:21:22 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KYRO (A280838) (ID 280838)
+2024-08-14 09:21:22 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JAY JR (A294246) (ID 294246)
+2024-08-14 09:21:22 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ALABASTER (A294253) (ID 294253)
+2024-08-14 10:21:29 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-14 10:31:29 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-14 10:41:29 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-14 11:21:34 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FETA (A294244) (ID 294244)
+2024-08-14 12:01:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BRIE (A294241) (ID 294241)
+2024-08-14 12:01:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GOUDA (A294242) (ID 294242)
+2024-08-14 12:01:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BURRATA (A294243) (ID 294243)
+2024-08-14 12:01:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LYLA (A294964) (ID 294964)
+2024-08-14 12:01:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KYLA (A294965) (ID 294965)
+2024-08-14 01:31:55 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SARA (A294934) (ID 294934)
+2024-08-14 02:22:02 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PRINCESS PINKY PIE (A295003) (ID 295003)
+2024-08-14 10:52:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-14 11:02:58 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-14 11:12:58 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-14 11:22:58 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-15 09:10:15 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BRIE (A294241) (ID 294241)
+2024-08-15 09:10:15 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: GOUDA (A294242) (ID 294242)
+2024-08-15 09:10:15 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BURRATA (A294243) (ID 294243)
+2024-08-15 09:10:15 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FETA (A294244) (ID 294244)
+2024-08-15 12:10:34 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LYLA (A294964) (ID 294964)
+2024-08-15 01:30:51 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SKRIBBLES (A293600) (ID 293600)
+2024-08-15 03:51:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-15 04:01:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-15 04:11:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-15 06:01:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KYRO (A280838) (ID 280838)
+2024-08-15 08:21:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-15 08:31:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-15 11:41:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-15 11:51:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-16 12:01:54 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-16 08:00:55 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-16 09:01:04 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BRIE (A294241) (ID 294241)
+2024-08-16 09:01:04 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GOUDA (A294242) (ID 294242)
+2024-08-16 09:01:04 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BURRATA (A294243) (ID 294243)
+2024-08-16 09:01:04 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FETA (A294244) (ID 294244)
+2024-08-16 09:01:04 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TIDE (A295136) (ID 295136)
+2024-08-16 09:01:04 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: FLO (A295138) (ID 295138)
+2024-08-16 09:51:12 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SONIA (A294200) (ID 294200)
+2024-08-16 10:11:14 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-16 11:21:22 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BRIE (A294241) (ID 294241)
+2024-08-16 12:01:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BURRATA (A294243) (ID 294243)
+2024-08-16 12:01:28 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KYLA (A294965) (ID 294965)
+2024-08-16 01:21:37 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-16 01:31:37 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-16 01:41:37 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-16 01:51:39 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: GOUDA (A294242) (ID 294242)
+2024-08-16 01:51:39 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TIDE (A295136) (ID 295136)
+2024-08-16 03:01:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JELLY (A293736) (ID 293736)
+2024-08-16 03:01:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TIDE (A295136) (ID 295136)
+2024-08-16 03:51:54 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NUTELLA (A293738) (ID 293738)
+2024-08-16 05:22:05 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FETA (A294244) (ID 294244)
+2024-08-16 06:52:15 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BUNNY (A286560) (ID 286560)
+2024-08-17 11:21:17 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ELI (A294981) (ID 294981)
+2024-08-17 12:01:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TIDE (A295136) (ID 295136)
+2024-08-17 12:01:23 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: FLO (A295138) (ID 295138)
+2024-08-17 12:51:32 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LORA (A283560) (ID 283560)
+2024-08-17 12:51:32 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PANDORA (A289325) (ID 289325)
+2024-08-17 02:21:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RAY BAN (A293731) (ID 293731)
+2024-08-17 02:21:42 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ELI (A294981) (ID 294981)
+2024-08-17 03:01:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KALIA (A292175) (ID 292175)
+2024-08-17 03:01:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BLOO (A293081) (ID 293081)
+2024-08-17 04:01:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-17 04:11:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-17 04:21:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-17 08:32:20 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-17 08:42:20 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-17 08:52:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 08:36:04 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-08-18 08:36:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 08:46:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 08:56:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 11:06:16 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 11:16:16 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 11:26:16 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 12:06:21 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HONEY (A289885) (ID 289885)
+2024-08-18 12:06:21 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SKRIBBLES (A293600) (ID 293600)
+2024-08-18 01:36:32 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 01:46:32 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 01:56:32 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 06:06:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 06:16:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 06:26:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 08:37:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 08:47:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-18 08:57:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-19 10:40:43 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JELLY (A293736) (ID 293736)
+2024-08-19 11:40:49 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-19 11:50:49 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-19 03:51:15 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BUNNY (A286560) (ID 286560)
+2024-08-19 05:21:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NUTELLA (A293738) (ID 293738)
+2024-08-20 09:10:18 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JELLY (A293736) (ID 293736)
+2024-08-20 01:30:46 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-20 01:40:46 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-20 01:50:46 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-20 02:00:48 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SADIE (A294967) (ID 294967)
+2024-08-20 03:00:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-20 03:10:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-20 03:20:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-20 05:21:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: STELLA (A294847) (ID 294847)
+2024-08-20 08:31:26 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-20 08:41:26 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-20 08:51:26 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 09:50:58 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SARA (A294934) (ID 294934)
+2024-08-21 09:50:58 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SADIE (A294967) (ID 294967)
+2024-08-21 10:21:01 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 11:31:07 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 11:41:07 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 11:51:07 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 01:31:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TARA (A293975) (ID 293975)
+2024-08-21 04:31:49 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JELLY (A293736) (ID 293736)
+2024-08-21 05:21:56 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TONY (A293770) (ID 293770)
+2024-08-21 08:02:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 08:12:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 08:22:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 08:32:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 08:42:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-21 08:52:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 12:02:28 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 08:00:28 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 08:10:28 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 08:20:28 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 09:50:37 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SADIE (A294967) (ID 294967)
+2024-08-22 11:30:47 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 01:40:59 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 01:50:59 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 02:00:59 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 06:01:21 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KYRO (A280838) (ID 280838)
+2024-08-22 08:11:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 08:21:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 08:31:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 08:41:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 08:51:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 09:01:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 09:11:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 09:21:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-22 09:31:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-23 08:10:14 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-23 08:20:14 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-23 08:30:14 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-23 11:20:30 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TINY (A286470) (ID 286470)
+2024-08-23 03:51:03 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TINY (A286470) (ID 286470)
+2024-08-23 04:31:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PRINCESS PINKY PIE (A295003) (ID 295003)
+2024-08-23 06:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ROGER (A285091) (ID 285091)
+2024-08-23 06:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TANZI (A285092) (ID 285092)
+2024-08-23 08:41:41 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-23 08:51:41 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-23 09:01:41 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-24 11:21:20 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: RIO (A295326) (ID 295326)
+2024-08-24 11:51:23 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-24 12:01:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-24 12:51:36 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ROGER (A285091) (ID 285091)
+2024-08-24 01:11:38 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-24 01:21:38 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-24 01:31:38 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-24 03:01:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TANZI (A285092) (ID 285092)
+2024-08-24 10:42:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 08:00:41 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 08:10:41 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 01:21:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 01:31:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 01:41:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 01:51:10 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TOR (A294277) (ID 294277)
+2024-08-25 02:21:14 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SPIRIT (A289696) (ID 289696)
+2024-08-25 07:51:45 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 08:01:45 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 08:11:45 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 08:21:46 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 08:31:46 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-25 08:41:46 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-26 08:00:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-26 08:10:04 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-26 11:20:21 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-26 11:30:21 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-26 11:40:21 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-26 09:51:16 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-26 10:01:16 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-26 10:11:16 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 01:21:00 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 01:31:00 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 01:41:00 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 02:21:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SOPHIE (A292875) (ID 292875)
+2024-08-27 02:51:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 03:01:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 03:11:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 04:21:13 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 07:31:31 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 07:41:31 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-27 07:51:31 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-28 11:30:23 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-28 11:40:23 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-28 06:01:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TOR (A294277) (ID 294277)
+2024-08-28 08:51:22 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-28 09:01:22 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-28 09:11:22 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-28 11:21:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-28 11:31:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-28 11:41:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 08:20:38 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 08:30:38 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 08:40:38 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 11:50:55 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 12:00:55 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 12:10:55 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 01:21:01 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 01:31:01 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 01:41:01 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 03:51:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-29 04:01:13 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PRINCESS PINKY PIE (A295003) (ID 295003)
+2024-08-30 08:00:09 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-30 08:10:09 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-30 08:20:09 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-30 11:30:27 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-30 11:40:28 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-30 11:50:28 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 12:01:45 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 11:31:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 11:41:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 11:51:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 05:01:36 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 05:11:37 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 05:21:37 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 05:31:38 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PRINCESS PINKY PIE (A295003) (ID 295003)
+2024-08-31 08:31:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 08:41:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-08-31 08:51:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-01 12:00:36 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-01 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-01 12:20:36 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-01 01:30:41 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-01 01:40:41 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-01 01:50:41 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-01 03:10:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MILO (A295520) (ID 295520)
+2024-09-01 03:10:50 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SAUCY BOY (A295521) (ID 295521)
+2024-09-02 08:31:00 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 08:41:00 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 08:51:00 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 12:01:17 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 12:11:18 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 12:21:18 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 01:31:24 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 01:41:25 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 01:51:25 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 02:01:27 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BUDDY (A295522) (ID 295522)
+2024-09-02 02:01:27 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DEBBIE (A295523) (ID 295523)
+2024-09-02 05:01:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 05:11:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 05:21:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 08:32:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 08:42:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-02 08:52:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 08:00:33 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 08:10:33 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 08:20:33 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 12:30:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 12:50:59 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: WULFRIC (A204080) (ID 204080)
+2024-09-03 01:41:04 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 01:51:04 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 02:01:04 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 04:31:31 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HANDSOME (A295535) (ID 295535)
+2024-09-03 08:11:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 08:21:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-03 08:31:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 10:40:35 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SOPHIE (A292875) (ID 292875)
+2024-09-04 10:40:35 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BUDDY (A295522) (ID 295522)
+2024-09-04 12:10:44 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 12:20:44 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 12:30:44 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 04:31:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: DEBBIE (A295523) (ID 295523)
+2024-09-04 05:41:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 05:51:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 06:01:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 07:11:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 08:21:27 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 08:31:28 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 08:41:28 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-04 11:51:48 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-05 12:01:48 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-05 08:00:49 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-05 08:10:49 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-05 09:00:54 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: WULFRIC (A204080) (ID 204080)
+2024-09-05 09:51:03 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SOPHIE (A292875) (ID 292875)
+2024-09-05 09:51:03 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: BUDDY (A295522) (ID 295522)
+2024-09-05 12:21:18 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-05 12:31:18 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-05 02:21:30 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SAUCY BOY (A295521) (ID 295521)
+2024-09-05 05:21:52 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SOPHIE (A292875) (ID 292875)
+2024-09-06 11:20:57 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PANDORA (A289325) (ID 289325)
+2024-09-06 11:20:57 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: JELLO (A293723) (ID 293723)
+2024-09-06 11:41:00 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 11:51:00 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 12:01:00 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 01:11:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 01:21:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 01:31:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 05:21:30 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: BUDDY (A295522) (ID 295522)
+2024-09-06 09:41:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 09:51:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 10:01:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 11:12:02 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 11:22:02 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-06 11:32:02 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-07 10:40:23 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: GLEN (A293974) (ID 293974)
+2024-09-07 12:30:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-07 12:40:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-07 12:50:34 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PABLO (A291522) (ID 291522)
+2024-09-07 01:40:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SASSY (A295734) (ID 295734)
+2024-09-07 01:40:41 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SPIRIT (A289696) (ID 289696)
+2024-09-07 02:20:47 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GLEN (A293974) (ID 293974)
+2024-09-07 04:51:00 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-07 05:01:00 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-07 05:11:01 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-07 08:21:17 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-07 08:31:17 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-07 08:41:17 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-08 08:40:42 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-08 08:50:42 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-08 09:00:42 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-08 11:20:57 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: AJ (A295665) (ID 295665)
+2024-09-08 12:11:02 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-08 01:21:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-08 01:31:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-08 01:41:08 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 09:20:29 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 09:30:29 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 09:40:29 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 11:20:39 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KUBOTA (A294204) (ID 294204)
+2024-09-09 11:20:39 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GREMLIN (A294221) (ID 294221)
+2024-09-09 12:50:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 03:01:01 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 03:11:01 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 03:21:01 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 05:21:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PANDORA (A289325) (ID 289325)
+2024-09-09 08:31:37 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 08:41:38 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 08:51:38 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 09:34:47 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 09:55:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 10:05:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 10:28:44 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 10:51:55 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 11:05:07 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-09 11:25:35 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 08:00:55 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 09:11:02 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 09:21:02 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 09:31:02 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 10:31:07 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HANDSOME (A295535) (ID 295535)
+2024-09-10 11:21:14 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: PANDORA (A289325) (ID 289325)
+2024-09-10 12:41:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 12:51:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 01:01:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 01:11:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 01:21:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 01:31:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 02:41:29 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 02:51:29 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 03:01:29 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-10 04:31:40 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: AJ (A295665) (ID 295665)
+2024-09-10 06:01:51 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MILO (A295520) (ID 295520)
+2024-09-11 08:40:42 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 08:50:42 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 09:00:42 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 09:10:44 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: HANDSOME (A295535) (ID 295535)
+2024-09-11 10:10:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 10:20:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 10:30:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 12:01:01 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ORRIN (A294215) (ID 294215)
+2024-09-11 12:41:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 12:51:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 01:01:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 01:11:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 01:21:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 01:31:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-11 03:51:21 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: RIO (A295326) (ID 295326)
+2024-09-12 09:10:19 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MILO (A295520) (ID 295520)
+2024-09-12 09:10:19 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SASSY (A295734) (ID 295734)
+2024-09-12 09:40:22 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-12 09:50:22 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-12 10:00:22 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-12 12:10:36 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-12 12:20:38 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: REMY (A295914) (ID 295914)
+2024-09-12 01:20:44 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-12 01:30:44 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-12 01:40:44 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-12 05:21:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: JELLO (A293723) (ID 293723)
+2024-09-13 09:51:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 10:01:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 10:11:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 12:21:19 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 12:31:19 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 12:41:19 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 12:51:20 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: YOGI BEAR (A295975) (ID 295975)
+2024-09-13 06:52:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 07:02:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 07:12:12 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 08:22:19 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 08:32:19 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 08:42:19 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 09:52:26 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 10:02:26 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-13 10:12:26 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-14 09:20:47 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-14 09:30:47 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-14 09:40:47 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-14 11:20:59 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NIKO (A295343) (ID 295343)
+2024-09-14 11:20:59 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SUNSHINE (A295993) (ID 295993)
+2024-09-14 12:51:13 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NIKO (A295343) (ID 295343)
+2024-09-14 06:02:08 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SUNSHINE (A295993) (ID 295993)
+2024-09-14 11:52:49 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 12:02:50 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 08:27:50 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-09-15 09:07:55 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 09:17:55 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 11:18:08 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: NORM (A295994) (ID 295994)
+2024-09-15 01:28:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 01:38:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 01:48:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 01:58:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 04:08:38 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 04:18:38 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 04:28:39 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 05:18:45 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SADIE (A294967) (ID 294967)
+2024-09-15 08:39:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 08:49:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-15 08:59:06 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 08:00:29 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 12:10:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 12:20:56 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 12:30:57 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 01:31:04 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TAKI (A236908) (ID 236908)
+2024-09-16 03:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LOKI (A285357) (ID 285357)
+2024-09-16 03:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: MR. FRIZZLE (A294222) (ID 294222)
+2024-09-16 03:01:18 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TAKI (A236908) (ID 236908)
+2024-09-16 03:41:25 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 03:51:25 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 04:01:25 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 06:01:46 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: PANDORA (A289325) (ID 289325)
+2024-09-16 08:12:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 08:22:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-16 08:32:05 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 12:28:39 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-09-20 12:28:39 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 08:00:40 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 08:10:40 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 08:20:40 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 08:30:43 AM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TAKI (A236908) (ID 236908)
+2024-09-20 08:30:43 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LOKI (A285357) (ID 285357)
+2024-09-20 08:30:43 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KUBOTA (A294204) (ID 294204)
+2024-09-20 09:30:50 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 09:40:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 09:50:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 10:00:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 10:10:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 10:20:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 10:30:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 10:40:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 10:50:51 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 01:31:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SHALOM (A154092) (ID 154092)
+2024-09-20 01:31:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: TOZER (A192893) (ID 192893)
+2024-09-20 01:31:11 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: GREMLIN (A294221) (ID 294221)
+2024-09-20 02:01:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 02:11:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 02:21:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 03:31:31 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 03:41:31 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 06:01:48 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: REMY (A295914) (ID 295914)
+2024-09-20 10:52:20 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 11:02:20 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-20 11:12:20 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-21 03:28:26 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: GLEN (A293974) (ID 293974)
+2024-09-21 05:18:40 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ORRIN (A294215) (ID 294215)
+2024-09-21 11:39:18 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-21 11:49:18 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-21 11:59:19 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-23 02:13:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LONDON (A214088) (ID 214088)
+2024-09-23 02:13:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ORRIN (A294215) (ID 294215)
+2024-09-23 02:13:19 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: KAI (A295602) (ID 295602)
+2024-09-23 05:18:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: KAI (A295602) (ID 295602)
+2024-09-23 05:18:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: YOGI BEAR (A295975) (ID 295975)
+2024-09-23 05:18:07 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: NORM (A295994) (ID 295994)
+2024-09-23 11:45:20 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 08:16:05 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 08:26:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 08:36:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 08:46:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 08:56:06 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 09:25:24 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 10:24:18 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 01:33:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 02:57:26 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 04:44:33 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 05:35:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 07:03:13 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 08:51:45 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 10:19:23 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-26 11:48:21 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-27 12:41:13 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-29 06:52:31 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-29 03:01:54 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-29 03:03:10 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-09-29 03:03:10 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: STONDER (A214087) (ID 214087)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: LOBO (A279317) (ID 279317)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: GLEN (A293974) (ID 293974)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: DINO (A296120) (ID 296120)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: ANGEL (A296457) (ID 296457)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   New dog: SQUIGGLY (A296461) (ID 296461)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: SHALOM (A154092) (ID 154092)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: TOZER (A192893) (ID 192893)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: LONDON (A214088) (ID 214088)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: ORRIN (A294215) (ID 294215)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: MILO (A295520) (ID 295520)
+2024-09-29 03:13:17 PM   DogAdoption_LoudounCountyAnimalServices   INFO   Adopted dog: HANDSOME (A295535) (ID 295535)
+>>>>>>> Stashed changes
+2024-10-04 08:42:53 AM   DogAdoption_LoudounCountyAnimalServices   INFO   Started running script
+2024-10-04 08:42:54 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-10-04 08:52:54 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-10-04 09:02:55 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-10-04 09:12:56 AM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-10-04 02:44:15 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-10-04 03:30:58 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
+2024-10-04 03:58:24 PM   DogAdoption_LoudounCountyAnimalServices   ERROR   Unable to connect to or scrape website
