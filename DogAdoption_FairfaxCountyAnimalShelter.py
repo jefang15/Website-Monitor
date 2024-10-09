@@ -141,6 +141,30 @@ def save_historical_data(_new_data, _directory_historical_availability):
         json.dump(_historical_data2, _file, indent=4)
 
 
+def compare_dogs(_current_dogs, _previous_dogs):
+    """
+    Compare the current list of dogs with the previous list based on stable attributes. Identifies new dogs and adopted dogs.
+
+    :param _current_dogs: List of current dog availability (output of scrape_html function)
+    :param _previous_dogs: List of previous dog availability (output of load_previous_data function)
+    :return: Lists of new dogs and adopted dogs
+    """
+
+    # Create sets for IDs of current and previous dogs
+    _current_dog_ids = {dog['ID'] for dog in _current_dogs}
+    _previous_dog_ids = {dog['ID'] for dog in _previous_dogs}
+
+    # Find IDs of new and adopted dogs
+    _new_dog_ids = _current_dog_ids - _previous_dog_ids
+    _adopted_dog_ids = _previous_dog_ids - _current_dog_ids
+
+    # Get new and adopted dogs based on ID matches
+    _new_dogs = [dog for dog in _current_dogs if dog['ID'] in _new_dog_ids]
+    _adopted_dogs = [dog for dog in _previous_dogs if dog['ID'] in _adopted_dog_ids]
+
+    return _new_dogs, _adopted_dogs
+
+
 def download_new_dog_photos(_new_dogs, _photo_directory):
     """
     Saves photos of new dogs available for adoption to a local folder.
@@ -190,7 +214,8 @@ def authenticate_gmail(_directory_credentials):
     return creds
 
 
-def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopted_dogs, _directory_photos, _website_url):
+def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopted_dogs, _directory_photos, _website_url,
+               _shelter_name):
     """
     Sends an email with information on new and adopted dogs.
 
@@ -202,6 +227,7 @@ def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopt
     :param _adopted_dogs: List of adopted dogs.
     :param _directory_photos: File path to folder containing dog photos.
     :param _website_url: The URL of the scraped website
+    :param _shelter_name: Name of dog adoption shelter.
     :return:
     """
 
@@ -226,11 +252,12 @@ def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopt
 
     # Add section for new dogs if there are any
     if _new_dogs:
-        _html_content += '<h1>New Dogs Available for Adoption</h1>'
+        _html_content += '<h1>New Dogs</h1>'
         for dog in _new_dogs:
             _html_content += f"""
                         <p>
                             <b>{dog['Name']}</b> <br>
+                            {dog['Gender']}<br>
                             {dog['Breed']}<br>
                             {dog['Age']}<br>
                             {'<img src="cid:' + dog['Name'] + '_' + dog['ID'] + '"><br>' if 'Photo_Path' in dog else ''}
@@ -239,18 +266,19 @@ def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopt
 
     # Add section for adopted dogs if there are any
     if _adopted_dogs:
-        _html_content += "<h1>Dogs Adopted</h1>"
+        _html_content += "<h1>Adopted Dogs</h1>"
         for dog in _adopted_dogs:
             _html_content += f"""
                         <p>
                             <b>{dog['Name']}</b> <br>
+                            {dog['Gender']}<br>
                             {dog['Breed']}<br>
                             {dog['Age']}<br>
                             {'<img src="cid:' + dog['Name'] + '_' + dog['ID'] + '"><br>' if 'Photo_Path' in dog else ''}
                         </p>
                     """
 
-    _html_content += f"<p>For more information, visit <a href='{_website_url}'>{_website_url}</a>.</p>"
+    _html_content += f"<p>More details at <a href='{_website_url}'>{_shelter_name}</a></p>"
     _html_content += "</body></html>"
 
     _msg.attach(MIMEText(_html_content, 'html'))
@@ -284,9 +312,7 @@ def main():
 
     " Set Up Parameters "
 
-    _website_url = ('https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup='
-               'All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjgh'
-               'n2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=')
+    _website_url = 'https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID='
     _directory_previous_availability = 'Output - Dog Adoption - Fairfax County/Previous_Availability.json'
     _directory_historical_availability = 'Output - Dog Adoption - Fairfax County/Historical_Availability.json'
     _directory_photos = 'Output - Dog Adoption - Fairfax County/Photos'
@@ -316,20 +342,9 @@ def main():
             continue  # Skip to the next iteration of the loop
 
         _current_availability = scrape_html(_website_url)
-
         _previous_availability = load_previous_data(_directory_previous_availability)
 
-        _new_dogs = []
-        _adopted_dogs = []
-
-        # Compare current availability with previous availability
-        for _current_dog in _current_availability:
-            if _current_dog not in _previous_availability:
-                _new_dogs.append(_current_dog)
-
-        for _previous_dog in _previous_availability:
-            if _previous_dog not in _current_availability:
-                _adopted_dogs.append(_previous_dog)
+        _new_dogs, _adopted_dogs = compare_dogs(_current_availability, _previous_availability)
 
         if _new_dogs or _adopted_dogs:
             # Save the current availability
@@ -344,7 +359,8 @@ def main():
             # Send email
             _creds = authenticate_gmail(_directory_credentials)
             send_email(
-                _from_email, _to_email, _email_subject, _creds, _new_dogs, _adopted_dogs, _directory_photos, _website_url)
+                _from_email, _to_email, _email_subject, _creds, _new_dogs, _adopted_dogs, _directory_photos, _website_url,
+                _shelter_name)
         else:
             print(f'{datetime.now()}')
             print('No changes in availability')
@@ -368,9 +384,7 @@ if __name__ == "__main__":
 # <editor-fold desc="Description">
 
 
-# website_url = ('https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup='
-#                'All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjgh'
-#                'n2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID=')
+# website_url = 'https://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals2.aspx?species=Dog&gender=A&agegroup=All&location=&site=&onhold=A&orderby=Name&colnum=3&css=&authkey=spv8bws1svbei2rr8u3h6cg32yx4eywg4il3e3rk8wcjghn2pg&recAmount=&detailsInPopup=No&featuredPet=Include&stageID='
 # directory_previous_availability = 'Output - Dog Adoption - Fairfax County/Previous_Availability.json'
 # directory_historical_availability = 'Output - Dog Adoption - Fairfax County/Historical_Availability.json'
 # directory_photos = 'Output - Dog Adoption - Fairfax County/Photos'
@@ -390,8 +404,7 @@ if __name__ == "__main__":
 # type(previous_availability)  # List
 # # print(previous_availability)
 #
-# new_dogs = [dog for dog in current_availability if dog not in previous_availability]
-# adopted_dogs = [dog for dog in previous_availability if dog not in current_availability]
+# new_dogs, adopted_dogs = compare_dogs(current_availability, previous_availability)
 #
 # type(new_dogs)  # List
 # print(new_dogs)
@@ -408,7 +421,7 @@ if __name__ == "__main__":
 # creds = authenticate_gmail(directory_credentials)
 # type(creds)  # google.oauth2.credentials.Credentials
 #
-# send_email(from_email, to_email, email_subject, creds, new_dogs, adopted_dogs, directory_photos, website_url)
+# send_email(from_email, to_email, email_subject, creds, new_dogs, adopted_dogs, directory_photos, website_url, shelter_name)
 
 
 # </editor-fold>
