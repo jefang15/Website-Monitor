@@ -25,7 +25,7 @@ import base64
 from email.mime.text import MIMEText
 
 
-def _scrape_html(_date):
+def scrape_html(_date):
     """
     Scrapes URL for the specified date and creates a list of key information from the website (including lodge name, room type,
     and price).
@@ -118,7 +118,7 @@ def _scrape_html(_date):
     return final_availability
 
 
-def _load_previous_data():
+def load_previous_data():
     """
     Load previous JSON data from file.
 
@@ -131,7 +131,7 @@ def _load_previous_data():
         return {}
 
 
-def _save_current_data(_data):
+def save_current_data(_data):
     """
     Save the current scrape data over the previous availability JSON file.
 
@@ -142,7 +142,7 @@ def _save_current_data(_data):
         json.dump(_data, _file, indent=4)  # Set indent for pretty printing
 
 
-def _save_historical_data(_new_data):
+def save_historical_data(_new_data):
     """
     Save all historical data to a separate archive file.
 
@@ -202,7 +202,7 @@ def authenticate_gmail():
     return creds
 
 
-def _send_email(_from_email, _to_email, _creds, _changes):
+def send_email(_from_email, _to_email, _creds, _changes):
     """
     Configure Email.
 
@@ -281,7 +281,7 @@ def _send_email(_from_email, _to_email, _creds, _changes):
         print(f"An error occurred: {error}")
 
 
-def _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
+def compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
     """
     Compare new data with old data and send emails for new availability or price decreases of existing availability for each
     lodge.
@@ -335,17 +335,18 @@ def _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
     return _changes
 
 
-def _check_availability(_from_email, _to_email, _creds):
+def main():
     """
     Main function to scrape all dates and send notification as needed.
 
-    :param _from_email: Gmail
-    :param _to_email: Outlook, etc.
-    :param _creds: Credentials for Gmail API access
     :return: Sends email if there are changes in availability
     """
 
-    _old_data = _load_previous_data()
+    # Define inputs
+    _from_email = 'nanookgolightly@gmail.com'
+    _to_email = 'jeffreyfang@msn.com'
+
+    _old_data = load_previous_data()
     _new_data = {}
 
     _start_date = datetime(2025, 8, 29)
@@ -354,31 +355,36 @@ def _check_availability(_from_email, _to_email, _creds):
 
     while _start_date <= _end_date:
         print(f"Scraping availability for {_start_date.strftime('%m-%d-%Y')}...", flush=True)
-        _availability = _scrape_html(_start_date.strftime('%m-%d-%Y'))
+        _availability = scrape_html(_start_date.strftime('%m-%d-%Y'))
         _new_data[_start_date.strftime('%Y-%m-%d')] = _availability
         _start_date += _delta
 
-    _changes = _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data)
+    _creds = authenticate_gmail()
 
-    _send_email(_from_email, _to_email, _creds, _changes)
+    _changes = compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data)
+
+    send_email(_from_email, _to_email, _creds, _changes)
 
     # Save both the current and historical data
-    _save_current_data(_new_data)
-    _save_historical_data(_new_data)
+    save_current_data(_new_data)
+    save_historical_data(_new_data)
+
+    # Sleep for X minutes before the next check
+    sleep_time = 30  # Minutes
+    print(f"Sleeping for {sleep_time} minutes...\n")
+    time.sleep(sleep_time * 60)  # Convert minutes to seconds
 
 
 if __name__ == '__main__':
     while True:
+        main()
 
-        from_email = 'nanookgolightly@gmail.com'
-        to_email = 'jeffreyfang@msn.com'
 
-        now = datetime.now()
-        print(now)
 
-        creds = authenticate_gmail()
-        _check_availability(from_email, to_email, creds)
+##################################################################################################################################
+""" Troubleshoot """
+##################################################################################################################################
 
-        print('Sleeping for 30 minutes...')
-        time.sleep(1800)  # Sleep for 30 minutes (1800 seconds)
+
+scrape_html
 
