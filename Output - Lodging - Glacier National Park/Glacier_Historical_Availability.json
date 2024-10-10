@@ -26267,5 +26267,788 @@
                 }
             ]
         }
+    },
+    {
+        "timestamp": "2024-10-09 23:10:24",
+        "data": {
+            "2025-08-29": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$479.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-08-30": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$489.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-08-31": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$489.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-01": [
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "$275.88"
+                },
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$399.99"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "$516.13"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-02": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$419.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "$637.27"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "$699.37"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-03": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$429.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-04": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$469.99"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "$765.54"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-05": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$500.00"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "$516.13"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "$640.32"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ]
+        }
+    },
+    {
+        "timestamp": "2024-10-09 23:21:00",
+        "data": {
+            "2025-08-29": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$479.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-08-30": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$489.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-08-31": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$489.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-01": [
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "$275.88"
+                },
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$399.99"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "$516.13"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-02": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$419.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "$637.27"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "$699.37"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-03": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$429.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-04": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$469.99"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "$765.54"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-05": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$500.00"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "$516.13"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "$640.32"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ]
+        }
+    },
+    {
+        "timestamp": "2024-10-09 23:26:17",
+        "data": {
+            "2025-08-29": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$479.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-08-30": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$489.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-08-31": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$489.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-01": [
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "$275.88"
+                },
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$399.99"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "$516.13"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-02": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$419.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "$637.27"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "$699.37"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-03": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$429.99"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-04": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$469.99"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "$765.54"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ],
+            "2025-09-05": [
+                {
+                    "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+                    "Room Type": "Standard",
+                    "Price": "$500.00"
+                },
+                {
+                    "Lodge": "Village Inn at Apgar",
+                    "Room Type": "Standard",
+                    "Price": "$516.13"
+                },
+                {
+                    "Lodge": "Lake McDonald",
+                    "Room Type": "Standard",
+                    "Price": "$640.32"
+                },
+                {
+                    "Lodge": "Many Glacier Hotel",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Rising Sun Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                },
+                {
+                    "Lodge": "Swiftcurrent Motor Inn & Cabins",
+                    "Room Type": "Standard",
+                    "Price": "Not available"
+                }
+            ]
+        }
     }
 ]

@@ -125,7 +125,7 @@ def _load_previous_data():
     :return: JSON file containing the previous period's availability.
     """
     try:
-        with open('Output - Lodging - Glacier National Park/previous_availability.json', 'r') as _file:
+        with open('Output - Lodging - Glacier National Park/Glacier_Previous_Availability.json', 'r') as _file:
             return json.load(_file)
     except FileNotFoundError:
         return {}
@@ -138,7 +138,7 @@ def _save_current_data(_data):
     :param _data:
     :return:
     """
-    with open('Output - Lodging - Glacier National Park/previous_availability.json', 'w') as _file:
+    with open('Output - Lodging - Glacier National Park/Glacier_Previous_Availability.json', 'w') as _file:
         json.dump(_data, _file, indent=4)  # Set indent for pretty printing
 
 
@@ -150,7 +150,7 @@ def _save_historical_data(_new_data):
     :return:
     """
 
-    _archive_file = 'Output - Lodging - Glacier National Park/historical_availability.json'
+    _archive_file = 'Output - Lodging - Glacier National Park/Glacier_Historical_Availability.json'
 
     # Load existing historical data if the file exists
     if os.path.exists(_archive_file):
@@ -236,6 +236,7 @@ def _send_email(_from_email, _to_email, _creds, _changes):
 
     # Group changes by date
     grouped_changes = {}
+
     for _change in _changes:
         _date = _change['date']
         if _date not in grouped_changes:
@@ -322,7 +323,7 @@ def _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
                         _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
                         _old_price = float(_old_room['Price'].replace('$', '').replace(',', ''))
 
-                        if _new_price < _old_price:  # Price decrease detected
+                        if _new_price < _old_price and _new_price <= 400:  # Price decrease detected
                             _changes.append({
                                 'Lodge': _new_room['Lodge'],
                                 'date': _date,
@@ -331,9 +332,7 @@ def _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
                                 'change_type': 'Price decrease'
                             })
 
-    # Send one email for all changes (if any)
-    if _changes:
-        _send_email(_from_email, _to_email, _creds, _changes)
+    return _changes
 
 
 def _check_availability(_from_email, _to_email, _creds):
@@ -359,7 +358,9 @@ def _check_availability(_from_email, _to_email, _creds):
         _new_data[_start_date.strftime('%Y-%m-%d')] = _availability
         _start_date += _delta
 
-    _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data)
+    _changes = _compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data)
+
+    _send_email(_from_email, _to_email, _creds, _changes)
 
     # Save both the current and historical data
     _save_current_data(_new_data)
