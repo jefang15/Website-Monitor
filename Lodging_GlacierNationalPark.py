@@ -25,11 +25,12 @@ import base64
 from email.mime.text import MIMEText
 
 
-def scrape_html(_date):
+def scrape_html(_website_url):
     """
     Scrapes URL for the specified date and creates a list of key information from the website (including lodge name, room type,
     and price).
 
+    :_website_url: Website for Glacier lodging for a date (specified in an outer loop outside function)
     :return:
     """
 
@@ -46,8 +47,7 @@ def scrape_html(_date):
     _driver = webdriver.Firefox(service=_gecko_service, options=_firefox_options)
 
     # Load the Glacier lodging website
-    _driver.get(
-        f'https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children=0&rateCode&rateType=&dateFrom={_date}&nights=1')
+    _driver.get(_website_url)
 
     time.sleep(5)  # Wait for the page to load
 
@@ -88,36 +88,36 @@ def scrape_html(_date):
             })
 
     # Aggregate minimum prices for lodges that have multiple rooms available
-    aggregated_availability = {}
-    for room in _availability:
-        lodge = room['Lodge']
-        price = room['Price']
+    _aggregated_availability = {}
+    for _room in _availability:
+        _price = _room['Price']
+        _lodge = _room['Lodge']
 
-        if lodge not in aggregated_availability:
-            aggregated_availability[lodge] = {'Room Type': room['Room Type'], 'prices': []}
+        if _lodge not in _aggregated_availability:
+            _aggregated_availability[_lodge] = {'Room Type': _room['Room Type'], 'Prices': []}
 
-        if price != 'Not available':
-            aggregated_availability[lodge]['prices'].append(price)
+        if _price != 'Not available':
+            _aggregated_availability[_lodge]['Prices'].append(_price)
 
-    final_availability = []
-    for lodge, data in aggregated_availability.items():
-        if data['prices']:
+    _final_availability = []
+    for _lodge, _data in _aggregated_availability.items():
+        if _data['Prices']:
             # Find minimum price
-            min_price = min(float(p.replace('$', '').replace(',', '')) for p in data['prices'])
-            final_availability.append({
-                'Lodge': lodge,
-                'Room Type': data['Room Type'],
+            min_price = min(float(p.replace('$', '').replace(',', '')) for p in _data['Prices'])
+            _final_availability.append({
+                'Lodge': _lodge,
+                'Room Type': _data['Room Type'],
                 'Price': f'${min_price:.2f}'  # Format to currency
             })
         else:
             # No available rooms
-            final_availability.append({
-                'Lodge': lodge,
-                'Room Type': data['Room Type'],
+            _final_availability.append({
+                'Lodge': _lodge,
+                'Room Type': _data['Room Type'],
                 'Price': 'Not available'
             })
 
-    return final_availability
+    return _final_availability
 
 
 def load_previous_data():
@@ -204,6 +204,86 @@ def authenticate_gmail():
     return creds
 
 
+def compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
+    """
+    Compare new data with old data and returns a list of lodges with changes from the last scrape.
+
+    :param _from_email: Gmail
+    :param _to_email: Outlook, etc.
+    :param _creds: Credentials for Gmail API access
+    :param _new_data: Current availability
+    :param _old_data: Previous availability
+    :return: List of changes in lodge availability.
+    """
+
+    _changes = []  # List to accumulate all changes
+
+    for _date, _rooms in _new_data.items():
+        # print(_date, _rooms)
+        if _date not in _old_data:
+            _old_data[_date] = []
+            # type(_old_data)  # Dict of list
+            # print(_old_data)
+
+        # New rooms (not in old data) are automatically added to the change list (if their price is $400 or less)
+        for _new_room in _rooms:
+            if _new_room not in _old_data[_date] and _new_room['Price'] != 'Not available':
+                # print(_new_room)
+
+                # Use this: to add all new rooms to the change list
+                _changes.append({
+                    'Lodge': _new_room['Lodge'],
+                    'Date': _date,
+                    'Room Type': _new_room['Room Type'],
+                    'Price': _new_room['Price'],
+                    'Change Type': 'New'
+                })
+
+                # Use this: to only add new rooms to the change list if its price is $400 or less
+                # _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
+                # if _new_price <= 400:
+                #     _changes.append({
+                #         'Lodge': _new_room['Lodge'],
+                #         'Date': _date,
+                #         'Room Type': _new_room['Room Type'],
+                #         'Price': _new_room['Price'],
+                #         'Change Type': 'New'
+                #     })
+
+        # For rooms that were previously available, check if the price decreased
+        for _new_room in _rooms:
+            for _old_room in _old_data[_date]:
+                if _new_room['Lodge'] == _old_room['Lodge'] and _new_room['Room Type'] == _old_room['Room Type']:
+
+                    # Check if the prices are available for both rooms
+                    if _new_room['Price'] != 'Not available' and _old_room['Price'] != 'Not available':
+                        # Strip the '$' sign and convert prices to compare numerically
+                        _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
+                        _old_price = float(_old_room['Price'].replace('$', '').replace(',', ''))
+
+                        # Use this: to add rooms with price decreases
+                        if _new_price < _old_price:  # Price decrease detected
+                            _changes.append({
+                                'Lodge': _new_room['Lodge'],
+                                'Date': _date,
+                                'Room Type': _new_room['Room Type'],
+                                'Price': _new_room['Price'],
+                                'Change Type': f'Price decreased ${round(_old_price - _new_price, 2)}'
+                            })
+
+                        # Use this: to add rooms with price decreases to $400 or below
+                        # if _new_price < _old_price and _new_price <= 400:
+                        #     _changes.append({
+                        #         'Lodge': _new_room['Lodge'],
+                        #         'Date': _date,
+                        #         'Room Type': _new_room['Room Type'],
+                        #         'Price': _new_room['Price'],
+                        #         'Change Type': f'Price decreased ${_old_price - _new_price}'
+                        #     })
+
+    return _changes
+
+
 def send_email(_from_email, _to_email, _creds, _changes):
     """
     Configure Email.
@@ -245,7 +325,7 @@ def send_email(_from_email, _to_email, _creds, _changes):
     grouped_changes = {}
 
     for _change in _changes:
-        _date = _change['date']
+        _date = _change['Date']
         if _date not in grouped_changes:
             grouped_changes[_date] = []
         grouped_changes[_date].append({
@@ -259,10 +339,10 @@ def send_email(_from_email, _to_email, _creds, _changes):
     _current_date = None  # To keep track of the current date for grouping
 
     for _change in _changes:
-        if _change['date'] != _current_date:  # Check if the date has changed
+        if _change['Date'] != _current_date:  # Check if the date has changed
             if _current_date is not None:  # Add a line break between different dates
                 _html_content += ''
-            _current_date = _change['date']  # Update the current date
+            _current_date = _change['Date']  # Update the current date
             _current_datetime = datetime.strptime(_current_date, '%Y-%m-%d')
             _html_content += f"<h1>{_current_datetime.strftime('%a, %b %d, %Y')}</h1>"
         # Append lodge information
@@ -297,86 +377,6 @@ def send_email(_from_email, _to_email, _creds, _changes):
         print(f"An error occurred: {error}")
 
 
-def compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
-    """
-    Compare new data with old data and returns a list of lodges with changes from the last scrape.
-
-    :param _from_email: Gmail
-    :param _to_email: Outlook, etc.
-    :param _creds: Credentials for Gmail API access
-    :param _new_data: Current availability
-    :param _old_data: Previous availability
-    :return: List of changes in lodge availability.
-    """
-
-    _changes = []  # List to accumulate all changes
-
-    for _date, _rooms in new_data.items():
-        # print(_date, _rooms)
-        if _date not in old_data:
-            old_data[_date] = []
-            # type(old_data)  # Dict of list
-            # print(old_data)
-
-        # New rooms (not in old data) are automatically added to the change list (if their price is $400 or less)
-        for _new_room in _rooms:
-            if _new_room not in old_data[_date] and _new_room['Price'] != 'Not available':
-                # print(_new_room)
-
-                # Use this: to add all new rooms to the change list
-                _changes.append({
-                    'Lodge': _new_room['Lodge'],
-                    'date': _date,
-                    'Room Type': _new_room['Room Type'],
-                    'Price': _new_room['Price'],
-                    'Change Type': 'New availability'
-                })
-
-                # Use this: to only add new rooms to the change list if its price is $400 or less
-                # _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
-                # if _new_price <= 400:
-                #     _changes.append({
-                #         'Lodge': _new_room['Lodge'],
-                #         'date': _date,
-                #         'Room Type': _new_room['Room Type'],
-                #         'Price': _new_room['Price'],
-                #         'Change Type': 'New availability'
-                #     })
-
-        # For rooms that were previously available, check if the price decreased
-        for _new_room in _rooms:
-            for _old_room in old_data[_date]:
-                if _new_room['Lodge'] == _old_room['Lodge'] and _new_room['Room Type'] == _old_room['Room Type']:
-
-                    # Check if the prices are available for both rooms
-                    if _new_room['Price'] != 'Not available' and _old_room['Price'] != 'Not available':
-                        # Strip the '$' sign and convert prices to compare numerically
-                        _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
-                        _old_price = float(_old_room['Price'].replace('$', '').replace(',', ''))
-
-                        # Use this: to add rooms with price decreases
-                        if _new_price < _old_price:  # Price decrease detected
-                            _changes.append({
-                                'Lodge': _new_room['Lodge'],
-                                'date': _date,
-                                'Room Type': _new_room['Room Type'],
-                                'Price': _new_room['Price'],
-                                'Change Type': f'Price decreased ${_old_price - _new_price}'
-                            })
-
-                        # Use this: to add rooms with price decreases to $400 or below
-                        # if _new_price < _old_price and _new_price <= 400:
-                        #     _changes.append({
-                        #         'Lodge': _new_room['Lodge'],
-                        #         'date': _date,
-                        #         'Room Type': _new_room['Room Type'],
-                        #         'Price': _new_room['Price'],
-                        #         'Change Type': f'Price decreased ${_old_price - _new_price}'
-                        #     })
-
-    return _changes
-
-
 def main():
     """
     Main function to scrape all dates and send notification as needed.
@@ -396,8 +396,12 @@ def main():
     _delta = timedelta(days=1)
 
     while _start_date <= _end_date:
-        print(f"Scraping availability for {_start_date.strftime('%m-%d-%Y')}...", flush=True)
-        _availability = scrape_html(_start_date.strftime('%m-%d-%Y'))
+        
+        _website_url = (f"https://secure.glaciernationalparklodges.com/booking/lodging-search?destination=ALL&adults=2&children"
+                        f"=0&rateCode&rateType=&dateFrom={_start_date.strftime('%m-%d-%Y')}&nights=1")
+        
+        print(f"Checking availability for {_start_date.strftime('%m-%d-%Y')}...", flush=True)
+        _availability = scrape_html(_website_url)
         _new_data[_start_date.strftime('%Y-%m-%d')] = _availability
         _start_date += _delta
 
@@ -405,14 +409,15 @@ def main():
 
     _changes = compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data)
 
-    send_email(_from_email, _to_email, _creds, _changes)
+    if _changes:
+        send_email(_from_email, _to_email, _creds, _changes)
 
     # Save both the current and historical data
     save_current_data(_new_data)
     save_historical_data(_new_data)
 
     # Sleep for X minutes before the next check
-    sleep_time = 30  # Minutes
+    sleep_time = 15  # Minutes
     print(f"Sleeping for {sleep_time} minutes...\n")
     time.sleep(sleep_time * 60)  # Convert minutes to seconds
 
@@ -430,58 +435,58 @@ if __name__ == '__main__':
 # <editor-fold desc="Description">
 
 
-from_email = 'nanookgolightly@gmail.com'
-to_email = 'jeffreyfang@msn.com'
-
-old_data = load_previous_data()
-type(old_data)  # Dict
-print(old_data)
-# {'2025-08-29': [{'Lodge': 'Cedar Creek Lodge (Columbia Falls, MT)', 'Room Type': 'Standard', 'Price': '$479.99'}, ...
-
-new_data = {}
-type(new_data)  # Dict
-print(new_data)
-# {}
-
-start_date = datetime(2025, 8, 29)
-end_date = datetime(2025, 9, 5)
-delta = timedelta(days=1)
-
-while start_date <= end_date:
-    print(start_date)
-    availability = scrape_html(start_date.strftime('%m-%d-%Y'))
-    new_data[start_date.strftime('%Y-%m-%d')] = availability
-    start_date += delta
-
-
-# Temp info to append to each date in new_data dictionary
-type(availability)  # List
-print(availability)
-
-type(new_data)  # Dict
-print(new_data)
-# {'2025-08-29': [
-#     {'Lodge': 'Cedar Creek Lodge (Columbia Falls, MT)', 'Room Type': 'Standard', 'Price': '$479.99'},
-#     {'Lodge': 'Lake McDonald', 'Room Type': 'Standard', 'Price': 'Not available'},
-#     {'Lodge': 'Many Glacier Hotel', 'Room Type': 'Standard', 'Price': 'Not available'},
-#     {'Lodge': 'Rising Sun Motor Inn & Cabins', 'Room Type': 'Standard', 'Price': 'Not available'},
-#     {'Lodge': 'Swiftcurrent Motor Inn & Cabins', 'Room Type': 'Standard', 'Price': 'Not available'},
-#     {'Lodge': 'Village Inn at Apgar', 'Room Type': 'Standard', 'Price': 'Not available'}],
-#  '2025-08-30': [
-#      {'Lodge': 'Cedar Creek Lodge (Columbia Falls, MT)', 'Room Type': 'Standard', 'Price': '$489.99'},
-#     ...]
-
-creds = authenticate_gmail()
-
-changes = compare_and_notify(from_email, to_email, creds, new_data, old_data)
-type(changes)  # List
-print(changes)
-
-
-# save_current_data(new_data)
-# save_historical_data(new_data)
-
-send_email(from_email, to_email, creds, changes)
+# from_email = 'nanookgolightly@gmail.com'
+# to_email = 'jeffreyfang@msn.com'
+#
+# old_data = load_previous_data()
+# type(old_data)  # Dict
+# print(old_data)
+# # {'2025-08-29': [{'Lodge': 'Cedar Creek Lodge (Columbia Falls, MT)', 'Room Type': 'Standard', 'Price': '$479.99'}, ...
+#
+# new_data = {}
+# type(new_data)  # Dict
+# print(new_data)
+# # {}
+#
+# start_date = datetime(2025, 8, 29)
+# end_date = datetime(2025, 9, 5)
+# delta = timedelta(days=1)
+#
+# while start_date <= end_date:
+#     print(start_date)
+#     availability = scrape_html(start_date.strftime('%m-%d-%Y'))
+#     new_data[start_date.strftime('%Y-%m-%d')] = availability
+#     start_date += delta
+#
+#
+# # Temp info to append to each date in new_data dictionary
+# type(availability)  # List
+# print(availability)
+#
+# type(new_data)  # Dict
+# print(new_data)
+# # {'2025-08-29': [
+# #     {'Lodge': 'Cedar Creek Lodge (Columbia Falls, MT)', 'Room Type': 'Standard', 'Price': '$479.99'},
+# #     {'Lodge': 'Lake McDonald', 'Room Type': 'Standard', 'Price': 'Not available'},
+# #     {'Lodge': 'Many Glacier Hotel', 'Room Type': 'Standard', 'Price': 'Not available'},
+# #     {'Lodge': 'Rising Sun Motor Inn & Cabins', 'Room Type': 'Standard', 'Price': 'Not available'},
+# #     {'Lodge': 'Swiftcurrent Motor Inn & Cabins', 'Room Type': 'Standard', 'Price': 'Not available'},
+# #     {'Lodge': 'Village Inn at Apgar', 'Room Type': 'Standard', 'Price': 'Not available'}],
+# #  '2025-08-30': [
+# #      {'Lodge': 'Cedar Creek Lodge (Columbia Falls, MT)', 'Room Type': 'Standard', 'Price': '$489.99'},
+# #     ...]
+#
+# creds = authenticate_gmail()
+#
+# changes = compare_and_notify(from_email, to_email, creds, new_data, old_data)
+# type(changes)  # List
+# print(changes)
+#
+#
+# # save_current_data(new_data)
+# # save_historical_data(new_data)
+#
+# send_email(from_email, to_email, creds, changes)
 
 
 # </editor-fold>
