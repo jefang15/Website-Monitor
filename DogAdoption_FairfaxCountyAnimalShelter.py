@@ -246,14 +246,14 @@ def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopt
     _html_content = "<html><body style='background-color: transparent;'>"
 
     # Add summary intro
-    summary_text = '<h1>Summary</h1><ul>'
+    _summary_text = '<h1>Summary</h1><ul>'
     if _new_dogs:
-        summary_text += f"<li>{len(_new_dogs)} new dog(s) available for adoption</li>"
+        _summary_text += f"<li>{len(_new_dogs)} new dog(s) available for adoption</li>"
     if _adopted_dogs:
-        summary_text += f"<li>{len(_adopted_dogs)} dog(s) adopted</li>"
-    summary_text += "</ul>"
+        _summary_text += f"<li>{len(_adopted_dogs)} dog(s) adopted</li>"
+    _summary_text += "</ul>"
 
-    _html_content += summary_text
+    _html_content += _summary_text
 
     # Add section for new dogs if there are any
     if _new_dogs:
