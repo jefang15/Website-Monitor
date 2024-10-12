@@ -411,6 +411,8 @@ def main():
 
     if _changes:
         send_email(_from_email, _to_email, _creds, _changes)
+    else:
+        print('No new availability or price decreases')
 
     # Save both the current and historical data
     save_current_data(_new_data)
