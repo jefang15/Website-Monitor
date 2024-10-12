@@ -1,5 +1,5 @@
 {
-    "timestamp": "2024-10-12 13:02:20",
+    "timestamp": "2024-10-12 12:01:54",
     "data": [
         {
             "Name": "A.E.",
@@ -7,7 +7,7 @@
             "Gender": "Male",
             "Breed": "Norwegian Elkhound mix",
             "Age": "12 weeks old",
-            "Picture": "https://24petconnect.com/image/630055086"
+            "Picture": "https://24petconnect.com/image/630049658"
         },
         {
             "Name": "BATMAN",
@@ -106,28 +106,12 @@
             "Picture": "https://24petconnect.com/image/629718313"
         },
         {
-            "Name": "MEELA",
-            "ID": "A297261",
-            "Gender": "Female",
-            "Breed": "Labrador Retriever mix",
-            "Age": "8 months old",
-            "Picture": "https://24petconnect.com/image/630055087"
-        },
-        {
             "Name": "PERCY",
             "ID": "A296726",
             "Gender": "Male",
             "Breed": "German Shepherd Dog",
             "Age": "10 years old",
             "Picture": "https://24petconnect.com/image/629176189"
-        },
-        {
-            "Name": "SAMSON",
-            "ID": "A136870",
-            "Gender": "Male",
-            "Breed": "Chihuahua - Smooth Coated and Labrador Retriever",
-            "Age": "14 years old",
-            "Picture": "https://24petconnect.com/image/630055084"
         },
         {
             "Name": "SHILOH",
