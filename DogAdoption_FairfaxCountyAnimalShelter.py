@@ -105,7 +105,7 @@ def save_current_data(_current_availability, _directory_previous_availability):
     :return:
     """
 
-    _current_availability2 = sorted(_current_availability, key=lambda x: x['name'])
+    _current_availability2 = sorted(_current_availability, key=lambda x: x['Name'])
 
     # Create a timestamp for when the scrape was performed
     timestamped_data = {
@@ -132,7 +132,7 @@ def save_historical_data(_current_availability, _directory_historical_availabili
     else:
         _historical_data = []
 
-    _current_availability2 = sorted(_current_availability, key=lambda x: x['name'])
+    _current_availability2 = sorted(_current_availability, key=lambda x: x['Name'])
 
     _timestamped_data = {
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -140,10 +140,10 @@ def save_historical_data(_current_availability, _directory_historical_availabili
     }
     _historical_data.append(_timestamped_data)
 
-    _historical_data2 = [{k: v for k, v in dog.items() if k != 'Photo_Path'} for dog in _historical_data]
+    # _historical_data2 = [{k: v for k, v in dog.items() if k != 'Photo_Path'} for dog in _historical_data]
 
     with open(_directory_historical_availability, 'w') as _file:
-        json.dump(_historical_data2, _file, indent=4)
+        json.dump(_historical_data, _file, indent=4)
 
 
 def compare_dogs(_current_dogs, _previous_dogs):
@@ -180,18 +180,18 @@ def download_new_dog_photos(_new_dogs, _photo_directory):
     """
 
     os.makedirs(_photo_directory, exist_ok=True)
-    for dog in _new_dogs:
-        if dog['Picture']:
-            response = requests.get(dog['Picture'])
-            if response.status_code == 200:
-                file_path = os.path.join(_photo_directory, f"{dog['Name']}_{dog['ID']}.png")
-                with open(file_path, 'wb') as file:
-                    file.write(response.content)
-                dog['Photo_Path'] = file_path
+    for _dog in _new_dogs:
+        if _dog['Picture']:
+            _response = requests.get(_dog['Picture'])
+            if _response.status_code == 200:
+                _file_path = os.path.join(_photo_directory, f"{_dog['Name']} ({_dog['ID']}).png")
+                with open(_file_path, 'wb') as file:
+                    file.write(_response.content)
+                # _dog['Photo_Path'] = _file_path
             else:
-                print(f"Failed to download image for {dog['Name']}.")
+                print(f"Failed to download image for {_dog['Name']}.")
         else:
-            print(f"No image found for {dog['Name']}.")
+            print(f"No image found for {_dog['Name']}.")
 
 
 def authenticate_gmail(_directory_credentials):
@@ -258,28 +258,28 @@ def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopt
     # Add section for new dogs if there are any
     if _new_dogs:
         _html_content += '<h1>New Dogs</h1>'
-        for dog in _new_dogs:
+        for _dog in _new_dogs:
             _html_content += f"""
                         <p>
-                            <b>{dog['Name']}</b> <br>
-                            {dog['Gender']}<br>
-                            {dog['Breed']}<br>
-                            {dog['Age']}<br>
-                            {'<img src="cid:' + dog['Name'] + '_' + dog['ID'] + '"><br>' if 'Photo_Path' in dog else ''}
+                            <b>{_dog['Name']}</b> <br>
+                            {_dog['Gender']}<br>
+                            {_dog['Breed']}<br>
+                            {_dog['Age']}<br>
+                            {'<img src="cid:' + _dog['Name'] + ' (' + _dog['ID'] + ')' + '"><br>'}
                         </p>
                     """
 
     # Add section for adopted dogs if there are any
     if _adopted_dogs:
         _html_content += "<h1>Adopted Dogs</h1>"
-        for dog in _adopted_dogs:
+        for _dog in _adopted_dogs:
             _html_content += f"""
                         <p>
-                            <b>{dog['Name']}</b> <br>
-                            {dog['Gender']}<br>
-                            {dog['Breed']}<br>
-                            {dog['Age']}<br>
-                            {'<img src="cid:' + dog['Name'] + '_' + dog['ID'] + '"><br>' if 'Photo_Path' in dog else ''}
+                            <b>{_dog['Name']}</b> <br>
+                            {_dog['Gender']}<br>
+                            {_dog['Breed']}<br>
+                            {_dog['Age']}<br>
+                            {'<img src="cid:' + _dog['Name'] + ' (' + _dog['ID'] + ')' + '"><br>'}
                         </p>
                     """
 
@@ -289,12 +289,13 @@ def send_email(_from_email, _to_email, _email_subject, _creds, _new_dogs, _adopt
     _msg.attach(MIMEText(_html_content, 'html'))
 
     # Attach images for new and adopted dogs
-    for dog in _new_dogs + _adopted_dogs:  # Combine both lists to attach images
-        if 'Photo_Path' in dog:
-            with open(dog['Photo_Path'], 'rb') as _img_file:
-                img = MIMEImage(_img_file.read())
-                img.add_header('Content-ID', f'<{dog["Name"]}_{dog["ID"]}>')
-                _msg.attach(img)
+    for _dog in _new_dogs + _adopted_dogs:  # Combine both lists to attach images
+        _photo_path = os.path.join(_directory_photos, f"{_dog['Name']} ({_dog['ID']}).png")
+        if os.path.exists(_photo_path):
+            with open(_photo_path, 'rb') as _img_file:
+                _img = MIMEImage(_img_file.read())
+                _img.add_header('Content-ID', f"<{_dog['Name']} ({_dog['ID']})>")
+                _msg.attach(_img)
 
     # Try sending the email and handle potential errors
     try:
