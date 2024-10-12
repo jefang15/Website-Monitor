@@ -1,5 +1,5 @@
 {
-    "timestamp": "2024-10-12 13:02:01",
+    "timestamp": "2024-10-12 16:16:32",
     "data": [
         {
             "Name": "Ace",
@@ -31,7 +31,7 @@
             "Gender": "Male/Neutered",
             "Breed": "Mixed Breed, Large (over 44 lbs fully grown)",
             "Age": "1 year 11 months",
-            "Picture": "https://g.petango.com/photos/2657/9668bd91-7a97-4370-ab07-7d36d537ed89.jpg"
+            "Picture": "https://g.petango.com/photos/2657/529f2d3d-3caa-46a5-b52e-dbc277b62a8d.jpg"
         },
         {
             "Name": "Bouncer",
@@ -40,14 +40,6 @@
             "Breed": "Mixed Breed, Large (over 44 lbs fully grown)",
             "Age": "2 years 8 months",
             "Picture": "https://g.petango.com/photos/2657/bf1e6301-e01e-40ad-a204-9b6ac971f1fc.jpg"
-        },
-        {
-            "Name": "Buster",
-            "ID": "42766901",
-            "Gender": "Male/Neutered",
-            "Breed": "Mixed Breed, Large (over 44 lbs fully grown)/Mix",
-            "Age": "10 years 1 month",
-            "Picture": "https://g.petango.com/photos/2657/77f189e9-d725-4736-9ecc-cef85254e4ea.jpg"
         },
         {
             "Name": "Casper",
