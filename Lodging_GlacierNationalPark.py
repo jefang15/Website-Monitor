@@ -301,7 +301,7 @@ def send_email(_from_email, _to_email, _creds, _changes):
     _msg = MIMEMultipart('multipart')  # To support mix of content types
     _msg['From'] = _from_email
     _msg['To'] = _to_email
-    _msg['Subject'] = '🛏️ Glacier Lodging Availability!'
+    _msg['Subject'] = '🛏️ Glacier Lodging Update!'
 
     # Build the email body
     _html_content = "<html><body style='background-color: transparent;'>"
