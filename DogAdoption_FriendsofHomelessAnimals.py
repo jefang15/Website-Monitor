@@ -454,7 +454,7 @@ if __name__ == "__main__":
 # email_subject = '🐶 {} Update!'.format(shelter_name)
 #
 # # Check pages
-# animal_count = check_pages('https://24petconnect.com/13168?at=DOG')
+# animal_count = check_pages(website_url)
 # pages = math.floor(animal_count / 30)
 # type(pages)  # Int
 #
