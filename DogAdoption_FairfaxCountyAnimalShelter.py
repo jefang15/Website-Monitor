@@ -33,7 +33,8 @@ def scrape_html(_website_url):
     :return: List of dictionaries containing dog availability information.
     """
 
-    _gecko_service = Service('/Users/jeff/Documents/Programming/Projects/Website-Monitor/geckodriver',
+    _gecko_service = Service(
+        '/Users/jeff/Documents/Programming/Projects/Website-Monitor/geckodriver',
         log_output=os.devnull)
     _firefox_options = Options()
     _firefox_options.add_argument('--headless')

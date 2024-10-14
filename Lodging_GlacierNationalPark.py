@@ -37,7 +37,7 @@ def scrape_html(_website_url):
     # Path to GeckoDriver
     _gecko_service = Service(
         '/Users/jeff/Documents/Programming/Projects/Website-Monitor/geckodriver',
-        log_output=None)
+        log_output=os.devnull)
 
     # Setup Firefox WebDriver options (needed due to JavaScript)
     _firefox_options = Options()
