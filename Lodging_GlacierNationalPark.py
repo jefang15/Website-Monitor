@@ -414,12 +414,12 @@ def main():
     else:
         print('No new availability or price decreases')
 
-    # Save both the current and historical data
+        save_historical_data(_new_data)
+
     save_current_data(_new_data)
-    save_historical_data(_new_data)
 
     # Sleep for X minutes before the next check
-    sleep_time = 15  # Minutes
+    sleep_time = 5  # Minutes
     print(f"Sleeping for {sleep_time} minutes...\n")
     time.sleep(sleep_time * 60)  # Convert minutes to seconds
 
