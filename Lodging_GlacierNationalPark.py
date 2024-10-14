@@ -204,7 +204,7 @@ def authenticate_gmail():
     return creds
 
 
-def compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
+def compare_availability(_from_email, _to_email, _creds, _new_data, _old_data):
     """
     Compare new data with old data and returns a list of lodges with changes from the last scrape.
 
@@ -231,24 +231,24 @@ def compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
                 # print(_new_room)
 
                 # Use this: to add all new rooms to the change list
-                _changes.append({
-                    'Lodge': _new_room['Lodge'],
-                    'Date': _date,
-                    'Room Type': _new_room['Room Type'],
-                    'Price': _new_room['Price'],
-                    'Change Type': 'New'
-                })
+                # _changes.append({
+                #     'Lodge': _new_room['Lodge'],
+                #     'Date': _date,
+                #     'Room Type': _new_room['Room Type'],
+                #     'Price': _new_room['Price'],
+                #     'Change Type': 'New'
+                # })
 
                 # Use this: to only add new rooms to the change list if its price is $400 or less
-                # _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
-                # if _new_price <= 400:
-                #     _changes.append({
-                #         'Lodge': _new_room['Lodge'],
-                #         'Date': _date,
-                #         'Room Type': _new_room['Room Type'],
-                #         'Price': _new_room['Price'],
-                #         'Change Type': 'New'
-                #     })
+                _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
+                if _new_price <= 400:
+                    _changes.append({
+                        'Lodge': _new_room['Lodge'],
+                        'Date': _date,
+                        'Room Type': _new_room['Room Type'],
+                        'Price': _new_room['Price'],
+                        'Change Type': 'New'
+                    })
 
         # For rooms that were previously available, check if the price decreased
         for _new_room in _rooms:
@@ -262,24 +262,24 @@ def compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data):
                         _old_price = float(_old_room['Price'].replace('$', '').replace(',', ''))
 
                         # Use this: to add rooms with price decreases
-                        if _new_price < _old_price:  # Price decrease detected
-                            _changes.append({
-                                'Lodge': _new_room['Lodge'],
-                                'Date': _date,
-                                'Room Type': _new_room['Room Type'],
-                                'Price': _new_room['Price'],
-                                'Change Type': f'Price decreased ${round(_old_price - _new_price, 2)}'
-                            })
-
-                        # Use this: to add rooms with price decreases to $400 or below
-                        # if _new_price < _old_price and _new_price <= 400:
+                        # if _new_price < _old_price:  # Price decrease detected
                         #     _changes.append({
                         #         'Lodge': _new_room['Lodge'],
                         #         'Date': _date,
                         #         'Room Type': _new_room['Room Type'],
                         #         'Price': _new_room['Price'],
-                        #         'Change Type': f'Price decreased ${_old_price - _new_price}'
+                        #         'Change Type': f'Price decreased ${round(_old_price - _new_price, 2)}'
                         #     })
+
+                        # Use this: to add rooms with price decreases to $400 or below
+                        if _new_price < _old_price and _new_price <= 400:
+                            _changes.append({
+                                'Lodge': _new_room['Lodge'],
+                                'Date': _date,
+                                'Room Type': _new_room['Room Type'],
+                                'Price': _new_room['Price'],
+                                'Change Type': f'Price decreased ${_old_price - _new_price}'
+                            })
 
     return _changes
 
@@ -407,7 +407,7 @@ def main():
 
     _creds = authenticate_gmail()
 
-    _changes = compare_and_notify(_from_email, _to_email, _creds, _new_data, _old_data)
+    _changes = compare_availability(_from_email, _to_email, _creds, _new_data, _old_data)
 
     if _changes:
         send_email(_from_email, _to_email, _creds, _changes)
@@ -480,7 +480,7 @@ if __name__ == '__main__':
 #
 # creds = authenticate_gmail()
 #
-# changes = compare_and_notify(from_email, to_email, creds, new_data, old_data)
+# changes = compare_availability(from_email, to_email, creds, new_data, old_data)
 # type(changes)  # List
 # print(changes)
 #
