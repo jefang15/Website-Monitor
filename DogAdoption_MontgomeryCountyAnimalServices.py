@@ -431,7 +431,7 @@ def main():
 
         # Sleep for X minutes before the next check
         sleep_time = 30  # Minutes
-        print(f"Sleeping for {sleep_time} minutes...")
+        print(f"Sleeping for {sleep_time} minutes...\n")
         time.sleep(sleep_time * 60)  # Convert minutes to seconds
 
 
