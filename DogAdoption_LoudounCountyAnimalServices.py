@@ -23,6 +23,37 @@ from googleapiclient.discovery import build
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
+import math
+
+
+def check_pages(_website_url):
+    _gecko_service = Service(
+        '/Users/jeff/Documents/Programming/Projects/Website-Monitor/geckodriver',
+        log_output=os.devnull)
+    _firefox_options = Options()
+    _firefox_options.add_argument('--headless')
+
+    _driver = webdriver.Firefox(service=_gecko_service, options=_firefox_options)
+    _driver.get(_website_url)
+
+    time.sleep(5)
+
+    _page_source = _driver.page_source
+    _soup = BeautifulSoup(_page_source, 'html.parser')
+    _driver.quit()
+
+    # Check number of pages
+    _animal_count_header = _soup.find('h3', id='AnimalCountHeader')
+
+    if _animal_count_header:
+        _animal_count_text = _animal_count_header.text.strip()
+        _animal_count_str = _animal_count_text.split(' of ', 1)[1]
+        _animal_count_int = int(_animal_count_str)
+
+        return _animal_count_int
+    else:
+        _animal_count_int = 30
+        return _animal_count_int
 
 
 def scrape_html(_website_url):
@@ -357,7 +388,20 @@ def main():
                 time.sleep((next_run_time - current_time).total_seconds())  # Sleep until 8 AM
             continue  # Skip to the next iteration of the loop
 
-        _current_availability = scrape_html(_website_url)
+        # Check pages
+        _animal_count = check_pages(_website_url)
+        _pages = math.floor(_animal_count / 30)
+
+        _current_availability = []
+        for page in range(_pages + 1):
+            if page == 0:
+                _current_availability += scrape_html(_website_url)
+            else:
+                count = 30 * page
+                # Website URL for additional pages
+                website_url_page_n = f'https://24petconnect.com/LODN?index={count}&at=DOG'
+                _current_availability += scrape_html(website_url_page_n)
+
         _previous_availability = load_previous_data(_directory_previous_availability)
 
         _new_dogs, _adopted_dogs = compare_dogs(_current_availability, _previous_availability)
@@ -410,7 +454,24 @@ if __name__ == "__main__":
 # shelter_name = 'Loudoun County Animal Services'
 # email_subject = '🐶 {} Update!'.format(shelter_name)
 #
-# current_availability = scrape_html(website_url)
+# # Check pages
+# animal_count = check_pages(website_url)
+# # print(type(animal_count))  # Int
+#
+# pages = math.floor(animal_count / 30)
+# type(pages)  # Int
+#
+# # Scrape dog information for each page
+# current_availability = []
+# for page in range(pages + 1):
+#     if page == 0:
+#         current_availability += scrape_html(website_url)
+#     else:
+#         count = 30 * page
+#         # Website URL for additional pages
+#         website_url_page_n = f'https://24petconnect.com/LODN?index={count}&at=DOG'
+#         current_availability += scrape_html(website_url_page_n)
+#
 # type(current_availability)  # List
 # # print(current_availability)
 # # [{'Name': 'BOWIE', 'ID': 'A210278', 'Gender': 'Male', 'Breed': 'St Bernard - Smooth Coated', 'Age': '6 years old',
@@ -441,10 +502,4 @@ if __name__ == "__main__":
 
 
 # </editor-fold>
-
-
-# TODO: modify code to account for there being a second page of available dogs
-# Set URL
-# url_page1 = 'https://24petconnect.com/LODN?at=DOG'
-# url_page2 = 'https://24petconnect.com/LODN?index=30&at=DOG'
 
