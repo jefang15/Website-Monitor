@@ -316,21 +316,6 @@ def send_email(_from_email, _to_email, _creds, _changes):
     # Build the email body
     _html_content = "<html><body style='background-color: transparent;'>"
 
-    # Static itinerary
-    _summary_text = '<h1>Itinerary</h1>'
-
-    _summary_text += (
-        '-Fri, Aug 29, 2025: Lake McDonald/Apgar<br>'
-        '-Sat, Aug 30, 2025: Lake McDonald<br>'
-        '-Sun, Aug 31, 2025: Lake McDonald<br>'
-        '-Mon, Sep 1, 2025: Waterton<br>'
-        '-Tue, Sep 2, 2025: Many Glacier<br>'
-        '-Wed, Sep 3, 2025: Many Glacier<br>'
-        '-Thu, Sep 4, 2025: Many Glacier<br>'
-        '-Fri, Sep 5, 2025: Lake McDonald/Apgar<br>'
-        '<br><br>')
-    _html_content += _summary_text
-
     # Group changes by date
     grouped_changes = {}
 
@@ -363,6 +348,21 @@ def send_email(_from_email, _to_email, _creds, _changes):
             f"Change: {_change['Change Type']}<br><br>"
         )
 
+    # Static itinerary
+    _summary_text = '<h1>Itinerary</h1>'
+    _summary_text += (
+        '-Fri, Aug 29, 2025: Lake McDonald/Apgar<br>'
+        '-Sat, Aug 30, 2025: Lake McDonald<br>'
+        '-Sun, Aug 31, 2025: Lake McDonald<br>'
+        '-Mon, Sep 1, 2025: Waterton<br>'
+        '-Tue, Sep 2, 2025: Many Glacier<br>'
+        '-Wed, Sep 3, 2025: Many Glacier<br>'
+        '-Thu, Sep 4, 2025: Many Glacier<br>'
+        '-Fri, Sep 5, 2025: Lake McDonald/Apgar<br>'
+        '<br>')
+    _html_content += _summary_text
+
+    # Add link to website
     _website_url = 'https://secure.glaciernationalparklodges.com/booking/lodging?_gl=1%2axa24f8%2a_gcl_aw%2aR0NMLjE3Mjg3MDYwOTAuQ2p3S0NBandtYU80QmhBaEVpd0E1cDRZTDFONkVtVWdUSFdZSVZpQjIzWVY0aVhTeVhTa1lWNkFwcjVNdHc1Wjk1OWRFUW9JaTdtS1ZSb0NqTEVRQXZEX0J3RQ..%2a_gcl_au%2aMjE0MzkyMzY5NC4xNzI2MzY3MzIy%2a_ga%2aMTY5MzM0OTM3My4xNzI2MzY3MzIy%2a_ga_GCMW2T3P1D%2aMTcyODcwNjA4NS43OS4xLjE3Mjg3MDYwOTAuNTUuMC4w'
     _lodge_name = 'Glacier National Park Lodges'
     _html_content += f"<p>More details at <a href='{_website_url}'>{_lodge_name}</a></p>"
@@ -404,6 +404,9 @@ def main():
     _start_date = datetime(2025, 8, 29)
     _end_date = datetime(2025, 9, 5)
     _delta = timedelta(days=1)
+
+    # Print current datetime
+    print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
     while _start_date <= _end_date:
         
