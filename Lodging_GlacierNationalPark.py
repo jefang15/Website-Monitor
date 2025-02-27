@@ -225,7 +225,7 @@ def compare_availability(_from_email, _to_email, _creds, _new_data, _old_data):
             # type(_old_data)  # Dict of list
             # print(_old_data)
 
-        # New rooms (not in old data) are automatically added to the change list (if their price is $400 or less)
+        # New rooms (not in old data) are automatically added to the change list
         for _new_room in _rooms:
             if _new_room not in _old_data[_date] and _new_room['Price'] != 'Not available':
                 # print(_new_room)
@@ -239,9 +239,19 @@ def compare_availability(_from_email, _to_email, _creds, _new_data, _old_data):
                 #     'Change Type': 'New'
                 # })
 
-                # Use this: to only add new rooms to the change list if its price is $400 or less
-                _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
-                if _new_price <= 400:
+                # Use this: to only add new rooms to the change list if its price is $500 or less
+                # _new_price = float(_new_room['Price'].replace('$', '').replace(',', ''))
+                # if _new_price <= 500:
+                #     _changes.append({
+                #         'Lodge': _new_room['Lodge'],
+                #         'Date': _date,
+                #         'Room Type': _new_room['Room Type'],
+                #         'Price': _new_room['Price'],
+                #         'Change Type': 'New'
+                #     })
+
+                # Use this: to only add new rooms to change list if at specific lodges
+                if _new_room['Lodge'] == 'Lake McDonald' or _new_room['Lodge'] == 'Many Glacier Hotel':
                     _changes.append({
                         'Lodge': _new_room['Lodge'],
                         'Date': _date,
@@ -271,8 +281,8 @@ def compare_availability(_from_email, _to_email, _creds, _new_data, _old_data):
                         #         'Change Type': f'Price decreased ${round(_old_price - _new_price, 2)}'
                         #     })
 
-                        # Use this: to add rooms with price decreases to $400 or below
-                        if _new_price < _old_price and _new_price <= 400:
+                        # Use this: to add rooms with price decreases to $500 or below
+                        if _new_price < _old_price and _new_price <= 500:
                             _changes.append({
                                 'Lodge': _new_room['Lodge'],
                                 'Date': _date,
