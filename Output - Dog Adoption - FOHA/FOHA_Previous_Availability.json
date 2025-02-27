@@ -1,5 +1,5 @@
 {
-    "timestamp": "2024-10-14 08:13:05",
+    "timestamp": "2025-02-25 08:01:10",
     "data": [
         {
             "Name": "Ashland",
@@ -15,7 +15,7 @@
             "Gender": "Male",
             "Breed": "American Foxhound",
             "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347276&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Buddy",
@@ -23,7 +23,7 @@
             "Gender": "Male",
             "Breed": "Labrador Retriever",
             "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347268&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Cardi",
@@ -39,23 +39,7 @@
             "Gender": "Male",
             "Breed": "Siberian Husky",
             "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347271&clan_id=1"
-        },
-        {
-            "Name": "Coco",
-            "ID": "42805305",
-            "Gender": "Female",
-            "Breed": "Labrador Retriever",
-            "Age": "Young",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42805305&clan_id=1"
-        },
-        {
-            "Name": "Coco",
-            "ID": "42805305",
-            "Gender": "Female",
-            "Breed": "Labrador Retriever",
-            "Age": "Young",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42805305&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Colt",
@@ -63,23 +47,7 @@
             "Gender": "Male",
             "Breed": "English Coonhound (Redtick Coonhound)",
             "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347248&clan_id=1"
-        },
-        {
-            "Name": "DIEGO",
-            "ID": "42732092",
-            "Gender": "Male",
-            "Breed": "Dalmatian",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42732092&clan_id=1"
-        },
-        {
-            "Name": "DIEGO",
-            "ID": "42732092",
-            "Gender": "Male",
-            "Breed": "Dalmatian",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42732092&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Doris",
@@ -95,7 +63,7 @@
             "Gender": "Male",
             "Breed": "American Foxhound",
             "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347266&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Echo",
@@ -104,14 +72,6 @@
             "Breed": "German Shepherd Dog",
             "Age": "Senior",
             "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347254&clan_id=1"
-        },
-        {
-            "Name": "Jango",
-            "ID": "39347256",
-            "Gender": "Male",
-            "Breed": "Pointer",
-            "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347256&clan_id=1"
         },
         {
             "Name": "Janis J",
@@ -135,23 +95,23 @@
             "Gender": "Male",
             "Breed": "American Foxhound",
             "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347257&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
-            "Name": "LARA",
-            "ID": "42805302",
-            "Gender": "Female",
-            "Breed": "Soft-Coated Wheaten Terrier",
-            "Age": "Young",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42805302&clan_id=1"
+            "Name": "Kodak",
+            "ID": "43877005",
+            "Gender": "Male",
+            "Breed": "Breed information is not provided by this shelter",
+            "Age": "Adult",
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
-            "Name": "LARA",
-            "ID": "42805302",
-            "Gender": "Female",
-            "Breed": "Soft-Coated Wheaten Terrier",
-            "Age": "Young",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42805302&clan_id=1"
+            "Name": "Kodak",
+            "ID": "43877005",
+            "Gender": "Male",
+            "Breed": "Breed information is not provided by this shelter",
+            "Age": "Adult",
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Lambert",
@@ -159,7 +119,15 @@
             "Gender": "Male",
             "Breed": "German Shepherd Dog",
             "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347245&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
+        },
+        {
+            "Name": "Lennox",
+            "ID": "39621720",
+            "Gender": "Male",
+            "Breed": "Siberian Husky",
+            "Age": "Adult",
+            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39621720&clan_id=1"
         },
         {
             "Name": "Leo",
@@ -167,23 +135,7 @@
             "Gender": "Male",
             "Breed": "Breed information is not provided by this shelter",
             "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347281&clan_id=1"
-        },
-        {
-            "Name": "Logan",
-            "ID": "42787352",
-            "Gender": "Male",
-            "Breed": "Labrador Retriever",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42787352&clan_id=1"
-        },
-        {
-            "Name": "Logan",
-            "ID": "42787352",
-            "Gender": "Male",
-            "Breed": "Labrador Retriever",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42787352&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Lynk",
@@ -202,28 +154,12 @@
             "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347272&clan_id=1"
         },
         {
-            "Name": "Marble",
-            "ID": "42736375",
-            "Gender": "Female",
-            "Breed": "German Shepherd Dog",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42736375&clan_id=1"
-        },
-        {
-            "Name": "Marble",
-            "ID": "42736375",
-            "Gender": "Female",
-            "Breed": "German Shepherd Dog",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42736375&clan_id=1"
-        },
-        {
             "Name": "Marvin",
             "ID": "39347258",
             "Gender": "Male",
             "Breed": "Labrador Retriever",
             "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347258&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Mason",
@@ -234,12 +170,28 @@
             "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347259&clan_id=1"
         },
         {
-            "Name": "Murphy",
-            "ID": "39347260",
-            "Gender": "Male",
+            "Name": "NEBULA",
+            "ID": "43847659",
+            "Gender": "Female",
+            "Breed": "Labrador Retriever",
+            "Age": "Young",
+            "Picture": "/Content/Images/No_pic_t.jpg"
+        },
+        {
+            "Name": "NEBULA",
+            "ID": "43847659",
+            "Gender": "Female",
+            "Breed": "Labrador Retriever",
+            "Age": "Young",
+            "Picture": "/Content/Images/No_pic_t.jpg"
+        },
+        {
+            "Name": "Nanni",
+            "ID": "39347288",
+            "Gender": "Female",
             "Breed": "German Shepherd Dog",
-            "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347260&clan_id=1"
+            "Age": "Adult",
+            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347288&clan_id=1"
         },
         {
             "Name": "Nelson",
@@ -247,7 +199,7 @@
             "Gender": "Male",
             "Breed": "Border Collie",
             "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347261&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Nigel",
@@ -263,7 +215,7 @@
             "Gender": "Male",
             "Breed": "American Foxhound",
             "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347262&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Ohana",
@@ -295,7 +247,7 @@
             "Gender": "Male",
             "Breed": "Border Collie",
             "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347273&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Queen",
@@ -303,55 +255,7 @@
             "Gender": "Female",
             "Breed": "Mastiff",
             "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347278&clan_id=1"
-        },
-        {
-            "Name": "RAMONA",
-            "ID": "42805303",
-            "Gender": "Female",
-            "Breed": "English Coonhound (Redtick Coonhound)",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42805303&clan_id=1"
-        },
-        {
-            "Name": "RAMONA",
-            "ID": "42805303",
-            "Gender": "Female",
-            "Breed": "English Coonhound (Redtick Coonhound)",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42805303&clan_id=1"
-        },
-        {
-            "Name": "ROCKET",
-            "ID": "42805304",
-            "Gender": "Male",
-            "Breed": "Labrador Retriever",
-            "Age": "Puppy",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42805304&clan_id=1"
-        },
-        {
-            "Name": "ROCKET",
-            "ID": "42805304",
-            "Gender": "Male",
-            "Breed": "Labrador Retriever",
-            "Age": "Puppy",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42805304&clan_id=1"
-        },
-        {
-            "Name": "SADIE",
-            "ID": "42815663",
-            "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42815663&clan_id=1"
-        },
-        {
-            "Name": "SADIE",
-            "ID": "42815663",
-            "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42815663&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         },
         {
             "Name": "Samson",
@@ -362,76 +266,12 @@
             "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347265&clan_id=1"
         },
         {
-            "Name": "Steffie",
-            "ID": "42814164",
-            "Gender": "Female",
-            "Breed": "Siberian Husky",
-            "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42814164&clan_id=1"
-        },
-        {
-            "Name": "Steffie",
-            "ID": "42814164",
-            "Gender": "Female",
-            "Breed": "Siberian Husky",
-            "Age": "Senior",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42814164&clan_id=1"
-        },
-        {
-            "Name": "TERRI",
-            "ID": "42815662",
-            "Gender": "Male",
-            "Breed": "Soft-Coated Wheaten Terrier",
-            "Age": "Young",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42815662&clan_id=1"
-        },
-        {
-            "Name": "TERRI",
-            "ID": "42815662",
-            "Gender": "Male",
-            "Breed": "Soft-Coated Wheaten Terrier",
-            "Age": "Young",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42815662&clan_id=1"
-        },
-        {
-            "Name": "TRENT",
-            "ID": "42816353",
-            "Gender": "Male",
-            "Breed": "Labrador Retriever",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42816353&clan_id=1"
-        },
-        {
-            "Name": "TRENT",
-            "ID": "42816353",
-            "Gender": "Male",
-            "Breed": "Labrador Retriever",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42816353&clan_id=1"
-        },
-        {
-            "Name": "WYATT",
-            "ID": "42695881",
-            "Gender": "Male",
-            "Breed": "Anatolian Shepherd",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42695881&clan_id=1"
-        },
-        {
-            "Name": "WYATT",
-            "ID": "42695881",
-            "Gender": "Male",
-            "Breed": "Anatolian Shepherd",
-            "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=42695881&clan_id=1"
-        },
-        {
             "Name": "Wally",
             "ID": "39347244",
             "Gender": "Male",
             "Breed": "Great Pyrenees",
             "Age": "Adult",
-            "Picture": "https://www.adoptapet.com/cgi-bin/public/petsearch.cgi/photo_url?pet_id=39347244&clan_id=1"
+            "Picture": "/Content/Images/No_pic_t.jpg"
         }
     ]
 }
