@@ -405,8 +405,12 @@ def main():
     _end_date = datetime(2025, 9, 5)
     _delta = timedelta(days=1)
 
+<<<<<<< Updated upstream
     # Print current datetime
     print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+=======
+    print("Run cycle: {}".format(datetime.now().strftime('%Y-%m-%d %I:%M:%S %p')), flush=True)
+>>>>>>> Stashed changes
 
     while _start_date <= _end_date:
         
