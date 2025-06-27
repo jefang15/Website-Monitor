@@ -1,11 +1,37 @@
 {
-    "2025-08-29": [],
-    "2025-08-30": [
+    "2025-08-29": [
+        {
+            "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
+            "Room Type": "Standard",
+            "Price": "$429.99"
+        },
+        {
+            "Lodge": "Lake McDonald",
+            "Room Type": "Standard",
+            "Price": "Not available"
+        },
+        {
+            "Lodge": "Many Glacier Hotel",
+            "Room Type": "Standard",
+            "Price": "Not available"
+        },
+        {
+            "Lodge": "Rising Sun Motor Inn & Cabins",
+            "Room Type": "Standard",
+            "Price": "Not available"
+        },
+        {
+            "Lodge": "Swiftcurrent Motor Inn & Cabins",
+            "Room Type": "Standard",
+            "Price": "Not available"
+        },
         {
             "Lodge": "Village Inn at Apgar",
             "Room Type": "Standard",
-            "Price": "$259.59"
-        },
+            "Price": "Not available"
+        }
+    ],
+    "2025-08-30": [
         {
             "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
             "Room Type": "Standard",
@@ -30,33 +56,6 @@
             "Lodge": "Swiftcurrent Motor Inn & Cabins",
             "Room Type": "Standard",
             "Price": "Not available"
-        }
-    ],
-    "2025-08-31": [
-        {
-            "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
-            "Room Type": "Standard",
-            "Price": "$399.99"
-        },
-        {
-            "Lodge": "Lake McDonald",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Many Glacier Hotel",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Rising Sun Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Swiftcurrent Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
         },
         {
             "Lodge": "Village Inn at Apgar",
@@ -64,38 +63,8 @@
             "Price": "Not available"
         }
     ],
-    "2025-09-01": [
-        {
-            "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
-            "Room Type": "Standard",
-            "Price": "$329.99"
-        },
-        {
-            "Lodge": "Lake McDonald",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Many Glacier Hotel",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Rising Sun Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Swiftcurrent Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Village Inn at Apgar",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        }
-    ],
+    "2025-08-31": [],
+    "2025-09-01": [],
     "2025-09-02": [
         {
             "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
@@ -128,100 +97,7 @@
             "Price": "Not available"
         }
     ],
-    "2025-09-03": [
-        {
-            "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
-            "Room Type": "Standard",
-            "Price": "$399.99"
-        },
-        {
-            "Lodge": "Lake McDonald",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Many Glacier Hotel",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Rising Sun Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Swiftcurrent Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Village Inn at Apgar",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        }
-    ],
-    "2025-09-04": [
-        {
-            "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
-            "Room Type": "Standard",
-            "Price": "$359.99"
-        },
-        {
-            "Lodge": "Lake McDonald",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Many Glacier Hotel",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Rising Sun Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Swiftcurrent Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Village Inn at Apgar",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        }
-    ],
-    "2025-09-05": [
-        {
-            "Lodge": "Cedar Creek Lodge (Columbia Falls, MT)",
-            "Room Type": "Standard",
-            "Price": "$409.99"
-        },
-        {
-            "Lodge": "Lake McDonald",
-            "Room Type": "Standard",
-            "Price": "$640.32"
-        },
-        {
-            "Lodge": "Many Glacier Hotel",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Rising Sun Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Swiftcurrent Motor Inn & Cabins",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        },
-        {
-            "Lodge": "Village Inn at Apgar",
-            "Room Type": "Standard",
-            "Price": "Not available"
-        }
-    ]
+    "2025-09-03": [],
+    "2025-09-04": [],
+    "2025-09-05": []
 }
