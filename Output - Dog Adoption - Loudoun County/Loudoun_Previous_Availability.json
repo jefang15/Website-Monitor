@@ -1,125 +1,117 @@
 {
-    "timestamp": "2025-02-26 17:38:05",
+    "timestamp": "2025-06-22 17:38:53",
     "data": [
         {
-            "Name": "DUKE",
-            "ID": "A296656",
+            "Name": "AIDEN",
+            "ID": "A300033",
             "Gender": "Male",
-            "Breed": "Basenji mix",
-            "Age": "5 years old",
-            "Picture": "https://24petconnect.com/image/647589306"
+            "Breed": "Pit Bull Terrier mix",
+            "Age": "1 year",
+            "Picture": "https://24petconnect.com/image/661184571"
         },
         {
-            "Name": "HANDSOME",
-            "ID": "A295535",
+            "Name": "BARNS",
+            "ID": "A306380",
+            "Gender": "Male",
+            "Breed": "Shih Tzu",
+            "Age": "5 years old",
+            "Picture": "https://24petconnect.com/image/661223209"
+        },
+        {
+            "Name": "BROCK",
+            "ID": "A305251",
             "Gender": "Male",
             "Breed": "Pit Bull Terrier",
-            "Age": "1 year, 6 months old",
-            "Picture": "https://24petconnect.com/image/647589304"
+            "Age": "1 year",
+            "Picture": "https://24petconnect.com/image/660822342"
         },
         {
-            "Name": "JACK",
-            "ID": "A266867",
-            "Gender": "Male",
+            "Name": "CLEO",
+            "ID": "A298992",
+            "Gender": "Female",
+            "Breed": "American Staffordshire Terrier",
+            "Age": "10 years old",
+            "Picture": "https://24petconnect.com/image/661184569"
+        },
+        {
+            "Name": "COFFEE",
+            "ID": "A306366",
+            "Gender": "Female",
             "Breed": "Labrador Retriever mix",
-            "Age": "6 years old",
-            "Picture": "https://24petconnect.com/image/647604011"
+            "Age": "6 months old",
+            "Picture": "https://24petconnect.com/image/660936977"
         },
         {
-            "Name": "KANNON",
-            "ID": "A296657",
+            "Name": "CRICKET",
+            "ID": "A265729",
             "Gender": "Male",
-            "Breed": "Fox Terrier - Smooth and Beagle",
-            "Age": "8 years old",
-            "Picture": "https://24petconnect.com/image/647589305"
+            "Breed": "Hound",
+            "Age": "5 years old",
+            "Picture": "https://24petconnect.com/image/661184579"
         },
         {
-            "Name": "LEO",
-            "ID": "A301641",
+            "Name": "HAY",
+            "ID": "A306381",
+            "Gender": "Female",
+            "Breed": "Shih Tzu",
+            "Age": "5 years old",
+            "Picture": "https://24petconnect.com/image/661227595"
+        },
+        {
+            "Name": "JUPITER",
+            "ID": "A246840",
+            "Gender": "Male",
+            "Breed": "Pit Bull Terrier",
+            "Age": "5 years old",
+            "Picture": "https://24petconnect.com/image/660168896"
+        },
+        {
+            "Name": "KNIGHT",
+            "ID": "A273613",
             "Gender": "Male",
             "Breed": "German Shepherd Dog",
-            "Age": "6 years old",
-            "Picture": "https://24petconnect.com/image/647594648"
+            "Age": "2 years, 8 months old",
+            "Picture": "https://24petconnect.com/image/660168898"
         },
         {
-            "Name": "LOVELY",
-            "ID": "A173751",
-            "Gender": "Female",
-            "Breed": "Pit Bull Terrier",
-            "Age": "10 years old",
-            "Picture": "https://24petconnect.com/image/647594649"
+            "Name": "MORE DOGS",
+            "ID": "A302794",
+            "Gender": "Unknown gender",
+            "Breed": "Golden Retriever mix",
+            "Age": "Age unknown",
+            "Picture": "https://24petconnect.com/image/656253231"
         },
         {
-            "Name": "MEEKO",
+            "Name": "MURRAY",
+            "ID": "A305230",
+            "Gender": "Male",
+            "Breed": "Hound mix",
+            "Age": "4 years old",
+            "Picture": "https://24petconnect.com/image/659739442"
+        },
+        {
+            "Name": "PANDA",
             "ID": "A296120",
             "Gender": "Male",
             "Breed": "Norwegian Elkhound mix",
             "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/647495732"
+            "Picture": "https://24petconnect.com/image/661184583"
         },
         {
-            "Name": "MIA",
-            "ID": "A301108",
-            "Gender": "Female",
-            "Breed": "German Shepherd Dog",
-            "Age": "5 years old",
-            "Picture": "https://24petconnect.com/image/647451250"
-        },
-        {
-            "Name": "NEWT",
-            "ID": "A292740",
+            "Name": "SOCRATES",
+            "ID": "A306060",
             "Gender": "Male",
-            "Breed": "Labrador Retriever and Staffordshire Bull Terrier",
-            "Age": "9 months old",
-            "Picture": "https://24petconnect.com/image/647365995"
-        },
-        {
-            "Name": "PORKCHOP",
-            "ID": "A300609",
-            "Gender": "Male",
-            "Breed": "Staffordshire Bull Terrier",
-            "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/647589302"
-        },
-        {
-            "Name": "POTTS",
-            "ID": "A280116",
-            "Gender": "Male",
-            "Breed": "Flat-Coated Retriever mix",
-            "Age": "8 years old",
-            "Picture": "https://24petconnect.com/image/645792616"
-        },
-        {
-            "Name": "QUINN",
-            "ID": "A301969",
-            "Gender": "Female",
             "Breed": "Pit Bull Terrier",
-            "Age": "6 years old",
-            "Picture": "https://24petconnect.com/image/647495724"
+            "Age": "1 year, 4 months old",
+            "Picture": "https://24petconnect.com/image/661184573"
         },
         {
-            "Name": "SCARLETT",
-            "ID": "A300819",
-            "Gender": "Female",
-            "Breed": "Black and Tan Coonhound",
-            "Age": "8 years old",
-            "Picture": "https://24petconnect.com/image/647495725"
-        },
-        {
-            "Name": "SWEETY",
-            "ID": "A298655",
-            "Gender": "Female",
-            "Breed": "Boxer mix",
-            "Age": "2 years, 3 months old",
-            "Picture": "https://24petconnect.com/image/647105793"
-        },
-        {
-            "Name": "WILEY",
-            "ID": "A301612",
+            "Name": "TEDDY",
+            "ID": "A304269",
             "Gender": "Male",
-            "Breed": "Australian Shepherd",
-            "Age": "1 year",
-            "Picture": "https://24petconnect.com/image/647495729"
+            "Breed": "Doberman Pinscher mix",
+            "Age": "1 year, 4 months old",
+            "Picture": "https://24petconnect.com/image/657145705"
         }
     ]
 }

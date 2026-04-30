@@ -1,29 +1,69 @@
 {
-    "timestamp": "2025-02-26 16:44:18",
+    "timestamp": "2025-06-21 19:51:13",
     "data": [
+        {
+            "Name": "*Adorabull",
+            "ID": "A532100",
+            "Gender": "Female",
+            "Breed": "Staffordshire Bull Terrier and American Pit Bull Terrier",
+            "Age": "2 years",
+            "Picture": "https://24petconnect.com/image/660935932"
+        },
+        {
+            "Name": "*Ambassador",
+            "ID": "A526795",
+            "Gender": "Male",
+            "Breed": "American Pit Bull Terrier",
+            "Age": "1 year, 4 months old",
+            "Picture": "https://24petconnect.com/image/660314903"
+        },
         {
             "Name": "*Arnold",
             "ID": "A522706",
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier mix",
-            "Age": "1 year, 6 months old",
-            "Picture": "https://24petconnect.com/image/647609505"
+            "Age": "1 year, 10 months old",
+            "Picture": "https://24petconnect.com/image/660546723"
         },
         {
-            "Name": "*Be Mine",
-            "ID": "A528270",
+            "Name": "*Bella Ol Stella",
+            "ID": "A531743",
+            "Gender": "Female",
+            "Breed": "Labrador Retriever",
+            "Age": "8 years old",
+            "Picture": "https://24petconnect.com/image/660538732"
+        },
+        {
+            "Name": "*Bringle",
+            "ID": "A531357",
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier",
-            "Age": "1 year",
-            "Picture": "https://24petconnect.com/image/647382811"
+            "Age": "2 years, 1 month old",
+            "Picture": "https://24petconnect.com/image/660891980"
+        },
+        {
+            "Name": "*Buffy",
+            "ID": "A531438",
+            "Gender": "Female",
+            "Breed": "Alaskan Husky",
+            "Age": "1 year, 1 month old",
+            "Picture": "https://24petconnect.com/image/660065131"
         },
         {
             "Name": "*Bumblebee",
             "ID": "A526843",
             "Gender": "Female",
             "Breed": "Rottweiler and American Pit Bull Terrier",
-            "Age": "10 months old",
-            "Picture": "https://24petconnect.com/image/646808387"
+            "Age": "1 year, 2 months old",
+            "Picture": "https://24petconnect.com/image/655117159"
+        },
+        {
+            "Name": "*Chachachachia",
+            "ID": "A532249",
+            "Gender": "Male",
+            "Breed": "Pomeranian",
+            "Age": "12 years old",
+            "Picture": "https://24petconnect.com/image/660948343"
         },
         {
             "Name": "*Chanel",
@@ -31,55 +71,39 @@
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier",
             "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/645134333"
+            "Picture": "https://24petconnect.com/image/658230417"
         },
         {
-            "Name": "*Chotso",
-            "ID": "A527692",
+            "Name": "*Cheyenne",
+            "ID": "A501153",
             "Gender": "Female",
-            "Breed": "American Pit Bull Terrier mix",
+            "Breed": "American Staffordshire Terrier",
             "Age": "4 years old",
-            "Picture": "https://24petconnect.com/image/647503794"
+            "Picture": "https://24petconnect.com/image/659279601"
         },
         {
-            "Name": "*Cruiser",
-            "ID": "A527092",
+            "Name": "*Cygnus",
+            "ID": "A501608",
+            "Gender": "Male",
+            "Breed": "German Shepherd Dog",
+            "Age": "4 years old",
+            "Picture": "https://24petconnect.com/image/660672985"
+        },
+        {
+            "Name": "*Eeyore",
+            "ID": "A529979",
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier",
-            "Age": "2 years, 1 month old",
-            "Picture": "https://24petconnect.com/image/644396310"
+            "Age": "4 years old",
+            "Picture": "https://24petconnect.com/image/660428845"
         },
         {
-            "Name": "*Finn",
-            "ID": "A527757",
+            "Name": "*Eton",
+            "ID": "A530995",
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier",
-            "Age": "2 years, 1 month old",
-            "Picture": "https://24petconnect.com/image/646928987"
-        },
-        {
-            "Name": "*Han Solo",
-            "ID": "A528361",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "5 months old",
-            "Picture": "https://24petconnect.com/image/647595878"
-        },
-        {
-            "Name": "*Iggy",
-            "ID": "A520093",
-            "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "1 year, 6 months old",
-            "Picture": "https://24petconnect.com/image/647382819"
-        },
-        {
-            "Name": "*Inchworm",
-            "ID": "A528258",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "8 months old",
-            "Picture": "https://24petconnect.com/image/646928988"
+            "Age": "5 years old",
+            "Picture": "https://24petconnect.com/image/659295838"
         },
         {
             "Name": "*Jello",
@@ -87,47 +111,63 @@
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier mix",
             "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/647503757"
+            "Picture": "https://24petconnect.com/image/660884531"
         },
         {
-            "Name": "*Kiss",
-            "ID": "A527917",
-            "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "5 years old",
-            "Picture": "https://24petconnect.com/image/647100137"
-        },
-        {
-            "Name": "*Macho",
-            "ID": "A526170",
+            "Name": "*Jupiter",
+            "ID": "A530392",
             "Gender": "Male",
-            "Breed": "Siberian Husky mix",
-            "Age": "1 year, 2 months old",
-            "Picture": "https://24petconnect.com/image/647503779"
-        },
-        {
-            "Name": "*Matilda",
-            "ID": "A527550",
-            "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
+            "Breed": "American Pit Bull Terrier mix",
             "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/645940609"
+            "Picture": "https://24petconnect.com/image/659503847"
         },
         {
-            "Name": "*Midnight",
-            "ID": "A526414",
+            "Name": "*Lady",
+            "ID": "A530393",
+            "Gender": "Female",
+            "Breed": "American Pit Bull Terrier and Labrador Retriever",
+            "Age": "12 years old",
+            "Picture": "https://24petconnect.com/image/659060380"
+        },
+        {
+            "Name": "*Lanham",
+            "ID": "A530259",
             "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "1 year, 2 months old",
-            "Picture": "https://24petconnect.com/image/647078866"
+            "Breed": "Siberian Husky",
+            "Age": "6 years old",
+            "Picture": "https://24petconnect.com/image/660486444"
         },
         {
-            "Name": "*Moo Moo",
-            "ID": "A527908",
+            "Name": "*Madame Mim",
+            "ID": "A529026",
+            "Gender": "Female",
+            "Breed": "American Bulldog",
+            "Age": "2 years, 8 months old",
+            "Picture": "https://24petconnect.com/image/660948344"
+        },
+        {
+            "Name": "*March",
+            "ID": "A526688",
+            "Gender": "Male",
+            "Breed": "American Pit Bull Terrier mix",
+            "Age": "2 years, 6 months old",
+            "Picture": "https://24petconnect.com/image/660843003"
+        },
+        {
+            "Name": "*Mufasa",
+            "ID": "A532201",
+            "Gender": "Male",
+            "Breed": "Bulldog and Staffordshire Bull Terrier",
+            "Age": "2 years",
+            "Picture": "https://24petconnect.com/image/660935924"
+        },
+        {
+            "Name": "*Nelly",
+            "ID": "A527796",
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier",
-            "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/647176277"
+            "Age": "1 year, 5 months old",
+            "Picture": "https://24petconnect.com/image/660486441"
         },
         {
             "Name": "*Netta",
@@ -135,63 +175,103 @@
             "Gender": "Female",
             "Breed": "Boxer mix",
             "Age": "11 years old",
-            "Picture": "https://24petconnect.com/image/646802212"
+            "Picture": "https://24petconnect.com/image/658043651"
         },
         {
-            "Name": "*Pawle",
-            "ID": "A526236",
-            "Gender": "Male",
-            "Breed": "Shiba Inu and Feist",
-            "Age": "1 year",
-            "Picture": "https://24petconnect.com/image/647503780"
-        },
-        {
-            "Name": "*Radar",
-            "ID": "A525829",
+            "Name": "*Oki-Doki",
+            "ID": "A529760",
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier mix",
-            "Age": "2 years, 3 months old",
-            "Picture": "https://24petconnect.com/image/647503793"
-        },
-        {
-            "Name": "*Snugglewumps",
-            "ID": "A527313",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "7 months old",
-            "Picture": "https://24petconnect.com/image/647503782"
-        },
-        {
-            "Name": "*Student",
-            "ID": "A526645",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
             "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/646637715"
+            "Picture": "https://24petconnect.com/image/658683452"
         },
         {
-            "Name": "*Suburban",
-            "ID": "A528307",
+            "Name": "*Percival",
+            "ID": "A530245",
             "Gender": "Male",
             "Breed": "Labrador Retriever",
+            "Age": "1 year, 2 months old",
+            "Picture": "https://24petconnect.com/image/659956728"
+        },
+        {
+            "Name": "*Pickle",
+            "ID": "A530836",
+            "Gender": "Male",
+            "Breed": "Staffordshire Bull Terrier",
+            "Age": "1 year, 7 months old",
+            "Picture": "https://24petconnect.com/image/659956729"
+        },
+        {
+            "Name": "*Princess Daisy",
+            "ID": "A531797",
+            "Gender": "Female",
+            "Breed": "Jack (Parson) Russell Terrier mix",
             "Age": "1 year",
-            "Picture": "https://24petconnect.com/image/647345351"
+            "Picture": "https://24petconnect.com/image/660966621"
         },
         {
-            "Name": "*Teenie",
-            "ID": "A528116",
+            "Name": "*Rebecca",
+            "ID": "A528323",
             "Gender": "Female",
-            "Breed": "Patterdale Terrier",
-            "Age": "4 years old",
-            "Picture": "https://24petconnect.com/image/647609504"
+            "Breed": "American Pit Bull Terrier",
+            "Age": "12 years old",
+            "Picture": "https://24petconnect.com/image/660538735"
         },
         {
-            "Name": "*Tootsie Roll",
-            "ID": "A519442",
+            "Name": "*Ruffy",
+            "ID": "A527450",
+            "Gender": "Male",
+            "Breed": "Doberman Pinscher and American Pit Bull Terrier",
+            "Age": "1 year, 7 months old",
+            "Picture": "https://24petconnect.com/image/659948335"
+        },
+        {
+            "Name": "*Savant",
+            "ID": "A531633",
+            "Gender": "Male",
+            "Breed": "American Pit Bull Terrier",
+            "Age": "2 years, 1 month old",
+            "Picture": "https://24petconnect.com/image/660884532"
+        },
+        {
+            "Name": "*Stampede",
+            "ID": "A531138",
+            "Gender": "Male",
+            "Breed": "American Pit Bull Terrier",
+            "Age": "2 years, 1 month old",
+            "Picture": "https://24petconnect.com/image/660733155"
+        },
+        {
+            "Name": "*Summer Walker",
+            "ID": "A529727",
             "Gender": "Female",
-            "Breed": "American Pit Bull Terrier mix",
+            "Breed": "American Pit Bull Terrier",
+            "Age": "1 year",
+            "Picture": "https://24petconnect.com/image/660621815"
+        },
+        {
+            "Name": "*Torrie",
+            "ID": "A531179",
+            "Gender": "Female",
+            "Breed": "Australian Shepherd and Boxer",
+            "Age": "6 years old",
+            "Picture": "https://24petconnect.com/image/660373015"
+        },
+        {
+            "Name": "*Vana",
+            "ID": "A531886",
+            "Gender": "Female",
+            "Breed": "Belgian Malinois",
             "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/646888362"
+            "Picture": "https://24petconnect.com/image/660621808"
+        },
+        {
+            "Name": "*Vegas",
+            "ID": "A529455",
+            "Gender": "Female",
+            "Breed": "American Pit Bull Terrier and Boxer",
+            "Age": "3 years old",
+            "Picture": "https://24petconnect.com/image/659832618"
         },
         {
             "Name": "*Wilbur",
@@ -199,39 +279,71 @@
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier",
             "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/647024100"
+            "Picture": "https://24petconnect.com/image/658120643"
         },
         {
-            "Name": "*Winston",
-            "ID": "A521086",
+            "Name": "*Wookie",
+            "ID": "A346474",
             "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "1 year, 1 month old",
-            "Picture": "https://24petconnect.com/image/647503753"
-        },
-        {
-            "Name": "*Wrastler",
-            "ID": "A527073",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "2 years, 1 month old",
-            "Picture": "https://24petconnect.com/image/647609503"
+            "Breed": "Bichon Frise and Cavalier King Charles Spaniel",
+            "Age": "15 years old",
+            "Picture": "https://24petconnect.com/image/660772073"
         },
         {
             "Name": "*Yuki",
             "ID": "A528032",
             "Gender": "Female",
             "Breed": "Boxer mix",
-            "Age": "2 years",
-            "Picture": "https://24petconnect.com/image/646900589"
+            "Age": "2 years, 4 months old",
+            "Picture": "https://24petconnect.com/image/659611603"
         },
         {
-            "Name": "ACE",
-            "ID": "A516723",
+            "Name": "AILA",
+            "ID": "A508752",
+            "Gender": "Female",
+            "Breed": "Siberian Husky",
+            "Age": "4 years old",
+            "Picture": "https://24petconnect.com/image/659816419"
+        },
+        {
+            "Name": "ASHLEY",
+            "ID": "A494689",
+            "Gender": "Female",
+            "Breed": "Siberian Husky",
+            "Age": "6 years old",
+            "Picture": "https://24petconnect.com/image/659160115"
+        },
+        {
+            "Name": "AZUL",
+            "ID": "A526590",
             "Gender": "Male",
-            "Breed": "Dogo Argentino",
-            "Age": "1 year, 9 months old",
-            "Picture": "https://24petconnect.com/image/644279275"
+            "Breed": "American Staffordshire Terrier",
+            "Age": "1 year, 6 months old",
+            "Picture": "https://24petconnect.com/image/655768907"
+        },
+        {
+            "Name": "BAILEY",
+            "ID": "A447038",
+            "Gender": "Female",
+            "Breed": "Pit Bull Terrier",
+            "Age": "7 years old",
+            "Picture": "https://24petconnect.com/image/658744933"
+        },
+        {
+            "Name": "BALTO",
+            "ID": "A498035",
+            "Gender": "Male",
+            "Breed": "Alaskan Husky",
+            "Age": "9 years old",
+            "Picture": "https://24petconnect.com/image/659190829"
+        },
+        {
+            "Name": "BELLA",
+            "ID": "A474392",
+            "Gender": "Female",
+            "Breed": "German Shepherd Dog",
+            "Age": "7 years old",
+            "Picture": "https://24petconnect.com/image/659816418"
         },
         {
             "Name": "BENJI",
@@ -239,143 +351,151 @@
             "Gender": "Male",
             "Breed": "Boxer and German Shepherd Dog",
             "Age": "12 years old",
-            "Picture": "https://24petconnect.com/image/647436871"
+            "Picture": "https://24petconnect.com/image/660373016"
         },
         {
-            "Name": "BRAZIL",
-            "ID": "A527027",
+            "Name": "BRUNO",
+            "ID": "A531984",
             "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
+            "Breed": "Cane Corso",
+            "Age": "3 years old",
+            "Picture": "https://24petconnect.com/image/660834478"
+        },
+        {
+            "Name": "CABBAGE",
+            "ID": "A530986",
+            "Gender": "Male",
+            "Breed": "Cane Corso",
             "Age": "4 years old",
-            "Picture": "https://24petconnect.com/image/647609499"
+            "Picture": "https://24petconnect.com/image/660495635"
         },
         {
-            "Name": "BRUTUS",
-            "ID": "A527504",
+            "Name": "CHACHI",
+            "ID": "A527302",
             "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "7 years old",
-            "Picture": "https://24petconnect.com/image/647503784"
+            "Breed": "Beagle",
+            "Age": "5 years old",
+            "Picture": "https://24petconnect.com/image/660843006"
         },
         {
-            "Name": "CAESAR",
-            "ID": "A498323",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "4 years old",
-            "Picture": "https://24petconnect.com/image/644547456"
-        },
-        {
-            "Name": "CANELO",
-            "ID": "A528286",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "2 years",
-            "Picture": "https://24petconnect.com/image/647187730"
-        },
-        {
-            "Name": "CASH",
-            "ID": "A523689",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier mix",
-            "Age": "8 years old",
-            "Picture": "https://24petconnect.com/image/646526445"
-        },
-        {
-            "Name": "CHANEL-DIAMOND",
-            "ID": "A523441",
+            "Name": "CLEO",
+            "ID": "A501607",
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier",
-            "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/647503756"
+            "Age": "5 years old",
+            "Picture": "https://24petconnect.com/image/660834465"
         },
         {
-            "Name": "CHEWBACCA",
-            "ID": "A523267",
+            "Name": "COSMO",
+            "ID": "A530256",
             "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "10 years old",
-            "Picture": "https://24petconnect.com/image/647503792"
-        },
-        {
-            "Name": "DA VINCI",
-            "ID": "A502079",
-            "Gender": "Male",
-            "Breed": "Pug and Beagle",
-            "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/643052286"
-        },
-        {
-            "Name": "DUTCHESS",
-            "ID": "A515839",
-            "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "2 years",
-            "Picture": "https://24petconnect.com/image/647503776"
-        },
-        {
-            "Name": "HARLEY",
-            "ID": "A525264",
-            "Gender": "Female",
-            "Breed": "Nova Scotia Duck-Tolling Retriever mix",
-            "Age": "2 years, 3 months old",
-            "Picture": "https://24petconnect.com/image/644083389"
-        },
-        {
-            "Name": "JASPER",
-            "ID": "A479885",
-            "Gender": "Male",
-            "Breed": "Great Pyrenees and Australian Cattle Dog",
-            "Age": "8 years old",
-            "Picture": "https://24petconnect.com/image/647436870"
-        },
-        {
-            "Name": "JAXON",
-            "ID": "A526729",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier mix",
-            "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/647122242"
-        },
-        {
-            "Name": "JOJO",
-            "ID": "A526579",
-            "Gender": "Male",
-            "Breed": "Cane Corso mix",
+            "Breed": "Labrador Retriever and American Staffordshire Terrier",
             "Age": "1 year, 2 months old",
-            "Picture": "https://24petconnect.com/image/647193538"
+            "Picture": "https://24petconnect.com/image/660472561"
         },
         {
-            "Name": "JULIET",
-            "ID": "A508644",
+            "Name": "DAWN",
+            "ID": "A529968",
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier",
-            "Age": "2 years, 4 months old",
-            "Picture": "https://24petconnect.com/image/646055484"
+            "Age": "3 years old",
+            "Picture": "https://24petconnect.com/image/654731255"
         },
         {
-            "Name": "LUANNE",
-            "ID": "A363255",
+            "Name": "DUKKAH",
+            "ID": "A483949",
             "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "12 years old",
-            "Picture": "https://24petconnect.com/image/646923313"
-        },
-        {
-            "Name": "MAX",
-            "ID": "A527923",
-            "Gender": "Male",
-            "Breed": "Boxer mix",
-            "Age": "4 years old",
-            "Picture": "https://24petconnect.com/image/646928985"
-        },
-        {
-            "Name": "MIKO",
-            "ID": "A528526",
-            "Gender": "Male",
-            "Breed": "Labrador Retriever",
+            "Breed": "Siberian Husky and Newfoundland",
             "Age": "7 years old",
-            "Picture": "https://24petconnect.com/image/647602604"
+            "Picture": "https://24petconnect.com/image/656838527"
+        },
+        {
+            "Name": "FROSTY",
+            "ID": "A419269",
+            "Gender": "Female",
+            "Breed": "Boxer mix",
+            "Age": "11 years old",
+            "Picture": "https://24petconnect.com/image/660843008"
+        },
+        {
+            "Name": "FUFU",
+            "ID": "A529107",
+            "Gender": "Female",
+            "Breed": "American Staffordshire Terrier",
+            "Age": "12 years old",
+            "Picture": "https://24petconnect.com/image/658920843"
+        },
+        {
+            "Name": "HAZEL",
+            "ID": "A511893",
+            "Gender": "Female",
+            "Breed": "American Pit Bull Terrier",
+            "Age": "2 years, 11 months old",
+            "Picture": "https://24petconnect.com/image/656361614"
+        },
+        {
+            "Name": "KANE",
+            "ID": "A530161",
+            "Gender": "Male",
+            "Breed": "American Staffordshire Terrier",
+            "Age": "4 years old",
+            "Picture": "https://24petconnect.com/image/658927167"
+        },
+        {
+            "Name": "KAPRICE",
+            "ID": "A532131",
+            "Gender": "Female",
+            "Breed": "Presa Canario",
+            "Age": "7 months old",
+            "Picture": "https://24petconnect.com/image/660843000"
+        },
+        {
+            "Name": "KIMBER",
+            "ID": "A498034",
+            "Gender": "Female",
+            "Breed": "Alaskan Husky",
+            "Age": "9 years old",
+            "Picture": "https://24petconnect.com/image/658878963"
+        },
+        {
+            "Name": "KING DUFF",
+            "ID": "A485995",
+            "Gender": "Male",
+            "Breed": "American Pit Bull Terrier",
+            "Age": "3 years old",
+            "Picture": "https://24petconnect.com/image/657168650"
+        },
+        {
+            "Name": "KIOS",
+            "ID": "A532130",
+            "Gender": "Male",
+            "Breed": "Presa Canario",
+            "Age": "7 months old",
+            "Picture": "https://24petconnect.com/image/660821222"
+        },
+        {
+            "Name": "LOKI",
+            "ID": "A474391",
+            "Gender": "Male",
+            "Breed": "German Shepherd Dog",
+            "Age": "6 years old",
+            "Picture": "https://24petconnect.com/image/660088384"
+        },
+        {
+            "Name": "MAGIC",
+            "ID": "A445243",
+            "Gender": "Male",
+            "Breed": "American Pit Bull Terrier",
+            "Age": "8 years old",
+            "Picture": "https://24petconnect.com/image/657267554"
+        },
+        {
+            "Name": "MATTHEW",
+            "ID": "A528276",
+            "Gender": "Male",
+            "Breed": "Anatolian Shepherd",
+            "Age": "1 year, 4 months old",
+            "Picture": "https://24petconnect.com/image/660834466"
         },
         {
             "Name": "MILHOUSE",
@@ -383,103 +503,63 @@
             "Gender": "Male",
             "Breed": "Labrador Retriever mix",
             "Age": "6 years old",
-            "Picture": "https://24petconnect.com/image/646720870"
+            "Picture": "https://24petconnect.com/image/660834480"
         },
         {
-            "Name": "MISSY",
-            "ID": "A512748",
+            "Name": "MILLIE",
+            "ID": "A532149",
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier",
-            "Age": "2 years, 3 months old",
-            "Picture": "https://24petconnect.com/image/647503796"
+            "Age": "2 years",
+            "Picture": "https://24petconnect.com/image/660843001"
         },
         {
-            "Name": "OREO",
-            "ID": "A527873",
-            "Gender": "Male",
-            "Breed": "Australian Cattle Dog",
-            "Age": "6 years old",
-            "Picture": "https://24petconnect.com/image/646179256"
-        },
-        {
-            "Name": "OSO",
-            "ID": "A488013",
-            "Gender": "Male",
-            "Breed": "Rottweiler",
-            "Age": "3 years old",
-            "Picture": "https://24petconnect.com/image/646596602"
-        },
-        {
-            "Name": "PETALS",
-            "ID": "A525282",
+            "Name": "PERLA",
+            "ID": "A400279",
             "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "5 years old",
-            "Picture": "https://24petconnect.com/image/642263480"
+            "Breed": "Pit Bull Terrier mix",
+            "Age": "10 years old",
+            "Picture": "https://24petconnect.com/image/658192858"
         },
         {
             "Name": "PIEDMONT",
             "ID": "A502797",
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier",
-            "Age": "2 years, 11 months old",
-            "Picture": "https://24petconnect.com/image/647509824"
-        },
-        {
-            "Name": "RACKS",
-            "ID": "A515162",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "1 year, 10 months old",
-            "Picture": "https://24petconnect.com/image/646808391"
+            "Age": "3 years old",
+            "Picture": "https://24petconnect.com/image/660948346"
         },
         {
             "Name": "RAISIN",
             "ID": "A487925",
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier",
-            "Age": "5 years old",
-            "Picture": "https://24petconnect.com/image/647181838"
-        },
-        {
-            "Name": "ROCKO",
-            "ID": "A524774",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "4 years old",
-            "Picture": "https://24petconnect.com/image/647595881"
-        },
-        {
-            "Name": "ROXIE",
-            "ID": "A528051",
-            "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "10 months old",
-            "Picture": "https://24petconnect.com/image/647503759"
-        },
-        {
-            "Name": "SAMMY",
-            "ID": "A527874",
-            "Gender": "Male",
-            "Breed": "Australian Cattle Dog",
             "Age": "6 years old",
-            "Picture": "https://24petconnect.com/image/646970129"
+            "Picture": "https://24petconnect.com/image/659611606"
         },
         {
-            "Name": "SASHA",
-            "ID": "A528291",
+            "Name": "ROSE",
+            "ID": "A531936",
             "Gender": "Female",
-            "Breed": "French Bulldog mix",
-            "Age": "5 years old",
-            "Picture": "https://24petconnect.com/image/647382820"
+            "Breed": "American Pit Bull Terrier",
+            "Age": "3 years old",
+            "Picture": "https://24petconnect.com/image/659939705"
         },
         {
-            "Name": "SIMBA",
-            "ID": "A513657",
-            "Gender": "Male",
-            "Breed": "German Shepherd Dog and Alaskan Husky",
-            "Age": "2 years, 8 months old",
-            "Picture": "https://24petconnect.com/image/643064727"
+            "Name": "ROSIE",
+            "ID": "A522439",
+            "Gender": "Female",
+            "Breed": "American Pit Bull Terrier",
+            "Age": "1 year, 10 months old",
+            "Picture": "https://24petconnect.com/image/660280907"
+        },
+        {
+            "Name": "SHYLA",
+            "ID": "A532264",
+            "Gender": "Female",
+            "Breed": "Plott Hound",
+            "Age": "4 years old",
+            "Picture": "https://24petconnect.com/image/660665391"
         },
         {
             "Name": "SMOKEY",
@@ -487,7 +567,7 @@
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier mix",
             "Age": "8 years old",
-            "Picture": "https://24petconnect.com/image/647201075"
+            "Picture": "https://24petconnect.com/image/659044657"
         },
         {
             "Name": "SPOTS",
@@ -495,39 +575,15 @@
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier",
             "Age": "4 years old",
-            "Picture": "https://24petconnect.com/image/646894765"
+            "Picture": "https://24petconnect.com/image/660486446"
         },
         {
-            "Name": "STANLEY",
-            "ID": "A514903",
+            "Name": "TANGO",
+            "ID": "A517803",
             "Gender": "Male",
-            "Breed": "American Staffordshire Terrier",
-            "Age": "1 year, 6 months old",
-            "Picture": "https://24petconnect.com/image/647416226"
-        },
-        {
-            "Name": "TAZ",
-            "ID": "A476852",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "6 years old",
-            "Picture": "https://24petconnect.com/image/647503771"
-        },
-        {
-            "Name": "TESSA",
-            "ID": "A528436",
-            "Gender": "Female",
-            "Breed": "German Shepherd Dog",
-            "Age": "9 years old",
-            "Picture": "https://24petconnect.com/image/647595872"
-        },
-        {
-            "Name": "THORNTON",
-            "ID": "A528550",
-            "Gender": "Male",
-            "Breed": "Havanese and Poodle - Miniature",
-            "Age": "2 years, 6 months old",
-            "Picture": "https://24petconnect.com/image/647595874"
+            "Breed": "Border Collie mix",
+            "Age": "4 years old",
+            "Picture": "https://24petconnect.com/image/660486443"
         },
         {
             "Name": "TIGER LILY",
@@ -535,55 +591,39 @@
             "Gender": "Female",
             "Breed": "American Pit Bull Terrier mix",
             "Age": "5 years old",
-            "Picture": "https://24petconnect.com/image/647105857"
+            "Picture": "https://24petconnect.com/image/660621819"
         },
         {
             "Name": "TOBY",
             "ID": "A425626",
             "Gender": "Male",
-            "Breed": "American Pit Bull Terrier mix",
+            "Breed": "Mastiff mix",
             "Age": "9 years old",
-            "Picture": "https://24petconnect.com/image/646829326"
+            "Picture": "https://24petconnect.com/image/660740866"
         },
         {
             "Name": "TROUBADOUR",
             "ID": "A528560",
             "Gender": "Male",
             "Breed": "American Pit Bull Terrier",
-            "Age": "13 weeks old",
-            "Picture": "https://24petconnect.com/image/647595875"
-        },
-        {
-            "Name": "VIRGINIA",
-            "ID": "A513364",
-            "Gender": "Female",
-            "Breed": "Pointer",
-            "Age": "4 years old",
-            "Picture": "https://24petconnect.com/image/646720861"
-        },
-        {
-            "Name": "WYLLA",
-            "ID": "A528561",
-            "Gender": "Female",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "13 weeks old",
-            "Picture": "https://24petconnect.com/image/647595876"
-        },
-        {
-            "Name": "ZERO",
-            "ID": "A448342",
-            "Gender": "Male",
-            "Breed": "American Pit Bull Terrier",
-            "Age": "7 years old",
-            "Picture": "https://24petconnect.com/image/641414012"
+            "Age": "7 months old",
+            "Picture": "https://24petconnect.com/image/659190841"
         },
         {
             "Name": "ZEUS",
-            "ID": "A528525",
+            "ID": "A531558",
             "Gender": "Male",
-            "Breed": "Labrador Retriever",
-            "Age": "7 years old",
-            "Picture": "https://24petconnect.com/image/647602601"
+            "Breed": "American Pit Bull Terrier",
+            "Age": "3 years old",
+            "Picture": "https://24petconnect.com/image/659394967"
+        },
+        {
+            "Name": "ZUKO",
+            "ID": "A530968",
+            "Gender": "Male",
+            "Breed": "Rhodesian Ridgeback",
+            "Age": "1 year, 6 months old",
+            "Picture": "https://24petconnect.com/image/660280896"
         }
     ]
 }
