@@ -35,44 +35,76 @@ EMAIL_TO = "jeffreyfang035@gmail.com"
 EMAIL_PASSWORD = "vfzh guaf imfp omey"
 EMAIL_SUBJECT = "🎟 AMC Lincoln Square 13 - The Odyssey"
 
-CHECK_INTERVAL_MINUTES = 1
+CHECK_INTERVAL_SECONDS = 30
 
 MAX_RETRIES = 5
+# RATE_LIMIT_SLEEP_SECONDS = 86400  # 24 hours
+RATE_LIMIT_SLEEP_SECONDS = 28800  # 8 hours
 RETRY_DELAY_SECONDS = 30
 
 
 SHOWTIMES = [
+
+    # Fri July 17, 2026
     # {
-    #     "name": "Fri July 17, 2026 11:00 PM",
+    #     "name": "Fri, Jul 17, 2026 11:00 PM",
     #     "url": "https://www.amctheatres.com/showtimes/143822253/seats"
     # },
+
+    # Sat July 18, 2026
+    # {
+    #     "name": "Sat, Jul 18 7:00 AM",
+    #     "url": "https://www.amctheatres.com/showtimes/144060333/seats"
+    # },
     {
-        "name": "Sat July 18, 2026 07:00 AM",
-        "url": "https://www.amctheatres.com/showtimes/144060333/seats"
-    },
-    {
-        "name": "Sat July 18, 2026 11:00 AM",
+        "name": "Sat, Jul 18 @ 11:00 AM",
         "url": "https://www.amctheatres.com/showtimes/143822251/seats"
     },
     {
-        "name": "Sat July 18, 2026 03:00 PM",
+        "name": "Sat, Jul 18 @ 3:00 PM",
         "url": "https://www.amctheatres.com/showtimes/143822252/seats"
     },
     {
-        "name": "Sat July 18, 2026 07:00 PM (EVENT)",
+        "name": "Sat, Jul 18 @ 7:00 PM (EVENT)",
         "url": "https://www.amctheatres.com/showtimes/134717193/seats"
     },
+    # {
+    #     "name": "Sat, Jul 18 @ 11:00 PM",
+    #     "url": "https://www.amctheatres.com/showtimes/143822250/seats"
+    # },
+
+    # Sun July 19, 2026
     {
-        "name": "Sat July 18, 2026 11:00 PM",
-        "url": "https://www.amctheatres.com/showtimes/143822250/seats"
-    },
-    {
-        "name": "Sun July 19, 2026 07:00 AM",
+        "name": "Sun, Jul 19 @ 7:00 AM",
         "url": "https://www.amctheatres.com/showtimes/144062400/seats"
     }
     # {
-    #     "name": "Sun July 19, 2026 11:00 AM",
+    #     "name": "Sun, Jul 19 @ 11:00 AM",
     #     "url": "https://www.amctheatres.com/showtimes/143822248/seats"
+    # }
+
+    # # Fri August 7, 2026
+    # {
+    #     "name": "Fri, Aug 7 @ 2:00 PM",
+    #     "url": "https://www.amctheatres.com/showtimes/144696889/seats"
+    # },
+    # {
+    #     "name": "Fri, Aug 7 @ 6:00 PM",
+    #     "url": "https://www.amctheatres.com/showtimes/144696890/seats"
+    # },
+    #
+    # # Sat August 8, 2026
+    # {
+    #     "name": "Sat, Aug 8 @ 10:00 AM",
+    #     "url": "https://www.amctheatres.com/showtimes/144696892/seats"
+    # },
+    # {
+    #     "name": "Sat, Aug 8 @ 2:00 PM",
+    #     "url": "https://www.amctheatres.com/showtimes/144696893/seats"
+    # },
+    # {
+    #     "name": "Sat, Aug 8 @ 6:00 PM",
+    #     "url": "https://www.amctheatres.com/showtimes/144696894/seats"
     # }
 ]
 
@@ -257,7 +289,7 @@ def send_email(_subject, _body):
 
         _smtp.send_message(_msg)
 
-    print("Email sent!")
+    # print("Email sent!")
 
 
 def build_email_body(_show_name, _seats):
@@ -345,6 +377,10 @@ def build_email_body(_show_name, _seats):
 """ Network Resilience """
 
 
+class RateLimitError(Exception):
+    pass
+
+
 def safe_reload(_page):
     """
     Reloads an existing Playwright page while handling temporary network failures. If a reload fails, the function retries
@@ -375,16 +411,29 @@ def safe_reload(_page):
 
             return True
 
+
         except Exception as _e:
 
+            if "checkbox" in str(_e):
+
+                raise RateLimitError(
+
+                    "AMC rate limit detected"
+
+                )
+
             print(
-                f"Reload failed ({_attempt}/{MAX_RETRIES})"
+
+                f"Opening page failed ({_attempt}/{MAX_RETRIES})"
+
             )
 
             print(_e)
 
             time.sleep(
+
                 RETRY_DELAY_SECONDS
+
             )
 
     return False
@@ -423,16 +472,30 @@ def open_page(_browser, _url):
 
             return _page
 
+
+
         except Exception as _e:
 
+            if "checkbox" in str(_e):
+
+                raise RateLimitError(
+
+                    "AMC rate limit detected"
+
+                )
+
             print(
+
                 f"Opening page failed ({_attempt}/{MAX_RETRIES})"
+
             )
 
             print(_e)
 
             time.sleep(
+
                 RETRY_DELAY_SECONDS
+
             )
 
     return None
@@ -456,30 +519,43 @@ with sync_playwright() as p:
 
     # print("Loading showtimes...")
 
-    for show in SHOWTIMES:
+    try:
 
-        # print("\nOpening:")
+        for show in SHOWTIMES:
 
-        # print(show["name"])
+            page = open_page(
+                browser,
+                show["url"]
+            )
 
-        page = open_page(
-            browser,
-            show["url"]
+            if page is None:
+
+                print("Could not open showtime. Skipping.")
+
+                continue
+
+            available = get_available_seats(
+                page
+            )
+
+            pages[show["name"]] = page
+
+            previous_seats[show["name"]] = available
+
+
+    except RateLimitError:
+
+        print(
+            "AMC rate limit detected."
         )
 
-        if page is None:
-
-            print("Could not open showtime. Skipping.")
-
-            continue
-
-        available = get_available_seats(
-            page
+        print(
+            f"Sleeping for {RATE_LIMIT_SLEEP_SECONDS / 3600:.0f} hours."
         )
 
-        pages[show["name"]] = page
-
-        previous_seats[show["name"]] = available
+        time.sleep(
+            RATE_LIMIT_SLEEP_SECONDS
+        )
 
         # print(
         #     "Initial available seats:",
@@ -510,10 +586,6 @@ with sync_playwright() as p:
                     continue
 
                 page = pages[name]
-
-                # print("\n----------------")
-                # print(name)
-                # print("----------------")
 
                 success = safe_reload(
                     page
@@ -550,10 +622,29 @@ with sync_playwright() as p:
 
                 if new_seats:
 
-                    # print(
-                    #     "New Seats Found:",
-                    #     sorted(new_seats)
-                    # )
+                    print(f"\n{name}")
+
+                    pairs = find_seat_pairs(new_seats)
+
+                    if pairs:
+                        print("New seat pair(s):")
+
+                        for row, seat1, seat2 in pairs:
+                            print(f"  {row}{seat1}-{seat2}")
+
+                    paired = {
+                        f"{row}{seat}"
+                        for row, s1, s2 in pairs
+                        for seat in (s1, s2)
+                    }
+
+                    singles = sorted(new_seats - paired)
+
+                    if singles:
+                        print("New single seat(s):")
+
+                        for seat in singles:
+                            print(f"  {format_seat(seat)}")
 
                     body = build_email_body(
                         name,
@@ -579,20 +670,45 @@ with sync_playwright() as p:
             #     f"\nSleeping {CHECK_INTERVAL_MINUTES} minutes..."
             # )
 
-            time.sleep(
-                CHECK_INTERVAL_MINUTES * 60
+            if CHECK_INTERVAL_SECONDS > 0:
+                time.sleep(CHECK_INTERVAL_SECONDS)
+
+
+        except RateLimitError as e:
+
+            print(
+
+                "AMC rate limit detected."
+
             )
+
+            print(
+
+                f"Sleeping for {RATE_LIMIT_SLEEP_SECONDS / 3600:.0f} hours."
+
+            )
+
+            time.sleep(
+
+                RATE_LIMIT_SLEEP_SECONDS
+
+            )
+
 
         except Exception as e:
 
             print(
+
                 "Unexpected error:"
+
             )
 
             print(e)
 
             print(
+
                 "Continuing in 60 seconds..."
+
             )
 
             time.sleep(60)
